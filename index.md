@@ -20,7 +20,8 @@ In preparation...
 
 
 ### Part I - Finantial Data
-- Chapter 1 - Introduction
+- Chapter 1 - Introduction:
+  [slides](slides/slides-intro.pdf), R code, Python code.
 
 - Chapter 2 - Financial Data: Stylized Facts
 
