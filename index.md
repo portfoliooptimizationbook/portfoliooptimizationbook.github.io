@@ -59,5 +59,6 @@ For contributing to the companion webpage, check the [developer webpage](https:/
 
 Feel free to reach out to me via [email](mailto:daniel.p.palomar@gmail.com) or follow me on [Twitter](https://twitter.com/danielppalomar).
 
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=portfoliooptimizationbook.com)
+<img src="https://visitor-badge.laobi.icu/badge?page_id=portfoliooptimizationbook.com" alt="Visitors">
+
 
