@@ -23,7 +23,7 @@ In preparation...
 - Chapter 1 - Introduction:
   [slides](slides/slides-intro.pdf), R code, Python code.
 
-- Chapter 2 - Financial Data: Stylized Facts
+- Chapter 2 - Financial Data: Stylized Facts:
   [slides](slides/slides-stylized-facts.pdf), R code, Python code.
 
 - Chapter 3 - Financial Data: IID Modeling
