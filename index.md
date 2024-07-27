@@ -3,6 +3,8 @@ title: "Portfolio Optimization Book - Companion Webpage"
 output:
   html_document:
     self_contained: no
+    #includes:
+    #  before_body: book_cover.html
 ---
 
 This is the [companion webpage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book]().
@@ -14,47 +16,51 @@ For contributing to the companion webpage, check the [developer GitHub webpage](
 
 ## Chapters
 
+In preparation...
+
+
 ### Part I - Finantial Data
+- Chapter 1 - Introduction
+
+- Chapter 2 - Financial Data: Stylized Facts
+
+- Chapter 3 - Financial Data: IID Modeling
+
+- Chapter 4 - Financial Data: Time Series Modeling
+
+- Chapter 5 - Financial Data: Graphs
+
 
 
 ### Part II - Portfolio Optimization
-- Chapter 6 - Portfolio Basics:
-  [slides](), [R code](), [Python code]().
+- Chapter 6 - Portfolio Basics
 
-- Chapter 7 - Modern Portfolio Theory:
-  [slides](), [R code](), [Python code]().
-  
-- Chapter 8 - Portfolio Backtesting:
-  [slides](), [R code](), [Python code]().
-  
-- Chapter 9 - High-Order Portfolios:
-  [slides](), [R code](), [Python code]().
-    
-- Chapter 10 - Portfolios with Alternative Risk Measures:
-  [slides](), [R code](), [Python code]().
-    
-- Chapter 11 - Risk Parity Portfolios:
-  [slides](), [R code](), [Python code]().
-  
+- Chapter 7 - Modern Portfolio Theory
+
+- Chapter 8 - Portfolio Backtesting
+
+- Chapter 9 - High-Order Portfolios
+
+- Chapter 10 - Portfolios with Alternative Risk Measures
+
+- Chapter 11 - Risk Parity Portfolios
+
 - Chapter 12 - Graph-Based Portfolios
-  [slides](), [R code](), [Python code]().
-  
+
 - Chapter 13 - Index Tracking Portfolios
-  [slides](), [R code](), [Python code]().
-   
+
 - Chapter 14 - Robust Portfolios
-  [slides](), [R code](), [Python code]().
-  
+
 - Chapter 15 - Pairs Trading Portfolios
-  [slides](), [R code](), [Python code]().
-  
+
 - Chapter 16 - Deep Learning Portfolios
-  [slides](), [R code](), [Python code]().
 
 
 
 ### Appendices
+- Appendix A - Convex Optimization Theory
 
+- Appendix B - Optimization Algorithms
 
 
 
@@ -63,7 +69,7 @@ For contributing to the companion webpage, check the [developer GitHub webpage](
 
 Feel free to reach out to me via [email](mailto:daniel.p.palomar@gmail.com) or follow me on [Twitter](https://twitter.com/danielppalomar).
 
-![](https://visitor-badge.laobi.icu/badge?page_id=portfoliooptimizationbook.com)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=portfoliooptimizationbook.com)
 
 
 
