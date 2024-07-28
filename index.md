@@ -7,6 +7,7 @@ output:
     #  before_body: book_cover.html
 ---
 
+
 This is the [companion webpage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book]().
 It contains slides, code examples (R and Python), exercises, and data.
 
@@ -19,10 +20,12 @@ For contributing to the companion webpage, check the [developer GitHub webpage](
 In preparation...
 
 
-### Part I - Finantial Data
 - Chapter 1 - Introduction:
   [slides](slides/slides-intro.pdf), R code, Python code.
 
+
+
+### Part I - Finantial Data
 - Chapter 2 - Financial Data: Stylized Facts:
   [slides](slides/slides-stylized-facts.pdf), R code, Python code.
 
@@ -67,8 +70,8 @@ In preparation...
 
 
 
-## Contact Me
 
+## Contact
 Feel free to reach out to me via [email](mailto:daniel.p.palomar@gmail.com) or follow me on [Twitter](https://twitter.com/danielppalomar).
 
 ![](https://visitor-badge.laobi.icu/badge?page_id=portfoliooptimizationbook.com)

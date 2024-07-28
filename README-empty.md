@@ -1,3 +1,0 @@
-# portfoliooptimizationbook.github.io
-
-Testing...
