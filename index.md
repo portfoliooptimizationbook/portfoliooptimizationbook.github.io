@@ -1,5 +1,5 @@
 ---
-title: "Portfolio Optimization Book - Companion Webpage"
+title: "Portfolio Optimization Book"
 output:
   html_document:
     self_contained: no
@@ -8,9 +8,9 @@ output:
 ---
 
 
-This is the [companion webpage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises, and data.
+This is the [homepage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises, and data.
 
-For contributing to the companion webpage, check the [developer GitHub webpage](https://github.com/portfoliooptimizationbook).
+To contribute, check the [developer GitHub webpage](https://github.com/portfoliooptimizationbook).
 
 
 
