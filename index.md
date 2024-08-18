@@ -3,9 +3,19 @@ title: "Portfolio Optimization Book"
 output:
   html_document:
     self_contained: no
+    css: styles.css
     #includes:
     #  before_body: book_cover.html
 ---
+
+
+<table class="imgtable"><tr><td>
+<img src="book_cover.jpg" alt="Portfolio Optimization book cover" width="175px" />&nbsp;</td>
+<td align="left"><p><i>Portfolio Optimization</i><br />
+<a href="https://www.danielppalomar.com/">Daniel Palomar</a> <br /><br />
+Cambridge University Press</p>
+</td></tr></table>
+<p><br />
 
 
 This is the [homepage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises, and data.
