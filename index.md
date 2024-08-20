@@ -10,10 +10,12 @@ output:
 
 
 <table class="imgtable"><tr><td>
-<img src="book_cover.jpg" alt="Portfolio Optimization book cover" width="175px" />&nbsp;</td>
+<a href="https://bookdown.org/palomar/portfoliooptimizationbook">
+    <img src="book_cover.jpg" alt="Portfolio Optimization book cover" width="175px" />
+</a>&nbsp;</td>
 <td align="left"><p><i>Portfolio Optimization</i><br />
 <a href="https://www.danielppalomar.com/">Daniel Palomar</a> <br /><br />
-Cambridge University Press</p>
+Cambridge University Press, 2024.</p>
 </td></tr></table>
 <p><br />
 
