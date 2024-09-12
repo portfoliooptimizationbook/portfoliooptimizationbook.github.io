@@ -4,6 +4,8 @@ output:
   html_document:
     self_contained: no
     css: styles.css
+    includes:
+      in_header: google_analytics.html
     #includes:
     #  before_body: book_cover.html
 ---
