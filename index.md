@@ -31,7 +31,6 @@ To contribute, check the [developer GitHub webpage](https://github.com/portfolio
 
 
 ## Chapters
-
 Work in progress, updated weekly...
 
 
@@ -59,9 +58,8 @@ Work in progress, updated weekly...
   [R code <i class="fab fa-r-project"></i>](R-code/R-portfolio-basics.html)
 
 - Chapter 7 - Modern Portfolio Theory: 
-  [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory), 
-  [Python code <i class="fab fa-python"></i>](python-code/python-portfolio-optim.ipynb)
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory.html)
 
 - Chapter 8 - Portfolio Backtesting
 
