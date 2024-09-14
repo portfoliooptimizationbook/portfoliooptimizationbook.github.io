@@ -5,7 +5,9 @@ output:
     self_contained: no
     css: styles.css
     includes:
-      in_header: google_analytics.html
+      in_header:
+        - google_analytics.html
+        - font_awesome.html
     #includes:
     #  before_body: book_cover.html
 ---
@@ -16,7 +18,7 @@ output:
     <img src="book_cover.jpg" alt="Portfolio Optimization book cover" width="175px" />
 </a>&nbsp;</td>
 <td align="left"><p><i>Portfolio Optimization</i><br />
-<a href="https://www.danielppalomar.com/">Daniel Palomar</a> <br /><br />
+<a href="https://www.danielppalomar.com/">Daniel P. Palomar</a> <br /><br />
 Cambridge University Press, 2024.</p>
 </td></tr></table>
 <p><br />
@@ -30,17 +32,17 @@ To contribute, check the [developer GitHub webpage](https://github.com/portfolio
 
 ## Chapters
 
-In preparation...
+Work in progress...
 
 
 - Chapter 1 - Introduction:
-  [slides](slides/slides-intro.pdf), R code, Python code.
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-intro.pdf)
 
 
 
 ### Part I - Finantial Data
 - Chapter 2 - Financial Data: Stylized Facts:
-  [slides](slides/slides-stylized-facts.pdf), R code, Python code.
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-stylized-facts.pdf), R code <i class="fab fa-r-project"></i>, Python code <i class="fab fa-python"></i>
 
 - Chapter 3 - Financial Data: IID Modeling
 
@@ -77,11 +79,16 @@ In preparation...
 
 ### Appendices
 - Appendix A - Convex Optimization Theory:
-  [slides](slides/slides-convex-optimization-theory.pdf), R code, Python code.
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-convex-optimization-theory.pdf)
 
 - Appendix B - Optimization Algorithms:
-  [slides](slides/slides-optimization-algorithms.pdf), R code, Python code.
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-optimization-algorithms.pdf), [R code <i class="fab fa-r-project"></i>](R-code/R-code-optimization-algorithms.html)
 
+
+
+### Miscellanea
+
+- [Sample slide title page <i class="fas fa-file-pdf"></i>](slides/sample-slides-title-page.pdf) with customizable course info on a textbox.
 
 
 
