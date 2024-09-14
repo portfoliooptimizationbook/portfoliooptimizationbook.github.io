@@ -32,7 +32,7 @@ To contribute, check the [developer GitHub webpage](https://github.com/portfolio
 
 ## Chapters
 
-Work in progress...
+Work in progress, updated weekly...
 
 
 - Chapter 1 - Introduction:
@@ -53,9 +53,9 @@ Work in progress...
 
 
 ### Part II - Portfolio Optimization
-- Chapter 6 - Portfolio Basics
+- Chapter 6 - Portfolio Basics: [slides <i class="fas fa-file-pdf"></i>](slides/slides-portfolio-basics.pdf)
 
-- Chapter 7 - Modern Portfolio Theory
+- Chapter 7 - Modern Portfolio Theory: [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf.pdf)
 
 - Chapter 8 - Portfolio Backtesting
 
