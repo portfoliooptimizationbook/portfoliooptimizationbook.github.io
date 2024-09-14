@@ -43,8 +43,7 @@ Work in progress, updated weekly...
 ### Part I - Finantial Data
 - Chapter 2 - Financial Data: Stylized Facts:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-stylized-facts.pdf), 
-  [R code <i class="fab fa-r-project"></i>](R-code/R-code-stylized-facts.html), 
-  Python code <i class="fab fa-python"></i>
+  [R code <i class="fab fa-r-project"></i>](R-code/R-code-stylized-facts.html)
 
 - Chapter 3 - Financial Data: IID Modeling
 
@@ -57,13 +56,12 @@ Work in progress, updated weekly...
 ### Part II - Portfolio Optimization
 - Chapter 6 - Portfolio Basics: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-portfolio-basics.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-code-portfolio-basics.html), 
-  Python code <i class="fab fa-python"></i>
+  [R code <i class="fab fa-r-project"></i>](R-code/R-portfolio-basics.html)
 
 - Chapter 7 - Modern Portfolio Theory: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-code-modern-portfolio-theory), 
-  Python code <i class="fab fa-python"></i>
+  [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory), 
+  [Python code <i class="fab fa-python"></i>](python-code/python-portfolio-optim.ipynb)
 
 - Chapter 8 - Portfolio Backtesting
 
