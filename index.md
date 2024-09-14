@@ -42,7 +42,7 @@ Work in progress, updated weekly...
 ### Part I - Finantial Data
 - Chapter 2 - Financial Data: Stylized Facts:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-stylized-facts.pdf), 
-  [R code <i class="fab fa-r-project"></i>](R-code/R-code-stylized-facts.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-stylized-facts.html)
 
 - Chapter 3 - Financial Data: IID Modeling
 
@@ -87,7 +87,7 @@ Work in progress, updated weekly...
 
 - Appendix B - Optimization Algorithms:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-optimization-algorithms.pdf), 
-  [R code <i class="fab fa-r-project"></i>](R-code/R-code-optimization-algorithms.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-optimization-algorithms.html)
 
 
 
