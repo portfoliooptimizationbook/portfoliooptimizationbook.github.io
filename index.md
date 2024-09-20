@@ -62,7 +62,8 @@ Work in progress, updated weekly...
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory.html)
 
-- Chapter 8 - Portfolio Backtesting
+- Chapter 8 - Portfolio Backtesting: 
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-backtesting.pdf)
 
 - Chapter 9 - High-Order Portfolios
 
