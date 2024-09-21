@@ -97,6 +97,8 @@ Work in progress, updated weekly...
 
 - [Sample slide title page <i class="fas fa-file-pdf"></i>](slides/sample-slides-title-page.pdf) with customizable course info on a textbox.
 
+- Stock and crypto data used in the sample code can be conveniently found at https://github.com/dppalomar/pob
+
 
 
 
