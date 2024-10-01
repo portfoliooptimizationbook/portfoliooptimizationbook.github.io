@@ -47,7 +47,8 @@ Work in progress, updated weekly...
 - Chapter 3 - Financial Data: IID Modeling
 
 - Chapter 4 - Financial Data: Time Series Modeling:
-  [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-time-series.pdf)
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-time-series.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-data-time-series.html)
 
 - Chapter 5 - Financial Data: Graphs
 
