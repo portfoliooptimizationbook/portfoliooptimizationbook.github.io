@@ -65,7 +65,8 @@ Work in progress, updated weekly...
 - Chapter 8 - Portfolio Backtesting: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-backtesting.pdf)
 
-- Chapter 9 - High-Order Portfolios
+- Chapter 9 - High-Order Portfolios:
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-high-order-portfolios.pdf)
 
 - Chapter 10 - Portfolios with Alternative Risk Measures
 
