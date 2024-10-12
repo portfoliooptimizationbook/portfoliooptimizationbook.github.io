@@ -78,6 +78,8 @@ Work in progress, updated weekly...
 - Chapter 11 - Risk Parity Portfolios
 
 - Chapter 12 - Graph-Based Portfolios
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-graph-portfolios.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-graph-portfolios.html)
 
 - Chapter 13 - Index Tracking Portfolios
 
