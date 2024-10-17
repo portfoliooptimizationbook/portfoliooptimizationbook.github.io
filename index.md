@@ -75,9 +75,11 @@ Work in progress, updated weekly...
 
 - Chapter 10 - Portfolios with Alternative Risk Measures
 
-- Chapter 11 - Risk Parity Portfolios
+- Chapter 11 - Risk Parity Portfolios:
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-rpp.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-rpp.html)
 
-- Chapter 12 - Graph-Based Portfolios
+- Chapter 12 - Graph-Based Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-graph-portfolios.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-graph-portfolios.html)
 
