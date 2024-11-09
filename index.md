@@ -89,7 +89,9 @@ Work in progress, updated weekly...
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-index-tracking.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-index-tracking.html)
 
-- Chapter 14 - Robust Portfolios
+- Chapter 14 - Robust Portfolios:
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-robust-portfolios.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-robust-portfolios.html)
 
 - Chapter 15 - Pairs Trading Portfolios
 
