@@ -93,7 +93,9 @@ Work in progress, updated weekly...
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-robust-portfolios.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-robust-portfolios.html)
 
-- Chapter 15 - Pairs Trading Portfolios
+- Chapter 15 - Pairs Trading Portfolios:
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-pairs-trading.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-pairs-trading.html)
 
 - Chapter 16 - Deep Learning Portfolios
 
