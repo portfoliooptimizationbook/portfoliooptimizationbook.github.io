@@ -13,16 +13,15 @@ output:
 ---
 
 
-<table class="imgtable"><tr><td>
-<a href="https://bookdown.org/palomar/portfoliooptimizationbook">
-    <img src="book_cover.jpg" alt="Portfolio Optimization book cover" width="175px" />
-</a>&nbsp;</td>
-<td align="left"><p><i>Portfolio Optimization</i><br />
+<table class="imgtable"><tr>
+<td><img src="book_cover.jpg" width="175px" />&nbsp;</td>
+<td align="left"><p>Portfolio Optimization: Theory and Application<br />
 <a href="https://www.danielppalomar.com/">Daniel P. Palomar</a> <br /><br />
-Cambridge University Press, 2024.</p>
+Cambridge University Press, 2025.</p>
 </td></tr></table>
 <p><br />
 
+Book available here: [pdf <i class="fas fa-file-pdf"></i>](portfolio-optimization-book.pdf) and [online html <i class="fas fa-globe"></i>](https://bookdown.org/palomar/portfoliooptimizationbook)
 
 This is the [homepage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises, and data.
 
@@ -39,7 +38,7 @@ Work in progress, updated weekly...
 
 
 
-### Part I - Finantial Data
+### Part I - Financial Data
 - Chapter 2 - Financial Data: Stylized Facts:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-stylized-facts.pdf), 
   [R code <i class="fab fa-r-project"></i>](R-code/R-stylized-facts.html)
