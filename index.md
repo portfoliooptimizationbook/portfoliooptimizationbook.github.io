@@ -30,7 +30,7 @@ To contribute, check the [developer GitHub webpage](https://github.com/portfolio
 
 
 ## Chapters
-Work in progress, Python code coming up soon...
+Work in progress, Python code coming up in the coming weeks...
 
 
 - Chapter 1 - Introduction:
@@ -116,6 +116,9 @@ Work in progress, Python code coming up soon...
 
 - Stock and crypto data used in the sample code can be conveniently found at https://github.com/dppalomar/pob
 
+- [Primer on R for Finance](R-code/R-primer.html)
+
+- [Primer on Python for Finance](python-code/python-primer.html)
 
 
 
