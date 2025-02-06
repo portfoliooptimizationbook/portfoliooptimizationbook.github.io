@@ -23,6 +23,8 @@ Cambridge University Press, 2025.</p>
 
 Book available here: [pdf <i class="fas fa-file-pdf"></i>](portfolio-optimization-book.pdf) and [online html <i class="fas fa-globe"></i>](https://bookdown.org/palomar/portfoliooptimizationbook)
 
+For purchase here: [Cambridge University Press](https://www.cambridge.org/hk/universitypress/subjects/mathematics/mathematical-finance/portfolio-optimization-theory-and-application?format=HB&isbn=9781009428088), [Amazon](https://a.co/d/9XLMjSw), [Barnes & Noble](https://www.barnesandnoble.com/w/portfolio-optimization-daniel-p-palomar/1146540789?ean=9781009428088), [Bookshop.org](https://uk.bookshop.org/p/books/portfolio-optimization-theory-and-application-daniel-p-palomar/7796814), [Hive](https://www.hive.co.uk/Product/Daniel-P-Hong-Kong-University-of-Science-and-Technology-Palomar/Portfolio-Optimization--Theory-and-Application/31283293), [Indigo](https://www.indigo.ca/en-ca/portfolio-optimization-theory-and-application/9781009428088.html), [Hatchards](https://www.hatchards.co.uk/book/portfolio-optimization/daniel-p-palomar/9781009428088), [Hugendubel](https://www.hugendubel.de/de/buch_gebunden/daniel_p_palomar-portfolio_optimization-49457055-produkt-details.html)
+
 This is the [homepage](https://portfoliooptimizationbook.com) for the [Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises, and data.
 
 To contribute, check the [developer GitHub webpage](https://github.com/portfoliooptimizationbook).
