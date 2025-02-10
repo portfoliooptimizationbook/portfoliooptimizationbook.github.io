@@ -118,9 +118,9 @@ Work in progress, Python code coming up in the coming weeks...
 
 - Stock and crypto data used in the sample code can be conveniently found at https://github.com/dppalomar/pob
 
-- [Primer on R for Finance](R-code/R-primer.html)
+- Resources for R: [Primer on R for Finance](R-code/R-primer.html)
 
-- [Primer on Python for Finance](python-code/python-primer.html)
+- Resources for Python: [Primer on Python for Finance](python-code/python-primer.html), [Solvers in Python](python-code/python-solvers.html)
 
 
 
