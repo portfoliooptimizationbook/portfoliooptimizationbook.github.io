@@ -46,9 +46,10 @@ Work in progress, Python code coming up in the coming weeks...
   [R code <i class="fab fa-r-project"></i>](R-code/R-stylized-facts.html),
   [Python code <i class="fab fa-python"></i>](python-code/python-stylized-facts.html)
 
-- Chapter 3 - Financial Data: IID Modeling:
+- Chapter 3 - Financial Data: I.I.D. Modeling:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-iid.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-data-iid.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-data-iid.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-data-iid.html)
 
 - Chapter 4 - Financial Data: Time Series Modeling:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-time-series.pdf),
