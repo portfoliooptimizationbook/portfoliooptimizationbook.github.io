@@ -62,7 +62,8 @@ Work in progress, Python code coming up in the coming weeks...
 ### Part II - Portfolio Optimization
 - Chapter 6 - Portfolio Basics: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-portfolio-basics.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-portfolio-basics.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-portfolio-basics.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-portfolio-basics.html)
 
 - Chapter 7 - Modern Portfolio Theory: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf),
