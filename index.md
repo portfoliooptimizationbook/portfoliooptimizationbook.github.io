@@ -67,7 +67,8 @@ Work in progress, Python code coming up in the coming weeks...
 
 - Chapter 7 - Modern Portfolio Theory: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-modern-portfolio-theory.html)
 
 - Chapter 8 - Portfolio Backtesting: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-backtesting.pdf),
