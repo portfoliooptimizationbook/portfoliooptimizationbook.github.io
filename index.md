@@ -55,7 +55,9 @@ Work in progress, Python code coming up in the coming weeks...
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-time-series.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-data-time-series.html)
 
-- Chapter 5 - Financial Data: Graphs
+- Chapter 5 - Financial Data: Graphs:
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-graphs.pdf),
+  [R code <i class="fab fa-r-project"></i>](R-code/R-data-graphs.html)
 
 
 
