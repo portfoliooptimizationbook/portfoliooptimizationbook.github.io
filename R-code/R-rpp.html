@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-10-17">
 
 <title>Risk Parity Portfolios</title>
 <style>
@@ -3095,9 +3094,8 @@ window.MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><p>Portfolio Optimization<br>
-Chapter 11: Risk Parity Portfolios</p></h1>
-<p class="subtitle lead">R code</p>
+<h1 class="title"><p>R Code for Portfolio Optimization<br>
+Chapter 11 – Risk Parity Portfolios</p></h1>
 </div>
 
 
@@ -3105,12 +3103,6 @@ Chapter 11: Risk Parity Portfolios</p></h1>
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 17, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -3118,12 +3110,13 @@ Chapter 11: Risk Parity Portfolios</p></h1>
 
 </header>
 
+<p style="font-size:100%; color:grey; border: 1px solid lightgray; border-radius: 10px; padding: 15px; margin: 20px; background-color: #f9f9f9; text-align: center;">
+Daniel P. Palomar (2025). <cite style="font-style: italic;"><a href="https://portfoliooptimizationbook.com/" style="color: #4169E1; text-decoration: none;">Portfolio Optimization: Theory and Application.</a></cite> Cambridge University Press.
+</p>
 <p style="font-size:80%; color:grey;">
-R code examples for Chapter 11 of the book:
+Last update: March 14, 2025
 </p>
-<p style="font-size:80%; color:grey; border: 1px solid lightgray; border-radius: 10px; padding: 10px; margin: 20px;">
-Daniel P. Palomar (2024). <em>Portfolio Optimization: Theory and Application.</em> Cambridge University Press.
-</p>
+<hr>
 <section id="loading-packages" class="level1">
 <h1>Loading packages</h1>
 <p>The following packages are used in the examples:</p>
@@ -3455,7 +3448,7 @@ GOOGL -3.071543e-05</code></pre>
 </section>
 <section id="numerical-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="numerical-comparison">Numerical comparison</h3>
-<p>Convergence of Newton, MM, and SCA methods for Spinu’s RPP problem, comparing the original version with the improved one (i.e., using the correlation matrix instead of the covariance matrix and using the linear normalization step) <span class="citation" data-cites="Palomar2024">(<a href="#ref-Palomar2024" role="doc-biblioref">Palomar, 2024, Chapter 11</a>)</span>. It seems that the best method is the improved SCA.</p>
+<p>Convergence of Newton, MM, and SCA methods for Spinu’s RPP problem, comparing the original version with the improved one (i.e., using the correlation matrix instead of the covariance matrix and using the linear normalization step) <span class="citation" data-cites="Palomar2025">(<a href="#ref-Palomar2025" role="doc-biblioref">Palomar, 2025, Chapter 11</a>)</span>. It seems that the best method is the improved SCA.</p>
 <div class="cell" data-layout-align="center" data-hash="R-rpp_cache/html/execute-comparison-vanilla-RPP-algorithms_b85897ef369bd6cef8acd506c3fc5602">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>num_iter  <span class="ot">&lt;-</span> 25L</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -3912,8 +3905,8 @@ attr(,&quot;class&quot;)
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-Palomar2024" class="csl-entry" role="listitem">
-Palomar, D. P. (2024). <em>Portfolio optimization: Theory and application</em>. Cambridge University Press.
+<div id="ref-Palomar2025" class="csl-entry" role="listitem">
+Palomar, D. P. (2025). <em>Portfolio optimization: Theory and application</em>. Cambridge University Press.
 </div>
 </div></section></div></main>
 <!-- /main column -->

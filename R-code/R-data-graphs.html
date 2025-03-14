@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Graph Leraning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0.8em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="R-code-data-graphs_files/libs/clipboard/clipboard.min.js"></script>
+<script src="R-code-data-graphs_files/libs/quarto-html/quarto.js"></script>
+<script src="R-code-data-graphs_files/libs/quarto-html/popper.min.js"></script>
+<script src="R-code-data-graphs_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="R-code-data-graphs_files/libs/quarto-html/anchor.min.js"></script>
+<link href="R-code-data-graphs_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="R-code-data-graphs_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="R-code-data-graphs_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="R-code-data-graphs_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="R-code-data-graphs_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      bm: ["{\\boldsymbol{#1}}", 1],
+      textm: ["{\\textsf{#1}}", 1],
+      T: "{\\mkern-2mu\\raise-1mu\\mathsf{T}}",
+      R: "{\\mathbb{R}}",
+      E: "{\\rm I\\kern-.2em E}",
+      w: "{\\bm{w}}",
+      bmu: "{\\bm{\\mu}}",
+      bSigma: "{\\bm{\\Sigma}}"
+    }
+  }
+};
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link active" data-scroll-target="#loading-packages">Loading packages</a></li>
+  <li><a href="#learning-graphs-from-similarity-measures" id="toc-learning-graphs-from-similarity-measures" class="nav-link" data-scroll-target="#learning-graphs-from-similarity-measures">Learning graphs from similarity measures</a></li>
+  <li><a href="#learning-graphs-from-smooth-signals" id="toc-learning-graphs-from-smooth-signals" class="nav-link" data-scroll-target="#learning-graphs-from-smooth-signals">Learning graphs from smooth signals</a></li>
+  <li><a href="#learning-graphs-from-gaussian-graphical-model-networks" id="toc-learning-graphs-from-gaussian-graphical-model-networks" class="nav-link" data-scroll-target="#learning-graphs-from-gaussian-graphical-model-networks">Learning graphs from Gaussian graphical model networks</a></li>
+  <li><a href="#learning-k-component-graphs" id="toc-learning-k-component-graphs" class="nav-link" data-scroll-target="#learning-k-component-graphs">Learning <span class="math inline">\(k\)</span>-component graphs</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><p>R Code for Portfolio Optimization<br>
+Chapter 4 – Financial Data: Graphs</p></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p style="font-size:100%; color:grey; border: 1px solid lightgray; border-radius: 10px; padding: 15px; margin: 20px; background-color: #f9f9f9; text-align: center;">
+Daniel P. Palomar (2025). <cite style="font-style: italic;"><a href="https://portfoliooptimizationbook.com/" style="color: #4169E1; text-decoration: none;">Portfolio Optimization: Theory and Application.</a></cite> Cambridge University Press.
+</p>
+<p style="font-size:80%; color:grey;">
+Last update: March 13, 2025
+</p>
+<hr>
+<section id="loading-packages" class="level1">
+<h1>Loading packages</h1>
+<p>The following packages are used in the examples:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/unnamed-chunk-1_dafe2e1a11e5ea6d55277ddb54fd36d8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># basic finance</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(xts)                    # to manipulate time series of stock data</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#library(pob)                    # book package with financial data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#library(RcppRoll)                # rolling methods</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#library(TTR)                     # exponentially moving average</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#library(rugarch)                 # time series models</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#library(MARSS)                   # Kalman</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#library(stochvol)               # to compute volatility envelope</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># graphs</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterSim)             <span class="co"># graph datasets</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)                 <span class="co"># for graph related functions</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)                 <span class="co"># for kNN computation</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glasso)                 <span class="co"># GLASSO implementation</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spectralGraphTopology)  <span class="co"># implementation of many graph learning functions</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#library(ggplot2)                # for nice plots</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#library(patchwork)              # for combining plots</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#library(scales)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For convenience, we define the following wrapper function (based on the package <code>igraph</code>) to plot graphs:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/unnamed-chunk-2_44edb0be1db10f8544c0b9c1a9864964">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define function to plot nice graphs</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plot_graph <span class="ot">&lt;-</span> <span class="cf">function</span>(W, <span class="at">L =</span> <span class="cn">NULL</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">layout =</span> <span class="cn">NULL</span>, clusters, <span class="at">edges =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># if the Laplacian is passed instead, then use it to get W</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(L)) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    W <span class="ot">&lt;-</span> <span class="fu">abs</span>(L)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">diag</span>(W) <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># default layout</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(layout)) layout <span class="ot">&lt;-</span> layout_with_fr</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># build graph</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  graph <span class="ot">&lt;-</span> <span class="fu">graph_from_adjacency_matrix</span>(W, <span class="at">mode =</span> <span class="st">"undirected"</span>, <span class="at">weighted =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># colorify nodes and edges</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">V</span>(graph)<span class="sc">$</span>cluster <span class="ot">&lt;-</span> clusters</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#706FD3"</span>, <span class="st">"#FF5252"</span>, <span class="st">"#33D9B2"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">V</span>(graph)<span class="sc">$</span>color <span class="ot">&lt;-</span> colors[clusters]  <span class="co">#V(graph)$color &lt;- clusters</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (edges)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">E</span>(graph)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">as.data.frame</span>(<span class="fu">get.edgelist</span>(graph)), <span class="dv">1</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">function</span>(x) {</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                          x <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">ifelse</span>(<span class="fu">V</span>(graph)<span class="sc">$</span>cluster[x[<span class="dv">1</span>]] <span class="sc">==</span> <span class="fu">V</span>(graph)<span class="sc">$</span>cluster[x[<span class="dv">2</span>]],</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                                 colors[<span class="fu">V</span>(graph)<span class="sc">$</span>cluster[x[<span class="dv">1</span>]]], <span class="st">"grey"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                        })</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">E</span>(graph)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">E</span>(graph)<span class="sc">$</span>weight <span class="ot">&lt;-</span> <span class="fu">E</span>(graph)<span class="sc">$</span>weight <span class="sc">/</span> <span class="fu">max</span>(<span class="fu">E</span>(graph)<span class="sc">$</span>weight)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">E</span>(graph)<span class="sc">$</span>width <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">E</span>(graph)<span class="sc">$</span>weight</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(graph, <span class="at">layout =</span> layout,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.width =</span> <span class="fu">E</span>(graph)<span class="sc">$</span>width, </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>       <span class="at">vertex.size =</span> <span class="dv">3</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">vertex.label =</span> <span class="cn">NA</span>, <span class="co">#vertex.label.cex = 0.8, vertex.label.dist = 0.7, vertex.label.color = "black",</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.curved =</span> <span class="fl">0.25</span>, </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> main)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="learning-graphs-from-similarity-measures" class="level1">
+<h1>Learning graphs from similarity measures</h1>
+<p>First load some toy data:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graph-data_9df220f8392717f051f73c7eed30a14d">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterSim)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data2moons <span class="ot">&lt;-</span> <span class="fu">shapes.two.moon</span>(<span class="dv">100</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data3circles <span class="ot">&lt;-</span> <span class="fu">shapes.circles3</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s define the functions to learn the following graphs (in the form of the adjacency matrix <code>\bm{W}</code>) based on similarity measures:</p>
+<ul>
+<li>thresholded distance graph</li>
+<li>Gaussian graph</li>
+<li>thresholded Gaussian graph</li>
+<li>kNN graph</li>
+<li>feature correlation graph</li>
+<li>selftuned Gaussian graph</li>
+</ul>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/unnamed-chunk-3_5cb5d642aff8de8b88caf43ffd4c8301">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>W_thresholded <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">threshold =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute Euclidean distance matrix</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  euclid_dist <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose threshold automatically if needed</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(threshold)) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    max_dist <span class="ot">&lt;-</span> <span class="fu">max</span>(euclid_dist)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    min_dist <span class="ot">&lt;-</span> <span class="fu">min</span>(euclid_dist[euclid_dist <span class="sc">!=</span> <span class="dv">0</span>])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    threshold <span class="ot">&lt;-</span> min_dist <span class="sc">+</span> <span class="fl">0.15</span><span class="sc">*</span>(max_dist<span class="sc">-</span>min_dist)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(euclid_dist <span class="sc">&lt;=</span> threshold, <span class="dv">1</span>, <span class="dv">0</span>)  </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(W) <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>W_Gaussian <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">sigma2 =</span> <span class="fl">0.1</span>) {</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute Euclidean distance matrix</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  euclid_dist <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose sigma2 automatically if needed</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(sigma2))</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    sigma2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(euclid_dist<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">10</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>(euclid_dist<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma2))</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(W) <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>W_thresholded_Gaussian <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">sigma2 =</span> <span class="fl">0.1</span>, <span class="at">threshold =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute Euclidean distance matrix</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  euclid_dist <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose sigma2 automatically?</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(sigma2))</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    sigma2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(euclid_dist<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">10</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose threshold automatically if needed</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(threshold)) {</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    max_dist <span class="ot">&lt;-</span> <span class="fu">max</span>(euclid_dist)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    min_dist <span class="ot">&lt;-</span> <span class="fu">min</span>(euclid_dist[euclid_dist <span class="sc">!=</span> <span class="dv">0</span>])</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    threshold <span class="ot">&lt;-</span> min_dist <span class="sc">+</span> <span class="fl">0.15</span><span class="sc">*</span>(max_dist<span class="sc">-</span>min_dist)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>(euclid_dist<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma2))</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  W[euclid_dist <span class="sc">&gt;</span> threshold] <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># threshold</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(W) <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>W_knn <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">k =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose k automatically if needed</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(k))</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    k <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">floor</span>(<span class="fu">log2</span>(p))</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute the knn distances and so</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  knn_nodes <span class="ot">&lt;-</span> dbscan<span class="sc">::</span><span class="fu">kNN</span>(X, k, <span class="at">sort =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>id</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, p, p)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    W[knn_nodes[i, ], i] <span class="ot">&lt;-</span> W[i, knn_nodes[i, ]] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(W) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(W) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>W_feature_correlation <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">threshold =</span> <span class="fl">0.5</span>) {</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> X <span class="sc">%*%</span> <span class="fu">t</span>(X)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>  W[<span class="fu">abs</span>(W) <span class="sc">&lt;</span> threshold<span class="sc">*</span><span class="fu">mean</span>(<span class="fu">diag</span>(W))] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(W) <span class="ot">&lt;-</span> <span class="dv">0</span>  </span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>W_selftuned_Gaussian <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">k =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose k automatically if needed</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(k))</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    k <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">log2</span>(p))  <span class="co">#0.5*log2(p)</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute Euclidean distance matrix and knn distances</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>  knn_dist <span class="ot">&lt;-</span> dbscan<span class="sc">::</span><span class="fu">kNN</span>(X, k, <span class="at">sort =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>dist[, k]</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>  euclid_dist2 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  <span class="co">#euclid_dist2 &lt;- diag(1/knn_dist) %*% euclid_dist2 %*% diag(1/knn_dist)</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  euclid_dist2 <span class="ot">&lt;-</span> <span class="fu">t</span>((<span class="dv">1</span><span class="sc">/</span>knn_dist) <span class="sc">*</span> <span class="fu">t</span>((<span class="dv">1</span><span class="sc">/</span>knn_dist) <span class="sc">*</span> euclid_dist2))</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>euclid_dist2<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(W) <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Graphs learned based on similarity measures for the two-moon dataset:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graphs-similarity-twomoon_9f190087f5f447db63bb1c92b2beb1e1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># thresholded distance graph</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_thresholded</span>(data2moons<span class="sc">$</span>data), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Thresholded distance 0-1 graph"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gaussian graph</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_Gaussian</span>(data2moons<span class="sc">$</span>data), </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Gaussian graph"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># thresholded Gaussian graph</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_thresholded_Gaussian</span>(data2moons<span class="sc">$</span>data), </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Thresholded Gaussian graph"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># k-NN graph</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_knn</span>(data2moons<span class="sc">$</span>data),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"k-NN 0-1 graph"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># feature correlation graph</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_feature_correlation</span>(data2moons<span class="sc">$</span>data),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Feature correlation graph"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># self-tuned Gaussian graph</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_selftuned_Gaussian</span>(data2moons<span class="sc">$</span>data, <span class="at">k =</span> <span class="dv">4</span>),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Self-tuned Gaussian graph"</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/graphs-similarity-twomoon-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Graphs learned based on similarity measures for the three-circle dataset:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graphs-similarity-threecircle_48fa2ddd982c21b9ea9d3c801349bf13">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># thresholded distance graph</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_thresholded</span>(data3circles<span class="sc">$</span>data), </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Thresholded distance 0-1 graph"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gaussian graph</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_Gaussian</span>(data3circles<span class="sc">$</span>data), </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Gaussian graph"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># thresholded Gaussian graph</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_thresholded_Gaussian</span>(data3circles<span class="sc">$</span>data), </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Thresholded Gaussian graph"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># k-NN graph</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_knn</span>(data3circles<span class="sc">$</span>data),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"k-NN 0-1 graph"</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># feature correlation graph</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_feature_correlation</span>(data3circles<span class="sc">$</span>data),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Feature correlation graph"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># self-tuned Gaussian graph</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_selftuned_Gaussian</span>(data3circles<span class="sc">$</span>data, <span class="at">k =</span> <span class="dv">4</span>),</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Self-tuned Gaussian graph"</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/graphs-similarity-threecircle-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-graphs-from-smooth-signals" class="level1">
+<h1>Learning graphs from smooth signals</h1>
+<p>We now learn the following graphs in the form of the adjacency matrix <code>\bm{W}</code> based on similarity measures:</p>
+<ul>
+<li><p>Graph with fixed degrees <span class="citation" data-cites="NieWangJordanHuang2016">(<a href="#ref-NieWangJordanHuang2016" role="doc-biblioref">Nie et al., 2016</a>)</span>: <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{W}}{\textm{minimize}}
+&amp; \textm{Tr}(\bm{W}\bm{Z}) + \gamma\|\bm{W}\|_\textm{F}^2\\
+\textm{subject to}
+&amp; \textm{diag}(\bm{W})=\bm{0}, \quad \bm{W}=\bm{W}^\T \ge \bm{0}\\
+&amp; \bm{W}\bm{1} = \bm{1}.
+\end{array}
+\]</span></p></li>
+<li><p>Graph with regularized degrees <span class="citation" data-cites="Kalofolias2016">(<a href="#ref-Kalofolias2016" role="doc-biblioref">Kalofolias, 2016</a>)</span>: <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{W}}{\textm{minimize}}
+&amp; \textm{Tr}(\bm{W}\bm{Z}) - \alpha\bm{1}^\T\textm{log}(\bm{W}\bm{1}) + \frac{\beta}{2}\|\bm{W}\|_\textm{F}^2\\
+\textm{subject to}
+&amp; \textm{diag}(\bm{W})=\bm{0}, \quad \bm{W}=\bm{W}^\T \ge \bm{0},
+\end{array}
+\]</span></p></li>
+<li><p>Clustered <span class="math inline">\(k\)</span> component graph based on the rank-contrained Laplacian algorithm <span class="citation" data-cites="NieWangJordanHuang2016">(<a href="#ref-NieWangJordanHuang2016" role="doc-biblioref">Nie et al., 2016</a>)</span>, which is implemented in the package <a href="https://github.com/mirca/spectralGraphTopology"><code>spectralGraphTopology</code></a>: <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{W}}{\textm{minimize}}
+&amp; \|\bm{W} - \bm{W}_0\|_\textm{F}^2\\
+\textm{subject to}
+&amp; \bm{W}\bm{1} = \bm{1}, \quad \textm{diag}(\bm{W})=\bm{0}, \quad \bm{W}=\bm{W}^\T \ge \bm{0}\\
+&amp; \textm{rank}\left(\mathcal{L}(\bm{W})\right) = p - k,
+\end{array}
+\]</span></p></li>
+</ul>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/unnamed-chunk-4_5d8479bc859c313f24abdfac4c6543bf">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>W_smooth <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">m =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose m automatically if needed</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(m)) </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fl">0.08</span><span class="sc">*</span>p)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute squared Euclidean distance matrix</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(Z) <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">*</span><span class="fu">max</span>(Z)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, p, p)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    z <span class="ot">&lt;-</span> Z[, i]</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    z_sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(z)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    w_ <span class="ot">&lt;-</span> <span class="fu">pmax</span>(z_sorted[m<span class="sc">+</span><span class="dv">1</span>] <span class="sc">-</span> z, <span class="dv">0</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    W[, i] <span class="ot">&lt;-</span> w_<span class="sc">/</span><span class="fu">sum</span>(w_)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="sc">*</span>(W <span class="sc">+</span> <span class="fu">t</span>(W)) <span class="co"># symmetrize</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(W) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(W) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>W_kalofolias_cvx <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">alpha =</span> <span class="fl">1e-2</span>, <span class="at">beta =</span> <span class="fl">1e-4</span>) {</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute squared Euclidean distance matrix</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># optimize</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">Symmetric</span>(p)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  objective <span class="ot">&lt;-</span> .<span class="dv">5</span> <span class="sc">*</span> <span class="fu">sum_entries</span>(W <span class="sc">*</span> Z) <span class="sc">-</span> alpha <span class="sc">*</span> <span class="fu">sum_entries</span>(<span class="fu">log</span>(<span class="fu">sum_entries</span>(W, <span class="at">axis =</span> <span class="dv">1</span>))) <span class="sc">+</span> .<span class="dv">5</span> <span class="sc">*</span> beta <span class="sc">*</span> <span class="fu">sum_squares</span>(W)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">#objective_value &lt;- .5 * sum(W * Z) - alpha * sum(log(rowSums(W))) + .5 * beta * norm(W, "F")^2</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  constraints <span class="ot">&lt;-</span> <span class="fu">list</span>(W <span class="sc">&gt;=</span> <span class="dv">0</span>, </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">diag</span>(W) <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">sum_entries</span>(W, <span class="at">axis =</span> <span class="dv">1</span>) <span class="sc">&gt;=</span> <span class="fl">1e-3</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  problem <span class="ot">&lt;-</span> <span class="fu">Problem</span>(<span class="fu">Minimize</span>(objective), constraints)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">solve</span>(problem, <span class="at">solver =</span> <span class="st">"SCS"</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (result<span class="sc">$</span>status <span class="sc">!=</span> <span class="st">"optimal"</span>) <span class="fu">message</span>(<span class="st">"Warning: CVX status: "</span>, result<span class="sc">$</span>status)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(result<span class="sc">$</span><span class="fu">getValue</span>(W))</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  W[W <span class="sc">&lt;</span> <span class="fl">1e-7</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>W_kalofolias <span class="ot">&lt;-</span> <span class="cf">function</span>(X, <span class="at">m =</span> <span class="cn">NULL</span>, <span class="at">alpha_over_beta =</span> <span class="fl">1e2</span>) {</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose m automatically if needed</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(m)) </span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fl">0.08</span><span class="sc">*</span>p)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute squared Euclidean distance matrix</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">dist</span>(X, <span class="at">method =</span> <span class="st">"euclidean"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(Z) <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">*</span><span class="fu">max</span>(Z)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate W</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, p, p)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>p) {</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>    z <span class="ot">&lt;-</span> Z[, i]</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    z_sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(z)</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    w_ <span class="ot">&lt;-</span> alpha_over_beta <span class="sc">*</span> <span class="fu">pmax</span>(<span class="dv">1</span> <span class="sc">-</span> z<span class="sc">/</span>z_sorted[m<span class="sc">+</span><span class="dv">1</span>], <span class="dv">0</span>)</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    W[, i] <span class="ot">&lt;-</span> w_<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">sum</span>(w_))</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>  W <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span><span class="sc">*</span>(W <span class="sc">+</span> <span class="fu">t</span>(W)) <span class="co"># symmetrize</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(W) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(W) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(W)</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Graphs learned based on smooth signals for the two-moon dataset:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graphs-smooth-twomoon_773a4417af837ff4dd268d11eb3efcc5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spectralGraphTopology)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_smooth</span>(data2moons<span class="sc">$</span>data, <span class="at">m =</span> <span class="dv">20</span>), </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Graph with fixed degrees"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_kalofolias</span>(<span class="at">X =</span> data2moons<span class="sc">$</span>data, <span class="at">m =</span> <span class="dv">20</span>), </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Graph with regularized degrees"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">cluster_k_component_graph</span>(data2moons<span class="sc">$</span>data, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">m =</span> <span class="dv">20</span>)<span class="sc">$</span>adjacency, </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Low-rank graph"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/graphs-smooth-twomoon-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graphs-smooth-threecircle_eef9a1fc5084fd846f611c26d76a9a25">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_smooth</span>(data3circles<span class="sc">$</span>data, <span class="at">m =</span> <span class="dv">20</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Graph with fixed degrees"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">W_kalofolias</span>(<span class="at">X =</span> data3circles<span class="sc">$</span>data, <span class="at">m =</span> <span class="dv">20</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Graph with regularized degrees"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> <span class="fu">cluster_k_component_graph</span>(data3circles<span class="sc">$</span>data, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">m =</span> <span class="dv">20</span>)<span class="sc">$</span>adjacency,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Low-rank graph"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/graphs-smooth-threecircle-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Graphs learned based on smooth signals for the three-circle dataset.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-graphs-from-gaussian-graphical-model-networks" class="level1">
+<h1>Learning graphs from Gaussian graphical model networks</h1>
+<p>We start with learning the Laplacian matrix <code>\bm{L}</code> for the following graphs:</p>
+<ul>
+<li><p>directly from the precision matrix</p></li>
+<li><p>sparse precision matrix from the <em>graphical lasso</em> (GLASSO) <span class="citation" data-cites="FriedmanHastieTibshirani2008 BanerjeeGhaouiAspremont2008">(<a href="#ref-BanerjeeGhaouiAspremont2008" role="doc-biblioref">Banerjee et al., 2008</a>; <a href="#ref-FriedmanHastieTibshirani2008" role="doc-biblioref">Friedman et al., 2008</a>)</span> <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{\Theta}\succ\bm{0}}{\textm{maximize}}
+&amp; \textm{log det}(\bm{\Theta}) - \textm{Tr}(\bm{\Theta}\bm{S}) - \rho\|\bm{\Theta}\|_{1,\textm{off}},
+\end{array}
+\]</span></p></li>
+<li><p>the Laplacian-structured GLASSO <span class="citation" data-cites="LakeTenenbaum2010 EgilmezPavezOrtega2017 ZhaoWangKumarPalomar2019">(<a href="#ref-EgilmezPavezOrtega2017" role="doc-biblioref">Egilmez et al., 2017</a>; <a href="#ref-LakeTenenbaum2010" role="doc-biblioref">Lake and Tenenbaum, 2010</a>; <a href="#ref-ZhaoWangKumarPalomar2019" role="doc-biblioref">Zhao et al., 2019</a>)</span>, which is implemented in the package <a href="https://github.com/mirca/spectralGraphTopology"><code>spectralGraphTopology</code></a> <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{L}\succeq\bm{0}}{\textm{maximize}}
+&amp; \textm{log gdet}(\bm{L}) - \textm{Tr}(\bm{L}\bm{S}) - \rho\|\bm{L}\|_{1,\textm{off}}\\
+\textm{subject to}
+&amp; \bm{L}\bm{1}=\bm{0}, \quad L_{ij} = L_{ji} \le 0, \quad \forall i\neq j,
+\end{array}
+\]</span></p></li>
+</ul>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/unnamed-chunk-5_57fcbd30935475e9cc70090a58e79c8d">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>L_precision <span class="ot">&lt;-</span> <span class="cf">function</span>(S, <span class="at">threshold =</span> <span class="dv">0</span>) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  L <span class="ot">&lt;-</span> <span class="fu">ginv</span>(S)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  diag_L <span class="ot">&lt;-</span> <span class="fu">diag</span>(L)  <span class="co"># safe diagonal elements</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  L <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">abs</span>(L) <span class="sc">&lt;=</span> threshold<span class="sc">*</span><span class="fu">mean</span>(diag_L), <span class="dv">0</span>, L)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>(L) <span class="ot">&lt;-</span> diag_L  <span class="co"># recover diagonal elements</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(L)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>L_GLASSO <span class="ot">&lt;-</span> <span class="cf">function</span>(S, <span class="at">rho =</span> <span class="fl">1e-5</span>) {</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  L <span class="ot">&lt;-</span> glasso<span class="sc">::</span><span class="fu">glasso</span>(S, rho)<span class="sc">$</span>wi</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(L) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(L) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(S)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(L)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Graphs learned based on Gaussian graphical models for the two-moon dataset:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graphs-GMRF-twomoon_656dfff2ab3460d164e543ba2f52513a">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">L =</span> <span class="fu">L_precision</span>(<span class="at">S =</span> data2moons<span class="sc">$</span>data <span class="sc">%*%</span> <span class="fu">t</span>(data2moons<span class="sc">$</span>data), <span class="at">threshold =</span> <span class="fl">1e-2</span>), </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Partial correlation (precision matrix) graph"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">L =</span> <span class="fu">L_GLASSO</span>(<span class="at">S =</span> data2moons<span class="sc">$</span>data <span class="sc">%*%</span> <span class="fu">t</span>(data2moons<span class="sc">$</span>data), <span class="at">rho =</span> <span class="fl">1e-4</span>), </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"GLASSO graph"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">L =</span> <span class="fu">learn_laplacian_gle_admm</span>(<span class="at">S =</span> data2moons<span class="sc">$</span>data <span class="sc">%*%</span> <span class="fu">t</span>(data2moons<span class="sc">$</span>data), <span class="at">maxiter =</span> <span class="dv">200</span>)<span class="sc">$</span>laplacian, </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data2moons<span class="sc">$</span>data, <span class="at">clusters =</span> data2moons<span class="sc">$</span>clusters,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Laplacian-structured GLASSO graph"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/graphs-GMRF-twomoon-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Graphs learned based on Gaussian graphical models for the three-circle dataset:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/graphs-GMRF-threecircle_c4f0502e28b3ea1201fed3f5ae4fb927">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">L =</span> <span class="fu">L_precision</span>(<span class="at">S =</span> data3circles<span class="sc">$</span>data <span class="sc">%*%</span> <span class="fu">t</span>(data3circles<span class="sc">$</span>data),  <span class="at">threshold =</span> <span class="fl">1e-2</span>), </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Partial correlation (precision matrix) graph"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">L =</span> <span class="fu">L_GLASSO</span>(<span class="at">S =</span> data3circles<span class="sc">$</span>data <span class="sc">%*%</span> <span class="fu">t</span>(data3circles<span class="sc">$</span>data), <span class="at">rho =</span> <span class="fl">1e-4</span>), </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"GLASSO graph"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">L =</span> <span class="fu">learn_laplacian_gle_admm</span>(<span class="at">S =</span> data3circles<span class="sc">$</span>data <span class="sc">%*%</span> <span class="fu">t</span>(data3circles<span class="sc">$</span>data), <span class="at">maxiter =</span> <span class="dv">200</span>)<span class="sc">$</span>laplacian, </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Laplacian-structured GLASSO graph"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/graphs-GMRF-threecircle-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-k-component-graphs" class="level1">
+<h1>Learning <span class="math inline">\(k\)</span>-component graphs</h1>
+<p>We learn <span class="math inline">\(k\)</span>-component graphs based on:</p>
+<ul>
+<li><p>the smooth signal graph formulation <span class="citation" data-cites="NieWangJordanHuang2016">(<a href="#ref-NieWangJordanHuang2016" role="doc-biblioref">Nie et al., 2016</a>)</span>: <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{W}}{\textm{minimize}}
+&amp; \textm{Tr}(\bm{W}\bm{Z}) + \gamma\|\bm{W}\|_\textm{F}^2\\
+\textm{subject to}
+&amp; \textm{diag}(\bm{W})=\bm{0}, \quad \bm{W}=\bm{W}^\T \ge \bm{0}\\
+&amp; \bm{W}\bm{1} = \bm{1}.
+\end{array}
+\]</span></p></li>
+<li><p>the same graph further approximated by a low-rank one <span class="citation" data-cites="NieWangJordanHuang2016">(<a href="#ref-NieWangJordanHuang2016" role="doc-biblioref">Nie et al., 2016</a>)</span>: <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{W}}{\textm{minimize}}
+&amp; \|\bm{W} - \bm{W}_0\|_\textm{F}^2\\
+\textm{subject to}
+&amp; \bm{W}\bm{1} = \bm{1}, \quad \textm{diag}(\bm{W})=\bm{0}, \quad \bm{W}=\bm{W}^\T \ge \bm{0}\\
+&amp; \textm{rank}\left(\mathcal{L}(\bm{W})\right) = p - k,
+\end{array}
+\]</span></p></li>
+<li><p>the joint low-rank smooth signal graph formulation: <span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{L}\succeq\bm{0}, \bm{F}}{\textm{minimize}}
+&amp; \textm{Tr}\left(\bm{X}\bm{L}\bm{X}^\T\right) + \frac{\gamma}{2}\|\bm{L}\|_\textm{F,off}^2 +  \gamma \textm{Tr}\left(\bm{F}^\T\bm{L}\bm{F}\right)\\
+\textm{subject to}
+&amp; \bm{L}\bm{1}=\bm{0}, \quad L_{ij} = L_{ji} \le 0, \quad \forall i\neq j\\
+&amp; \textm{diag}(\bm{L})=\bm{1}\\
+&amp; \bm{F}^\T\bm{F}=\bm{I}.
+\end{array}
+\]</span></p></li>
+</ul>
+<p>Graphs learned based on smooth signals for the three-circle dataset:</p>
+<div class="cell" data-layout-align="center" data-hash="R-code-data-graphs_cache/html/low-rank-graph-comparison_dbf17adf77300230a05513a096997d1d">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spectralGraphTopology)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>W_smooth_3circle <span class="ot">&lt;-</span> <span class="fu">W_smooth</span>(data3circles<span class="sc">$</span>data)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>W_approx_lowrank_3circle <span class="ot">&lt;-</span> <span class="fu">cluster_k_component_graph</span>(data3circles<span class="sc">$</span>data, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">m =</span> <span class="dv">7</span>)<span class="sc">$</span>adjacency</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>W_lowrank_3circle <span class="ot">&lt;-</span> <span class="fu">learn_k_component_graph</span>(<span class="at">S =</span> <span class="fu">crossprod</span>(<span class="fu">t</span>(data3circles<span class="sc">$</span>data)), </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">k =</span> <span class="dv">3</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">beta =</span> <span class="dv">1</span>, </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">fix_beta =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">verbose =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">abstol =</span> <span class="fl">1e-3</span>)<span class="sc">$</span>adjacency</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>old_par <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>))   <span class="co"># b-l-t-r</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> W_smooth_3circle,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Smooth-signal graph"</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> W_approx_lowrank_3circle,</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Low-rank two-step approximation"</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_graph</span>(<span class="at">W =</span> W_lowrank_3circle,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">layout =</span> data3circles<span class="sc">$</span>data, <span class="at">clusters =</span> data3circles<span class="sc">$</span>clusters,</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">"Low-rank smooth-signal graph"</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(old_par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-code-data-graphs_files/figure-html/low-rank-graph-comparison-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-BanerjeeGhaouiAspremont2008" class="csl-entry" role="listitem">
+Banerjee, O., El Ghaoui, L., and d’Aspremont, A. (2008). Model selection through sparse maximum likelihood estimation for multivariate <span>Gaussian</span> or binary data. <em>Journal of Machine Learning Research (JMLR)</em>, <em>9</em>, 485–516.
+</div>
+<div id="ref-EgilmezPavezOrtega2017" class="csl-entry" role="listitem">
+Egilmez, H. E., Pavez, E., and Ortega, A. (2017). Graph learning from data under <span>Laplacian</span> and structural constraints. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>11</em>(6), 825–841.
+</div>
+<div id="ref-FriedmanHastieTibshirani2008" class="csl-entry" role="listitem">
+Friedman, J., Hastie, T., and Tibshirani, R. (2008). Sparse inverse covariance estimation with the graphical lasso. <em>Biostatistics</em>, <em>9</em>(3), 432–441.
+</div>
+<div id="ref-Kalofolias2016" class="csl-entry" role="listitem">
+Kalofolias, V. (2016). How to learn a graph from smooth signals. In <em>Proceedings of the international conference on artificial intelligence and statistics (AISTATS)</em>, pages 920–929.
+</div>
+<div id="ref-LakeTenenbaum2010" class="csl-entry" role="listitem">
+Lake, B., and Tenenbaum, J. (2010). Discovering structure by learning sparse graphs. In <em>Proceedings of the 33rd annual cognitive science conference</em>.
+</div>
+<div id="ref-NieWangJordanHuang2016" class="csl-entry" role="listitem">
+Nie, F., Wang, X., Jordan, M., and Huang, H. (2016). The constrained <span>Laplacian</span> rank algorithm for graph-based clustering. In <em>Proceedings of the AAAI conference on artificial intelligence</em>, pages 1969–1976. Phoenix, Arizona, USA.
+</div>
+<div id="ref-ZhaoWangKumarPalomar2019" class="csl-entry" role="listitem">
+Zhao, L., Wang, Y., Kumar, S., and Palomar, D. P. (2019). Optimization algorithms for graph <span>Laplacian</span> estimation via <span>ADMM</span> and <span>MM</span>. <em>IEEE Transactions on Signal Processing</em>, <em>67</em>(16), 4231–4244.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

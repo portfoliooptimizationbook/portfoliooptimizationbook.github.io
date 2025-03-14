@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-10-01">
 
 <title>High-Order Portfolios</title>
 <style>
@@ -5573,9 +5572,8 @@ window.MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><p>Portfolio Optimization<br>
-Chapter 9: High-Order Portfolios</p></h1>
-<p class="subtitle lead">R code</p>
+<h1 class="title"><p>R Code for Portfolio Optimization<br>
+Chapter 9 – High-Order Portfolios</p></h1>
 </div>
 
 
@@ -5583,12 +5581,6 @@ Chapter 9: High-Order Portfolios</p></h1>
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -5596,12 +5588,13 @@ Chapter 9: High-Order Portfolios</p></h1>
 
 </header>
 
+<p style="font-size:100%; color:grey; border: 1px solid lightgray; border-radius: 10px; padding: 15px; margin: 20px; background-color: #f9f9f9; text-align: center;">
+Daniel P. Palomar (2025). <cite style="font-style: italic;"><a href="https://portfoliooptimizationbook.com/" style="color: #4169E1; text-decoration: none;">Portfolio Optimization: Theory and Application.</a></cite> Cambridge University Press.
+</p>
 <p style="font-size:80%; color:grey;">
-R code examples for Chapter 9 of the book:
+Last update: March 14, 2025
 </p>
-<p style="font-size:80%; color:grey; border: 1px solid lightgray; border-radius: 10px; padding: 10px; margin: 20px;">
-Daniel P. Palomar (2024). <em>Portfolio Optimization: Theory and Application.</em> Cambridge University Press.
-</p>
+<hr>
 <section id="loading-packages" class="level1">
 <h1>Loading packages</h1>
 <p>The following packages are used in the examples:</p>
@@ -5701,10 +5694,10 @@ Daniel P. Palomar (2024). <em>Portfolio Optimization: Theory and Application.</e
 <p>We will consider three different ways to solve the problem, namely:</p>
 <ol type="1">
 <li>simply by using an off-the-shelf nonlinear solver (e.g., <code>nloptr</code>);</li>
-<li>implementing the SCA-Q-MVSK method described in <span class="citation" data-cites="Palomar2024">(<a href="#ref-Palomar2024" role="doc-biblioref">Palomar, 2024</a>, Algorithm 9.2)</span> (see <span class="citation" data-cites="ZhouPalomar2021">(<a href="#ref-ZhouPalomar2021" role="doc-biblioref">Zhou and Palomar, 2021</a>)</span> for more details); and</li>
+<li>implementing the SCA-Q-MVSK method described in <span class="citation" data-cites="Palomar2025">(<a href="#ref-Palomar2025" role="doc-biblioref">Palomar, 2025</a>, Algorithm 9.2)</span> (see <span class="citation" data-cites="ZhouPalomar2021">(<a href="#ref-ZhouPalomar2021" role="doc-biblioref">Zhou and Palomar, 2021</a>)</span> for more details); and</li>
 <li>conveniently using the MVSK solver implemented in the R package <a href="https://cran.r-project.org/package=highOrderPortfolios"><code>highOrderPortfolios</code></a>.</li>
 </ol>
-<p>Recall that under the skewed <span class="math inline">\(t\)</span> distribution <span class="citation" data-cites="Palomar2024">(<a href="#ref-Palomar2024" role="doc-biblioref">Palomar, 2024, Chapter 9</a>)</span>:</p>
+<p>Recall that under the skewed <span class="math inline">\(t\)</span> distribution <span class="citation" data-cites="Palomar2025">(<a href="#ref-Palomar2025" role="doc-biblioref">Palomar, 2025, Chapter 9</a>)</span>:</p>
 <ul>
 <li>The moments are given by <span class="math display">\[
 \begin{aligned}
@@ -5839,7 +5832,7 @@ Daniel P. Palomar (2024). <em>Portfolio Optimization: Theory and Application.</e
 </section>
 <section id="using-the-sca-based-method" class="level2">
 <h2 class="anchored" data-anchor-id="using-the-sca-based-method">2. Using the SCA-based method</h2>
-<p>The SCA-Q-MVSK method is described in <span class="citation" data-cites="Palomar2024">(<a href="#ref-Palomar2024" role="doc-biblioref">Palomar, 2024</a>, Algorithm 9.2)</span> (see <span class="citation" data-cites="ZhouPalomar2021">(<a href="#ref-ZhouPalomar2021" role="doc-biblioref">Zhou and Palomar, 2021</a>)</span> for more details). The corresponding R code is:</p>
+<p>The SCA-Q-MVSK method is described in <span class="citation" data-cites="Palomar2025">(<a href="#ref-Palomar2025" role="doc-biblioref">Palomar, 2025</a>, Algorithm 9.2)</span> (see <span class="citation" data-cites="ZhouPalomar2021">(<a href="#ref-ZhouPalomar2021" role="doc-biblioref">Zhou and Palomar, 2021</a>)</span> for more details). The corresponding R code is:</p>
 <div class="cell" data-layout-align="center" data-hash="R-high-order-portfolios_cache/html/unnamed-chunk-8_2900baa11f526c5061f2f76a9513b487">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>project_PSD <span class="ot">&lt;-</span> <span class="cf">function</span>(Q, tau) {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">ncol</span>(Q)</span>
@@ -5889,7 +5882,7 @@ Daniel P. Palomar (2024). <em>Portfolio Optimization: Theory and Application.</e
 </section>
 <section id="using-the-r-package-highorderportfolios" class="level2">
 <h2 class="anchored" data-anchor-id="using-the-r-package-highorderportfolios">3. Using the R package <a href="https://cran.r-project.org/package=highOrderPortfolios"><code>highOrderPortfolios</code></a></h2>
-<p>The R package <a href="https://cran.r-project.org/package=highOrderPortfolios"><code>highOrderPortfolios</code></a> conveniently implements algorithms to solve the MVSK portfolio and other variations, such as the MVSK tilting portfolio. See <span class="citation" data-cites="Palomar2024">(<a href="#ref-Palomar2024" role="doc-biblioref">Palomar, 2024, Chapter 9</a>)</span> and <span class="citation" data-cites="WangZhouYingPalomar2023">(<a href="#ref-WangZhouYingPalomar2023" role="doc-biblioref">Wang et al., 2023</a>)</span> for more details. The code is simply:</p>
+<p>The R package <a href="https://cran.r-project.org/package=highOrderPortfolios"><code>highOrderPortfolios</code></a> conveniently implements algorithms to solve the MVSK portfolio and other variations, such as the MVSK tilting portfolio. See <span class="citation" data-cites="Palomar2025">(<a href="#ref-Palomar2025" role="doc-biblioref">Palomar, 2025, Chapter 9</a>)</span> and <span class="citation" data-cites="WangZhouYingPalomar2023">(<a href="#ref-WangZhouYingPalomar2023" role="doc-biblioref">Wang et al., 2023</a>)</span> for more details. The code is simply:</p>
 <div class="cell" data-layout-align="center" data-hash="R-high-order-portfolios_cache/html/unnamed-chunk-9_efd636ab07c409c2d8d18d6022a345d5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(highOrderPortfolios)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -5989,7 +5982,7 @@ Daniel P. Palomar (2024). <em>Portfolio Optimization: Theory and Application.</e
 </section>
 <section id="multiple-backtests" class="level1">
 <h1>Multiple backtests</h1>
-<p>We now consider multiple randomized backtests <span class="citation" data-cites="Palomar2024">(<a href="#ref-Palomar2024" role="doc-biblioref">Palomar, 2024, Chapter 8</a>)</span> for a better characterization of the performance of the portfolios. Again, we will use the package <a href="https://cran.r-project.org/package=portfolioBacktest"><code>portfolioBacktest</code></a>.</p>
+<p>We now consider multiple randomized backtests <span class="citation" data-cites="Palomar2025">(<a href="#ref-Palomar2025" role="doc-biblioref">Palomar, 2025, Chapter 8</a>)</span> for a better characterization of the performance of the portfolios. Again, we will use the package <a href="https://cran.r-project.org/package=portfolioBacktest"><code>portfolioBacktest</code></a>.</p>
 <p>We take a dataset of <span class="math inline">\(N=20\)</span> stocks over the period 2015-2020 and generate 100 resamples each with <span class="math inline">\(N=8\)</span> randomly selected stocks and a random period of two years. Then we perform a walk-forward backtest with a lookback window of 1 year, reoptimizing the portfolio every month.</p>
 <div class="cell" data-layout-align="center" data-hash="R-high-order-portfolios_cache/html/unnamed-chunk-15_7ec00bcc8d6c74bf024513bf29f678b1">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> SP500_2015to2020<span class="sc">$</span>stocks[, <span class="fu">sample</span>(<span class="fu">ncol</span>(SP500_2015to2020<span class="sc">$</span>stocks), <span class="dv">20</span>)]</span>
@@ -6056,8 +6049,8 @@ MVSK           1.29       0.01        0.02</code></pre>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-Palomar2024" class="csl-entry" role="listitem">
-Palomar, D. P. (2024). <em>Portfolio optimization: Theory and application</em>. Cambridge University Press.
+<div id="ref-Palomar2025" class="csl-entry" role="listitem">
+Palomar, D. P. (2025). <em>Portfolio optimization: Theory and application</em>. Cambridge University Press.
 </div>
 <div id="ref-WangZhouYingPalomar2023" class="csl-entry" role="listitem">
 Wang, X., Zhou, R., Ying, J., and Palomar, D. P. (2023). Efficient and scalable parametric high-order portfolios design via the skew-t distribution. <em>IEEE Transactions on Signal Processing</em>, <em>71</em>, 3726–3740.
