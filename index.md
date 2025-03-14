@@ -104,7 +104,8 @@ Work in progress, Python code coming up in the coming weeks...
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-pairs-trading.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-pairs-trading.html)
 
-- Chapter 16 - Deep Learning Portfolios
+- Chapter 16 - Deep Learning Portfolios:
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-deep-portfolios.pdf)
 
 
 
