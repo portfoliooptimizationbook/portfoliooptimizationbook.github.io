@@ -74,7 +74,8 @@ Work in progress, Python code coming up in the coming weeks...
 
 - Chapter 8 - Portfolio Backtesting: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-backtesting.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-backtesting.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-backtesting.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-backtesting.html)
 
 - Chapter 9 - High-Order Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-high-order-portfolios.pdf),
