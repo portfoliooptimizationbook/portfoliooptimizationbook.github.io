@@ -53,7 +53,8 @@ Work in progress, Python code coming up in the coming weeks...
 
 - Chapter 4 - Financial Data: Time Series Modeling:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-time-series.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-data-time-series.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-data-time-series.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-data-time-series.html)
 
 - Chapter 5 - Financial Data: Graphs:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-graphs.pdf),
