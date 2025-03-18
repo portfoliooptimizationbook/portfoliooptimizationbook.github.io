@@ -32,7 +32,7 @@ To contribute, check the [developer GitHub webpage](https://github.com/portfolio
 
 
 ## Chapters
-Work in progress, Python code coming up in the coming weeks...
+Work in progress, Python code coming up in the subsequent weeks...
 
 
 - Chapter 1 - Introduction:
