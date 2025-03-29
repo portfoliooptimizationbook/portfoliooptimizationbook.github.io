@@ -88,7 +88,8 @@ Work in progress, Python code coming up in the subsequent weeks...
 
 - Chapter 11 - Risk Parity Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-rpp.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-rpp.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-rpp.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-rpp.html)
 
 - Chapter 12 - Graph-Based Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-graph-portfolios.pdf),
