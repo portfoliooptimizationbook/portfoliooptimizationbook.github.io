@@ -84,7 +84,8 @@ Work in progress, Python code coming up in the subsequent weeks...
 
 - Chapter 10 - Portfolios with Alternative Risk Measures:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-alt-risk-portfolios.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-alt-risk-portfolios.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-alt-risk-portfolios.html),
+  [Python code <i class="fab fa-python"></i>](python-code/python-alt-risk-portfolios.html)
 
 - Chapter 11 - Risk Parity Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-rpp.pdf),
