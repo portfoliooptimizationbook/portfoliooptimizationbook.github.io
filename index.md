@@ -51,16 +51,19 @@ Work in progress, Python code coming up in the subsequent weeks...
 - Chapter 3 - Financial Data: I.I.D. Modeling:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-iid.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-data-iid.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-data-iid.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-data-iid.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-data-iid.pdf)
 
 - Chapter 4 - Financial Data: Time Series Modeling:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-time-series.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-data-time-series.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-data-time-series.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-data-time-series.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-data-time-series.pdf)
 
 - Chapter 5 - Financial Data: Graphs:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-graphs.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-data-graphs.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-data-graphs.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-data-graphs.pdf)
 
 
 
@@ -68,61 +71,74 @@ Work in progress, Python code coming up in the subsequent weeks...
 - Chapter 6 - Portfolio Basics: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-portfolio-basics.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-portfolio-basics.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-portfolio-basics.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-portfolio-basics.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-portfolio-basics.pdf)
 
 - Chapter 7 - Modern Portfolio Theory: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-modern-portfolio-theory.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-modern-portfolio-theory.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-modern-portfolio-theory.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-modern-portfolio-theory.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-modern-portfolio-theory.pdf)
 
 - Chapter 8 - Portfolio Backtesting: 
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-backtesting.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-backtesting.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-backtesting.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-backtesting.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-backtesting.pdf)
 
 - Chapter 9 - High-Order Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-high-order-portfolios.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-high-order-portfolios.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-high-order-portfolios.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-high-order-portfolios.pdf)
 
 - Chapter 10 - Portfolios with Alternative Risk Measures:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-alt-risk-portfolios.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-alt-risk-portfolios.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-alt-risk-portfolios.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-alt-risk-portfolios.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-alt-risk-portfolios.pdf)
 
 - Chapter 11 - Risk Parity Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-rpp.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-rpp.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-rpp.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-rpp.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-rpp.pdf)
 
 - Chapter 12 - Graph-Based Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-graph-portfolios.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-graph-portfolios.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-graph-portfolios.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-graph-portfolios.pdf)
 
 - Chapter 13 - Index Tracking Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-index-tracking.pdf),
   [R code <i class="fab fa-r-project"></i>](R-code/R-index-tracking.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-index-tracking.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-index-tracking.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-index-tracking.pdf)
 
 - Chapter 14 - Robust Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-robust-portfolios.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-robust-portfolios.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-robust-portfolios.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-robust-portfolios.pdf)
 
 - Chapter 15 - Pairs Trading Portfolios:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-pairs-trading.pdf),
-  [R code <i class="fab fa-r-project"></i>](R-code/R-pairs-trading.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-pairs-trading.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-pairs-trading.pdf)
 
 - Chapter 16 - Deep Learning Portfolios:
-  [slides <i class="fas fa-file-pdf"></i>](slides/slides-deep-portfolios.pdf)
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-deep-portfolios.pdf),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-deep-portfolios.pdf)
 
 
 
 ### Appendices
 - Appendix A - Convex Optimization Theory:
-  [slides <i class="fas fa-file-pdf"></i>](slides/slides-convex-optimization-theory.pdf)
+  [slides <i class="fas fa-file-pdf"></i>](slides/slides-convex-optimization-theory.pdf),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-convex-optimization-theory.pdf)
 
 - Appendix B - Optimization Algorithms:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-optimization-algorithms.pdf), 
-  [R code <i class="fab fa-r-project"></i>](R-code/R-optimization-algorithms.html)
+  [R code <i class="fab fa-r-project"></i>](R-code/R-optimization-algorithms.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-optimization-algorithms.pdf)
 
 
 
