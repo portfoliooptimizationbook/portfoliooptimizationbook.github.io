@@ -44,7 +44,9 @@ Work in progress, Python code coming up in the subsequent weeks...
 - Chapter 2 - Financial Data: Stylized Facts:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-stylized-facts.pdf), 
   [R code <i class="fab fa-r-project"></i>](R-code/R-stylized-facts.html),
-  [Python code <i class="fab fa-python"></i>](python-code/python-stylized-facts.html)
+  [Python code <i class="fab fa-python"></i>](python-code/python-stylized-facts.html),
+  [exercises <i class="fas fa-pencil-alt"></i>](exercises/exc-stylized-facts.pdf), 
+  [solutions <i class="fas fa-lightbulb"></i>](exercises/excsol-stylized-facts.pdf)
 
 - Chapter 3 - Financial Data: I.I.D. Modeling:
   [slides <i class="fas fa-file-pdf"></i>](slides/slides-data-iid.pdf),
