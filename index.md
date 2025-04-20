@@ -147,7 +147,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
 ### Appendices
 - Appendix A -- Convex Optimization Theory:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-convex-optimization-theory.pdf),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-convex-optimization-theory.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-convex-optimization-theory.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-convex-optimization-theory.pdf)
 
 - Appendix B -- Optimization Algorithms:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-optimization-algorithms.pdf), 
