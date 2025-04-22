@@ -36,7 +36,7 @@ For purchase here:
 [<i class="fas fa-book-reader"></i> Hugendubel](https://www.hugendubel.de/de/buch_gebunden/daniel_p_palomar-portfolio_optimization-49457055-produkt-details.html)
 
 
-This is the [<i class="fas fa-home"></i> homepage](https://portfoliooptimizationbook.com) for the [<i class="fas fa-chart-line"></i> Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises, and data.
+This is the [<i class="fas fa-home"></i> homepage](https://portfoliooptimizationbook.com) for the [<i class="fas fa-chart-line"></i> Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises with solutions, and data.
 
 
 To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage](https://github.com/portfoliooptimizationbook).
@@ -114,7 +114,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-rpp.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-rpp.html),
   [<i class="fab fa-python"></i> Python code](python-code/python-rpp.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-rpp.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-rpp.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-rpp.pdf)
 
 - Chapter 12 -- Graph-Based Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-graph-portfolios.pdf),
