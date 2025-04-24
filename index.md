@@ -136,7 +136,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
 - Chapter 15 -- Pairs Trading Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-pairs-trading.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-pairs-trading.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-pairs-trading.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-pairs-trading.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-pairs-trading.pdf)
 
 - Chapter 16 -- Deep Learning Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-deep-portfolios.pdf),
