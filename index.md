@@ -108,7 +108,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-alt-risk-portfolios.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-alt-risk-portfolios.html),
   [<i class="fab fa-python"></i> Python code](python-code/python-alt-risk-portfolios.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-alt-risk-portfolios.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-alt-risk-portfolios.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-alt-risk-portfolios.pdf)
 
 - Chapter 11 -- Risk Parity Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-rpp.pdf),
