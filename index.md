@@ -85,7 +85,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-portfolio-basics.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-portfolio-basics.html),
   [<i class="fab fa-python"></i> Python code](python-code/python-portfolio-basics.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-portfolio-basics.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-portfolio-basics.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-portfolio-basics.pdf)
 
 - Chapter 7 -- Modern Portfolio Theory: 
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-modern-portfolio-theory.pdf),
