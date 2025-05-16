@@ -92,7 +92,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-modern-portfolio-theory.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-modern-portfolio-theory.html),
   [<i class="fab fa-python"></i> Python code](python-code/python-modern-portfolio-theory.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-modern-portfolio-theory.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-modern-portfolio-theory.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-modern-portfolio-theory.pdf)
 
 - Chapter 8 -- Portfolio Backtesting: 
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-backtesting.pdf),
