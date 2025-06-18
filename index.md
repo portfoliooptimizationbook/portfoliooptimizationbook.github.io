@@ -145,8 +145,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
 
 - Chapter 16 -- Deep Learning Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-deep-portfolios.pdf),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-deep-portfolios.pdf)
-
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-deep-portfolios.pdf),
+  [<i class="fas fa-lightbulb"></i> solutions](https://github.com/ArnauVilella/portfoliooptimizaitonbook_ch16_solutions)
 
 
 
