@@ -130,7 +130,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-index-tracking.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-index-tracking.html),
   [<i class="fab fa-python"></i> Python code](python-code/python-index-tracking.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-index-tracking.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-index-tracking.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-index-tracking.pdf)
 
 - Chapter 14 -- Robust Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-robust-portfolios.pdf),
