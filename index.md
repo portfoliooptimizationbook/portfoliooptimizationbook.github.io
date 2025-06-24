@@ -72,7 +72,8 @@ Work in progress... exercises with solutions coming up in the subsequent weeks a
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-data-time-series.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-data-time-series.html),
   [<i class="fab fa-python"></i> Python code](python-code/python-data-time-series.html),
-  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-data-time-series.pdf)
+  [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-data-time-series.pdf), 
+  [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-data-time-series.pdf)
 
 - Chapter 5 -- Financial Data: Graphs:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-data-graphs.pdf),
