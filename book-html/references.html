@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>References | Portfolio Optimization</title>
+  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="References | Portfolio Optimization" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
+  <meta name="github-repo" content="portfoliooptimizationbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="References | Portfolio Optimization" />
+  
+  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
+  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+
+<meta name="author" content="Daniel P. Palomar" />
+
+
+<meta name="date" content="2025-05-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exercises-appB.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0.8em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Portfolio Optimization</a></li>
+<li><a href="https://www.danielppalomar.com/">by Daniel P. Palomar</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="frontmatter.html"><a href="frontmatter.html"><i class="fa fa-check"></i>Frontmatter</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1.1-what-is-portfolio-optimization.html"><a href="1.1-what-is-portfolio-optimization.html"><i class="fa fa-check"></i><b>1.1</b> What is Portfolio Optimization?</a></li>
+<li class="chapter" data-level="1.2" data-path="1.2-the-big-picture.html"><a href="1.2-the-big-picture.html"><i class="fa fa-check"></i><b>1.2</b> The Big Picture</a></li>
+<li class="chapter" data-level="1.3" data-path="1.3-outline-of-the-book.html"><a href="1.3-outline-of-the-book.html"><i class="fa fa-check"></i><b>1.3</b> Outline of the Book</a></li>
+<li class="chapter" data-level="1.4" data-path="1.4-comparison-with-existing-books.html"><a href="1.4-comparison-with-existing-books.html"><i class="fa fa-check"></i><b>1.4</b> Comparison with Existing Books</a></li>
+<li class="chapter" data-level="1.5" data-path="1.5-reading-guidelines.html"><a href="1.5-reading-guidelines.html"><i class="fa fa-check"></i><b>1.5</b> Reading Guidelines</a></li>
+<li class="chapter" data-level="1.6" data-path="1.6-notation.html"><a href="1.6-notation.html"><i class="fa fa-check"></i><b>1.6</b> Notation</a></li>
+<li class="chapter" data-level="1.7" data-path="1.7-website-for-the-book.html"><a href="1.7-website-for-the-book.html"><i class="fa fa-check"></i><b>1.7</b> Website for the Book</a></li>
+<li class="chapter" data-level="1.8" data-path="1.8-code-examples.html"><a href="1.8-code-examples.html"><i class="fa fa-check"></i><b>1.8</b> Code Examples</a></li>
+</ul></li>
+<li class="part"><span><b>I Financial Data</b></span></li>
+<li class="chapter" data-level="2" data-path="2-stylized-facts.html"><a href="2-stylized-facts.html"><i class="fa fa-check"></i><b>2</b> Financial Data: Stylized Facts</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-stylized-facts-1.html"><a href="2.1-stylized-facts-1.html"><i class="fa fa-check"></i><b>2.1</b> Stylized Facts</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-prices-returns.html"><a href="2.2-prices-returns.html"><i class="fa fa-check"></i><b>2.2</b> Prices and Returns</a></li>
+<li class="chapter" data-level="2.3" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><i class="fa fa-check"></i><b>2.3</b> Non-Gaussianity: Asymmetry and Heavy Tails</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html#asymmetry-or-skewness"><i class="fa fa-check"></i><b>2.3.1</b> Asymmetry or Skewness</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html#heavy-tailness-or-kurtosis"><i class="fa fa-check"></i><b>2.3.2</b> Heavy-Tailness or Kurtosis</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html#statistical-tests"><i class="fa fa-check"></i><b>2.3.3</b> Statistical Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2.4-temporal-structure.html"><a href="2.4-temporal-structure.html"><i class="fa fa-check"></i><b>2.4</b> Temporal Structure</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="2.4-temporal-structure.html"><a href="2.4-temporal-structure.html#linear-structure-in-returns"><i class="fa fa-check"></i><b>2.4.1</b> Linear Structure in Returns</a></li>
+<li class="chapter" data-level="2.4.2" data-path="2.4-temporal-structure.html"><a href="2.4-temporal-structure.html#nonlinear-structure-in-returns"><i class="fa fa-check"></i><b>2.4.2</b> Nonlinear Structure in Returns</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="2.5-stylized-asset-structure.html"><a href="2.5-stylized-asset-structure.html"><i class="fa fa-check"></i><b>2.5</b> Asset Structure</a></li>
+<li class="chapter" data-level="2.6" data-path="2.6-summary.html"><a href="2.6-summary.html"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch2.html"><a href="exercises-ch2.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-iid-modeling.html"><a href="3-iid-modeling.html"><i class="fa fa-check"></i><b>3</b> Financial Data: I.I.D. Modeling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-i.i.d.-model.html"><a href="3.1-i.i.d.-model.html"><i class="fa fa-check"></i><b>3.1</b> I.I.D. Model</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-sample-estimators.html"><a href="3.2-sample-estimators.html"><i class="fa fa-check"></i><b>3.2</b> Sample Estimators</a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html"><i class="fa fa-check"></i><b>3.3</b> Location Estimators</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#least-squares-estimator"><i class="fa fa-check"></i><b>3.3.1</b> Least Squares Estimator</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#median-estimator"><i class="fa fa-check"></i><b>3.3.2</b> Median Estimator</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#spatial-median-estimator"><i class="fa fa-check"></i><b>3.3.3</b> Spatial Median Estimator</a></li>
+<li class="chapter" data-level="3.3.4" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#numerical-experiments"><i class="fa fa-check"></i><b>3.3.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html"><i class="fa fa-check"></i><b>3.4</b> Gaussian ML Estimators</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html#preliminaries-on-ml-estimation"><i class="fa fa-check"></i><b>3.4.1</b> Preliminaries on ML Estimation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html#gaussian-ml-estimation"><i class="fa fa-check"></i><b>3.4.2</b> Gaussian ML Estimation</a></li>
+<li class="chapter" data-level="3.4.3" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html#numerical-experiments-1"><i class="fa fa-check"></i><b>3.4.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html"><i class="fa fa-check"></i><b>3.5</b> Heavy-Tailed ML Estimators</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#the-failure-of-gaussian-ml-estimators"><i class="fa fa-check"></i><b>3.5.1</b> The Failure of Gaussian ML Estimators</a></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#subsec-heavy-tail-ML"><i class="fa fa-check"></i><b>3.5.2</b> Heavy-Tailed ML Estimation</a></li>
+<li class="chapter" data-level="3.5.3" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#robust-estimators"><i class="fa fa-check"></i><b>3.5.3</b> Robust Estimators</a></li>
+<li class="chapter" data-level="3.5.4" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#numerical-experiments-2"><i class="fa fa-check"></i><b>3.5.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><i class="fa fa-check"></i><b>3.6</b> Prior Information: Shrinkage, Factor Models, and Black–Litterman</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html#shrinkage"><i class="fa fa-check"></i><b>3.6.1</b> Shrinkage</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html#factor-models"><i class="fa fa-check"></i><b>3.6.2</b> Factor Models</a></li>
+<li class="chapter" data-level="3.6.3" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html#blacklitterman-model"><i class="fa fa-check"></i><b>3.6.3</b> Black–Litterman Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="3.7-summary-1.html"><a href="3.7-summary-1.html"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch3.html"><a href="exercises-ch3.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-time-series-modeling.html"><a href="4-time-series-modeling.html"><i class="fa fa-check"></i><b>4</b> Financial Data: Time Series Modeling</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4.1-temporal-structure-1.html"><a href="4.1-temporal-structure-1.html"><i class="fa fa-check"></i><b>4.1</b> Temporal Structure</a></li>
+<li class="chapter" data-level="4.2" data-path="4.2-kalman.html"><a href="4.2-kalman.html"><i class="fa fa-check"></i><b>4.2</b> Kalman Filter</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-kalman.html"><a href="4.2-kalman.html#state-space-model"><i class="fa fa-check"></i><b>4.2.1</b> State-Space Model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="4.2-kalman.html"><a href="4.2-kalman.html#kalman-filtering-and-smoothing"><i class="fa fa-check"></i><b>4.2.2</b> Kalman Filtering and Smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html"><i class="fa fa-check"></i><b>4.3</b> Mean Modeling</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#MA"><i class="fa fa-check"></i><b>4.3.1</b> Moving Average (MA)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#EMA"><i class="fa fa-check"></i><b>4.3.2</b> EWMA</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#ARMA"><i class="fa fa-check"></i><b>4.3.3</b> ARMA Modeling</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#seasonality-decomposition"><i class="fa fa-check"></i><b>4.3.4</b> Seasonality Decomposition</a></li>
+<li class="chapter" data-level="4.3.5" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#Kalman-univariate-mean-modeling"><i class="fa fa-check"></i><b>4.3.5</b> Kalman Modeling</a></li>
+<li class="chapter" data-level="4.3.6" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#multivariate-mean-models"><i class="fa fa-check"></i><b>4.3.6</b> Extension to the Multivariate Case</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html"><i class="fa fa-check"></i><b>4.4</b> Volatility/Variance Modeling</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#MA-variance"><i class="fa fa-check"></i><b>4.4.1</b> Moving Average (MA)</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#EWMA-variance"><i class="fa fa-check"></i><b>4.4.2</b> EWMA</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#GARCH"><i class="fa fa-check"></i><b>4.4.3</b> GARCH Modeling</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#stochastic-volatility"><i class="fa fa-check"></i><b>4.4.4</b> Stochastic Volatility Modeling</a></li>
+<li class="chapter" data-level="4.4.5" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#Kalman-univariate-var-modeling"><i class="fa fa-check"></i><b>4.4.5</b> Kalman Modeling</a></li>
+<li class="chapter" data-level="4.4.6" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#multivariate-var-models"><i class="fa fa-check"></i><b>4.4.6</b> Extension to the Multivariate Case</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4.5-summary-2.html"><a href="4.5-summary-2.html"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch4.html"><a href="exercises-ch4.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-ch4.html"><a href="exercises-ch4.html#mean-modeling-1"><i class="fa fa-check"></i>Mean Modeling</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch4.html"><a href="exercises-ch4.html#volatility-envelope-modeling"><i class="fa fa-check"></i>Volatility Envelope Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-graph-modeling.html"><a href="5-graph-modeling.html"><i class="fa fa-check"></i><b>5</b> Financial Data: Graphs</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5.1-graphs.html"><a href="5.1-graphs.html"><i class="fa fa-check"></i><b>5.1</b> Graphs</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="5.1-graphs.html"><a href="5.1-graphs.html#terminology"><i class="fa fa-check"></i><b>5.1.1</b> Terminology</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5.1-graphs.html"><a href="5.1-graphs.html#graph-matrices"><i class="fa fa-check"></i><b>5.1.2</b> Graph Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html"><i class="fa fa-check"></i><b>5.2</b> Learning Graphs</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#learning-graphs-from-similarity-measures"><i class="fa fa-check"></i><b>5.2.1</b> Learning Graphs from Similarity Measures</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#smooth-graphs"><i class="fa fa-check"></i><b>5.2.2</b> Learning Graphs from Smooth Signals</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#GMRF-graphs"><i class="fa fa-check"></i><b>5.2.3</b> Learning Graphs from Graphical Model Networks</a></li>
+<li class="chapter" data-level="5.2.4" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#numerical-experiments-5"><i class="fa fa-check"></i><b>5.2.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html"><i class="fa fa-check"></i><b>5.3</b> Learning Structured Graphs</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html#formulations-low-rank"><i class="fa fa-check"></i><b>5.3.1</b> <span class="math inline">\(k\)</span>-Component Graphs</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html#formulations-bipartite"><i class="fa fa-check"></i><b>5.3.2</b> Bipartite Graphs</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html#numerical-experiments-6"><i class="fa fa-check"></i><b>5.3.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5.4-heavy-tail-graphs.html"><a href="5.4-heavy-tail-graphs.html"><i class="fa fa-check"></i><b>5.4</b> Learning Heavy-Tailed Graphs</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="5.4-heavy-tail-graphs.html"><a href="5.4-heavy-tail-graphs.html#from-gaussian-to-heavy-tailed-graphs"><i class="fa fa-check"></i><b>5.4.1</b> From Gaussian to Heavy-Tailed Graphs</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5.4-heavy-tail-graphs.html"><a href="5.4-heavy-tail-graphs.html#numerical-experiments-7"><i class="fa fa-check"></i><b>5.4.2</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5.5-dynamic-graphs.html"><a href="5.5-dynamic-graphs.html"><i class="fa fa-check"></i><b>5.5</b> Learning Time-Varying Graphs</a></li>
+<li class="chapter" data-level="5.6" data-path="5.6-summary-financial-graphs.html"><a href="5.6-summary-financial-graphs.html"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch5.html"><a href="exercises-ch5.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Portfolio Optimization</b></span></li>
+<li class="chapter" data-level="6" data-path="6-portfolio-101.html"><a href="6-portfolio-101.html"><i class="fa fa-check"></i><b>6</b> Portfolio Basics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html"><i class="fa fa-check"></i><b>6.1</b> Fundamentals</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#data-modeling"><i class="fa fa-check"></i><b>6.1.1</b> Data Modeling</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#portfolio-NAV"><i class="fa fa-check"></i><b>6.1.2</b> Portfolio Return and Net Asset Value (NAV)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#cum-PnL"><i class="fa fa-check"></i><b>6.1.3</b> Cumulative Return</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#transaction-cost"><i class="fa fa-check"></i><b>6.1.4</b> Transaction Costs</a></li>
+<li class="chapter" data-level="6.1.5" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#portfolio-rebalancing"><i class="fa fa-check"></i><b>6.1.5</b> Portfolio Rebalancing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html"><i class="fa fa-check"></i><b>6.2</b> Portfolio Constraints</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#long-only-or-no-shorting-constraint"><i class="fa fa-check"></i><b>6.2.1</b> Long-Only or No-Shorting Constraint</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#capital-budget-constraint"><i class="fa fa-check"></i><b>6.2.2</b> Capital Budget Constraint</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#holding-constraints"><i class="fa fa-check"></i><b>6.2.3</b> Holding Constraints</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#cardinality-constraint"><i class="fa fa-check"></i><b>6.2.4</b> Cardinality Constraint</a></li>
+<li class="chapter" data-level="6.2.5" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#turnover-constraint"><i class="fa fa-check"></i><b>6.2.5</b> Turnover Constraint</a></li>
+<li class="chapter" data-level="6.2.6" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#market-neutral-constraint"><i class="fa fa-check"></i><b>6.2.6</b> Market-Neutral constraint</a></li>
+<li class="chapter" data-level="6.2.7" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#dollar-neutral-constraint"><i class="fa fa-check"></i><b>6.2.7</b> Dollar-Neutral Constraint</a></li>
+<li class="chapter" data-level="6.2.8" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#diversification-constraint"><i class="fa fa-check"></i><b>6.2.8</b> Diversification Constraint</a></li>
+<li class="chapter" data-level="6.2.9" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#leverage-constraint"><i class="fa fa-check"></i><b>6.2.9</b> Leverage Constraint</a></li>
+<li class="chapter" data-level="6.2.10" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#margin-requirements"><i class="fa fa-check"></i><b>6.2.10</b> Margin Requirements</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html"><i class="fa fa-check"></i><b>6.3</b> Performance Measures</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#expected-return"><i class="fa fa-check"></i><b>6.3.1</b> Expected Return</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#volatility"><i class="fa fa-check"></i><b>6.3.2</b> Volatility</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#volatility-adjusted-returns"><i class="fa fa-check"></i><b>6.3.3</b> Volatility-Adjusted Returns</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#SR"><i class="fa fa-check"></i><b>6.3.4</b> Sharpe Ratio (SR)</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#information-ratio-ir"><i class="fa fa-check"></i><b>6.3.5</b> Information Ratio (IR)</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#downside-risk-and-semi-variance"><i class="fa fa-check"></i><b>6.3.6</b> Downside Risk and Semi-Variance</a></li>
+<li class="chapter" data-level="6.3.7" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#gainloss-ratio-glr"><i class="fa fa-check"></i><b>6.3.7</b> Gain–Loss Ratio (GLR)</a></li>
+<li class="chapter" data-level="6.3.8" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#sortino-ratio"><i class="fa fa-check"></i><b>6.3.8</b> Sortino Ratio</a></li>
+<li class="chapter" data-level="6.3.9" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#value-at-risk-var"><i class="fa fa-check"></i><b>6.3.9</b> Value-at-Risk (VaR)</a></li>
+<li class="chapter" data-level="6.3.10" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#conditional-value-at-risk-cvar"><i class="fa fa-check"></i><b>6.3.10</b> Conditional Value-at-Risk (CVaR)</a></li>
+<li class="chapter" data-level="6.3.11" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#drawdown"><i class="fa fa-check"></i><b>6.3.11</b> Drawdown</a></li>
+<li class="chapter" data-level="6.3.12" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#calmar-ratio-and-sterling-ratio"><i class="fa fa-check"></i><b>6.3.12</b> Calmar Ratio and Sterling Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html"><i class="fa fa-check"></i><b>6.4</b> Heuristic Portfolios</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#buy-and-hold-portfolio"><i class="fa fa-check"></i><b>6.4.1</b> Buy and Hold Portfolio</a></li>
+<li class="chapter" data-level="6.4.2" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#GMRP"><i class="fa fa-check"></i><b>6.4.2</b> Global Maximum Return Portfolio (GMRP)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#EWP"><i class="fa fa-check"></i><b>6.4.3</b> <span class="math inline">\(1/N\)</span> Portfolio</a></li>
+<li class="chapter" data-level="6.4.4" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#quintile-portfolio"><i class="fa fa-check"></i><b>6.4.4</b> Quintile Portfolio</a></li>
+<li class="chapter" data-level="6.4.5" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#experiments-heuristic-portfolios"><i class="fa fa-check"></i><b>6.4.5</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html"><i class="fa fa-check"></i><b>6.5</b> Risk-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#GMVP"><i class="fa fa-check"></i><b>6.5.1</b> Global Minimum Variance Portfolio (GMVP)</a></li>
+<li class="chapter" data-level="6.5.2" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#IVolP"><i class="fa fa-check"></i><b>6.5.2</b> Inverse Volatility Portfolio (IVolP)</a></li>
+<li class="chapter" data-level="6.5.3" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#risk-parity-portfolio-rpp"><i class="fa fa-check"></i><b>6.5.3</b> Risk Parity Portfolio (RPP)</a></li>
+<li class="chapter" data-level="6.5.4" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#most-diversified-portfolio-mdivp"><i class="fa fa-check"></i><b>6.5.4</b> Most Diversified Portfolio (MDivP)</a></li>
+<li class="chapter" data-level="6.5.5" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#maximum-decorrelation-portfolio-mdecp"><i class="fa fa-check"></i><b>6.5.5</b> Maximum Decorrelation Portfolio (MDecP)</a></li>
+<li class="chapter" data-level="6.5.6" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#numerical-experiments-8"><i class="fa fa-check"></i><b>6.5.6</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="6.6-summary-3.html"><a href="6.6-summary-3.html"><i class="fa fa-check"></i><b>6.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch6.html"><a href="exercises-ch6.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-MPT.html"><a href="7-MPT.html"><i class="fa fa-check"></i><b>7</b> Modern Portfolio Theory</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html"><i class="fa fa-check"></i><b>7.1</b> Mean–Variance Portfolio (MVP)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#return-risk-tradeoff"><i class="fa fa-check"></i><b>7.1.1</b> Return–Risk Trade-Off</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#mvp-formulation"><i class="fa fa-check"></i><b>7.1.2</b> MVP Formulation</a></li>
+<li class="chapter" data-level="7.1.3" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#mvp-as-a-regression"><i class="fa fa-check"></i><b>7.1.3</b> MVP as a Regression</a></li>
+<li class="chapter" data-level="7.1.4" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#MVP-with-many-constraints"><i class="fa fa-check"></i><b>7.1.4</b> MVP with Practical Constraints</a></li>
+<li class="chapter" data-level="7.1.5" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#MVP-heuristic-constraints"><i class="fa fa-check"></i><b>7.1.5</b> Improving the MVP with Heuristics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html"><i class="fa fa-check"></i><b>7.2</b> Maximum Sharpe Ratio Portfolio</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html#bisection-method"><i class="fa fa-check"></i><b>7.2.1</b> Bisection Method</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html#dinkelbach-method"><i class="fa fa-check"></i><b>7.2.2</b> Dinkelbach Method</a></li>
+<li class="chapter" data-level="7.2.3" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html#schaible-transform-method"><i class="fa fa-check"></i><b>7.2.3</b> Schaible Transform Method</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="7.3-utility-based-portfolios.html"><a href="7.3-utility-based-portfolios.html"><i class="fa fa-check"></i><b>7.3</b> Utility-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="7.3-utility-based-portfolios.html"><a href="7.3-utility-based-portfolios.html#kelly-portfolio"><i class="fa fa-check"></i><b>7.3.1</b> Kelly Criterion Portfolio</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7.3-utility-based-portfolios.html"><a href="7.3-utility-based-portfolios.html#expected-utility-theory"><i class="fa fa-check"></i><b>7.3.2</b> Expected Utility Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7.4-universal-algorithm.html"><a href="7.4-universal-algorithm.html"><i class="fa fa-check"></i><b>7.4</b> Universal Algorithm</a></li>
+<li class="chapter" data-level="7.5" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html"><i class="fa fa-check"></i><b>7.5</b> Drawbacks</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html#noisy-estimation-of-the-expected-returns"><i class="fa fa-check"></i><b>7.5.1</b> Noisy Estimation of the Expected Returns</a></li>
+<li class="chapter" data-level="7.5.2" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html#variance-or-volatility-as-measure-of-risk"><i class="fa fa-check"></i><b>7.5.2</b> Variance or Volatility as Measure of Risk</a></li>
+<li class="chapter" data-level="7.5.3" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html#single-number-measure-of-risk"><i class="fa fa-check"></i><b>7.5.3</b> Single-Number Measure of Risk</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="7.6-summary-4.html"><a href="7.6-summary-4.html"><i class="fa fa-check"></i><b>7.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch7.html"><a href="exercises-ch7.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-backtesting.html"><a href="8-backtesting.html"><i class="fa fa-check"></i><b>8</b> Portfolio Backtesting</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8.1-typical-backtest.html"><a href="8.1-typical-backtest.html"><i class="fa fa-check"></i><b>8.1</b> A Typical Backtest</a></li>
+<li class="chapter" data-level="8.2" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html"><i class="fa fa-check"></i><b>8.2</b> The Seven Sins of Quantitative Investing</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-1-survivorship-bias"><i class="fa fa-check"></i><b>8.2.1</b> Sin #1: Survivorship Bias</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-2-look-ahead-bias"><i class="fa fa-check"></i><b>8.2.2</b> Sin #2: Look-Ahead Bias</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-3-storytelling-bias"><i class="fa fa-check"></i><b>8.2.3</b> Sin #3: Storytelling Bias</a></li>
+<li class="chapter" data-level="8.2.4" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-4-overfitting-and-data-snooping-bias"><i class="fa fa-check"></i><b>8.2.4</b> Sin #4: Overfitting and Data Snooping Bias</a></li>
+<li class="chapter" data-level="8.2.5" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-5-turnover-and-transaction-cost"><i class="fa fa-check"></i><b>8.2.5</b> Sin #5: Turnover and Transaction Cost</a></li>
+<li class="chapter" data-level="8.2.6" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-6-outliers"><i class="fa fa-check"></i><b>8.2.6</b> Sin #6: Outliers</a></li>
+<li class="chapter" data-level="8.2.7" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-7-asymmetric-pattern-and-shorting-cost"><i class="fa fa-check"></i><b>8.2.7</b> Sin #7: Asymmetric Pattern and Shorting Cost</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html"><i class="fa fa-check"></i><b>8.3</b> The Dangers of Backtesting</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#backtest-overfitting"><i class="fa fa-check"></i><b>8.3.1</b> Backtest Overfitting</a></li>
+<li class="chapter" data-level="8.3.2" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#p-hacking"><i class="fa fa-check"></i><b>8.3.2</b> <span class="math inline">\(p\)</span>-Hacking</a></li>
+<li class="chapter" data-level="8.3.3" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#backtests-are-not-experiments"><i class="fa fa-check"></i><b>8.3.3</b> Backtests Are Not Experiments</a></li>
+<li class="chapter" data-level="8.3.4" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#the-paradox-of-flawless-backtests"><i class="fa fa-check"></i><b>8.3.4</b> The Paradox of Flawless Backtests</a></li>
+<li class="chapter" data-level="8.3.5" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#limitations-of-backtesting-insights"><i class="fa fa-check"></i><b>8.3.5</b> Limitations of Backtesting Insights</a></li>
+<li class="chapter" data-level="8.3.6" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#what-is-the-point-of-backtesting-then"><i class="fa fa-check"></i><b>8.3.6</b> What is the Point of Backtesting Then?</a></li>
+<li class="chapter" data-level="8.3.7" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#recommendations-to-avoid-overfitting"><i class="fa fa-check"></i><b>8.3.7</b> Recommendations to Avoid Overfitting</a></li>
+<li class="chapter" data-level="8.3.8" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#mathematical-tools-to-combat-overfitting"><i class="fa fa-check"></i><b>8.3.8</b> Mathematical Tools to Combat Overfitting</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html"><i class="fa fa-check"></i><b>8.4</b> Backtesting with Historical Market Data</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#vanilla-backtest"><i class="fa fa-check"></i><b>8.4.1</b> Vanilla Backtest</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#walk-forward-backtest"><i class="fa fa-check"></i><b>8.4.2</b> Walk-Forward Backtest</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#k-fold-cross-validation-backtest"><i class="fa fa-check"></i><b>8.4.3</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation Backtest</a></li>
+<li class="chapter" data-level="8.4.4" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#multiple-backtests"><i class="fa fa-check"></i><b>8.4.4</b> Multiple Randomized Backtests</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html"><i class="fa fa-check"></i><b>8.5</b> Backtesting with Synthetic Data</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html#i.i.d.-assumption"><i class="fa fa-check"></i><b>8.5.1</b> I.I.D. Assumption</a></li>
+<li class="chapter" data-level="8.5.2" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html#temporal-structure-2"><i class="fa fa-check"></i><b>8.5.2</b> Temporal Structure</a></li>
+<li class="chapter" data-level="8.5.3" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html#stress-tests"><i class="fa fa-check"></i><b>8.5.3</b> Stress Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="8.6-summary-backtest.html"><a href="8.6-summary-backtest.html"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch8.html"><a href="exercises-ch8.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-high-order-portfolios.html"><a href="9-high-order-portfolios.html"><i class="fa fa-check"></i><b>9</b> High-Order Portfolios</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9.1-introduction.html"><a href="9.1-introduction.html"><i class="fa fa-check"></i><b>9.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="9.1-introduction.html"><a href="9.1-introduction.html#high-order-portfolios-1"><i class="fa fa-check"></i><b>9.1.1</b> High-Order Portfolios</a></li>
+<li class="chapter" data-level="9.1.2" data-path="9.1-introduction.html"><a href="9.1-introduction.html#historical-perspective"><i class="fa fa-check"></i><b>9.1.2</b> Historical Perspective</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html"><i class="fa fa-check"></i><b>9.2</b> High-Order Moments</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#nonparametric-case"><i class="fa fa-check"></i><b>9.2.1</b> Nonparametric Case</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#structured-moments"><i class="fa fa-check"></i><b>9.2.2</b> Structured Moments</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#parametric-case"><i class="fa fa-check"></i><b>9.2.3</b> Parametric Case</a></li>
+<li class="chapter" data-level="9.2.4" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#l-moments"><i class="fa fa-check"></i><b>9.2.4</b> L-Moments</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html"><i class="fa fa-check"></i><b>9.3</b> Portfolio Formulations</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#mvsk-portfolios"><i class="fa fa-check"></i><b>9.3.1</b> MVSK Portfolios</a></li>
+<li class="chapter" data-level="9.3.2" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#making-portfolios-efficient"><i class="fa fa-check"></i><b>9.3.2</b> Making Portfolios Efficient</a></li>
+<li class="chapter" data-level="9.3.3" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#portfolio-tilting"><i class="fa fa-check"></i><b>9.3.3</b> Portfolio Tilting</a></li>
+<li class="chapter" data-level="9.3.4" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#polynomial-goal-programming-mvsk-portfolio"><i class="fa fa-check"></i><b>9.3.4</b> Polynomial Goal Programming MVSK Portfolio</a></li>
+<li class="chapter" data-level="9.3.5" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#l-moment-portfolios"><i class="fa fa-check"></i><b>9.3.5</b> L-Moment Portfolios</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html"><i class="fa fa-check"></i><b>9.4</b> Algorithms</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html#via-the-sca-framework"><i class="fa fa-check"></i><b>9.4.1</b> Via the SCA Framework</a></li>
+<li class="chapter" data-level="9.4.2" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html#via-the-mm-framework"><i class="fa fa-check"></i><b>9.4.2</b> Via the MM Framework</a></li>
+<li class="chapter" data-level="9.4.3" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html#numerical-experiments-9"><i class="fa fa-check"></i><b>9.4.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="9.5-summary-5.html"><a href="9.5-summary-5.html"><i class="fa fa-check"></i><b>9.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch9.html"><a href="exercises-ch9.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-alternative-risk-measure-portfolios.html"><a href="10-alternative-risk-measure-portfolios.html"><i class="fa fa-check"></i><b>10</b> Portfolios with Alternative Risk Measures</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10.1-introduction-1.html"><a href="10.1-introduction-1.html"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html"><i class="fa fa-check"></i><b>10.2</b> Alternative Risk Measures</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html#downside-risk"><i class="fa fa-check"></i><b>10.2.1</b> Downside Risk</a></li>
+<li class="chapter" data-level="10.2.2" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html#tail-measures-var-cvar-and-evar"><i class="fa fa-check"></i><b>10.2.2</b> Tail Measures: VaR, CVaR, and EVaR</a></li>
+<li class="chapter" data-level="10.2.3" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html#drawdown-1"><i class="fa fa-check"></i><b>10.2.3</b> Drawdown</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html"><i class="fa fa-check"></i><b>10.3</b> Downside Risk Portfolios</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html#formulation"><i class="fa fa-check"></i><b>10.3.1</b> Formulation</a></li>
+<li class="chapter" data-level="10.3.2" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html#semi-variance-portfolios"><i class="fa fa-check"></i><b>10.3.2</b> Semi-variance Portfolios</a></li>
+<li class="chapter" data-level="10.3.3" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html#numerical-experiments-10"><i class="fa fa-check"></i><b>10.3.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html"><i class="fa fa-check"></i><b>10.4</b> Tail-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#formulation-for-cvar-portfolios"><i class="fa fa-check"></i><b>10.4.1</b> Formulation for CVaR Portfolios</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#formulation-for-evar-portfolios"><i class="fa fa-check"></i><b>10.4.2</b> Formulation for EVaR Portfolios</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#formulation-for-the-worst-case-portfolio"><i class="fa fa-check"></i><b>10.4.3</b> Formulation for the Worst-Case Portfolio</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#numerical-experiments-11"><i class="fa fa-check"></i><b>10.4.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html"><i class="fa fa-check"></i><b>10.5</b> Drawdown Portfolios</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#formulation-for-the-max-dd-portfolio"><i class="fa fa-check"></i><b>10.5.1</b> Formulation for the Max-DD Portfolio</a></li>
+<li class="chapter" data-level="10.5.2" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#formulation-for-the-ave-dd-portfolio"><i class="fa fa-check"></i><b>10.5.2</b> Formulation for the Ave-DD Portfolio</a></li>
+<li class="chapter" data-level="10.5.3" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#formulation-for-the-cvar-dd-portfolio"><i class="fa fa-check"></i><b>10.5.3</b> Formulation for the CVaR-DD Portfolio</a></li>
+<li class="chapter" data-level="10.5.4" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#numerical-experiments-12"><i class="fa fa-check"></i><b>10.5.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="10.6-summary-6.html"><a href="10.6-summary-6.html"><i class="fa fa-check"></i><b>10.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch10.html"><a href="exercises-ch10.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-RPP.html"><a href="11-RPP.html"><i class="fa fa-check"></i><b>11</b> Risk Parity Portfolios</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="11.1-introduction-2.html"><a href="11.1-introduction-2.html"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2" data-path="11.2-from-dollar-to-risk-diversification.html"><a href="11.2-from-dollar-to-risk-diversification.html"><i class="fa fa-check"></i><b>11.2</b> From Dollar to Risk Diversification</a></li>
+<li class="chapter" data-level="11.3" data-path="11.3-risk-contributions.html"><a href="11.3-risk-contributions.html"><i class="fa fa-check"></i><b>11.3</b> Risk Contributions</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="11.3-risk-contributions.html"><a href="11.3-risk-contributions.html#volatility-risk-contributions"><i class="fa fa-check"></i><b>11.3.1</b> Volatility Risk Contributions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html"><i class="fa fa-check"></i><b>11.4</b> Problem Formulation</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html#formulation-with-shorting"><i class="fa fa-check"></i><b>11.4.1</b> Formulation with Shorting</a></li>
+<li class="chapter" data-level="11.4.2" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html#formulation-with-group-risk-parity"><i class="fa fa-check"></i><b>11.4.2</b> Formulation with Group Risk Parity</a></li>
+<li class="chapter" data-level="11.4.3" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html#formulation-with-risk-factors"><i class="fa fa-check"></i><b>11.4.3</b> Formulation with Risk Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="11.5-naive-diagonal-formulation.html"><a href="11.5-naive-diagonal-formulation.html"><i class="fa fa-check"></i><b>11.5</b> Naive Diagonal Formulation</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="11.5-naive-diagonal-formulation.html"><a href="11.5-naive-diagonal-formulation.html#illustrative-example"><i class="fa fa-check"></i><b>11.5.1</b> Illustrative Example</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html"><i class="fa fa-check"></i><b>11.6</b> Vanilla Convex Formulations</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#direct-resolution-via-root-finding"><i class="fa fa-check"></i><b>11.6.1</b> Direct Resolution via Root Finding</a></li>
+<li class="chapter" data-level="11.6.2" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#formulations"><i class="fa fa-check"></i><b>11.6.2</b> Formulations</a></li>
+<li class="chapter" data-level="11.6.3" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#algorithms"><i class="fa fa-check"></i><b>11.6.3</b> Algorithms</a></li>
+<li class="chapter" data-level="11.6.4" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#numerical-experiments-13"><i class="fa fa-check"></i><b>11.6.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html"><i class="fa fa-check"></i><b>11.7</b> General Nonconvex Formulations</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html#formulations-1"><i class="fa fa-check"></i><b>11.7.1</b> Formulations</a></li>
+<li class="chapter" data-level="11.7.2" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html#algorithms-1"><i class="fa fa-check"></i><b>11.7.2</b> Algorithms</a></li>
+<li class="chapter" data-level="11.7.3" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html#numerical-experiments-14"><i class="fa fa-check"></i><b>11.7.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="11.8-summary-rpp.html"><a href="11.8-summary-rpp.html"><i class="fa fa-check"></i><b>11.8</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch11.html"><a href="exercises-ch11.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-graph-based-portfolios.html"><a href="12-graph-based-portfolios.html"><i class="fa fa-check"></i><b>12</b> Graph-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="12.1-introduction-3.html"><a href="12.1-introduction-3.html"><i class="fa fa-check"></i><b>12.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="12.1-introduction-3.html"><a href="12.1-introduction-3.html#graphs-and-distance-matrices"><i class="fa fa-check"></i><b>12.1.1</b> Graphs and Distance Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html"><i class="fa fa-check"></i><b>12.2</b> Hierarchical Clustering and Dendrograms</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html#basic-procedure"><i class="fa fa-check"></i><b>12.2.1</b> Basic Procedure</a></li>
+<li class="chapter" data-level="12.2.2" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html#number-of-clusters"><i class="fa fa-check"></i><b>12.2.2</b> Number of Clusters</a></li>
+<li class="chapter" data-level="12.2.3" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html#quasi-diagonalization-of-correlation-matrix"><i class="fa fa-check"></i><b>12.2.3</b> Quasi-diagonalization of Correlation Matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html"><i class="fa fa-check"></i><b>12.3</b> Hierarchical Clustering-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#hierarchical-1overN"><i class="fa fa-check"></i><b>12.3.1</b> Hierarchical <span class="math inline">\(1/N\)</span> Portfolio</a></li>
+<li class="chapter" data-level="12.3.2" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#HRP"><i class="fa fa-check"></i><b>12.3.2</b> Hierarchical Risk Parity (HRP) Portfolio</a></li>
+<li class="chapter" data-level="12.3.3" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#hierarchical-equal-risk-contribution-herc-portfolio"><i class="fa fa-check"></i><b>12.3.3</b> Hierarchical Equal Risk Contribution (HERC) Portfolio</a></li>
+<li class="chapter" data-level="12.3.4" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#HRP-vs-GMVP"><i class="fa fa-check"></i><b>12.3.4</b> From Portfolio Risk Minimization to Hierarchical Portfolios</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html"><i class="fa fa-check"></i><b>12.4</b> Numerical Experiments</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html#splitting-bisection-vs.-dendrogram"><i class="fa fa-check"></i><b>12.4.1</b> Splitting: Bisection vs. Dendrogram</a></li>
+<li class="chapter" data-level="12.4.2" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html#graph-estimation-simple-vs.-sophisticated"><i class="fa fa-check"></i><b>12.4.2</b> Graph Estimation: Simple vs. Sophisticated</a></li>
+<li class="chapter" data-level="12.4.3" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html#final-comparison"><i class="fa fa-check"></i><b>12.4.3</b> Final Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="12.5-summary-7.html"><a href="12.5-summary-7.html"><i class="fa fa-check"></i><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch12.html"><a href="exercises-ch12.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-index-tracking.html"><a href="13-index-tracking.html"><i class="fa fa-check"></i><b>13</b> Index Tracking Portfolios</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html"><i class="fa fa-check"></i><b>13.1</b> Active vs. Passive Strategies</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html#beating-the-market"><i class="fa fa-check"></i><b>13.1.1</b> Beating the Market</a></li>
+<li class="chapter" data-level="13.1.2" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html#what-is-a-financial-index"><i class="fa fa-check"></i><b>13.1.2</b> What is a Financial Index?</a></li>
+<li class="chapter" data-level="13.1.3" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html#index-tracking-1"><i class="fa fa-check"></i><b>13.1.3</b> Index Tracking</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html"><i class="fa fa-check"></i><b>13.2</b> Sparse Regression</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#problem-formulation-1"><i class="fa fa-check"></i><b>13.2.1</b> Problem Formulation</a></li>
+<li class="chapter" data-level="13.2.2" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#methods-for-sparse-regression"><i class="fa fa-check"></i><b>13.2.2</b> Methods for Sparse Regression</a></li>
+<li class="chapter" data-level="13.2.3" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#preliminaries-on-mm-1"><i class="fa fa-check"></i><b>13.2.3</b> Preliminaries on MM</a></li>
+<li class="chapter" data-level="13.2.4" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#iterative-reweighted-ell_1-norm-minimization"><i class="fa fa-check"></i><b>13.2.4</b> Iterative Reweighted <span class="math inline">\(\ell_1\)</span>-Norm Minimization</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html"><i class="fa fa-check"></i><b>13.3</b> Sparse Index Tracking</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#tracking-error"><i class="fa fa-check"></i><b>13.3.1</b> Tracking Error</a></li>
+<li class="chapter" data-level="13.3.2" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#problem-formulation-2"><i class="fa fa-check"></i><b>13.3.2</b> Problem Formulation</a></li>
+<li class="chapter" data-level="13.3.3" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#methods-for-sparse-index-tracking"><i class="fa fa-check"></i><b>13.3.3</b> Methods for Sparse Index Tracking</a></li>
+<li class="chapter" data-level="13.3.4" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#numerical-experiments-15"><i class="fa fa-check"></i><b>13.3.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html"><i class="fa fa-check"></i><b>13.4</b> Enhanced Index Tracking</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#alternative-tracking-error-measures"><i class="fa fa-check"></i><b>13.4.1</b> Alternative Tracking Error Measures</a></li>
+<li class="chapter" data-level="13.4.2" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#robust-tracking-error-measures"><i class="fa fa-check"></i><b>13.4.2</b> Robust Tracking Error Measures</a></li>
+<li class="chapter" data-level="13.4.3" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#holding-constraints-1"><i class="fa fa-check"></i><b>13.4.3</b> Holding Constraints</a></li>
+<li class="chapter" data-level="13.4.4" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#group-sparsity"><i class="fa fa-check"></i><b>13.4.4</b> Group Sparsity</a></li>
+<li class="chapter" data-level="13.4.5" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#numerical-experiments-16"><i class="fa fa-check"></i><b>13.4.5</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html"><i class="fa fa-check"></i><b>13.5</b> Automatic Sparsity Control</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html#false-discovery-rate-fdr"><i class="fa fa-check"></i><b>13.5.1</b> False Discovery Rate (FDR)</a></li>
+<li class="chapter" data-level="13.5.2" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html#fdr-for-index-tracking"><i class="fa fa-check"></i><b>13.5.2</b> FDR for Index Tracking</a></li>
+<li class="chapter" data-level="13.5.3" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html#numerical-experiments-17"><i class="fa fa-check"></i><b>13.5.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="13.6-summary-8.html"><a href="13.6-summary-8.html"><i class="fa fa-check"></i><b>13.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch13.html"><a href="exercises-ch13.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="14-robust-portfolios.html"><a href="14-robust-portfolios.html"><i class="fa fa-check"></i><b>14</b> Robust Portfolios</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="14.1-introduction-4.html"><a href="14.1-introduction-4.html"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.2" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html"><i class="fa fa-check"></i><b>14.2</b> Robust Portfolio Optimization</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html#robust-optimization"><i class="fa fa-check"></i><b>14.2.1</b> Robust Optimization</a></li>
+<li class="chapter" data-level="14.2.2" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html#robust-worst-case-portfolios"><i class="fa fa-check"></i><b>14.2.2</b> Robust Worst-Case Portfolios</a></li>
+<li class="chapter" data-level="14.2.3" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html#numerical-experiments-18"><i class="fa fa-check"></i><b>14.2.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html"><i class="fa fa-check"></i><b>14.3</b> Portfolio Resampling</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html#resampling-methods"><i class="fa fa-check"></i><b>14.3.1</b> Resampling Methods</a></li>
+<li class="chapter" data-level="14.3.2" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html#portfolio-resampling-1"><i class="fa fa-check"></i><b>14.3.2</b> Portfolio Resampling</a></li>
+<li class="chapter" data-level="14.3.3" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html#numerical-experiments-19"><i class="fa fa-check"></i><b>14.3.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="14.4-summary-robust-portfolios.html"><a href="14.4-summary-robust-portfolios.html"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch14.html"><a href="exercises-ch14.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-pairs-trading.html"><a href="15-pairs-trading.html"><i class="fa fa-check"></i><b>15</b> Pairs Trading Portfolios</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="15.1-mean-reversion.html"><a href="15.1-mean-reversion.html"><i class="fa fa-check"></i><b>15.1</b> Mean Reversion</a></li>
+<li class="chapter" data-level="15.2" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html"><i class="fa fa-check"></i><b>15.2</b> Cointegration and Correlation</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html#cointegration"><i class="fa fa-check"></i><b>15.2.1</b> Cointegration</a></li>
+<li class="chapter" data-level="15.2.2" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html#correlation"><i class="fa fa-check"></i><b>15.2.2</b> Correlation</a></li>
+<li class="chapter" data-level="15.2.3" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html#correlation-vs.-cointegration"><i class="fa fa-check"></i><b>15.2.3</b> Correlation vs. Cointegration</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
+<li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html"><i class="fa fa-check"></i><b>15.4</b> Discovering Cointegrated Pairs</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#prescreening"><i class="fa fa-check"></i><b>15.4.1</b> Prescreening</a></li>
+<li class="chapter" data-level="15.4.2" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#cointegration-tests"><i class="fa fa-check"></i><b>15.4.2</b> Cointegration Tests</a></li>
+<li class="chapter" data-level="15.4.3" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#cointegration-of-more-than-two-time-series"><i class="fa fa-check"></i><b>15.4.3</b> Cointegration of More Than Two Time Series</a></li>
+<li class="chapter" data-level="15.4.4" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#are-cointegrated-pairs-persistent"><i class="fa fa-check"></i><b>15.4.4</b> Are Cointegrated Pairs Persistent?</a></li>
+<li class="chapter" data-level="15.4.5" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#numerical-experiments-20"><i class="fa fa-check"></i><b>15.4.5</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html"><i class="fa fa-check"></i><b>15.5</b> Trading the Spread</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html#trading-strategies"><i class="fa fa-check"></i><b>15.5.1</b> Trading Strategies</a></li>
+<li class="chapter" data-level="15.5.2" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html#optimizing-the-threshold"><i class="fa fa-check"></i><b>15.5.2</b> Optimizing the Threshold</a></li>
+<li class="chapter" data-level="15.5.3" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html#numerical-experiments-21"><i class="fa fa-check"></i><b>15.5.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html"><i class="fa fa-check"></i><b>15.6</b> Kalman Filtering for Pairs Trading</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#spread-modeling-via-least-squares"><i class="fa fa-check"></i><b>15.6.1</b> Spread Modeling via Least Squares</a></li>
+<li class="chapter" data-level="15.6.2" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#primer-on-the-kalman-filter"><i class="fa fa-check"></i><b>15.6.2</b> Primer on the Kalman Filter</a></li>
+<li class="chapter" data-level="15.6.3" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#spread-modeling-via-kalman"><i class="fa fa-check"></i><b>15.6.3</b> Spread Modeling via Kalman</a></li>
+<li class="chapter" data-level="15.6.4" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#numerical-experiments-22"><i class="fa fa-check"></i><b>15.6.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="15.7-statarb.html"><a href="15.7-statarb.html"><i class="fa fa-check"></i><b>15.7</b> Statistical Arbitrage</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="15.7-statarb.html"><a href="15.7-statarb.html#least-squares"><i class="fa fa-check"></i><b>15.7.1</b> Least Squares</a></li>
+<li class="chapter" data-level="15.7.2" data-path="15.7-statarb.html"><a href="15.7-statarb.html#vecm-1"><i class="fa fa-check"></i><b>15.7.2</b> VECM</a></li>
+<li class="chapter" data-level="15.7.3" data-path="15.7-statarb.html"><a href="15.7-statarb.html#optimum-mean-reverting-portfolio"><i class="fa fa-check"></i><b>15.7.3</b> Optimum Mean-Reverting Portfolio</a></li>
+<li class="chapter" data-level="15.7.4" data-path="15.7-statarb.html"><a href="15.7-statarb.html#numerical-experiments-23"><i class="fa fa-check"></i><b>15.7.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="15.8-summary-9.html"><a href="15.8-summary-9.html"><i class="fa fa-check"></i><b>15.8</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch15.html"><a href="exercises-ch15.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="16-DL-portfolios.html"><a href="16-DL-portfolios.html"><i class="fa fa-check"></i><b>16</b> Deep Learning Portfolios</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="16.1-ML.html"><a href="16.1-ML.html"><i class="fa fa-check"></i><b>16.1</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="16.1-ML.html"><a href="16.1-ML.html#black-box-modeling"><i class="fa fa-check"></i><b>16.1.1</b> Black-Box Modeling</a></li>
+<li class="chapter" data-level="16.1.2" data-path="16.1-ML.html"><a href="16.1-ML.html#measuring-performance"><i class="fa fa-check"></i><b>16.1.2</b> Measuring Performance</a></li>
+<li class="chapter" data-level="16.1.3" data-path="16.1-ML.html"><a href="16.1-ML.html#learning-the-model"><i class="fa fa-check"></i><b>16.1.3</b> Learning the Model</a></li>
+<li class="chapter" data-level="16.1.4" data-path="16.1-ML.html"><a href="16.1-ML.html#types-of-ml-models"><i class="fa fa-check"></i><b>16.1.4</b> Types of ML Models</a></li>
+<li class="chapter" data-level="16.1.5" data-path="16.1-ML.html"><a href="16.1-ML.html#ML-in-finance"><i class="fa fa-check"></i><b>16.1.5</b> Applications of ML in Finance</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="16.2-DL.html"><a href="16.2-DL.html"><i class="fa fa-check"></i><b>16.2</b> Deep Learning</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="16.2-DL.html"><a href="16.2-DL.html#historical-snapshot"><i class="fa fa-check"></i><b>16.2.1</b> Historical Snapshot</a></li>
+<li class="chapter" data-level="16.2.2" data-path="16.2-DL.html"><a href="16.2-DL.html#perceptron-and-sigmoid-neuron"><i class="fa fa-check"></i><b>16.2.2</b> Perceptron and Sigmoid Neuron</a></li>
+<li class="chapter" data-level="16.2.3" data-path="16.2-DL.html"><a href="16.2-DL.html#neural-networks"><i class="fa fa-check"></i><b>16.2.3</b> Neural Networks</a></li>
+<li class="chapter" data-level="16.2.4" data-path="16.2-DL.html"><a href="16.2-DL.html#learning-via-backpropagation"><i class="fa fa-check"></i><b>16.2.4</b> Learning via Backpropagation</a></li>
+<li class="chapter" data-level="16.2.5" data-path="16.2-DL.html"><a href="16.2-DL.html#deep-learning-architectures"><i class="fa fa-check"></i><b>16.2.5</b> Deep Learning Architectures</a></li>
+<li class="chapter" data-level="16.2.6" data-path="16.2-DL.html"><a href="16.2-DL.html#applications-of-deep-learning-in-finance"><i class="fa fa-check"></i><b>16.2.6</b> Applications of Deep Learning in Finance</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html"><i class="fa fa-check"></i><b>16.3</b> Deep Learning for Portfolio Design</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#challenges"><i class="fa fa-check"></i><b>16.3.1</b> Challenges</a></li>
+<li class="chapter" data-level="16.3.2" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#standard-time-series-forecasting"><i class="fa fa-check"></i><b>16.3.2</b> Standard Time Series Forecasting</a></li>
+<li class="chapter" data-level="16.3.3" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#portfolio-based-time-series-forecasting"><i class="fa fa-check"></i><b>16.3.3</b> Portfolio-Based Time Series Forecasting</a></li>
+<li class="chapter" data-level="16.3.4" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#end-to-end-DL"><i class="fa fa-check"></i><b>16.3.4</b> End-to-End Portfolio Design</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html"><i class="fa fa-check"></i><b>16.4</b> Deep Learning Portfolio Case Studies</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#lstm-for-financial-time-series-forecasting"><i class="fa fa-check"></i><b>16.4.1</b> LSTM for Financial Time Series Forecasting</a></li>
+<li class="chapter" data-level="16.4.2" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#financial-time-series-forecasting-integrated-with-portfolio-optimization"><i class="fa fa-check"></i><b>16.4.2</b> Financial Time Series Forecasting Integrated with Portfolio Optimization</a></li>
+<li class="chapter" data-level="16.4.3" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#end-to-end-nn-based-portfolio"><i class="fa fa-check"></i><b>16.4.3</b> End-to-End NN-Based Portfolio</a></li>
+<li class="chapter" data-level="16.4.4" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#end-to-end-dl-based-portfolio"><i class="fa fa-check"></i><b>16.4.4</b> End-to-End DL-Based Portfolio</a></li>
+<li class="chapter" data-level="16.4.5" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#end-to-end-deep-reinforcement-learning-portfolio"><i class="fa fa-check"></i><b>16.4.5</b> End-to-End Deep Reinforcement Learning Portfolio</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="16.5-summary-10.html"><a href="16.5-summary-10.html"><i class="fa fa-check"></i><b>16.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#machine-learning"><i class="fa fa-check"></i>Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#deep-learning"><i class="fa fa-check"></i>Deep Learning</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#machine-learning-for-finance"><i class="fa fa-check"></i>Machine Learning for Finance</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#deep-learning-for-finance"><i class="fa fa-check"></i>Deep Learning for Finance</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="A-convex-optimization.html"><a href="A-convex-optimization.html"><i class="fa fa-check"></i><b>A</b> Convex Optimization Theory</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html"><i class="fa fa-check"></i><b>A.1</b> Optimization Problems</a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html#definitions"><i class="fa fa-check"></i><b>A.1.1</b> Definitions</a></li>
+<li class="chapter" data-level="A.1.2" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html#solving-optimization-problems"><i class="fa fa-check"></i><b>A.1.2</b> Solving Optimization Problems</a></li>
+<li class="chapter" data-level="A.1.3" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html#illustrative-example-3"><i class="fa fa-check"></i><b>A.1.3</b> Illustrative Example</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html"><i class="fa fa-check"></i><b>A.2</b> Convex Sets</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html#definitions-1"><i class="fa fa-check"></i><b>A.2.1</b> Definitions</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html#elementary-convex-sets"><i class="fa fa-check"></i><b>A.2.2</b> Elementary Convex Sets</a></li>
+<li class="chapter" data-level="A.2.3" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html#operations-that-preserve-convexity"><i class="fa fa-check"></i><b>A.2.3</b> Operations that Preserve Convexity</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html"><i class="fa fa-check"></i><b>A.3</b> Convex Functions</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#elementary-convex-and-concave-functions"><i class="fa fa-check"></i><b>A.3.1</b> Elementary Convex and Concave Functions</a></li>
+<li class="chapter" data-level="A.3.2" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#epigraph"><i class="fa fa-check"></i><b>A.3.2</b> Epigraph</a></li>
+<li class="chapter" data-level="A.3.3" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#characterization-of-convex-functions"><i class="fa fa-check"></i><b>A.3.3</b> Characterization of Convex Functions</a></li>
+<li class="chapter" data-level="A.3.4" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#operations-that-preserve-convexity-1"><i class="fa fa-check"></i><b>A.3.4</b> Operations that Preserve Convexity</a></li>
+<li class="chapter" data-level="A.3.5" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#quasiconvex-functions"><i class="fa fa-check"></i><b>A.3.5</b> Quasi-convex Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html"><i class="fa fa-check"></i><b>A.4</b> Convex Optimization Problems</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#optimality-characterization"><i class="fa fa-check"></i><b>A.4.1</b> Optimality Characterization</a></li>
+<li class="chapter" data-level="A.4.2" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#equivalent-reformulations"><i class="fa fa-check"></i><b>A.4.2</b> Equivalent Reformulations</a></li>
+<li class="chapter" data-level="A.4.3" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#approximate-reformulations"><i class="fa fa-check"></i><b>A.4.3</b> Approximate Reformulations</a></li>
+<li class="chapter" data-level="A.4.4" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#quasi-convex-optimiz"><i class="fa fa-check"></i><b>A.4.4</b> Quasi-convex Optimization</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html"><i class="fa fa-check"></i><b>A.5</b> Taxonomy of Convex Problems</a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#linear-programming-1"><i class="fa fa-check"></i><b>A.5.1</b> Linear Programming</a></li>
+<li class="chapter" data-level="A.5.2" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#linear-fractional-programming"><i class="fa fa-check"></i><b>A.5.2</b> Linear-Fractional Programming</a></li>
+<li class="chapter" data-level="A.5.3" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#quadratic-programming"><i class="fa fa-check"></i><b>A.5.3</b> Quadratic Programming</a></li>
+<li class="chapter" data-level="A.5.4" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#second-order-cone-programming"><i class="fa fa-check"></i><b>A.5.4</b> Second-Order Cone Programming</a></li>
+<li class="chapter" data-level="A.5.5" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#semidefinite-programming"><i class="fa fa-check"></i><b>A.5.5</b> Semidefinite Programming</a></li>
+<li class="chapter" data-level="A.5.6" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#conic-programming"><i class="fa fa-check"></i><b>A.5.6</b> Conic Programming</a></li>
+<li class="chapter" data-level="A.5.7" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#fractional-programming"><i class="fa fa-check"></i><b>A.5.7</b> Fractional Programming</a></li>
+<li class="chapter" data-level="A.5.8" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#geometric-programming"><i class="fa fa-check"></i><b>A.5.8</b> Geometric Programming</a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html"><i class="fa fa-check"></i><b>A.6</b> Lagrange Duality</a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#lagrangian"><i class="fa fa-check"></i><b>A.6.1</b> Lagrangian</a></li>
+<li class="chapter" data-level="A.6.2" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#lagrange-dual-problem"><i class="fa fa-check"></i><b>A.6.2</b> Lagrange Dual Problem</a></li>
+<li class="chapter" data-level="A.6.3" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#duality"><i class="fa fa-check"></i><b>A.6.3</b> Weak and Strong Duality</a></li>
+<li class="chapter" data-level="A.6.4" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#optimality-conditions"><i class="fa fa-check"></i><b>A.6.4</b> Optimality Conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html"><i class="fa fa-check"></i><b>A.7</b> Multi-objective Optimization</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#generalized-inequalities"><i class="fa fa-check"></i><b>A.7.1</b> Generalized Inequalities</a></li>
+<li class="chapter" data-level="A.7.2" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#vector-optimization"><i class="fa fa-check"></i><b>A.7.2</b> Vector Optimization</a></li>
+<li class="chapter" data-level="A.7.3" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#pareto-optimality"><i class="fa fa-check"></i><b>A.7.3</b> Pareto Optimality</a></li>
+<li class="chapter" data-level="A.7.4" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#multi-objective-optimization-1"><i class="fa fa-check"></i><b>A.7.4</b> Multi-objective Optimization</a></li>
+<li class="chapter" data-level="A.7.5" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#scalarization"><i class="fa fa-check"></i><b>A.7.5</b> Scalarization</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="A.8-summary-11.html"><a href="A.8-summary-11.html"><i class="fa fa-check"></i><b>A.8</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-appA.html"><a href="exercises-appA.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="B-optimization-algorithms.html"><a href="B-optimization-algorithms.html"><i class="fa fa-check"></i><b>B</b> Optimization Algorithms</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B.1-solvers.html"><a href="B.1-solvers.html"><i class="fa fa-check"></i><b>B.1</b> Solvers</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="B.1-solvers.html"><a href="B.1-solvers.html#some-popular-solvers"><i class="fa fa-check"></i><b>B.1.1</b> Some Popular Solvers</a></li>
+<li class="chapter" data-level="B.1.2" data-path="B.1-solvers.html"><a href="B.1-solvers.html#complexity-of-interior-point-methods"><i class="fa fa-check"></i><b>B.1.2</b> Complexity of Interior-Point Methods</a></li>
+<li class="chapter" data-level="B.1.3" data-path="B.1-solvers.html"><a href="B.1-solvers.html#interface-with-solvers"><i class="fa fa-check"></i><b>B.1.3</b> Interface with Solvers</a></li>
+<li class="chapter" data-level="B.1.4" data-path="B.1-solvers.html"><a href="B.1-solvers.html#modeling-frameworks"><i class="fa fa-check"></i><b>B.1.4</b> Modeling Frameworks</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html"><i class="fa fa-check"></i><b>B.2</b> Gradient Methods</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#descent-methods"><i class="fa fa-check"></i><b>B.2.1</b> Descent Methods</a></li>
+<li class="chapter" data-level="B.2.2" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#line-search"><i class="fa fa-check"></i><b>B.2.2</b> Line Search</a></li>
+<li class="chapter" data-level="B.2.3" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#gradient-descent-method"><i class="fa fa-check"></i><b>B.2.3</b> Gradient Descent Method</a></li>
+<li class="chapter" data-level="B.2.4" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#newtons-method-1"><i class="fa fa-check"></i><b>B.2.4</b> Newton’s Method</a></li>
+<li class="chapter" data-level="B.2.5" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#convergence"><i class="fa fa-check"></i><b>B.2.5</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html"><i class="fa fa-check"></i><b>B.3</b> Projected Gradient Methods</a>
+<ul>
+<li class="chapter" data-level="B.3.1" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html#projected-gradient-descent-method"><i class="fa fa-check"></i><b>B.3.1</b> Projected Gradient Descent Method</a></li>
+<li class="chapter" data-level="B.3.2" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html#constrained-newtons-method"><i class="fa fa-check"></i><b>B.3.2</b> Constrained Newton’s Method</a></li>
+<li class="chapter" data-level="B.3.3" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html#convergence-1"><i class="fa fa-check"></i><b>B.3.3</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="B.4" data-path="B.4-IPM.html"><a href="B.4-IPM.html"><i class="fa fa-check"></i><b>B.4</b> Interior-Point Methods</a>
+<ul>
+<li class="chapter" data-level="B.4.1" data-path="B.4-IPM.html"><a href="B.4-IPM.html#eliminating-equality-constraints-1"><i class="fa fa-check"></i><b>B.4.1</b> Eliminating Equality Constraints</a></li>
+<li class="chapter" data-level="B.4.2" data-path="B.4-IPM.html"><a href="B.4-IPM.html#indicator-function"><i class="fa fa-check"></i><b>B.4.2</b> Indicator Function</a></li>
+<li class="chapter" data-level="B.4.3" data-path="B.4-IPM.html"><a href="B.4-IPM.html#logarithmic-barrier"><i class="fa fa-check"></i><b>B.4.3</b> Logarithmic Barrier</a></li>
+<li class="chapter" data-level="B.4.4" data-path="B.4-IPM.html"><a href="B.4-IPM.html#central-path"><i class="fa fa-check"></i><b>B.4.4</b> Central Path</a></li>
+<li class="chapter" data-level="B.4.5" data-path="B.4-IPM.html"><a href="B.4-IPM.html#barrier-method"><i class="fa fa-check"></i><b>B.4.5</b> Barrier Method</a></li>
+<li class="chapter" data-level="B.4.6" data-path="B.4-IPM.html"><a href="B.4-IPM.html#convergence-2"><i class="fa fa-check"></i><b>B.4.6</b> Convergence</a></li>
+<li class="chapter" data-level="B.4.7" data-path="B.4-IPM.html"><a href="B.4-IPM.html#feasibility-and-phase-i-methods"><i class="fa fa-check"></i><b>B.4.7</b> Feasibility and Phase I Methods</a></li>
+<li class="chapter" data-level="B.4.8" data-path="B.4-IPM.html"><a href="B.4-IPM.html#primal-dual-interior-point-methods"><i class="fa fa-check"></i><b>B.4.8</b> Primal-Dual Interior-Point Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="B.5" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html"><i class="fa fa-check"></i><b>B.5</b> Fractional Programming Methods</a>
+<ul>
+<li class="chapter" data-level="B.5.1" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html#bisection-method-1"><i class="fa fa-check"></i><b>B.5.1</b> Bisection Method</a></li>
+<li class="chapter" data-level="B.5.2" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html#dinkelbach"><i class="fa fa-check"></i><b>B.5.2</b> Dinkelback Method</a></li>
+<li class="chapter" data-level="B.5.3" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html#schaible"><i class="fa fa-check"></i><b>B.5.3</b> Charnes–Cooper–Schaible Transform</a></li>
+</ul></li>
+<li class="chapter" data-level="B.6" data-path="B.6-BCD.html"><a href="B.6-BCD.html"><i class="fa fa-check"></i><b>B.6</b> Block Coordinate Descent (BCD)</a>
+<ul>
+<li class="chapter" data-level="B.6.1" data-path="B.6-BCD.html"><a href="B.6-BCD.html#convergence-3"><i class="fa fa-check"></i><b>B.6.1</b> Convergence</a></li>
+<li class="chapter" data-level="B.6.2" data-path="B.6-BCD.html"><a href="B.6-BCD.html#parallel-updates"><i class="fa fa-check"></i><b>B.6.2</b> Parallel Updates</a></li>
+<li class="chapter" data-level="B.6.3" data-path="B.6-BCD.html"><a href="B.6-BCD.html#illustrative-examples"><i class="fa fa-check"></i><b>B.6.3</b> Illustrative Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="B.7" data-path="B.7-MM.html"><a href="B.7-MM.html"><i class="fa fa-check"></i><b>B.7</b> Majorization–Minimization (MM)</a>
+<ul>
+<li class="chapter" data-level="B.7.1" data-path="B.7-MM.html"><a href="B.7-MM.html#convergence-4"><i class="fa fa-check"></i><b>B.7.1</b> Convergence</a></li>
+<li class="chapter" data-level="B.7.2" data-path="B.7-MM.html"><a href="B.7-MM.html#accelerated-mm"><i class="fa fa-check"></i><b>B.7.2</b> Accelerated MM</a></li>
+<li class="chapter" data-level="B.7.3" data-path="B.7-MM.html"><a href="B.7-MM.html#illustrative-examples-1"><i class="fa fa-check"></i><b>B.7.3</b> Illustrative Examples</a></li>
+<li class="chapter" data-level="B.7.4" data-path="B.7-MM.html"><a href="B.7-MM.html#block-mm"><i class="fa fa-check"></i><b>B.7.4</b> Block MM</a></li>
+</ul></li>
+<li class="chapter" data-level="B.8" data-path="B.8-SCA.html"><a href="B.8-SCA.html"><i class="fa fa-check"></i><b>B.8</b> Successive Convex Approximation (SCA)</a>
+<ul>
+<li class="chapter" data-level="B.8.1" data-path="B.8-SCA.html"><a href="B.8-SCA.html#gradient-descent-method-as-sca"><i class="fa fa-check"></i><b>B.8.1</b> Gradient Descent Method as SCA</a></li>
+<li class="chapter" data-level="B.8.2" data-path="B.8-SCA.html"><a href="B.8-SCA.html#newtons-method-as-sca"><i class="fa fa-check"></i><b>B.8.2</b> Newton’s Method as SCA</a></li>
+<li class="chapter" data-level="B.8.3" data-path="B.8-SCA.html"><a href="B.8-SCA.html#parallel-sca"><i class="fa fa-check"></i><b>B.8.3</b> Parallel SCA</a></li>
+<li class="chapter" data-level="B.8.4" data-path="B.8-SCA.html"><a href="B.8-SCA.html#convergence-5"><i class="fa fa-check"></i><b>B.8.4</b> Convergence</a></li>
+<li class="chapter" data-level="B.8.5" data-path="B.8-SCA.html"><a href="B.8-SCA.html#illustrative-examples-2"><i class="fa fa-check"></i><b>B.8.5</b> Illustrative Examples</a></li>
+<li class="chapter" data-level="B.8.6" data-path="B.8-SCA.html"><a href="B.8-SCA.html#mm-vs.-sca"><i class="fa fa-check"></i><b>B.8.6</b> MM vs. SCA</a></li>
+</ul></li>
+<li class="chapter" data-level="B.9" data-path="B.9-ADMM.html"><a href="B.9-ADMM.html"><i class="fa fa-check"></i><b>B.9</b> Alternating Direction Method of Multipliers (ADMM)</a>
+<ul>
+<li class="chapter" data-level="B.9.1" data-path="B.9-ADMM.html"><a href="B.9-ADMM.html#convergence-6"><i class="fa fa-check"></i><b>B.9.1</b> Convergence</a></li>
+<li class="chapter" data-level="B.9.2" data-path="B.9-ADMM.html"><a href="B.9-ADMM.html#illustrative-examples-3"><i class="fa fa-check"></i><b>B.9.2</b> Illustrative Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="B.10" data-path="B.10-numerical-comparison.html"><a href="B.10-numerical-comparison.html"><i class="fa fa-check"></i><b>B.10</b> Numerical Comparison</a></li>
+<li class="chapter" data-level="B.11" data-path="B.11-summary-12.html"><a href="B.11-summary-12.html"><i class="fa fa-check"></i><b>B.11</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-appB.html"><a href="exercises-appB.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio Optimization</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+\(
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\textm}[1]{\textsf{#1}}
+\newcommand{\textnormal}[1]{\textsf{#1}}
+\def\T{{\mkern-2mu\raise-1mu\mathsf{T}}}
+
+\newcommand{\R}{\mathbb{R}} % real numbers
+\newcommand{\E}{{\rm I\kern-.2em E}}
+
+\newcommand{\w}{\bm{w}} % bold w
+\newcommand{\bmu}{\bm{\mu}} % bold mu
+\newcommand{\bSigma}{\bm{\Sigma}} % bold mu
+\newcommand{\bigO}{O}  %\mathcal{O}
+\renewcommand{\d}[1]{\operatorname{d}\!{#1}}
+\)
+<div id="references" class="section level1 unnumbered hasAnchor">
+<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!---
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{No need for References at the end - already after chapters}
+--->
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Abergel, F., Anane, M., Chakraborti, A., Jedidi, A., and Toke, I. M. (2016). <em>Limit Order Books</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Abramovich, Y. I. (1981). A controlled method for adaptive optimization of filters using the criterion of maximum signal-to-noise ratio. <em>Radio Engineering and Electronic Physics</em>, <em>25</em>(3), 87–95.
+</div>
+<div class="csl-entry">
+Ahmadi-Javid, A. (2012). Entropic value-at-risk: A new coherent risk measure. <em>Journal of Optimization Theory and Applications</em>, <em>155</em>(3), 1105–1123.
+</div>
+<div class="csl-entry">
+Ahmadi-Javid, A., and Fallah-Tafti, M. (2019). Portfolio optimization with entropic value-at-risk. <em>European Journal of Operational Research</em>, <em>279</em>(1), 225–241.
+</div>
+<div class="csl-entry">
+Ahmed, N. K., Atiya, A. F., Gayar, N. E., and El-Shishiny, H. (2010). An empirical comparison of machine learning models for time series forecasting. <em>Econometric Reviews</em>, <em>29</em>(5–6), 594–621.
+</div>
+<div class="csl-entry">
+Amos, B., and Kolter, J. Z. (2017). <span>OptNet</span>: Differentiable optimization as a layer in neural networks. In <em>Proceedings of the international conference on machine learning (ICML)</em>,Vol. 70, pages 136–145.
+</div>
+<div class="csl-entry">
+Anderson, B. D. O., and Moore, J. B. (1979). <em>Optimal Filtering</em>. Englewood Cliffs: Prentice Hall.
+</div>
+<div class="csl-entry">
+Anderson, R. M., Bianchi, S. W., and Goldberg, L. R. (2012). Will my risk parity strategy outperform? <em>Financial Analysts Journal</em>, <em>68</em>(6), 75–93.
+</div>
+<div class="csl-entry">
+Anderson, T. W. (2003). <em>An Introduction to Multivariate Statistical Analysis</em>. Wiley-Interscience.
+</div>
+<div class="csl-entry">
+Ang, A., Chen, J., and Xing, Y. (2006). Downside risk. <em>Review of Financial Studies</em>, <em>19</em>(4), 1191–1239.
+</div>
+<div class="csl-entry">
+Ardia, D., Bolliger, G., Boudt, K., and Gagnon-Fleury, J.-P. (2017). The impact of covariance misspecification in risk-based portfolios. <em>Annals of Operations Research</em>, <em>254</em>(1–2), 2–16.
+</div>
+<div class="csl-entry">
+Arnott, R., Harvey, C. R., and Markowitz, H. M. (2019). A backtesting protocol in the era of machine learning. <em>The Journal of Financial Data Science</em>, <em>1</em>(1), 64–74.
+</div>
+<div class="csl-entry">
+Artzner, P., Delbaen, F., Eber, J. M., and Heath, D. (1999). Coherent measures of risk. <em>Mathematical Finance</em>, <em>9</em>(3), 203–227.
+</div>
+<div class="csl-entry">
+Asness, C. S., Frazzini, A., and Pedersen, L. H. (2012). Leverage aversion and risk parity. <em>Financial Analysts Journal</em>, <em>68</em>(1), 47–59.
+</div>
+<div class="csl-entry">
+Atiya, A. F. (2001). Bankruptcy prediction for credit risk using neural networks: A survey and new results. <em>IEEE Transactions on Neural Networks</em>, <em>12</em>(4), 929–935.
+</div>
+<div class="csl-entry">
+Avellaneda, M., and Lee, J.-H. (2010). Statistical arbitrage in the <span>US</span> equities market. <em>Quantitative Finance</em>, <em>10</em>(7), 761–782.
+</div>
+<div class="csl-entry">
+Bacon, C. (2008). <em>Practical Portfolio Performance Measurement and Attribution</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Bai, X., Scheinberg, K., and Tütüncü, R. (2016). Least-squares approach to risk parity in portfolio selection. <em>Quantitative Finance</em>, <em>16</em>(3), 357–376.
+</div>
+<div class="csl-entry">
+Bailey, D. H., Borwein, J. M., López de Prado, M., Salehipour, A., and Zhu, Q. J. (2016). Backtest overfitting in financial markets. <em>Automated Trader</em>, <em>39</em>(2), 52–57.
+</div>
+<div class="csl-entry">
+Bailey, D. H., Borwein, J. M., López de Prado, M., and Zhu, Q. J. (2014). Pseudo-mathematics and financial charlatanism: The effects of backtest overfitting on out-of-sample performance. <em>Notices of the American Mathematical Society</em>, <em>61</em>(5), 458–471.
+</div>
+<div class="csl-entry">
+Bailey, D. H., Borwein, J. M., López de Prado, M., and Zhu, Q. J. (2017). The probability of backtest overfitting. <em>Journal of Computational Finance (Risk Journals)</em>, <em>20</em>(4), 458–471.
+</div>
+<div class="csl-entry">
+Bailey, D. H., Borwein, J., and López de Prado, M. (2016). Stock portfolio design and backtest overfitting. <em>Journal of Investment Management</em>, <em>15</em>(1), 1–13.
+</div>
+<div class="csl-entry">
+Bailey, D. H., and López de Prado, M. (2012). The <span>Sharpe</span> ratio efficient frontier. <em>The Journal of Risk</em>, <em>15</em>(2), 3–44.
+</div>
+<div class="csl-entry">
+Bailey, D. H., and López de Prado, M. (2014). The deflated <span>Sharpe</span> ratio: Correcting for selection bias, backtest overfitting and non-normality. <em>Journal of Portfolio Management</em>, <em>40</em>(5), 94–107.
+</div>
+<div class="csl-entry">
+Bajalinov, E. B. (2003). <em>Linear-Fractional Programming: Theory, Methods, Applications and Software</em>. Boston: Springer.
+</div>
+<div class="csl-entry">
+Ballings, M., Poel, D. V. den, Hespeels, N., and Gryp, R. (2015). Evaluating multiple classifiers for stock price direction prediction. <em>Expert Systems with Applications</em>, <em>42</em>(20), 7046–7056.
+</div>
+<div class="csl-entry">
+Banerjee, A., Dolado, J. J., Galbraith, J. W., and Hendry, D. F. (1993). <em>Cointegration, Error Correction, and the Econometric Analysis of Non-Stationary Data</em>. Oxford University Press.
+</div>
+<div class="csl-entry">
+Banerjee, O., El Ghaoui, L., and d’Aspremont, A. (2008). Model selection through sparse maximum likelihood estimation for multivariate <span>Gaussian</span> or binary data. <em>Journal of Machine Learning Research (JMLR)</em>, <em>9</em>, 485–516.
+</div>
+<div class="csl-entry">
+Barber, B. M., and Odean, T. (2000). Trading is hazardous to your wealth: The common stock investment performance of individual investors. <em>The Journal of Finance</em>, <em>55</em>(2), 773–806.
+</div>
+<div class="csl-entry">
+Barber, R. F., and Candès, E. J. (2015). Controlling the false discovery rate via knockoffs. <em>The Annals of Statistics</em>, <em>43</em>(5), 2055–2085.
+</div>
+<div class="csl-entry">
+Bartz, D. (2016). Cross-validation based nonlinear shrinkage. In <em>Proceedings of the 30th annual conference on neural information processing systems (NeurIPS)</em>. Barcelona, Spain.
+</div>
+<div class="csl-entry">
+Bawa, V. S. (1975). Optimal rules for ordering uncertain prospects. <em>Journal of Financial Economics</em>, <em>2</em>(1), 95–121.
+</div>
+<div class="csl-entry">
+Beasley, J. E., Meade, N., and Chang, T. J. (2003). An evolutionary heuristic for the index tracking problem. <em>European Journal of Operational Research</em>, <em>148</em>, 621–643.
+</div>
+<div class="csl-entry">
+Beck, A. (2017). <em>First-Order Methods in Optimization</em>. Society for Industrial <span>and</span> Applied Mathematics (SIAM).
+</div>
+<div class="csl-entry">
+Bender, J., Briand, R., Melas, D., and Subramanian, R. A. (2013). Foundations of factor investing. <em>MSCI Research Insight</em>.
+</div>
+<div class="csl-entry">
+Bengio, Y. (1997). Using a financial training criterion rather than a prediction criterion. <em>International Journal of Neural Systems</em>, <em>8</em>(4), 433–443.
+</div>
+<div class="csl-entry">
+Bengtsson, M., and Ottersten, B. (2001). Optimal and suboptimal transmit beamforming. In L. C. Godara, editor, <em>Handbook of antennas in wireless communications</em>. Boca Raton, FL: CRC Press.
+</div>
+<div class="csl-entry">
+Benidis, K., Feng, Y., and Palomar, D. P. (2018a). Optimization methods for financial index tracking: From theory to practice. <em>Foundations <span>and</span> Trends in Optimization, Now Publishers</em>, <em>3</em>(3), 171–279.
+</div>
+<div class="csl-entry">
+Benidis, K., Feng, Y., and Palomar, D. P. (2018b). Sparse portfolios for high-dimensional financial index tracking. <em>IEEE Transactions on Signal Processing</em>, <em>66</em>(1), 155–170.
+</div>
+<div class="csl-entry">
+Benidis, K., and Palomar, D. P. (2019). <em><a href="https://CRAN.R-project.org/package=sparseIndexTracking"><span class="nocase">sparseIndexTracking</span>: Design of Portfolio of Stocks to Track an Index</a></em>.
+</div>
+<div class="csl-entry">
+Benjamini, Y., and Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em>, <em>57</em>(1), 289–300.
+</div>
+<div class="csl-entry">
+Ben-Tal, A., El Ghaoui, L., and Nemirovski, A. (2009). <em>Robust Optimization</em>. Princeton University Press.
+</div>
+<div class="csl-entry">
+Ben-Tal, A., and Nemirovski, A. (2001). <em>Lectures on Modern Convex Optimization: Analysis, Algorithms, and Engineering Applications</em>. Society for Industrial <span>and</span> Applied Mathematics (SIAM).
+</div>
+<div class="csl-entry">
+Ben-Tal, A., and Nemirovski, A. (2008). Selected topics in robust convex optimization. <em>Mathematical Programming</em>, <em>112</em>(1), 125–158.
+</div>
+<div class="csl-entry">
+Bertsekas, D. P. (1999). <em>Nonlinear Programming</em>. Athena Scientific.
+</div>
+<div class="csl-entry">
+Bertsekas, D. P., Nedić, A., and Ozdaglar, A. E. (2003). <em>Convex Analysis and Optimization</em>. Belmont, MA, USA: Athena Scientific.
+</div>
+<div class="csl-entry">
+Bertsekas, D. P., and Tsitsiklis, J. N. (1997). <em>Parallel and Distributed Computation: Numerical Methods</em>. Athena Scientific.
+</div>
+<div class="csl-entry">
+Bertsimas, D., Brown, D. B., and Caramanis, C. (2011). Theory and applications of robust optimization. <em>SIAM Review</em>, <em>53</em>(3), 464–501.
+</div>
+<div class="csl-entry">
+Best, M. J., and Grauer, R. R. (1991). On the sensitivity of mean–variance-efficient portfolios to changes in asset means: Some analytical and computational results. <em>Review of Financial Studies</em>, <em>4</em>(2), 315–342.
+</div>
+<div class="csl-entry">
+Birge, J. R., and Louveaux, F. V. (2011). <em>Introduction to Stochastic Programming</em>. Springer.
+</div>
+<div class="csl-entry">
+Birgeand, J., and Chavez-Bedoya, L. (2016). Portfolio optimization under generalized hyperbolic skewed <span class="math inline">\(t\)</span> distribution and exponential utility. <em>Quantitative Finance</em>, <em>16</em>(7), 1019–1036.
+</div>
+<div class="csl-entry">
+Bishop, C. M. (2006). <em>Pattern Recognition and Machine Learning</em>. Springer.
+</div>
+<div class="csl-entry">
+Black, F., and Litterman, R. (1991). Asset allocation: Combining investor views with market equilibrium. <em>The Journal of Fixed Income</em>, <em>2</em>(1), 7–18.
+</div>
+<div class="csl-entry">
+Bogdanov, A., Mossel, E., and Vadhan, S. (2008). The complexity of distinguishing <span>Markov</span> random fields. In <em>Approximation, randomization and combinatorial optimization. Algorithms and techniques</em>, pages 331–342. Springer.
+</div>
+<div class="csl-entry">
+Bollerslev, T. (1986). Generalized autoregressive conditional heteroskedasticity. <em>Journal of Econometrics</em>, <em>31</em>(3), 307–327.
+</div>
+<div class="csl-entry">
+Bollerslev, T. (1990). Modelling the coherence in short-run nominal exchange rates: A multivariate generalized <span>ARCH</span> model. <em>The Review of Economics and Statistics</em>, <em>3</em>(72), 498–505.
+</div>
+<div class="csl-entry">
+Bollerslev, T., Chou, R. Y., and Kroner, K. F. (1992). <span>ARCH</span> modeling in finance: A review of the theory and empirical evidence. <em>Journal of Econometrics</em>, <em>52</em>, 5–59.
+</div>
+<div class="csl-entry">
+Bontempi, G., Taieb, S. B., and Borgne, Y.-A. L. (2012). Machine learning strategies for time series forecasting. In M.-A. Aufaure and E. Zimányi, editors, <em>Business intelligence</em>, pages 62–77. Springer.
+</div>
+<div class="csl-entry">
+Bouchaud, J.-P., Bonart, J., Donier, J., and Gould, M. (2018). <em>Trades, Quotes and Prices: Financial Markets Under the Microscope</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Boudt, K., Cornilly, D., Holle, F. V., and Willems, J. (2020). Algorithmic portfolio tilting to harvest higher moment gains. <em>Heliyon</em>, <em>6</em>(3), e03516.
+</div>
+<div class="csl-entry">
+Boudt, K., Cornilly, D., and Verdonck, T. (2020). A coskewness shrinkage approach for estimating the skewness of linear combinations of random variables. <em>Journal of Financial Econometrics</em>, <em>18</em>(1), 1–23.
+</div>
+<div class="csl-entry">
+Boudt, K., Lu, W., and Peeters, B. (2014). Higher order comoments of multifactor models and asset allocation. <em>Finance Research Letters</em>, <em>13</em>, 225–233.
+</div>
+<div class="csl-entry">
+Box, G. E., and Pierce, D. A. (1970). Distribution of residual autocorrelations in autoregressive-integrated moving average time series models. <em>Journal of the American Statistical Association</em>, <em>65</em>(332), 1509–1526.
+</div>
+<div class="csl-entry">
+Box, G. E., and Tiao, G. C. (1977). A canonical analysis of multiple time series. <em>Biometrika</em>, <em>64</em>(2), 355–365.
+</div>
+<div class="csl-entry">
+Boyd, S., Busseti, E., Diamond, S., Kahn, R., Koh, K., Nystrup, P., and Speth, J. (2017). Multi-period trading via convex optimization. <em>Foundations <span>and</span> Trends in Optimization, Now Publishers</em>, <em>3</em>(1), 1–76.
+</div>
+<div class="csl-entry">
+Boyd, S., Kim, S. J., Vandenberghe, L., and Hassibi, A. (2007). <em>A Tutorial on Geometric Programming</em>. Springer.
+</div>
+<div class="csl-entry">
+Boyd, S., Parikh, N., Chu, E., Peleato, B., and Eckstein, J. (2010). Distributed optimization and statistical learning via the alternating direction method of multipliers. <em>Foundations <span>and</span> Trends in Machine Learning, Now Publishers</em>, <em>3</em>(1), 1–122.
+</div>
+<div class="csl-entry">
+Boyd, S., and Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Brandt, M. W., Santa-Clara, P., and Valkanov, R. (2009). Parametric portfolio policies: Exploiting characteristics in the cross section of equity returns. <em>Review of Financial Studies</em>, <em>22</em>(9), 3411–3447.
+</div>
+<div class="csl-entry">
+Breiman, L. (1996). Bagging predictors. <em>Machine Learning</em>, <em>24</em>, 123–140.
+</div>
+<div class="csl-entry">
+Breiman, L. (2001). Statistical modelling: The two cultures. <em>Statistical Science</em>, <em>16</em>(3), 199–231.
+</div>
+<div class="csl-entry">
+Briec, W., Kerstens, K., and Jokung, O. (2007). Mean–variance–skewness portfolio performance gauging: A general shortage function and dual approach. <em>Management Science</em>, <em>53</em>(1), 135–149.
+</div>
+<div class="csl-entry">
+Brockwell, P. J., and Davis, R. A. (2002). <em>Introduction to Time Series and Forecasting</em>. Springer.
+</div>
+<div class="csl-entry">
+Bruder, B., and Roncalli, T. (2012). Managing risk exposures using the risk budgeting approach. <em>MPRA Paper 37246</em>.
+</div>
+<div class="csl-entry">
+Bubeck, S., Chandrasekaran, V., Eldan, R., Gehrke, J., Horvitz, E., Kamar, E., … Zhang, Y. (2023). <a href="https://doi.org/10.48550/arXiv.2303.12712">Sparks of artificial general intelligence: Early experiments with <span>GPT</span>-4</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Bun, J., Bouchaud, J.-P., and Potters, M. (2006). Cleaning correlation matrices. <em>Risk Magazine</em>.
+</div>
+<div class="csl-entry">
+Bun, J., Bouchaud, J.-P., and Potters, M. (2017). Cleaning large correlation matrices: Tools from random matrix theory. <em>Physics Reports</em>, <em>666</em>, 1–109.
+</div>
+<div class="csl-entry">
+Butler, A., and Kwon, R. H. (2023). Integrating prediction in mean–variance portfolio optimization. <em>Quantitative Finance</em>, <em>23</em>(3), 429–452.
+</div>
+<div class="csl-entry">
+Cajas, Dany. (2021a). <a href="https://dx.doi.org/10.2139/ssrn.3792520">Entropic portfolio optimization: A disciplined convex programming framework</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Cajas, Dany. (2021b). <a href="https://dx.doi.org/10.2139/ssrn.3833617">Kelly portfolio optimization: A disciplined convex programming framework</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Cajas, D. (2023). <em><a href="https://riskfolio-lib.readthedocs.io"><span>Riskfolio-Lib</span></a></em>.
+</div>
+<div class="csl-entry">
+Campbell, J. Y., Lo, A. W., and MacKinlay, A. C. (1997). <em>The Econometrics of Financial Markets</em>. Princeton, NJ: Princeton University Press.
+</div>
+<div class="csl-entry">
+Candès, E. J., and Tao, T. (2005). Decoding by linear programming. <em>IEEE Transactions on Information Theory</em>, <em>51</em>(12), 4203–4215.
+</div>
+<div class="csl-entry">
+Candès, E. J., Wakin, M. B., and Boyd, S. P. (2008). Enhancing sparsity by reweighted <span class="math inline">\(\ell_1\)</span> minimization. <em>Journal of Fourier Analysis and Applications</em>, <em>14</em>, 877–905.
+</div>
+<div class="csl-entry">
+Cao, L. J., and Tay, F. E. H. (2003). Support vector machine with adaptive parameters in financial time series forecasting. <em>IEEE Transactions on Neural Networks</em>, <em>14</em>(6), 1506–1518.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., and Palomar, D. P. (2020). Learning undirected graphs in financial markets. In <em>Proceedings of the 54th asilomar conference on signals, systems and computers</em>, pages 741–745. Pacific Grove, CA, USA: IEEE.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., and Palomar, D. P. (2021). <em><a href="https://CRAN.R-project.org/package=riskParityPortfolio"><span class="nocase">riskParityPortfolio</span>: Design of Risk Parity Portfolios</a></em>.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., and Palomar, D. P. (2022). <em><a href="https://CRAN.R-project.org/package=spectralGraphTopology"><span class="nocase">spectralGraphTopology</span>: Learning Graphs from Data via Spectral Constraints</a></em>.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., and Palomar, D. P. (2023a). <em><a href="https://cran.r-project.org/package=finbipartite"><span class="nocase">finbipartite</span>: Learning Bipartite Graphs: Heavy Tails and Multiple Components</a></em>.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., and Palomar, D. P. (2023b). <em><a href="https://CRAN.R-project.org/package=fingraph"><span class="nocase">fingraph</span>: Learning Graphs for Financial Markets</a></em>.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., Ying, J., and Palomar, D. P. (2021). Graphical models in heavy-tailed markets. In <em>Proceedings of 35th international conference on neural information processing systems (NeurIPS)</em>, pages 19989–20001. Virtual: Curran Associates Inc.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., Ying, J., and Palomar, D. P. (2022a). Learning bipartite graphs: Heavy tails and multiple components. In <em>Proceedings of the 36th international conference on neural information processing systems (NeurIPS)</em>, pages 14044–14057. New Orleans, LA, USA: Curran Associates Inc.
+</div>
+<div class="csl-entry">
+Cardoso, J. V. M., Ying, J., and Palomar, D. P. (2022b). Nonconvex graph learning: Sparsity, heavy-tails, and clustering. In P. Diniz, editor, <em>Signal processing and machine learning theory</em>, pages 1049–1072. Elsevier.
+</div>
+<div class="csl-entry">
+Chan, E. P. (2008). <em>Quantitative Trading: How to Build Your Own Algorithmic Trading Business</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Chan, E. P. (2013). <em>Algorithmic Trading: Winning Strategies and Their Rationale</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Chares, R. (2007). <em>Cones and Interior-Point Algorithms for Structured Convex Optimization Involving Powers and Exponentials</em> (PhD thesis). Université Catholique de Louvain; École Polytechnique de Louvain.
+</div>
+<div class="csl-entry">
+Charnes, A., and Cooper, W. W. (1962). Programming with linear fractional functionals. <em>Naval Research Logistics Quarterly</em>, <em>9</em>(3–4), 181–186.
+</div>
+<div class="csl-entry">
+Chassein, A., and Goerigk, M. (2015). Alternative formulations for the ordered weighted averaging objective. <em>Information Processing Letters</em>, <em>115</em>, 604–608.
+</div>
+<div class="csl-entry">
+Chaves, D. B., Hsu, J. C., Li, F., and Shakernia, O. (2011). Risk parity portfolio vs. Other asset allocation heuristic portfolios. <em>Journal of Investing</em>, <em>20</em>(1), 108–118.
+</div>
+<div class="csl-entry">
+Chaves, D. B., Hsu, J. C., Li, F., and Shakernia, O. (2012). Efficient algorithms for computing risk parity portfolio weights. <em>Journal of Investing</em>, <em>21</em>(3), 150–163.
+</div>
+<div class="csl-entry">
+Chekhlov, A., Uryasev, S., and Zabarankin, M. (2004). Portfolio optimization with drawdown constraints. In P. M. Pardalos, A. Migdalas, and G. Baourakis, editors, <em>Supply chain and finance</em>, pages 209–228. World Scientific.
+</div>
+<div class="csl-entry">
+Chekhlov, A., Uryasev, S., and Zabarankin, M. (2005). Drawdown measure in portfolio optimization. <em>International Journal of Theoretical and Applied Finance</em>, <em>8</em>(1), 13–58.
+</div>
+<div class="csl-entry">
+Chen, R., Y. Feng, and Palomar, D. P. (2016). <a href="https://dx.doi.org/10.2139/ssrn.3101695">Forecasting intraday trading volume: A <span>Kalman</span> filter approach</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Chen, Y., Wiesel, A., and Hero III, A. O. (2011). Robust shrinkage estimation of high-dimensional covariance matrices. <em>IEEE Transactions on Signal Processing</em>, <em>59</em>(9), 4097–4107.
+</div>
+<div class="csl-entry">
+Chiang, M. (2005). Geometric programming for communication systems. <em>Foundations <span>and</span> Trends in Communications and Information Theory</em>, <em>2</em>(1–2), 1–154.
+</div>
+<div class="csl-entry">
+Choi, J., and Chen, R. (2022). Improved iterative methods for solving risk parity portfolio. <em>Journal of Derivatives and Quantitative Studies</em>, <em>30</em>(2), 114–124.
+</div>
+<div class="csl-entry">
+Chopra, V., and Ziemba, W. (1993). The effect of errors in means, variances and covariances on optimal portfolio choice. <em>Journal of Portfolio Management</em>, <em>19</em>(2), 6–11.
+</div>
+<div class="csl-entry">
+Choueifaty, Y., and Coignard, Y. (2008). Toward maximum diversification. <em>Journal of Portfolio Management</em>, <em>35</em>, 40–51.
+</div>
+<div class="csl-entry">
+Christoffersen, P., Errunza, V., Jacobs, K., and Langlois, H. (2012). Is the potential for international diversification disappearing? <span>A</span> dynamic copula approach. <em>The Review of Financial Studies</em>, <em>25</em>, 3711–3751.
+</div>
+<div class="csl-entry">
+Chung, F. R. K. (1997). <em>Spectral Graph Theory</em>. Providence: American Mathematical Society.
+</div>
+<div class="csl-entry">
+Clegg, M. (2014). <a href="https://dx.doi.org/10.2139/ssrn.2491201">On the persistence of cointegration in pairs trading</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Clegg, M. (2023). <em><a href="https://CRAN.R-project.org/package=egcm"><span class="nocase">egcm</span>: <span>Engle</span>–<span>Granger</span> Cointegration Models</a></em>.
+</div>
+<div class="csl-entry">
+Clegg, M., and Krauss, C. (2018). Pairs trading with partial cointegration. <em>Quantitative Finance</em>, <em>18</em>(1), 121–138.
+</div>
+<div class="csl-entry">
+Cont, R. (2001). Empirical properties of assets returns: Stylised facts and statistical issues. <em>Quantitative Finance</em>, <em>1</em>, 223–236.
+</div>
+<div class="csl-entry">
+Cornuejols, G., and Tütüncü, R. (2006). <em>Optimization Methods in Finance</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Cotton, P. (2023). <em>Schur Complementary Portfolios – a Unification of Machine Learning and Optimization-Based Portfolio Construction</em>.
+</div>
+<div class="csl-entry">
+Cover, T., and Thomas, J. (1991). <em>Elements of Information Theory</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Cowpertwait, P. S. P., and Metcalfe, A. V. (2009). <em>Introductory Time Series with <span>R</span></em>. Springer.
+</div>
+<div class="csl-entry">
+Cuturi, M., and d’Aspremont, A. (2013). Mean reversion with a variance threshold. In <em>Proceedings of the international conference on machine learning (ICML)</em>,Vol. 28, pages 271–279.
+</div>
+<div class="csl-entry">
+Cuturi, M., and d’Aspremont, A. (2016). Mean-reverting portfolios: Tradeoffs between sparsity and volatility. In A. N. Akansu, S. R. Kulkarni, and D. M. Malioutov, editors, <em>Financial signal processing and machine learning</em>, pages 23–40. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Cvitanic, J., and Karatzas, I. (1995). On portfolio optimization under <span>“drawdown”</span> constraints. <em>IMA Lecture Notes in Mathematics &amp; Applications</em>, <em>65</em>, 77–88.
+</div>
+<div class="csl-entry">
+d’Aspremont, A. (2011). Identifying small mean-reverting portfolios. <em>Quantitative Finance</em>, <em>11</em>(3), 351–364.
+</div>
+<div class="csl-entry">
+Daubechies, I., Devore, R., Fornasier, M., and Güntürk, C. S. N. (2010). Iteratively reweighted least squares minimization for sparse recovery. <em>Communications on Pure and Applied Mathematics</em>, <em>63</em>, 1–38.
+</div>
+<div class="csl-entry">
+DeMiguel, V., Garlappi, L., Nogales, F. J., and Uppal, R. (2009). A generalized approach to portfolio optimization: Improving performance by constraining portfolio norms. <em>Management Science</em>, <em>55</em>(5), 798–812.
+</div>
+<div class="csl-entry">
+DeMiguel, V., Garlappi, L., and Uppal, R. (2009). Optimal versus naive diversification: How inefficient is the <span>1/N</span> portfolio strategy? <em>The Review of Financial Studies</em>, <em>22</em>(5), 1915–1953.
+</div>
+<div class="csl-entry">
+Dempster, A. P. (1972). Covariance selection. <em>Biometrics</em>, <em>28</em>(1), 157–175.
+</div>
+<div class="csl-entry">
+Dickey, D. A., and Fuller, W. A. (1979). Distribution of the estimators for autore-gressive time series with a unit root. <em>Journal of the American Statistical Association</em>, <em>74</em>, 427–431.
+</div>
+<div class="csl-entry">
+Ding, Z., and Granger, C. W. J. (1996). Modeling volatility persistence of speculative returns: A new approach. <em>Journal of Econometrics</em>, <em>73</em>(1), 185–215.
+</div>
+<div class="csl-entry">
+Dinh, T. P., and Niu, Y.-S. (2011). An efficient <span>DC</span> programming approach for portfolio decision with higher moments. <em>Computational Optimization and Applications</em>, <em>50</em>(3), 525–554.
+</div>
+<div class="csl-entry">
+Dinkelbach, W. (1967). On nonlinear fractional programming. <em>Management Science</em>, <em>133</em>(7), 492–498.
+</div>
+<div class="csl-entry">
+Dixon, M. F., Halperin, I., and Bilokon, P. (2020). <em>Machine Learning in Finance</em>. Springer.
+</div>
+<div class="csl-entry">
+Dong, X., Thanou, D., Frossard, P., and Vandergheynst, P. (2015). Laplacian matrix learning for smooth graph signal representation. In <em>Proceedings of the IEEE international conference on acoustics, speech, and signal processing (ICASSP)</em>, pages 3736–3740. Brisbane, Australia.
+</div>
+<div class="csl-entry">
+Dong, X., Thanou, D., Rabbat, M., and Frossard, P. (2019). Learning graphs from data: A signal representation perspective. <em>IEEE Signal Processing Magazine</em>, <em>36</em>(3), 44–63.
+</div>
+<div class="csl-entry">
+Donoho, D. L. (2006). Compressed sensing. <em>IEEE Transactions on Information Theory</em>, <em>52</em>(4), 1289–1306.
+</div>
+<div class="csl-entry">
+Dose, C., and Cincotti, S. (2005). Clustering of financial time series with application to index and enhanced index tracking portfolio. <em>Physica A: Statistical Mechanics and Its Applications</em>, <em>355</em>(1), 145–151.
+</div>
+<div class="csl-entry">
+Duchin, R., and Levy, H. (2009). Markowitz versus the <span>Talmudic</span> portfolio diversification strategies. <em>Journal of Portfolio Management</em>, <em>35</em>(2), 71.
+</div>
+<div class="csl-entry">
+Durbin, J., and Koopman, S. J. (2012). <em>Time Series Analysis by State Space Methods</em>. Oxford University Press.
+</div>
+<div class="csl-entry">
+Efron, B. (1979). Bootstrap methods: Another look at the jackknife. <em>The Annals of Statistics</em>, <em>7</em>(1), 1–26.
+</div>
+<div class="csl-entry">
+Efron, B., and Tibshirani, R. J. (1993). <em>An Introduction to the Bootstrap</em>. Springer.
+</div>
+<div class="csl-entry">
+Egilmez, H. E., Pavez, E., and Ortega, A. (2017). Graph learning from data under <span>Laplacian</span> and structural constraints. <em>IEEE Journal of Selected Topics in Signal Processing</em>, <em>11</em>(6), 825–841.
+</div>
+<div class="csl-entry">
+Ehrman, D. S. (2006). <em>The Handbook of Pairs Trading: Strategies Using Equities, Options, and Futures</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+El Ghaoui, L., Oks, M., and Oustry, F. (2003). Worst-case value-at-risk and robust portfolio optimization: A conic programming approach. <em>Operations Research</em>, <em>51</em>(4), 543–556.
+</div>
+<div class="csl-entry">
+Elad, M. (2010). <em>Sparse and Redundant Representations: From Theory to Applications in Signal and Image Processing</em>. Springer.
+</div>
+<div class="csl-entry">
+Elliott, R. J., Van Der Hoek, J., and Malcolm, W. P. (2005). Pairs trading. <em>Quantitative Finance</em>, <em>5</em>(3), 271–276.
+</div>
+<div class="csl-entry">
+Engle, R. F. (1982). Autoregressive conditional heteroscedasticity with estimates of the variance of <span>United Kingdom</span> inflation. <em>Econometrica: Journal of the Econometric Society</em>, <em>50</em>(4), 987–1007.
+</div>
+<div class="csl-entry">
+Engle, R. F. (2002). Dynamic conditional correlation: A simple class of multivariate generalized autoregressive conditional heteroskedasticity models. <em>Journal of Business &amp; Economic Statistics</em>, <em>20</em>(3), 339–350.
+</div>
+<div class="csl-entry">
+Engle, R. F., and Granger, C. W. J. (1987). Co-integration and error correction: Representation, estimation, and testing. <em>Econometrica: Journal of the Econometric Society</em>, <em>55</em>(2), 251–276.
+</div>
+<div class="csl-entry">
+Engle, R. F., and Sokalska, M. E. (2012). Forecasting intraday volatility in the <span>US</span> equity market. <span>Multiplicative</span> component <span>GARCH</span>. <em>Journal of Financial Econometrics</em>, <em>10</em>(1), 54–83.
+</div>
+<div class="csl-entry">
+Esling, P., and Agon, C. (2012). Time series data mining. <em>ACM Computing Surveys</em>, <em>45</em>(1), 1–34.
+</div>
+<div class="csl-entry">
+Estrada, J. (2006). Downside risk in practice. <em>Journal of Applied Corporate Finance</em>, <em>18</em>(1), 117–125.
+</div>
+<div class="csl-entry">
+Estrada, J. (2008). Mean–semivariance optimization: A heuristic approach. <em>Journal of Applied Finance</em>, <em>18</em>(1), 57–72.
+</div>
+<div class="csl-entry">
+Fabozzi, F. J., Focardi, S. M., and Kolm, P. N. (2010). <em>Quantitative Equity Investing: Techniques and Strategies</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Fabozzi, F. J., Kolm, P. N., Pachamanova, D. A., and Focardi, S. M. (2007). <em>Robust Portfolio Optimization and Management</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Fama, E. F. (1965). The behavior of stock-market prices. <em>The Journal of Business</em>, <em>38</em>(1), 34–105.
+</div>
+<div class="csl-entry">
+Fama, E. F. (1970). Efficient capital markets: A review of theory and empirical work. <em>The Journal of Finance</em>, <em>25</em>(2), 383–417.
+</div>
+<div class="csl-entry">
+Fama, E. F., and French, K. R. (1992). The cross-section of expected stock returns. <em>The Journal of Finance</em>, <em>47</em>(2), 427–465.
+</div>
+<div class="csl-entry">
+Fama, E. F., and French, K. R. (1993). Common risk factors in the returns on stocks and bonds. <em>Journal of Financial Economics</em>, <em>33</em>(1), 3–56.
+</div>
+<div class="csl-entry">
+Fama, E. F., and French, K. R. (2015). A five-factor asset pricing model. <em>The Journal of Finance</em>, <em>116</em>(1), 1–22.
+</div>
+<div class="csl-entry">
+Fan, K. (1949). On a theorem of <span>Weyl</span> concerning eigenvalues of linear transformations <span>I</span>. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, <em>35</em>(11), 652.
+</div>
+<div class="csl-entry">
+Feng, Y., and Palomar, D. P. (2015). <span>SCRIP</span>: Successive convex optimization methods for risk parity portfolios design. <em>IEEE Transactions on Signal Processing</em>, <em>63</em>(19), 5285–5300.
+</div>
+<div class="csl-entry">
+Feng, Y., and Palomar, D. P. (2016). A signal processing perspective on financial engineering. <em>Foundations <span>and</span> Trends in Signal Processing, Now Publishers</em>, <em>9</em>(1–2), 1–231.
+</div>
+<div class="csl-entry">
+Fischer, T., and Krauss, C. (2018). Deep learning with long short-term memory networks for financial market predictions. <em>European Journal of Operational Research</em>, <em>270</em>(2), 654–669.
+</div>
+<div class="csl-entry">
+Fishburn, P. C. (1977). Mean-risk analysis with risk associated with below-target returns. <em>American Economic Review</em>, <em>67</em>(2), 116–126.
+</div>
+<div class="csl-entry">
+Friedman, J., Hastie, T., and Tibshirani, R. (2008). Sparse inverse covariance estimation with the graphical lasso. <em>Biostatistics</em>, <em>9</em>(3), 432–441.
+</div>
+<div class="csl-entry">
+Fu, A., Narasimhan, B., and Boyd, S. (2020). <span>CVXR</span>: An <span>R</span> package for disciplined convex optimization. <em>Journal of Statistical Software</em>, <em>94</em>(14), 1–34.
+</div>
+<div class="csl-entry">
+Fu, A., Narasimhan, B., Kang, D. W., Diamond, S., Miller, J., Boyd, S., and Rosenfield, P. K. (2022). <em><a href="https://cran.r-project.org/package=CVXR"><span>CVXR</span>: Disciplined Convex Optimization</a></em>.
+</div>
+<div class="csl-entry">
+Gatev, E., Goetzmann, W. N., and Rouwenhorst, K. G. (2006). Pairs trading: Performance of a relative-value arbitrage rule. <em>Review of Financial Studies</em>, <em>19</em>(3), 797–827.
+</div>
+<div class="csl-entry">
+Ghalanos, A. (2022). <em><a href="https://CRAN.R-project.org/package=rugarch"><span class="nocase">rugarch</span>: Univariate <span>GARCH</span> Models</a></em>.
+</div>
+<div class="csl-entry">
+Glabadanidis, P. (2015). Market timing with moving averages. <em>International Review of Finance</em>, <em>15</em>(3), 387–425.
+</div>
+<div class="csl-entry">
+Goetzmann, W. N., and Kumar, A. (2008). Equity portfolio diversification. <em>Review of Finance</em>, <em>12</em>(3), 433–463.
+</div>
+<div class="csl-entry">
+Goldfarb, D., and Iyengar, G. (2003). Robust portfolio selection problems. <em>Mathematics of Operations Research</em>, <em>28</em>(1), 1–38.
+</div>
+<div class="csl-entry">
+Goodfellow, I., Bengio, Y., and Courville, A. (2016). <em>Deep Learning</em>. MIT Press.
+</div>
+<div class="csl-entry">
+Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., … Bengio, Y. (2014). Generative adversarial nets. In <em>Proceedings of the 27th international conference on neural information processing systems (NeurIPS)</em>,Vol. 27, pages 2672–2680.
+</div>
+<div class="csl-entry">
+Grant, M., and Boyd, S. (2008). Graph implementations for nonsmooth convex programs. In V. Blondel, S. Boyd, and H. Kimura, editors, <em>Recent advances in learning and control</em>, pages 95–110. Springer.
+</div>
+<div class="csl-entry">
+Grant, M., and Boyd, S. (2014). <em><a href="http://cvxr.com/cvx"><span>CVX</span>: Matlab Software for Disciplined Convex Programming</a></em>.
+</div>
+<div class="csl-entry">
+Grinblatt, M., Titman, S., and Wermers, R. (1995). Momentum investment strategies, portfolio performance, and herding: A study of mutual fund behavior. <em>American Economic Review</em>, <em>85</em>, 1088–1105.
+</div>
+<div class="csl-entry">
+Grinold, R. C., and Kahn, R. N. (2000). <em>Active Portfolio Management</em>. McGraw Hill.
+</div>
+<div class="csl-entry">
+Grippo, L., and Sciandrone, M. (2000). On the convergence of the block nonlinear <span>Gauss–Seidel</span> method under convex constraints. <em>Operations Research Letters</em>, <em>26</em>(3), 127–136.
+</div>
+<div class="csl-entry">
+Griveau-Billion, T., Richard, J.-C., and Roncalli, T. (2013). <a href="https://dx.doi.org/10.2139/ssrn.2325255">A fast algorithm for computing high-dimensional risk parity portfolios</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Grootveld, H., and Hallerbach, W. (1999). Variance vs downside risk: Is there really that much difference? <em>European Journal of Operational Research</em>, <em>114</em>, 304–319.
+</div>
+<div class="csl-entry">
+Grossman, S. J., and Zhou, Z. (1993). Optimal investment strategies for controlling drawdowns. <em>Mathematical Finance</em>, <em>3</em>(3), 241–276.
+</div>
+<div class="csl-entry">
+Hallerbach, W. G. (2003). Decomposing portfolio value-at-risk: A general analysis. <em>Journal of Risk</em>, <em>5</em>(2), 1–18.
+</div>
+<div class="csl-entry">
+Harris, R. I. D. (1995). <em>Using Cointegration Analysis in Econometric Modelling</em>. Prentice Hall.
+</div>
+<div class="csl-entry">
+Harvey, A. (1989). <em>Forecasting, Structural Time Series Models and the <span>Kalman</span> Filter</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Harvey, A., and Koopman, S. J. (2009). Unobserved components models in economics and finance: The role of the <span>Kalman</span> filter in time series econometrics. <em>IEEE Control Systems Magazine</em>, <em>29</em>(6), 71–81.
+</div>
+<div class="csl-entry">
+Harvey, A., Ruiz, E., and Shephard, N. (1994). Multivariate stochastic variance models. <em>The Review of Economic Studies</em>, <em>61</em>(2), 247–264.
+</div>
+<div class="csl-entry">
+Harvey, C. R. (2017). Presidential address: The scientific outlook in financial economics. <em>The Journal of Finance</em>, <em>72</em>(4), 1399–1440.
+</div>
+<div class="csl-entry">
+Harvey, C. R., Liu, Y., and Zhu, H. (2016)... And the cross-section of expected returns. <em>Review of Financial Studies</em>, <em>29</em>(1), 5–68.
+</div>
+<div class="csl-entry">
+Hastie, T., Tibshirani, R., and Friedman, J. (2009). <em>The Elements of Statistical Learning</em>. Springer.
+</div>
+<div class="csl-entry">
+Helske, J. (2017). <span>KFAS</span>: Exponential family state space models in <span>R</span>. <em>Journal of Statistical Software</em>, <em>78</em>(10), 1–39.
+</div>
+<div class="csl-entry">
+Ho, J., Jain, A., and Abbeel, P. (2020). Denoising diffusion probabilistic models. In <em>Proceedings of the 34th international conference on neural information processing systems (NeurIPS)</em>, pages 6840–6851. Virtual.
+</div>
+<div class="csl-entry">
+Ho, T. K. (1998). The random subspace method for constructing decision forests. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, <em>20</em>(8), 832–844.
+</div>
+<div class="csl-entry">
+Hochreiter, S., and Schmidhuber, J. (1997). Long short-term memory. <em>Neural Computation</em>, <em>9</em>(8), 1735–1780.
+</div>
+<div class="csl-entry">
+Holmes, E. E., Ward, E. J., and Wills, K. (2012). <span>MARSS</span>: Multivariate autoregressive state-space models for analyzing time-series data. <em>The R Journal</em>, <em>4</em>(1), 11–19.
+</div>
+<div class="csl-entry">
+Hong, L. J., Hu, Z., and Liu, G. (2014). <span>Monte</span> <span>Carlo</span> methods for value-at-risk and conditional value-at-risk: A review. <em>ACM Transactions on Modeling and Computer Simulation</em>, <em>24</em>(4), 1–37.
+</div>
+<div class="csl-entry">
+Hosking, J. R. M. (1990). <span>L</span>-moments: Analysis and estimation of distributions using linear combinations of order statistics. <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em>, <em>52</em>(1), 105–124.
+</div>
+<div class="csl-entry">
+Huber, P. J. (1964). Robust estimation of a location parameter. <em>The Annals of Statistics</em>, <em>53</em>(1), 73–101.
+</div>
+<div class="csl-entry">
+Huber, P. J. (2011). <em>Robust Statistics</em>. Springer.
+</div>
+<div class="csl-entry">
+Hunter, D. R., and Lange, K. (2004). A tutorial on <span>MM</span> algorithms. <em>The American Statistician</em>, <em>58</em>, 30–37.
+</div>
+<div class="csl-entry">
+Hyndman, R. J., Koehler, A. B., Ord, J. K., and Snyder, R. D. (2008). <em>Forecasting with Exponential Smoothing</em>. Springer.
+</div>
+<div class="csl-entry">
+Jacobs, B. I., Levy, K. N., and Markowitz, H. M. (2005). Portfolio optimization with factors, scenarios, and realistic short positions. <em>Operations Research</em>, <em>53</em>(4), 586–599.
+</div>
+<div class="csl-entry">
+Jagannathan, R., and Ma, T. (2003). Risk reduction in large portfolios: Why imposing the wrong constraints helps. <em>The Journal of Finance</em>, <em>58</em>(4), 1651–1684.
+</div>
+<div class="csl-entry">
+James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013). <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. Springer.
+</div>
+<div class="csl-entry">
+James, W., and Stein, C. (1961). Estimation with quadratic loss. In <em>Proceedings of the 4th berkeley symposium on mathematical statistics and probability</em>,Vol. Vol. 1, pages (pp. 361–379). University of California Press.
+</div>
+<div class="csl-entry">
+Jansen, R., and Van Dijk, R. (2002). Optimal benchmark tracking with small portfolios. <em>Journal of Portfolio Management</em>, <em>28</em>(2), 33–39.
+</div>
+<div class="csl-entry">
+Jean, W. H. (1971). The extension of portfolio analysis to three or more parameters. <em>Journal of Financial and Quantitative Analysis</em>, <em>6</em>(1), 505–515.
+</div>
+<div class="csl-entry">
+Johansen, S. (1991). Estimation and hypothesis testing of cointegration vectors in <span>Gaussian</span> vector autoregressive models. <em>Econometrica: Journal of the Econometric Society</em>, <em>59</em>(6), 1551–1580.
+</div>
+<div class="csl-entry">
+Johansen, S. (1995). <em>Likelihood-Based Inference in Cointegrated Vector Autoregressive Models</em>. Oxford University Press.
+</div>
+<div class="csl-entry">
+Jolliffe, I. (2002). <em>Principal Component Analysis</em>. Springer.
+</div>
+<div class="csl-entry">
+Jondeau, E., Poon, S. H., and Rockinger, M. (2007). <em>Financial Modeling Under Non-<span>Gaussian</span> Distributions</em>. Springer.
+</div>
+<div class="csl-entry">
+Jorion, P. (1986). <span>Bayes–Stein</span> estimation for portfolio analysis. <em>Journal of Finance and Quantitative Analysis</em>, <em>21</em>(3), 279–292.
+</div>
+<div class="csl-entry">
+Jorion, P. (1992). Portfolio optimization in practice. <em>Financial Analysts Journal</em>, <em>48</em>(1), 68–74.
+</div>
+<div class="csl-entry">
+Jurczenko, E. (2017). <em>Factor Investing: From Traditional to Alternative Risk Premia</em>. Amsterdam, The Netherlands: Elsevier.
+</div>
+<div class="csl-entry">
+Jurczenko, E., Maillet, B., and Merlin, P. (2006). Hedge fund portfolio selection with higher-order moments: A nonparametric mean–variance–skewness–kurtosis efficient frontier. In E. Jurczenko and B. Maillet, editors, <em>Multi-moment asset allocation and pricing models</em>, pages 51–66. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Kalman, R. E. (1960). A new approach to linear filtering and prediction problems. <em>Journal of Basic Engineering</em>, <em>82</em>, 35–45.
+</div>
+<div class="csl-entry">
+Kalofolias, V. (2016). How to learn a graph from smooth signals. In <em>Proceedings of the international conference on artificial intelligence and statistics (AISTATS)</em>, pages 920–929.
+</div>
+<div class="csl-entry">
+Kalofolias, V., Loukas, A., Thanou, D., and Frossard, P. (2017). Learning time varying graphs. In <em>Proceedings of the IEEE international conference on acoustics, speech, and signal processing (ICASSP)</em>, pages 2826–2830. New Orleans, LA, USA.
+</div>
+<div class="csl-entry">
+Karmarkar, N. (1984). A new polynomial time algorithm for linear programming. <em>Combinatorica</em>, <em>4</em>(4), 373–395.
+</div>
+<div class="csl-entry">
+Kastner, G. (2016). Dealing with stochastic volatility in time series using the <span>R</span> package stochvol. <em>Journal of Statistical Software</em>, <em>69</em>(5), 1–30.
+</div>
+<div class="csl-entry">
+Kay, S. M. (1993). <em>Fundamentals of Statistical Signal Processing: Estimation Theory</em>. Prentice Hall.
+</div>
+<div class="csl-entry">
+Kaya, H., and Lee, W. (2012). <a href="https://dx.doi.org/10.2139/ssrn.1987770">Demystifying risk parity</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Kedem, B. (1994). <em>Time Series Analysis by Higher Order Crossings</em>. IEEE Press.
+</div>
+<div class="csl-entry">
+Kelly, Jr., J. L. (1956). A new interpretation of information rate. <em>The Bell System Technical Journal</em>, <em>35</em>(4), 917–926.
+</div>
+<div class="csl-entry">
+Kent, J. T., and Tyler, D. E. (1991). Redescending <span><span class="math inline">\(M\)</span></span>-estimates of multivariate location and scatter. <em>The Annals of Statistics</em>, <em>19</em>(4), 2102–2119.
+</div>
+<div class="csl-entry">
+Kent, J. T., Tyler, D. E., and Vard, Y. (1994). A curious likelihood identity for the multivariate <span class="math inline">\(t\)</span>-distribution. <em>Communications in Statistics – Simulation and Computation</em>, <em>23</em>(2), 441–453.
+</div>
+<div class="csl-entry">
+Khamaru, K., and Mazumder, R. (2019). Computation of the maximum likelihood estimator in low-rank factor analysis. <em>Mathematical Programming</em>, <em>176</em>, 279–310.
+</div>
+<div class="csl-entry">
+Kim, S., Shephard, N., and Chib, S. (1998). Stochastic volatility: Likelihood inference and comparison with <span>ARCH</span> models. <em>Review of Economic Studies</em>, <em>65</em>, 361–393.
+</div>
+<div class="csl-entry">
+Kissell, R. (2020). <em>Algorithmic Trading Methods: Applications Using Advanced Statistics, Optimization, and Machine Learning Techniques</em>. Academic Press.
+</div>
+<div class="csl-entry">
+Kleiner, A., Talwalkar, A., Sarkar, P., and Jordan, M. I. (2014). A scalable bootstrap for massive data. <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em>, <em>76</em>(4), 795–816.
+</div>
+<div class="csl-entry">
+Kolaczyk, E. D. (2009). <em>Statistical Analysis of Network Data: Methods and Models</em>. New York: Springer.
+</div>
+<div class="csl-entry">
+Kolm, P. N., Tütüncü, R., and Fabozzi, F. J. (2014). 60 years of portfolio optimization: Practical challenges and current trends. <em>European Journal of Operational Research</em>, <em>234</em>(2), 356–371.
+</div>
+<div class="csl-entry">
+Kramer, M. A. (1991). Nonlinear principal component analysis using autoassociative neural networks. <em>AIChE Journal</em>, <em>37</em>(2), 233–243.
+</div>
+<div class="csl-entry">
+Krauss, C. (2017). Statistical arbitrage pairs trading strategies: Review and outlook. <em>Journal of Economic Surveys</em>, <em>31</em>(2), 513–545.
+</div>
+<div class="csl-entry">
+Kritzman, M., Page, S., and Turkington, D. (2010). In defense of optimization: The fallacy of <span>1/N</span>. <em>Financial Analysts Journal</em>, <em>66</em>(2), 31–39.
+</div>
+<div class="csl-entry">
+Krizhevsky, A., Sutskever, I., and Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks. In <em>Proceedings of the 25th international conference on neural information processing systems (NeurIPS)</em>,Vol. 25, pages 1097–1105.
+</div>
+<div class="csl-entry">
+Kumar, S., Ying, J., Cardoso, J. V. M., and Palomar, D. P. (2019). Structured graph learning via <span>Laplacian</span> spectral constraints. In <em>Proceedings of the 33rd international conference on neural information processing systems (NeurIPS)</em>, pages 11651–11663. Vancouver, Canada: Curran Associates Inc.
+</div>
+<div class="csl-entry">
+Kumar, S., Ying, J., Cardoso, J. V. M., and Palomar, D. P. (2020). A unified framework for structured graph learning via spectral constraints. <em>Journal of Machine Learning Research (JMLR)</em>, <em>21</em>(22), 1–60.
+</div>
+<div class="csl-entry">
+Lahiri, S. N. (1999). Theoretical comparisons of block bootstrap methods. <em>The Annals of Statistics</em>, <em>27</em>(1), 386–404.
+</div>
+<div class="csl-entry">
+Lai, T.-Y. (1991). Portfolio selection with skewness: A multiple- objective approach. <em>Review of Quantitative Finance and Accounting</em>, <em>1</em>(3), 293–305.
+</div>
+<div class="csl-entry">
+Lake, B., and Tenenbaum, J. (2010). Discovering structure by learning sparse graphs. In <em>Proceedings of the 32nd annual conference of the cognitive science society</em>, pages 778–783.
+</div>
+<div class="csl-entry">
+Lauritzen, S. (1996). <em>Graphical Models</em>. Oxford: Oxford University Press.
+</div>
+<div class="csl-entry">
+LeCun, Y., Bengio, Y., and Hinton, G. (2015). Deep learning. <em>Nature</em>, <em>521</em>, 436–444.
+</div>
+<div class="csl-entry">
+LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998). Gradient-based learning applied to document recognition. <em>Proceedings of the IEEE</em>, <em>86</em>(11), 2278–2324.
+</div>
+<div class="csl-entry">
+Ledoit, O., and Wolf, M. (2003). Improved estimation of the covariance matrix of stock returns with an application to portfolio selection. <em>Journal of Empirical Finance</em>, <em>10</em>(5), 603–621.
+</div>
+<div class="csl-entry">
+Ledoit, O., and Wolf, M. (2004). A well-conditioned estimator for large-dimensional covariance matrices. <em>Journal of Multivariate Analysis</em>, <em>88</em>(2), 365–411.
+</div>
+<div class="csl-entry">
+Ledoit, O., and Wolf, M. (2017). Nonlinear shrinkage of the covariance matrix for portfolio selection. <em>The Review of Financial Studies</em>, <em>30</em>(12), 4349–4388.
+</div>
+<div class="csl-entry">
+Lehalle, C.-A., and Laruelle, S. (Eds.). (2018). <em>Market Microstructure in Practice</em>. World Scientific Publishing Co. Pte. Ltd.
+</div>
+<div class="csl-entry">
+Levy, H., and Markowitz, H. M. (1979). Approximating expected utility by a function of mean and variance. <em>The American Economic Review</em>, <em>69</em>(3), 308–317.
+</div>
+<div class="csl-entry">
+Lin, H. W., Tegmark, M., and Rolnick, D. (2017). Why does deep and cheap learning work so well? <em>Journal of Statistical Physics</em>, <em>168</em>, 1223–1247.
+</div>
+<div class="csl-entry">
+Litterman, R. (1996). Hot spots and hedges. <em>Journal of Portfolio Management</em>, <em>22</em>, 52–75.
+</div>
+<div class="csl-entry">
+Liu, C., and Rubin, D. B. (1995). <span>ML</span> estimation of the <span class="math inline">\(t\)</span>-distribution using <span>EM</span> and its extensions, <span>ECM</span> and <span>ECME</span>. <em>Statistica Sinica</em>, <em>5</em>(1), 19–39.
+</div>
+<div class="csl-entry">
+Liu, C., Rubin, D. B., and Wu, Y. N. (1998). Parameter expansion to accelerate <span>EM</span>: The <span>PX-EM</span> algorithm. <em>Biometrika</em>, <em>85</em>(4), 755–770.
+</div>
+<div class="csl-entry">
+Lo, A. W., and Mackinlay, A. C. (2002). <em>A Non-Random Walk down <span>Wall</span> <span>Street</span></em>. Princeton, NJ: Princeton University Press.
+</div>
+<div class="csl-entry">
+Lobo, M. S. (2000). <em>Robust and Convex Optimization with Applications in Finance</em> (PhD thesis). Stanford University.
+</div>
+<div class="csl-entry">
+Lobo, M. S., Vandenberghe, L., Boyd, S., and Lebret, H. (1998). Applications of second-order cone programming. <em>Linear Algebra and Applications</em>, <em>284</em>(1–3), 193–228.
+</div>
+<div class="csl-entry">
+Löfberg, J. (2004). <span>YALMIP</span>: A toolbox for modeling and optimization in <span>MATLAB</span>. In <em>Proceedings of the CACSD conference</em>. Taipei, Taiwan.
+</div>
+<div class="csl-entry">
+López de Prado, M. (2016). Building diversified portfolios that outperform out of sample. <em>Journal of Portfolio Management</em>, <em>42</em>(4), 59–69.
+</div>
+<div class="csl-entry">
+López de Prado, M. (2018a). <em>Advances in Financial Machine Learning</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+López de Prado, M. (2018b). The 10 reasons most machine learning funds fail. <em>Journal of Portfolio Management</em>, <em>44</em>(6), 120–133.
+</div>
+<div class="csl-entry">
+López de Prado, M. (2019). <a href="https://dx.doi.org/10.2139/ssrn.3365271">Ten applications of financial machine learning</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Luenberger, D. G. (1969). <em>Optimization by Vector Space Methods</em>. New York: John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Luenberger, D. G., and Ye, Y. (2021). <em>Linear and Nonlinear Programming</em>. Springer.
+</div>
+<div class="csl-entry">
+Luo, Y., Alvarez, M., Wang, S., Jussa, J., Wang, A., and Rohal, G. (2014). Seven sins of quantitative investing. <em>White Paper, Deutsche Bank Markets Research</em>.
+</div>
+<div class="csl-entry">
+Lütkepohl, H. (2007). <em>New Introduction to Multiple Time Series Analysis</em>. Springer.
+</div>
+<div class="csl-entry">
+Machkour, J., Muma, M., and Palomar, D. P. (2025). The terminating-random experiments selector: Fast high-dimensional variable selection with false discovery rate control. <em>Signal Processing</em>.
+</div>
+<div class="csl-entry">
+Machkour, J., Palomar, D. P., and Muma, M. (2025). <span>FDR</span>-controlled portfolio optimization for sparse financial index tracking. In <em>Proceedings of the IEEE international conference on acoustics, speech, and signal processing (ICASSP)</em>. Hyderabad, India.
+</div>
+<div class="csl-entry">
+Machkour, J., Tien, S., Palomar, D. P., and Muma, M. (2024). <em><a href="https://CRAN.R-project.org/package=TRexSelector"><span>TRexSelector</span>: <span>T-Rex</span> Selector: High-Dimensional Variable Selection &amp; <span>FDR</span> Control</a></em>.
+</div>
+<div class="csl-entry">
+MacLean, L., Thorp, E., and Ziemba, W. (2010). Long-term capital growth: The good and bad properties of the <span>Kelly</span> and fractional <span>Kelly</span> capital growth criteria. <em>Quantitative Finance</em>, <em>10</em>(7), 681–687.
+</div>
+<div class="csl-entry">
+Maillard, S., Roncalli, T., and Teiletche, J. (2010). The properties of equally weighted risk contribution portfolios. <em>Journal of Portfolio Management</em>, <em>36</em>(4), 60–70.
+</div>
+<div class="csl-entry">
+Malkiel, B. G. (1973). <em>A Random Walk down <span>Wall</span> <span>Street</span></em>. New York: W. W. Norton.
+</div>
+<div class="csl-entry">
+Mandelbrot, B. B. (1963). The variation of certain speculative prices. <em>The Journal of Business</em>, <em>36</em>(4), 394–419.
+</div>
+<div class="csl-entry">
+Mantegna, R. N. (1999). Hierarchical structure in financial markets. <em>The European Physical Journal B – Condensed Matter and Complex Systems</em>, <em>11</em>, 193–197.
+</div>
+<div class="csl-entry">
+Maringer, D., and Oyewumi, O. (2007). Index tracking with constrained portfolios. <em>Intelligent Systems in Accounting, Finance and Management</em>, <em>15</em>(1–2), 57–71.
+</div>
+<div class="csl-entry">
+Markowitz, H. M. (1952). Portfolio selection. <em>The Journal of Finance</em>, <em>7</em>(1), 77–91.
+</div>
+<div class="csl-entry">
+Markowitz, H. M. (1959). <em>Portfolio Selection: Efficient Diversification of Investments</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Markowitz, H. M. (2014). Mean–variance approximations to expected utility. <em>European Journal of Operational Research</em>, <em>234</em>(2), 346–355.
+</div>
+<div class="csl-entry">
+Maronna, R. A. (1976). Robust <span><span class="math inline">\(M\)</span></span>-estimators of multivariate location and scatter. <em>The Annals of Statistics</em>, <em>4</em>(1), 51–67.
+</div>
+<div class="csl-entry">
+Maronna, R. A., Martin, D. R., and Yohai, V. J. (2006). <em>Robust Statistics: Theory and Methods</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Martellini, L., and Ziemann, V. (2010). Improved estimates of higher-order comoments and implications for portfolio selection. <em>The Review of Financial Studies</em>, <em>23</em>(4), 1467–1502.
+</div>
+<div class="csl-entry">
+Marti, G., Nielsen, F., Binkowski, M., and Donnat, P. (2021). A review of two decades of correlations, hierarchies, networks and clustering in financial markets. In F. Nielsen, editor, <em>Progress in information geometry</em>, pages 245–274. Springer.
+</div>
+<div class="csl-entry">
+Martin, R. A. (2021). <span>PyPortfolioOpt</span>: Portfolio optimization in <span>Python</span>. <em>Journal of Open Source Software</em>, <em>6</em>(61), 1–5.
+</div>
+<div class="csl-entry">
+Mateos, G., Segarra, S., Marques, A. G., and Ribeiro, A. (2019). Connecting the dots. <em>IEEE Signal Processing Magazine</em>, <em>36</em>(3), 16–43.
+</div>
+<div class="csl-entry">
+Mausser, H., and Romanko, O. (2014). Computing equal risk contribution portfolios. <em>Journal of Research and Development</em>, <em>58</em>(4), 5:1–5:12.
+</div>
+<div class="csl-entry">
+Mayer, J., Khairy, K., and Howard, J. (2010). Drawing an elephant with four complex parameters. <em>American Journal of Physics</em>, <em>78</em>(6), 648–649.
+</div>
+<div class="csl-entry">
+McNeil, A. J., and Frey, R. (2000). Estimation of tail-related risk measures for heteroscedastic financial time series: An extreme value approach. <em>Journal of Empirical Finance</em>, <em>7</em>(3–4), 271–300.
+</div>
+<div class="csl-entry">
+McNeil, A. J., Frey, R., and Embrechts, P. (2015). <em>Quantitative Risk Management</em>. Princeton University Press.
+</div>
+<div class="csl-entry">
+Meinshausen, N. (2013). Sign-constrained least squares estimation for high-dimensional regression. <em>Electronic Journal of Statistics</em>, <em>7</em>, 1607–1631.
+</div>
+<div class="csl-entry">
+Meucci, A. (2005). <em>Risk and Asset Allocation</em>. Springer.
+</div>
+<div class="csl-entry">
+Michaud, R. O. (1989). The <span>Markowitz</span> optimization enigma: Is <span>“optimized”</span> optimal? <em>Financial Analysts Journal</em>, <em>45</em>(1), 31–42.
+</div>
+<div class="csl-entry">
+Michaud, R. O., and Michaud, R. O. (1998). <em>Efficient Asset Management: A Practical Guide to Stock Portfolio Optimization and Asset Allocation</em>. Harvard Business School Press.
+</div>
+<div class="csl-entry">
+Michaud, R. O., and Michaud, R. O. (2007). Estimation error and portfolio optimization: A resampling solution. <em>Journal of Investment and Management</em>, <em>6</em>(1), 8–28.
+</div>
+<div class="csl-entry">
+Michaud, R. O., and Michaud, R. O. (2008). <em>Efficient Asset Management: A Practical Guide to Stock Portfolio Optimization and Asset Allocation</em>. Oxford University Press.
+</div>
+<div class="csl-entry">
+Montier, J. (2005). Seven sins of fund management. <em>Dresdner Kleinwort Wasserstein – Global Equity Strategy</em>.
+</div>
+<div class="csl-entry">
+Nadarajah, S., Zhang, B., and Chan, S. (2014). Estimation methods for expected shortfall. <em>Quantitative Finance</em>, <em>14</em>(2), 271–291.
+</div>
+<div class="csl-entry">
+Nemirovski, A. (2000). <em>Lectures on Modern Convex Optimization</em>. Technion - Israel Institute of Technology.
+</div>
+<div class="csl-entry">
+Nesterov, Y. (2018). <em>Lectures on Convex Optimization</em>. Springer.
+</div>
+<div class="csl-entry">
+Nesterov, Y., and Nemirovski, A. (1994). <em>Interior-Point Polynomial Algorithms in Convex Programming</em>. Philadelphia, PA: Society for Industrial <span>and</span> Applied Mathematics (SIAM).
+</div>
+<div class="csl-entry">
+Neumann, J. von, and Morgenstern, O. (1944). <em>Theory of Games and Economic Behavior</em>. Princeton University Press.
+</div>
+<div class="csl-entry">
+Nie, F., Wang, X., Jordan, M., and Huang, H. (2016). The constrained <span>Laplacian</span> rank algorithm for graph-based clustering. In <em>Proceedings of the AAAI conference on artificial intelligence</em>, pages 1969–1976. Phoenix, Arizona, USA.
+</div>
+<div class="csl-entry">
+Nielsen, M. A. (2015). <em><a href="http://neuralnetworksanddeeplearning.com">Neural Networks and Deep Learning</a></em>. Determination Press. Available online.
+</div>
+<div class="csl-entry">
+Niu, Y.-S., and Wang, Y.-J. (2019). <a href="https://arxiv.org/abs/1906.01509v2">Higher-order moment portfolio optimization via the difference-of-convex programming and sums-of-squares</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Nocedal, J., and Wright, S. J. (2006). <em>Numerical Optimization</em>. Springer.
+</div>
+<div class="csl-entry">
+Ogryczak, W. (2000). Multiple criteria linear programming model for portfolio selection. <em>Annals of Operations Research</em>, <em>97</em>, 143–162.
+</div>
+<div class="csl-entry">
+Ogryczak, W., and Sliwinski, T. (2003). On solving linear programs with the ordered weighted averaging objective. <em>European Journal of Operational Research</em>, <em>148</em>, 80–91.
+</div>
+<div class="csl-entry">
+Oja, H. (2013). Multivariate median. In C. Becker, R. Fried, and S. Kuhnt, editors, <em>Robustness and complex data structures</em>. Berlin, Germany: Springer.
+</div>
+<div class="csl-entry">
+Ollila, E., Palomar, D. P., and Pascal, F. (2023). Affine equivariant <span>Tyler</span>’s <span>M</span>-estimator applied to tail parameter learning of elliptical distributions. <em>IEEE Signal Processing Letters</em>, <em>30</em>, 1017–1021.
+</div>
+<div class="csl-entry">
+Ollila, E., Pascal, F., and Palomar, D. P. (2021). Shrinking the eigenvalues of <span>M</span>-estimators of covariance matrix. <em>IEEE Transactions on Signal Processing</em>, <em>69</em>, 256–269.
+</div>
+<div class="csl-entry">
+Ollila, E., and Raninen, E. (2019). Optimal shrinkage covariance matrix estimation under random sampling from elliptical distributions. <em>IEEE Transactions on Signal Processing</em>, <em>67</em>(10), 2707–2719.
+</div>
+<div class="csl-entry">
+OpenAI. (2023). <a href="https://doi.org/10.48550/arXiv.2303.08774"><span>GPT</span>-4 technical report</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Ozbayoglu, A. M., Gudelek, M. U., and Sezer, O. B. (2020). <a href="https://doi.org/10.48550/arXiv.2002.05786">Deep learning for financial applications: A survey</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Palomar, D. P., and Eldar, Y. C. (2009). <em>Convex Optimization in Signal Processing and Communications</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Palomar, D. P., Zhou, R., Wang, X., Pascal, F., and Ollila, E. (2023). <em><a href="https://CRAN.R-project.org/package=fitHeavyTail"><span class="nocase">fitHeavyTail</span>: Mean and Covariance Matrix Estimation Under Heavy Tails</a></em>.
+</div>
+<div class="csl-entry">
+Papenbrock, J. (2011). <em>Asset Clusters and Asset Networks in Financial Risk Management and Portfolio Optimization</em> (PhD thesis). Karlsruher Institute für Technologie.
+</div>
+<div class="csl-entry">
+Papoulis, A. (1991). <em>Probability, Random Variables, and Stochastic Processes</em>. McGraw-Hill.
+</div>
+<div class="csl-entry">
+Pardo, R. (2008). <em>The Evaluation and Optimization of Trading Strategies</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Petris, G., and Petrone, S. (2011). State space models in <span>R</span>. <em>Journal of Statistical Software</em>, <em>41</em>(4), 1–25.
+</div>
+<div class="csl-entry">
+Pfaff, B. (2008). <em>Analysis of Integrated and Cointegrated Time Series with <span>R</span></em>. Springer.
+</div>
+<div class="csl-entry">
+Pfaff, B., Zivot, E., and Stigler, M. (2022). <em><a href="https://CRAN.R-project.org/package=urca"><span class="nocase">urca</span>: Unit Root and Cointegration Tests for Time Series Data</a></em>.
+</div>
+<div class="csl-entry">
+Poon, S.-H., and Granger, C. W. J. (2003). Forecasting volatility in financial markets: A review. <em>Journal of Economic Literature</em>, <em>XLI</em>, 478–539.
+</div>
+<div class="csl-entry">
+Prekopa, A. (1995). <em>Stochastic Programming</em>. Kluwer Academic.
+</div>
+<div class="csl-entry">
+Prigent, J. L. (2007). <em>Portfolio Optimization and Performance Analysis</em>. CRC Press.
+</div>
+<div class="csl-entry">
+Pulley, L. B. (1983). Mean–variance approximations to expected logarithmic utility. <em>Operations Research</em>, <em>31</em>(4), 685–696.
+</div>
+<div class="csl-entry">
+Qian, E. (2005). Risk parity portfolios: Efficient portfolios through true diversification. <em>PanAgora Asset Management</em>.
+</div>
+<div class="csl-entry">
+Qian, E. (2016). <em>Risk Parity Fundamentals</em>. CRC Press.
+</div>
+<div class="csl-entry">
+Raffinot, T. (2018a). Hierarchical clustering-based asset allocation. <em>The Journal of Portfolio Management</em>, <em>44</em>(2), 89–99.
+</div>
+<div class="csl-entry">
+Raffinot, T. (2018b). <a href="https://dx.doi.org/10.2139/ssrn.3237540">The hierarchical equal risk contribution portfolio</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Razaviyayn, M., Hong, M., and Luo, Z. (2013). A unified convergence analysis of block successive minimization methods for nonsmooth optimization. <em>SIAM Journal on Optimization</em>, <em>23</em>(2), 1126–1153.
+</div>
+<div class="csl-entry">
+Rockafellar, R. T. (1970). <em>Convex Analysis</em>. Princeton, NJ: Princeton Univ. Press.
+</div>
+<div class="csl-entry">
+Rockafellar, R. T. (1993). Lagrange multipliers and optimality. <em>SIAM Review</em>, <em>35</em>(2), 183–238.
+</div>
+<div class="csl-entry">
+Rockafellar, R. T., and Uryasev, S. (2000). Optimization of conditional value-at-risk. <em>Journal of Risk</em>, <em>2</em>(3), 21–42.
+</div>
+<div class="csl-entry">
+Rockafellar, R. T., and Uryasev, S. (2002). Conditional value-at-risk for general loss distributions. <em>Journal of Banking and Finance</em>, <em>26</em>(7), 1443–1471.
+</div>
+<div class="csl-entry">
+Roncalli, T. (2013a). <a href="https://dx.doi.org/10.2139/ssrn.2321309">Introducing expected returns into risk parity portfolios: A new framework for tactical and strategic asset allocation</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Roncalli, T. (2013b). <em>Introduction to Risk Parity and Budgeting</em>. Chapman &amp; Hall/CRC.
+</div>
+<div class="csl-entry">
+Roncalli, T., and Weisang, G. (2016). Risk parity portfolios with risk factors. <em>Quantitative Finance</em>, <em>16</em>(3), 377–388.
+</div>
+<div class="csl-entry">
+Roy, A. (1952). Safety first and the holding of assets. <em>Econometrica</em>, <em>20</em>(3), 431–449.
+</div>
+<div class="csl-entry">
+Rubinstein, M. (2002). <span>Markowitz</span>’s <span>“portfolio selection”</span>: A fifty-year retrospective. <em>The Journal of Finance</em>, <em>57</em>(3), 1041–1045.
+</div>
+<div class="csl-entry">
+Rue, H., and Held, L. (2005). <em><span>Gaussian</span> <span>Markov</span> Random Fields: Theory and Applications</em>. Chapman &amp; Hall/CRC.
+</div>
+<div class="csl-entry">
+Ruiz, E. (1994). Quasi-maximum likelihood estimation of stochastic volatility models. <em>Journal of Econometrics</em>, <em>63</em>(1), 289–306.
+</div>
+<div class="csl-entry">
+Ruppert, D., and Matteson, S. D. (2015). <em>Statistics and Data Analysis for Financial Engineering: With <span>R</span> Examples</em>. Springer.
+</div>
+<div class="csl-entry">
+Ruszczynski, A. P., and Shapiro, A. (2003). <em>Stochastic Programming</em>. Elsevier.
+</div>
+<div class="csl-entry">
+Santamaria, I., Scharf, L. L., Via, J., Wang, H., and Wang, Y. (2017). Passive detection of correlated subspace signals in two <span>MIMO</span> channels. <em>IEEE Transactions on Signal Processing</em>, <em>65</em>(20), 5266–5280.
+</div>
+<div class="csl-entry">
+Sardarabadi, A. M., and Veen, A. J. van der. (2018). Complex factor analysis and extensions. <em>IEEE Transactions on Signal Processing</em>, <em>66</em>(4), 954–967.
+</div>
+<div class="csl-entry">
+Savage, L. J. (1954). <em>The Foundations of Statistics</em>. New York: John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Scaillet, O. (2004). Nonparametric estimation and sensitivity analysis of expected shortfall. <em>Mathematical Finance</em>, <em>14</em>(1), 115–129.
+</div>
+<div class="csl-entry">
+Scarselli, F., Gori, M., Tsoi, A. C., Hagenbuchner, M., and Monfardini, G. (2009). The graph neural network model. <em>IEEE Transactions on Neural Networks</em>, <em>20</em>(1), 61–80.
+</div>
+<div class="csl-entry">
+Schaible, S. (1974). Parameter-free convex equivalent and dual programs of fractional programming problems. <em>Zeitschrift Fur Operations Research</em>, <em>18</em>(5), 187–196.
+</div>
+<div class="csl-entry">
+Scharf, L. L. (1991). <em>Statistical Signal Processing</em>. Addison-Wesley.
+</div>
+<div class="csl-entry">
+Scherer, B. (2002). Portfolio resampling: Review and critique. <em>Financial Analysts Journal</em>, <em>58</em>(6), 98–109.
+</div>
+<div class="csl-entry">
+Schmidhuber, J. (2015). Deep learning in neural networks: An overview. <em>Neural Networks</em>, <em>61</em>, 85–117.
+</div>
+<div class="csl-entry">
+Schmidhuber, J. (2022). <a href="https://doi.org/10.48550/arXiv.2212.11279">Annotated history of modern <span>AI</span> and deep learning</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Scott, R. C., and Horvath, P. A. (1980). On the direction of preference for moments of higher order than the variance. <em>The Journal of Finance</em>, <em>35</em>(4), 915–919.
+</div>
+<div class="csl-entry">
+Scozzari, A., Tardella, F., Paterlini, S., and Krink, T. (2013). Exact and heuristic approaches for the index tracking problem with <span>UCITS</span> constraints. <em>Annals of Operations Research</em>, <em>205</em>(1), 235–250.
+</div>
+<div class="csl-entry">
+Scutari, G., Facchinei, F., Song, P., Palomar, D. P., and Pang, J.-S. (2014). Decomposition by partial linearization: Parallel optimization of multi-agent systems. <em>IEEE Transactions on Signal Processing</em>, <em>62</em>(3), 641–656.
+</div>
+<div class="csl-entry">
+Scutari, G., and Sun, Y. (2018). Parallel and distributed successive convex approximation methods for big-data optimization. In F. Facchinei and J. S. Pang, editors, <em>Multi-agent optimization</em>, pages 141–308. Springer.
+</div>
+<div class="csl-entry">
+Sezer, O. B., Gudelek, M. U., and Ozbayoglu, A. M. (2020). Financial time series forecasting with deep learning: A systematic literature review: 2005–2019. <em>Applied Soft Computing</em>, <em>90</em>, 106181.
+</div>
+<div class="csl-entry">
+Shalev-Shwartz, S., and Ben-David, S. (2014). <em>Understanding Machine Learning: From Theory to Algorithms</em>. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Shapcott, J. (1992). <em>Index Tracking: Genetic Algorithms for Investment Portfolio Selection</em>. Report EPCC-SS92-24, Edinburgh Parallel Computing Centre, The University of Edinburgh.
+</div>
+<div class="csl-entry">
+Sharpe, W. F. (1964). Capital asset prices: A theory of market equilibrium under conditions of risk. <em>The Journal of Finance</em>, <em>19</em>(3), 425–442.
+</div>
+<div class="csl-entry">
+Sharpe, W. F. (1966). Mutual fund performance. <em>The Journal of Business</em>, <em>39</em>(1), 119–138.
+</div>
+<div class="csl-entry">
+Sharpe, W. F. (1994). The <span>Sharpe</span> ratio. <em>Journal of Portfolio Management</em>, <em>21</em>, 49–58.
+</div>
+<div class="csl-entry">
+Shen, W., Wang, B., Pu, J., and Wang, J. (2019). The <span>Kelly</span> growth optimal portfolio with ensemble learning. In <em>Proceedings of the AAAI conference on artificial intelligence</em>,Vol. 33, pages 1134–1141.
+</div>
+<div class="csl-entry">
+Shen, W., and Wang, J. (2017). Portfolio selection via subset resampling. In <em>Proceedings of the AAAI conference on artificial intelligence</em>,Vol. 31, pages 1517–1523.
+</div>
+<div class="csl-entry">
+Shiller, R. J. (1981). Do stock prices move too much to be justified by subsequent changes in dividends? <em>American Economic Review</em>, <em>71</em>(3), 421–436.
+</div>
+<div class="csl-entry">
+Shiller, R. J. (2003). From efficient markets theory to behavioral finance. <em>Journal of Economic Perspectives</em>, <em>17</em>(1), 83–104.
+</div>
+<div class="csl-entry">
+Shumway, R. H., and Stoffer, D. S. (2017). <em>Time Series Analysis and Its Applications</em>. Springer.
+</div>
+<div class="csl-entry">
+Small, C. G. (1990). A survey of multidimensional medians. <em>International Statistical Review</em>, <em>58</em>(3), 263–277.
+</div>
+<div class="csl-entry">
+Sohl-Dickstein, J., Weiss, E. A., Maheswaranathan, N., and Ganguli, S. (2015). Deep unsupervised learning using nonequilibrium thermodynamics. In <em>Proceedings of the international conference on machine learning (ICML)</em>,Vol. 37, pages 2256–2265.
+</div>
+<div class="csl-entry">
+Song, J., Babu, P., and Palomar, D. P. (2015). Sparse generalized eigenvalue problem via smooth optimization. <em>IEEE Transactions on Signal Processing</em>, <em>63</em>(7), 1627–1642.
+</div>
+<div class="csl-entry">
+Song, Y., and Ermon, S. (2019). Generative modeling by estimating gradients of the data distribution. In <em>Proceedings of the 33rd international conference on neural information processing systems (NeurIPS)</em>, pages 11918–11930. Vancouver, Canada.
+</div>
+<div class="csl-entry">
+Spinu, F. (2013). <a href="https://dx.doi.org/10.2139/ssrn.2297383">An algorithm for computing risk parity weights</a>. <em>SSRN Electronic Journal</em>.
+</div>
+<div class="csl-entry">
+Srivastava, M. S., and Bilodeau, M. (1989). Stein estimation under elliptical distributions. <em>Journal of Multivariate Analysis</em>, <em>28</em>(2), 247–259.
+</div>
+<div class="csl-entry">
+Stancu-Minasian, I. M. (1997). <em>Fractional Programming: Theory, Methods and Applications</em>. Dordrecht: Kluwer Academic Publishers.
+</div>
+<div class="csl-entry">
+Stein, C. (1955). Inadmissibility of the usual estimator for the mean of a multivariate normal distribution. In <em>Proceedings of the 3rd berkeley symposium on probability and statistics</em>,Vol. Vol. 1, pages (pp. 197–206).
+</div>
+<div class="csl-entry">
+Sturm, J. F. (1999). Using <span>SeDuMi</span> 1.02, a <span>MATLAB</span> toolbox for optimization over symmetric cones. <em>Optimization Methods and Software</em>, <em>11</em>(1-4), 625–653.
+</div>
+<div class="csl-entry">
+Sun, S., Wang, R., and An, B. (2023). Reinforcement learning for quantitative trading. <em>ACM Transactions on Intelligent Systems and Technology</em>, <em>13</em>(3), 1–29.
+</div>
+<div class="csl-entry">
+Sun, Y., Babu, P., and Palomar, D. P. (2014). Regularized <span>Tyler</span>’s scatter estimator: Existence, uniqueness, and algorithms. <em>IEEE Transactions on Signal Processing</em>, <em>62</em>(19), 5143–5156.
+</div>
+<div class="csl-entry">
+Sun, Y., Babu, P., and Palomar, D. P. (2015). Regularized robust estimation of mean and covariance matrix under heavy-tailed distributions. <em>IEEE Transactions on Signal Processing</em>, <em>63</em>(12), 3096–3109.
+</div>
+<div class="csl-entry">
+Sun, Y., Babu, P., and Palomar, D. P. (2017). Majorization–minimization algorithms in signal processing, communications, and machine learning. <em>IEEE Transactions on Signal Processing</em>, <em>65</em>(3), 794–816.
+</div>
+<div class="csl-entry">
+Takahashi, S., Chen, Y., and Tanaka-Ishii, K. (2019). Modelling financial time-series with generative adversarial networks. <em>Physica A: Statistical Mechanics and Its Applications</em>, <em>527</em>, 1–12.
+</div>
+<div class="csl-entry">
+Tasche, D. (2008). <a href="https://doi.org/10.48550/arXiv.0708.2542">Capital allocation to business units and sub-portfolios: The <span>Euler</span> principle</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Taylor, S. J. (1982). Financial returns modelled by the product of two stochastic processes: A study of daily sugar prices, 1691–79. In O. D. Anderson, editor, <em>Time series analysis: Theory and practice 1</em>, pages 203–226. North-Holland.
+</div>
+<div class="csl-entry">
+Taylor, S. J. (1994). Modeling stochastic volatility: A review and comparative study. <em>Mathematical Finance</em>, <em>4</em>(2), 183–204.
+</div>
+<div class="csl-entry">
+Thorp, E. O. (1962). <em>Beat the Dealer: A Winning Strategy for the Game of <span>Twenty-One</span></em>. New York: Blaisdell Publishing.
+</div>
+<div class="csl-entry">
+Thorp, E. O. (1971). Portfolio choice and the <span>Kelly</span> criterion. <em>Business and Economics Statistics Section, Proceedings of the American Statistical Association</em>, 215–224.
+</div>
+<div class="csl-entry">
+Thorp, E. O. (1997). The <span>Kelly</span> criterion in <span>Blackjack</span>, sports betting, and the stock market. In <em>Proceedings of the 10th international conference on gambling and risk taking</em>. Montreal.
+</div>
+<div class="csl-entry">
+Tibshirani, R. (1996). Regression shrinkage and selection via the <span>Lasso</span>. <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em>, <em>58</em>(1), 267–288.
+</div>
+<div class="csl-entry">
+Tibshirani, R., Walther, G., and Hastie, T. (2001). Estimating the number of clusters in a data set via the gap statistic. <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em>, <em>63</em>(2), 411–423.
+</div>
+<div class="csl-entry">
+Triantafyllopoulos, K., and Montana, G. (2011). Dynamic modeling of mean-reverting spreads for statistical arbitrage. <em>Computational Management Science</em>, <em>8</em>(1–2), 23–49.
+</div>
+<div class="csl-entry">
+Tsay, R. S. (2010). <em>Analysis of Financial Time Series</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Tsay, R. S. (2013). <em>Multivariate Time Series Analysis: With <span>R</span> and Financial Applications</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Tusell, F. (2011). <span>Kalman</span> filtering in <span>R</span>. <em>Journal of Statistical Software</em>, <em>39</em>(2), 1–27.
+</div>
+<div class="csl-entry">
+Tütüncü, R. H., and Koenig, M. (2004). Robust asset allocation. <em>Annals of Operations Research</em>, <em>132</em>(1), 157–187.
+</div>
+<div class="csl-entry">
+Tütüncü, R. H., Toh, K. C., and Todd, M. J. (2003). Solving semidefinite-quadratic-linear programs using <span>SDPT3</span>. <em>Mathematical Programming. Series B</em>, <em>95</em>, 189–217.
+</div>
+<div class="csl-entry">
+Tyler, D. E. (1987). A distribution-free <span><span class="math inline">\(M\)</span></span>-estimator of multivariate scatter. <em>The Annals of Statistics</em>, <em>15</em>(1), 234–251.
+</div>
+<div class="csl-entry">
+Tyler, D. E., and Yi, M. (2020). Lassoing eigenvalues. <em>Biometrika</em>, <em>107</em>(2), 397–414.
+</div>
+<div class="csl-entry">
+Uysal, A. S., Li, X., and Mulvey, J. M. (2024). End-to-end risk budgeting portfolio optimization with neural networks. <em>Annals of Operations Research</em>, <em>339</em>(1–2), 397–426.
+</div>
+<div class="csl-entry">
+Vandenberghe, L., and Boyd, S. (1996). Semidefinite programming. <em>SIAM Review</em>, <em>38</em>(1), 49–95.
+</div>
+<div class="csl-entry">
+Vapnik, V. (1999). <em>The Nature of Statistical Learning Theory</em>. Springer.
+</div>
+<div class="csl-entry">
+Varadhan, R., and Roland, C. (2008). Simple and globally convergent methods for accelerating the convergence of any <span>EM</span> algorithm. <em>Scandinavian Journal of Statistics</em>, <em>35</em>(2), 335–353.
+</div>
+<div class="csl-entry">
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … Polosukhin, I. (2017). Attention is all you need. In <em>Proceedings of the 31st international conference on neural information processing systems (NeurIPS)</em>, pages 6000–6010.
+</div>
+<div class="csl-entry">
+Vidyamurthy, G. (2004). <em>Pairs Trading: Quantitative Methods and Analysis</em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Vinod, H. D. (2006). Maximum entropy ensembles for time series inference in economics. <em>Journal of Asian Economics</em>, <em>17</em>, 955–978.
+</div>
+<div class="csl-entry">
+von Neumann, J. (1937). <span>Ü</span>ber ein <span class="nocase">ö</span>konomisches <span>G</span>leichgewichtssystem und eine <span>V</span>erallgemeinerung des <span>B</span>rouwerschen <span>F</span>ixpunktsatzes. <em>Ergebnisse Eines Mathematischen <span>K</span>olloquiums</em>, <em>8</em>, 73–83.
+</div>
+<div class="csl-entry">
+Wan, X., Wang, W., Liu, J., and Tong, T. (2014). Estimating the sample mean and standard deviation from the sample size, median, range and/or interquartile range. <em>BMC Medical Research Methodology</em>, <em>14</em>(135), 1–13.
+</div>
+<div class="csl-entry">
+Wang, Q. J. (1996). Direct sample estimators of <span>L</span> moments. <em>Water Resources Research</em>, <em>32</em>(12), 3617–3619.
+</div>
+<div class="csl-entry">
+Wang, X., Zhou, R., Ying, J., and Palomar, D. P. (2023). Efficient and scalable parametric high-order portfolios design via the skew-<span class="math inline">\(t\)</span> distribution. <em>IEEE Transactions on Signal Processing</em>, <em>71</em>, 3726–3740.
+</div>
+<div class="csl-entry">
+Ward, J. H. (1963). Hierarchical grouping to optimize an objective function. <em>Journal of the American Statistical Association</em>, <em>58</em>(301), 236–244.
+</div>
+<div class="csl-entry">
+White, H. (2000). A reality check for data snooping. <em>Econometrica</em>, <em>68</em>(5), 1097–1126.
+</div>
+<div class="csl-entry">
+Wiesel, A. (2012a). Geodesic convexity and covariance estimation. <em>IEEE Transactions on Signal Processing</em>, <em>60</em>(12), 6182–6189.
+</div>
+<div class="csl-entry">
+Wiesel, A. (2012b). Unified framework to regularized covariance estimation in scaled <span>Gaussian</span> models. <em>IEEE Transactions on Signal Processing</em>, <em>60</em>(1), 29–38.
+</div>
+<div class="csl-entry">
+Wiesel, A., and Zhang, T. (2014). Structured robust covariance estimation. <em>Foundations <span>and</span> Trends in Signal Processing, Now Publishers</em>, <em>8</em>(3), 127–216.
+</div>
+<div class="csl-entry">
+Wuertz, D., Chalabi, Y., Setz, T., Maechler, M., Boudt, C., Chausse, P., … Boshnakov, G. N. (2022). <em><a href="https://CRAN.R-project.org/package=fGarch"><span class="nocase">fGarch</span>: Rmetrics – Autoregressive Conditional Heteroskedastic Modelling</a></em>.
+</div>
+<div class="csl-entry">
+Wuertz, D., Setz, T., Chalabi, Y., Chen, W., and Theussl, S. (2023). <em><a href="https://cran.r-project.org/package=fPortfolio"><span class="nocase">fPortfolio</span>: <span>Rmetrics</span> – <span>Portfolio</span> Selection and Optimization</a></em>.
+</div>
+<div class="csl-entry">
+Xiu, S., and Palomar, D. P. (2023). Intraday volatility–volume joint modeling and forecasting: A state-space approach. In <em>Proceedings of the european signal processing conference (EUSIPCO)</em>. Helsinki, Finland.
+</div>
+<div class="csl-entry">
+Xiu, S., Wang, X., and Palomar, D. P. (2023). A fast successive <span>QP</span> algorithm for general mean–variance portfolio optimization. <em>IEEE Transactions on Signal Processing</em>, <em>71</em>, 2713–2727.
+</div>
+<div class="csl-entry">
+Xu, F., Lu, Z., and Xu, Z. (2016). An efficient optimization approach for a cardinality-constrained index tracking problem. <em>Optimization Methods and Software</em>, <em>31</em>(2), 258–271.
+</div>
+<div class="csl-entry">
+Xu, F., Ma, J., and Lu, H. (2022). Group sparse enhanced indexation model with adaptive beta value. <em>Quantitative Finance</em>, <em>22</em>(10), 1905–1926.
+</div>
+<div class="csl-entry">
+Yager, R. R. (1996). Constrained <span>OWA</span> aggregation. <em>Fuzzy Sets and Systems</em>, <em>81</em>(1), 89–101.
+</div>
+<div class="csl-entry">
+Ye, Y. (1997). <em>Interior Point Algorithms: Theory and Analysis</em>. New York: Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Ying, J., Cardoso, J. V. M., and Palomar, D. P. (2020). Nonconvex sparse graph learning under <span>Laplacian</span> constrained graphical model. In <em>Proceedings of the 34th international conference on neural information processing systems (NeurIPS)</em>, pages 7101–7113. Virtual.
+</div>
+<div class="csl-entry">
+Ylvisaker, N. D. (1965). The expected number of zeros of a stationary <span>Gaussian</span> process. <em>The Annals of Mathematical Statistics</em>, <em>36</em>(3), 1043–1046.
+</div>
+<div class="csl-entry">
+Yoon, J., Jarrett, D., and Schaar, M. van der. (2019). Time-series generative adversarial networks. In <em>Proceedings of the 33rd international conference on neural information processing systems (NeurIPS)</em>, pages 5508–5518. Vancouver, Canada.
+</div>
+<div class="csl-entry">
+Young, M. R. (1998). A minimax portfolio selection rule with linear programming solution. <em>Management Science</em>, <em>44</em>(5), 673–683.
+</div>
+<div class="csl-entry">
+Young, W. E., and Trent, R. H. (1969). Geometric mean approximations of individual security and portfolio performance. <em>Journal of Financial and Quantitative Analysis</em>, <em>4</em>(2), 179–199.
+</div>
+<div class="csl-entry">
+Zakamouline, V., and Koekebakker, S. (2009). Portfolio performance evaluation with generalized <span>Sharpe</span> ratios: Beyond the mean and variance. <em>Journal of Banking and Finance</em>, <em>33</em>(7), 1242–1254.
+</div>
+<div class="csl-entry">
+Zakamulin, V. (2018). Revisiting the profitability of market timing with moving averages. <em>International Review of Finance</em>, <em>18</em>(2), 317–327.
+</div>
+<div class="csl-entry">
+Zhang, C., Zhang, Z., Cucuringu, M., and Zohren, S. (2021). <a href="https://doi.org/10.48550/arXiv.2111.09170">A universal end-to-end approach to portfolio optimization via deep learning</a>. <em>Preprint. Available at arXiv</em>.
+</div>
+<div class="csl-entry">
+Zhang, M., Rubio, F., and Palomar, D. P. (2013). Improved calibration of high-dimensional precision matrices. <em>IEEE Transactions on Signal Processing</em>, <em>61</em>(6), 1509–1519.
+</div>
+<div class="csl-entry">
+Zhang, M., Rubio, F., Palomar, D. P., and Mestre, X. (2013). Finite-sample linear filter optimization in wireless communications and financial systems. <em>IEEE Transactions on Signal Processing</em>, <em>61</em>(20), 5014–5025.
+</div>
+<div class="csl-entry">
+Zhang, Z., Zohren, S., and Roberts, S. (2020a). Deep learning for portfolio optimization. <em>The Journal of Financial Data Science</em>, <em>2</em>(4), 8–20.
+</div>
+<div class="csl-entry">
+Zhang, Z., Zohren, S., and Roberts, S. (2020b). Deep reinforcement learning for trading. <em>The Journal of Financial Data Science</em>, <em>4</em>(1), 1–16.
+</div>
+<div class="csl-entry">
+Zhao, L., Wang, Y., Kumar, S., and Palomar, D. P. (2019). Optimization algorithms for graph <span>Laplacian</span> estimation via <span>ADMM</span> and <span>MM</span>. <em>IEEE Transactions on Signal Processing</em>, <em>67</em>(16), 4231–4244.
+</div>
+<div class="csl-entry">
+Zhao, Z., and Palomar, D. P. (2018). Mean-reverting portfolio with budget constraint. <em>IEEE Transactions on Signal Processing</em>, <em>66</em>(9), 2342–2357.
+</div>
+<div class="csl-entry">
+Zhao, Z., Zhou, R., and Palomar, D. P. (2019). Optimal mean-reverting portfolio with leverage constraint for statistical arbitrage in finance. <em>IEEE Transactions on Signal Processing</em>, <em>67</em>(7), 1681–1695.
+</div>
+<div class="csl-entry">
+Zhou, R., Liu, J., Kumar, S., and Palomar, D. P. (2020). Robust factor analysis parameter estimation. In R. Moreno-Díaz, F. Pichler, and A. Quesada-Arencibia, editors, <em>Computer aided systems theory – <span>EUROCAST</span> 2019</em>, pages 3–11. Springer.
+</div>
+<div class="csl-entry">
+Zhou, R., and Palomar, D. P. (2020). Understanding the quintile portfolio. <em>IEEE Transactions on Signal Processing</em>, <em>68</em>, 4030–4040.
+</div>
+<div class="csl-entry">
+Zhou, R., and Palomar, D. P. (2021). Solving high-order portfolios via successive convex approximation algorithms. <em>IEEE Transactions on Signal Processing</em>, <em>69</em>, 892–904.
+</div>
+<div class="csl-entry">
+Zhou, R., Wang, X., and Palomar, D. P. (2022). <em><a href="https://CRAN.R-project.org/package=highOrderPortfolios"><span class="nocase">highOrderPortfolios</span>: Design of High-Order Portfolios via Mean, Variance, Skewness, and Kurtosis</a></em>.
+</div>
+<div class="csl-entry">
+Zhou, R., Ying, J., and Palomar, D. P. (2022). Covariance matrix estimation under low-rank factor model with nonnegative correlations. <em>IEEE Transactions on Signal Processing</em>, <em>70</em>, 4020–4030.
+</div>
+<div class="csl-entry">
+Zhu, S., and Fukushima, M. (2009). Worst-case conditional value-at-risk with application to robust portfolio management. <em>Operations Research</em>, <em>57</em>(5), 1155–1168.
+</div>
+<div class="csl-entry">
+Zibulevsky, M., and Elad, M. (2010). <span>L1</span>–<span>L2</span> optimization in signal and image processing. <em>IEEE Signal Processing Magazine</em>, <em>27</em>(3), 76–88.
+</div>
+<div class="csl-entry">
+Zivot, E., Wang, J., and Koopman, S. J. (2004). State space modeling in macroeconomics and finance using <span>SsfPack</span> for <span>S+FinMetrics</span>. In A. Harvey, S. J. Koopman, and N. Shephard, editors, <em>State space and unobserved component models: Theory and applications</em>, pages 284–335. Cambridge University Press.
+</div>
+<div class="csl-entry">
+Zou, H., and Hastie, T. (2005). Regularization and variable selection via the elastic net. <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em>, <em>67</em>(2), 301–320.
+</div>
+<div class="csl-entry">
+Zoubir, A. M., Koivunen, V., Ollila, E., and Muma, M. (2018). <em>Robust Statistics for Signal Processing</em>. Cambridge University Press.
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exercises-appB.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": true,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["portfolio-optimization-book.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

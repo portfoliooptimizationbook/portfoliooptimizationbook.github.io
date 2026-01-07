@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>A.5 Taxonomy of Convex Problems | Portfolio Optimization</title>
+  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="A.5 Taxonomy of Convex Problems | Portfolio Optimization" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
+  <meta name="github-repo" content="portfoliooptimizationbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A.5 Taxonomy of Convex Problems | Portfolio Optimization" />
+  
+  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
+  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+
+<meta name="author" content="Daniel P. Palomar" />
+
+
+<meta name="date" content="2025-05-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="A.4-convex-optimization-problem.html"/>
+<link rel="next" href="A.6-lagrange-duality.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0.8em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Portfolio Optimization</a></li>
+<li><a href="https://www.danielppalomar.com/">by Daniel P. Palomar</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="frontmatter.html"><a href="frontmatter.html"><i class="fa fa-check"></i>Frontmatter</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1.1-what-is-portfolio-optimization.html"><a href="1.1-what-is-portfolio-optimization.html"><i class="fa fa-check"></i><b>1.1</b> What is Portfolio Optimization?</a></li>
+<li class="chapter" data-level="1.2" data-path="1.2-the-big-picture.html"><a href="1.2-the-big-picture.html"><i class="fa fa-check"></i><b>1.2</b> The Big Picture</a></li>
+<li class="chapter" data-level="1.3" data-path="1.3-outline-of-the-book.html"><a href="1.3-outline-of-the-book.html"><i class="fa fa-check"></i><b>1.3</b> Outline of the Book</a></li>
+<li class="chapter" data-level="1.4" data-path="1.4-comparison-with-existing-books.html"><a href="1.4-comparison-with-existing-books.html"><i class="fa fa-check"></i><b>1.4</b> Comparison with Existing Books</a></li>
+<li class="chapter" data-level="1.5" data-path="1.5-reading-guidelines.html"><a href="1.5-reading-guidelines.html"><i class="fa fa-check"></i><b>1.5</b> Reading Guidelines</a></li>
+<li class="chapter" data-level="1.6" data-path="1.6-notation.html"><a href="1.6-notation.html"><i class="fa fa-check"></i><b>1.6</b> Notation</a></li>
+<li class="chapter" data-level="1.7" data-path="1.7-website-for-the-book.html"><a href="1.7-website-for-the-book.html"><i class="fa fa-check"></i><b>1.7</b> Website for the Book</a></li>
+<li class="chapter" data-level="1.8" data-path="1.8-code-examples.html"><a href="1.8-code-examples.html"><i class="fa fa-check"></i><b>1.8</b> Code Examples</a></li>
+</ul></li>
+<li class="part"><span><b>I Financial Data</b></span></li>
+<li class="chapter" data-level="2" data-path="2-stylized-facts.html"><a href="2-stylized-facts.html"><i class="fa fa-check"></i><b>2</b> Financial Data: Stylized Facts</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-stylized-facts-1.html"><a href="2.1-stylized-facts-1.html"><i class="fa fa-check"></i><b>2.1</b> Stylized Facts</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-prices-returns.html"><a href="2.2-prices-returns.html"><i class="fa fa-check"></i><b>2.2</b> Prices and Returns</a></li>
+<li class="chapter" data-level="2.3" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><i class="fa fa-check"></i><b>2.3</b> Non-Gaussianity: Asymmetry and Heavy Tails</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html#asymmetry-or-skewness"><i class="fa fa-check"></i><b>2.3.1</b> Asymmetry or Skewness</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html#heavy-tailness-or-kurtosis"><i class="fa fa-check"></i><b>2.3.2</b> Heavy-Tailness or Kurtosis</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2.3-non-gaussianity-asymmetry-and-heavy-tails.html"><a href="2.3-non-gaussianity-asymmetry-and-heavy-tails.html#statistical-tests"><i class="fa fa-check"></i><b>2.3.3</b> Statistical Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2.4-temporal-structure.html"><a href="2.4-temporal-structure.html"><i class="fa fa-check"></i><b>2.4</b> Temporal Structure</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="2.4-temporal-structure.html"><a href="2.4-temporal-structure.html#linear-structure-in-returns"><i class="fa fa-check"></i><b>2.4.1</b> Linear Structure in Returns</a></li>
+<li class="chapter" data-level="2.4.2" data-path="2.4-temporal-structure.html"><a href="2.4-temporal-structure.html#nonlinear-structure-in-returns"><i class="fa fa-check"></i><b>2.4.2</b> Nonlinear Structure in Returns</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="2.5-stylized-asset-structure.html"><a href="2.5-stylized-asset-structure.html"><i class="fa fa-check"></i><b>2.5</b> Asset Structure</a></li>
+<li class="chapter" data-level="2.6" data-path="2.6-summary.html"><a href="2.6-summary.html"><i class="fa fa-check"></i><b>2.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch2.html"><a href="exercises-ch2.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-iid-modeling.html"><a href="3-iid-modeling.html"><i class="fa fa-check"></i><b>3</b> Financial Data: I.I.D. Modeling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-i.i.d.-model.html"><a href="3.1-i.i.d.-model.html"><i class="fa fa-check"></i><b>3.1</b> I.I.D. Model</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-sample-estimators.html"><a href="3.2-sample-estimators.html"><i class="fa fa-check"></i><b>3.2</b> Sample Estimators</a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html"><i class="fa fa-check"></i><b>3.3</b> Location Estimators</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#least-squares-estimator"><i class="fa fa-check"></i><b>3.3.1</b> Least Squares Estimator</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#median-estimator"><i class="fa fa-check"></i><b>3.3.2</b> Median Estimator</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#spatial-median-estimator"><i class="fa fa-check"></i><b>3.3.3</b> Spatial Median Estimator</a></li>
+<li class="chapter" data-level="3.3.4" data-path="3.3-location-estimators.html"><a href="3.3-location-estimators.html#numerical-experiments"><i class="fa fa-check"></i><b>3.3.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html"><i class="fa fa-check"></i><b>3.4</b> Gaussian ML Estimators</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html#preliminaries-on-ml-estimation"><i class="fa fa-check"></i><b>3.4.1</b> Preliminaries on ML Estimation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html#gaussian-ml-estimation"><i class="fa fa-check"></i><b>3.4.2</b> Gaussian ML Estimation</a></li>
+<li class="chapter" data-level="3.4.3" data-path="3.4-Gaussian-ML.html"><a href="3.4-Gaussian-ML.html#numerical-experiments-1"><i class="fa fa-check"></i><b>3.4.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html"><i class="fa fa-check"></i><b>3.5</b> Heavy-Tailed ML Estimators</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#the-failure-of-gaussian-ml-estimators"><i class="fa fa-check"></i><b>3.5.1</b> The Failure of Gaussian ML Estimators</a></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#subsec-heavy-tail-ML"><i class="fa fa-check"></i><b>3.5.2</b> Heavy-Tailed ML Estimation</a></li>
+<li class="chapter" data-level="3.5.3" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#robust-estimators"><i class="fa fa-check"></i><b>3.5.3</b> Robust Estimators</a></li>
+<li class="chapter" data-level="3.5.4" data-path="3.5-heavy-tail-ML.html"><a href="3.5-heavy-tail-ML.html#numerical-experiments-2"><i class="fa fa-check"></i><b>3.5.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><i class="fa fa-check"></i><b>3.6</b> Prior Information: Shrinkage, Factor Models, and Black–Litterman</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html#shrinkage"><i class="fa fa-check"></i><b>3.6.1</b> Shrinkage</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html#factor-models"><i class="fa fa-check"></i><b>3.6.2</b> Factor Models</a></li>
+<li class="chapter" data-level="3.6.3" data-path="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html"><a href="3.6-prior-information-shrinkage-factor-models-and-blacklitterman.html#blacklitterman-model"><i class="fa fa-check"></i><b>3.6.3</b> Black–Litterman Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="3.7-summary-1.html"><a href="3.7-summary-1.html"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch3.html"><a href="exercises-ch3.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-time-series-modeling.html"><a href="4-time-series-modeling.html"><i class="fa fa-check"></i><b>4</b> Financial Data: Time Series Modeling</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4.1-temporal-structure-1.html"><a href="4.1-temporal-structure-1.html"><i class="fa fa-check"></i><b>4.1</b> Temporal Structure</a></li>
+<li class="chapter" data-level="4.2" data-path="4.2-kalman.html"><a href="4.2-kalman.html"><i class="fa fa-check"></i><b>4.2</b> Kalman Filter</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-kalman.html"><a href="4.2-kalman.html#state-space-model"><i class="fa fa-check"></i><b>4.2.1</b> State-Space Model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="4.2-kalman.html"><a href="4.2-kalman.html#kalman-filtering-and-smoothing"><i class="fa fa-check"></i><b>4.2.2</b> Kalman Filtering and Smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html"><i class="fa fa-check"></i><b>4.3</b> Mean Modeling</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#MA"><i class="fa fa-check"></i><b>4.3.1</b> Moving Average (MA)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#EMA"><i class="fa fa-check"></i><b>4.3.2</b> EWMA</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#ARMA"><i class="fa fa-check"></i><b>4.3.3</b> ARMA Modeling</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#seasonality-decomposition"><i class="fa fa-check"></i><b>4.3.4</b> Seasonality Decomposition</a></li>
+<li class="chapter" data-level="4.3.5" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#Kalman-univariate-mean-modeling"><i class="fa fa-check"></i><b>4.3.5</b> Kalman Modeling</a></li>
+<li class="chapter" data-level="4.3.6" data-path="4.3-mean-modeling.html"><a href="4.3-mean-modeling.html#multivariate-mean-models"><i class="fa fa-check"></i><b>4.3.6</b> Extension to the Multivariate Case</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html"><i class="fa fa-check"></i><b>4.4</b> Volatility/Variance Modeling</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#MA-variance"><i class="fa fa-check"></i><b>4.4.1</b> Moving Average (MA)</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#EWMA-variance"><i class="fa fa-check"></i><b>4.4.2</b> EWMA</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#GARCH"><i class="fa fa-check"></i><b>4.4.3</b> GARCH Modeling</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#stochastic-volatility"><i class="fa fa-check"></i><b>4.4.4</b> Stochastic Volatility Modeling</a></li>
+<li class="chapter" data-level="4.4.5" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#Kalman-univariate-var-modeling"><i class="fa fa-check"></i><b>4.4.5</b> Kalman Modeling</a></li>
+<li class="chapter" data-level="4.4.6" data-path="4.4-variance-modeling.html"><a href="4.4-variance-modeling.html#multivariate-var-models"><i class="fa fa-check"></i><b>4.4.6</b> Extension to the Multivariate Case</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4.5-summary-2.html"><a href="4.5-summary-2.html"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch4.html"><a href="exercises-ch4.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-ch4.html"><a href="exercises-ch4.html#mean-modeling-1"><i class="fa fa-check"></i>Mean Modeling</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch4.html"><a href="exercises-ch4.html#volatility-envelope-modeling"><i class="fa fa-check"></i>Volatility Envelope Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-graph-modeling.html"><a href="5-graph-modeling.html"><i class="fa fa-check"></i><b>5</b> Financial Data: Graphs</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5.1-graphs.html"><a href="5.1-graphs.html"><i class="fa fa-check"></i><b>5.1</b> Graphs</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="5.1-graphs.html"><a href="5.1-graphs.html#terminology"><i class="fa fa-check"></i><b>5.1.1</b> Terminology</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5.1-graphs.html"><a href="5.1-graphs.html#graph-matrices"><i class="fa fa-check"></i><b>5.1.2</b> Graph Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html"><i class="fa fa-check"></i><b>5.2</b> Learning Graphs</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#learning-graphs-from-similarity-measures"><i class="fa fa-check"></i><b>5.2.1</b> Learning Graphs from Similarity Measures</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#smooth-graphs"><i class="fa fa-check"></i><b>5.2.2</b> Learning Graphs from Smooth Signals</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#GMRF-graphs"><i class="fa fa-check"></i><b>5.2.3</b> Learning Graphs from Graphical Model Networks</a></li>
+<li class="chapter" data-level="5.2.4" data-path="5.2-learning-graphs.html"><a href="5.2-learning-graphs.html#numerical-experiments-5"><i class="fa fa-check"></i><b>5.2.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html"><i class="fa fa-check"></i><b>5.3</b> Learning Structured Graphs</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html#formulations-low-rank"><i class="fa fa-check"></i><b>5.3.1</b> <span class="math inline">\(k\)</span>-Component Graphs</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html#formulations-bipartite"><i class="fa fa-check"></i><b>5.3.2</b> Bipartite Graphs</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5.3-structured-graphs.html"><a href="5.3-structured-graphs.html#numerical-experiments-6"><i class="fa fa-check"></i><b>5.3.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5.4-heavy-tail-graphs.html"><a href="5.4-heavy-tail-graphs.html"><i class="fa fa-check"></i><b>5.4</b> Learning Heavy-Tailed Graphs</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="5.4-heavy-tail-graphs.html"><a href="5.4-heavy-tail-graphs.html#from-gaussian-to-heavy-tailed-graphs"><i class="fa fa-check"></i><b>5.4.1</b> From Gaussian to Heavy-Tailed Graphs</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5.4-heavy-tail-graphs.html"><a href="5.4-heavy-tail-graphs.html#numerical-experiments-7"><i class="fa fa-check"></i><b>5.4.2</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5.5-dynamic-graphs.html"><a href="5.5-dynamic-graphs.html"><i class="fa fa-check"></i><b>5.5</b> Learning Time-Varying Graphs</a></li>
+<li class="chapter" data-level="5.6" data-path="5.6-summary-financial-graphs.html"><a href="5.6-summary-financial-graphs.html"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch5.html"><a href="exercises-ch5.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Portfolio Optimization</b></span></li>
+<li class="chapter" data-level="6" data-path="6-portfolio-101.html"><a href="6-portfolio-101.html"><i class="fa fa-check"></i><b>6</b> Portfolio Basics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html"><i class="fa fa-check"></i><b>6.1</b> Fundamentals</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#data-modeling"><i class="fa fa-check"></i><b>6.1.1</b> Data Modeling</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#portfolio-NAV"><i class="fa fa-check"></i><b>6.1.2</b> Portfolio Return and Net Asset Value (NAV)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#cum-PnL"><i class="fa fa-check"></i><b>6.1.3</b> Cumulative Return</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#transaction-cost"><i class="fa fa-check"></i><b>6.1.4</b> Transaction Costs</a></li>
+<li class="chapter" data-level="6.1.5" data-path="6.1-fundamentals.html"><a href="6.1-fundamentals.html#portfolio-rebalancing"><i class="fa fa-check"></i><b>6.1.5</b> Portfolio Rebalancing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html"><i class="fa fa-check"></i><b>6.2</b> Portfolio Constraints</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#long-only-or-no-shorting-constraint"><i class="fa fa-check"></i><b>6.2.1</b> Long-Only or No-Shorting Constraint</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#capital-budget-constraint"><i class="fa fa-check"></i><b>6.2.2</b> Capital Budget Constraint</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#holding-constraints"><i class="fa fa-check"></i><b>6.2.3</b> Holding Constraints</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#cardinality-constraint"><i class="fa fa-check"></i><b>6.2.4</b> Cardinality Constraint</a></li>
+<li class="chapter" data-level="6.2.5" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#turnover-constraint"><i class="fa fa-check"></i><b>6.2.5</b> Turnover Constraint</a></li>
+<li class="chapter" data-level="6.2.6" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#market-neutral-constraint"><i class="fa fa-check"></i><b>6.2.6</b> Market-Neutral constraint</a></li>
+<li class="chapter" data-level="6.2.7" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#dollar-neutral-constraint"><i class="fa fa-check"></i><b>6.2.7</b> Dollar-Neutral Constraint</a></li>
+<li class="chapter" data-level="6.2.8" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#diversification-constraint"><i class="fa fa-check"></i><b>6.2.8</b> Diversification Constraint</a></li>
+<li class="chapter" data-level="6.2.9" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#leverage-constraint"><i class="fa fa-check"></i><b>6.2.9</b> Leverage Constraint</a></li>
+<li class="chapter" data-level="6.2.10" data-path="6.2-portfolio-constraints.html"><a href="6.2-portfolio-constraints.html#margin-requirements"><i class="fa fa-check"></i><b>6.2.10</b> Margin Requirements</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html"><i class="fa fa-check"></i><b>6.3</b> Performance Measures</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#expected-return"><i class="fa fa-check"></i><b>6.3.1</b> Expected Return</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#volatility"><i class="fa fa-check"></i><b>6.3.2</b> Volatility</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#volatility-adjusted-returns"><i class="fa fa-check"></i><b>6.3.3</b> Volatility-Adjusted Returns</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#SR"><i class="fa fa-check"></i><b>6.3.4</b> Sharpe Ratio (SR)</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#information-ratio-ir"><i class="fa fa-check"></i><b>6.3.5</b> Information Ratio (IR)</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#downside-risk-and-semi-variance"><i class="fa fa-check"></i><b>6.3.6</b> Downside Risk and Semi-Variance</a></li>
+<li class="chapter" data-level="6.3.7" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#gainloss-ratio-glr"><i class="fa fa-check"></i><b>6.3.7</b> Gain–Loss Ratio (GLR)</a></li>
+<li class="chapter" data-level="6.3.8" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#sortino-ratio"><i class="fa fa-check"></i><b>6.3.8</b> Sortino Ratio</a></li>
+<li class="chapter" data-level="6.3.9" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#value-at-risk-var"><i class="fa fa-check"></i><b>6.3.9</b> Value-at-Risk (VaR)</a></li>
+<li class="chapter" data-level="6.3.10" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#conditional-value-at-risk-cvar"><i class="fa fa-check"></i><b>6.3.10</b> Conditional Value-at-Risk (CVaR)</a></li>
+<li class="chapter" data-level="6.3.11" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#drawdown"><i class="fa fa-check"></i><b>6.3.11</b> Drawdown</a></li>
+<li class="chapter" data-level="6.3.12" data-path="6.3-performance-measures.html"><a href="6.3-performance-measures.html#calmar-ratio-and-sterling-ratio"><i class="fa fa-check"></i><b>6.3.12</b> Calmar Ratio and Sterling Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html"><i class="fa fa-check"></i><b>6.4</b> Heuristic Portfolios</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#buy-and-hold-portfolio"><i class="fa fa-check"></i><b>6.4.1</b> Buy and Hold Portfolio</a></li>
+<li class="chapter" data-level="6.4.2" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#GMRP"><i class="fa fa-check"></i><b>6.4.2</b> Global Maximum Return Portfolio (GMRP)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#EWP"><i class="fa fa-check"></i><b>6.4.3</b> <span class="math inline">\(1/N\)</span> Portfolio</a></li>
+<li class="chapter" data-level="6.4.4" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#quintile-portfolio"><i class="fa fa-check"></i><b>6.4.4</b> Quintile Portfolio</a></li>
+<li class="chapter" data-level="6.4.5" data-path="6.4-heuristic-portfolios.html"><a href="6.4-heuristic-portfolios.html#experiments-heuristic-portfolios"><i class="fa fa-check"></i><b>6.4.5</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html"><i class="fa fa-check"></i><b>6.5</b> Risk-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#GMVP"><i class="fa fa-check"></i><b>6.5.1</b> Global Minimum Variance Portfolio (GMVP)</a></li>
+<li class="chapter" data-level="6.5.2" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#IVolP"><i class="fa fa-check"></i><b>6.5.2</b> Inverse Volatility Portfolio (IVolP)</a></li>
+<li class="chapter" data-level="6.5.3" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#risk-parity-portfolio-rpp"><i class="fa fa-check"></i><b>6.5.3</b> Risk Parity Portfolio (RPP)</a></li>
+<li class="chapter" data-level="6.5.4" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#most-diversified-portfolio-mdivp"><i class="fa fa-check"></i><b>6.5.4</b> Most Diversified Portfolio (MDivP)</a></li>
+<li class="chapter" data-level="6.5.5" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#maximum-decorrelation-portfolio-mdecp"><i class="fa fa-check"></i><b>6.5.5</b> Maximum Decorrelation Portfolio (MDecP)</a></li>
+<li class="chapter" data-level="6.5.6" data-path="6.5-risk-based-portfolios.html"><a href="6.5-risk-based-portfolios.html#numerical-experiments-8"><i class="fa fa-check"></i><b>6.5.6</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="6.6-summary-3.html"><a href="6.6-summary-3.html"><i class="fa fa-check"></i><b>6.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch6.html"><a href="exercises-ch6.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-MPT.html"><a href="7-MPT.html"><i class="fa fa-check"></i><b>7</b> Modern Portfolio Theory</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html"><i class="fa fa-check"></i><b>7.1</b> Mean–Variance Portfolio (MVP)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#return-risk-tradeoff"><i class="fa fa-check"></i><b>7.1.1</b> Return–Risk Trade-Off</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#mvp-formulation"><i class="fa fa-check"></i><b>7.1.2</b> MVP Formulation</a></li>
+<li class="chapter" data-level="7.1.3" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#mvp-as-a-regression"><i class="fa fa-check"></i><b>7.1.3</b> MVP as a Regression</a></li>
+<li class="chapter" data-level="7.1.4" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#MVP-with-many-constraints"><i class="fa fa-check"></i><b>7.1.4</b> MVP with Practical Constraints</a></li>
+<li class="chapter" data-level="7.1.5" data-path="7.1-mean-variance-portfolio.html"><a href="7.1-mean-variance-portfolio.html#MVP-heuristic-constraints"><i class="fa fa-check"></i><b>7.1.5</b> Improving the MVP with Heuristics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html"><i class="fa fa-check"></i><b>7.2</b> Maximum Sharpe Ratio Portfolio</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html#bisection-method"><i class="fa fa-check"></i><b>7.2.1</b> Bisection Method</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html#dinkelbach-method"><i class="fa fa-check"></i><b>7.2.2</b> Dinkelbach Method</a></li>
+<li class="chapter" data-level="7.2.3" data-path="7.2-MSRP.html"><a href="7.2-MSRP.html#schaible-transform-method"><i class="fa fa-check"></i><b>7.2.3</b> Schaible Transform Method</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="7.3-utility-based-portfolios.html"><a href="7.3-utility-based-portfolios.html"><i class="fa fa-check"></i><b>7.3</b> Utility-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="7.3-utility-based-portfolios.html"><a href="7.3-utility-based-portfolios.html#kelly-portfolio"><i class="fa fa-check"></i><b>7.3.1</b> Kelly Criterion Portfolio</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7.3-utility-based-portfolios.html"><a href="7.3-utility-based-portfolios.html#expected-utility-theory"><i class="fa fa-check"></i><b>7.3.2</b> Expected Utility Theory</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7.4-universal-algorithm.html"><a href="7.4-universal-algorithm.html"><i class="fa fa-check"></i><b>7.4</b> Universal Algorithm</a></li>
+<li class="chapter" data-level="7.5" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html"><i class="fa fa-check"></i><b>7.5</b> Drawbacks</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html#noisy-estimation-of-the-expected-returns"><i class="fa fa-check"></i><b>7.5.1</b> Noisy Estimation of the Expected Returns</a></li>
+<li class="chapter" data-level="7.5.2" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html#variance-or-volatility-as-measure-of-risk"><i class="fa fa-check"></i><b>7.5.2</b> Variance or Volatility as Measure of Risk</a></li>
+<li class="chapter" data-level="7.5.3" data-path="7.5-MVP-drawbacks.html"><a href="7.5-MVP-drawbacks.html#single-number-measure-of-risk"><i class="fa fa-check"></i><b>7.5.3</b> Single-Number Measure of Risk</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="7.6-summary-4.html"><a href="7.6-summary-4.html"><i class="fa fa-check"></i><b>7.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch7.html"><a href="exercises-ch7.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-backtesting.html"><a href="8-backtesting.html"><i class="fa fa-check"></i><b>8</b> Portfolio Backtesting</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8.1-typical-backtest.html"><a href="8.1-typical-backtest.html"><i class="fa fa-check"></i><b>8.1</b> A Typical Backtest</a></li>
+<li class="chapter" data-level="8.2" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html"><i class="fa fa-check"></i><b>8.2</b> The Seven Sins of Quantitative Investing</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-1-survivorship-bias"><i class="fa fa-check"></i><b>8.2.1</b> Sin #1: Survivorship Bias</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-2-look-ahead-bias"><i class="fa fa-check"></i><b>8.2.2</b> Sin #2: Look-Ahead Bias</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-3-storytelling-bias"><i class="fa fa-check"></i><b>8.2.3</b> Sin #3: Storytelling Bias</a></li>
+<li class="chapter" data-level="8.2.4" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-4-overfitting-and-data-snooping-bias"><i class="fa fa-check"></i><b>8.2.4</b> Sin #4: Overfitting and Data Snooping Bias</a></li>
+<li class="chapter" data-level="8.2.5" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-5-turnover-and-transaction-cost"><i class="fa fa-check"></i><b>8.2.5</b> Sin #5: Turnover and Transaction Cost</a></li>
+<li class="chapter" data-level="8.2.6" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-6-outliers"><i class="fa fa-check"></i><b>8.2.6</b> Sin #6: Outliers</a></li>
+<li class="chapter" data-level="8.2.7" data-path="8.2-seven-sins.html"><a href="8.2-seven-sins.html#sin-7-asymmetric-pattern-and-shorting-cost"><i class="fa fa-check"></i><b>8.2.7</b> Sin #7: Asymmetric Pattern and Shorting Cost</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html"><i class="fa fa-check"></i><b>8.3</b> The Dangers of Backtesting</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#backtest-overfitting"><i class="fa fa-check"></i><b>8.3.1</b> Backtest Overfitting</a></li>
+<li class="chapter" data-level="8.3.2" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#p-hacking"><i class="fa fa-check"></i><b>8.3.2</b> <span class="math inline">\(p\)</span>-Hacking</a></li>
+<li class="chapter" data-level="8.3.3" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#backtests-are-not-experiments"><i class="fa fa-check"></i><b>8.3.3</b> Backtests Are Not Experiments</a></li>
+<li class="chapter" data-level="8.3.4" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#the-paradox-of-flawless-backtests"><i class="fa fa-check"></i><b>8.3.4</b> The Paradox of Flawless Backtests</a></li>
+<li class="chapter" data-level="8.3.5" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#limitations-of-backtesting-insights"><i class="fa fa-check"></i><b>8.3.5</b> Limitations of Backtesting Insights</a></li>
+<li class="chapter" data-level="8.3.6" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#what-is-the-point-of-backtesting-then"><i class="fa fa-check"></i><b>8.3.6</b> What is the Point of Backtesting Then?</a></li>
+<li class="chapter" data-level="8.3.7" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#recommendations-to-avoid-overfitting"><i class="fa fa-check"></i><b>8.3.7</b> Recommendations to Avoid Overfitting</a></li>
+<li class="chapter" data-level="8.3.8" data-path="8.3-dangers-backtesting.html"><a href="8.3-dangers-backtesting.html#mathematical-tools-to-combat-overfitting"><i class="fa fa-check"></i><b>8.3.8</b> Mathematical Tools to Combat Overfitting</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html"><i class="fa fa-check"></i><b>8.4</b> Backtesting with Historical Market Data</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#vanilla-backtest"><i class="fa fa-check"></i><b>8.4.1</b> Vanilla Backtest</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#walk-forward-backtest"><i class="fa fa-check"></i><b>8.4.2</b> Walk-Forward Backtest</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#k-fold-cross-validation-backtest"><i class="fa fa-check"></i><b>8.4.3</b> <span class="math inline">\(k\)</span>-Fold Cross-Validation Backtest</a></li>
+<li class="chapter" data-level="8.4.4" data-path="8.4-backtesting-market-data.html"><a href="8.4-backtesting-market-data.html#multiple-backtests"><i class="fa fa-check"></i><b>8.4.4</b> Multiple Randomized Backtests</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html"><i class="fa fa-check"></i><b>8.5</b> Backtesting with Synthetic Data</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html#i.i.d.-assumption"><i class="fa fa-check"></i><b>8.5.1</b> I.I.D. Assumption</a></li>
+<li class="chapter" data-level="8.5.2" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html#temporal-structure-2"><i class="fa fa-check"></i><b>8.5.2</b> Temporal Structure</a></li>
+<li class="chapter" data-level="8.5.3" data-path="8.5-backtesting-synthetic-data.html"><a href="8.5-backtesting-synthetic-data.html#stress-tests"><i class="fa fa-check"></i><b>8.5.3</b> Stress Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="8.6-summary-backtest.html"><a href="8.6-summary-backtest.html"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch8.html"><a href="exercises-ch8.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-high-order-portfolios.html"><a href="9-high-order-portfolios.html"><i class="fa fa-check"></i><b>9</b> High-Order Portfolios</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9.1-introduction.html"><a href="9.1-introduction.html"><i class="fa fa-check"></i><b>9.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="9.1-introduction.html"><a href="9.1-introduction.html#high-order-portfolios-1"><i class="fa fa-check"></i><b>9.1.1</b> High-Order Portfolios</a></li>
+<li class="chapter" data-level="9.1.2" data-path="9.1-introduction.html"><a href="9.1-introduction.html#historical-perspective"><i class="fa fa-check"></i><b>9.1.2</b> Historical Perspective</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html"><i class="fa fa-check"></i><b>9.2</b> High-Order Moments</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#nonparametric-case"><i class="fa fa-check"></i><b>9.2.1</b> Nonparametric Case</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#structured-moments"><i class="fa fa-check"></i><b>9.2.2</b> Structured Moments</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#parametric-case"><i class="fa fa-check"></i><b>9.2.3</b> Parametric Case</a></li>
+<li class="chapter" data-level="9.2.4" data-path="9.2-high-order-moments.html"><a href="9.2-high-order-moments.html#l-moments"><i class="fa fa-check"></i><b>9.2.4</b> L-Moments</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html"><i class="fa fa-check"></i><b>9.3</b> Portfolio Formulations</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#mvsk-portfolios"><i class="fa fa-check"></i><b>9.3.1</b> MVSK Portfolios</a></li>
+<li class="chapter" data-level="9.3.2" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#making-portfolios-efficient"><i class="fa fa-check"></i><b>9.3.2</b> Making Portfolios Efficient</a></li>
+<li class="chapter" data-level="9.3.3" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#portfolio-tilting"><i class="fa fa-check"></i><b>9.3.3</b> Portfolio Tilting</a></li>
+<li class="chapter" data-level="9.3.4" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#polynomial-goal-programming-mvsk-portfolio"><i class="fa fa-check"></i><b>9.3.4</b> Polynomial Goal Programming MVSK Portfolio</a></li>
+<li class="chapter" data-level="9.3.5" data-path="9.3-portfolio-formulations.html"><a href="9.3-portfolio-formulations.html#l-moment-portfolios"><i class="fa fa-check"></i><b>9.3.5</b> L-Moment Portfolios</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html"><i class="fa fa-check"></i><b>9.4</b> Algorithms</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html#via-the-sca-framework"><i class="fa fa-check"></i><b>9.4.1</b> Via the SCA Framework</a></li>
+<li class="chapter" data-level="9.4.2" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html#via-the-mm-framework"><i class="fa fa-check"></i><b>9.4.2</b> Via the MM Framework</a></li>
+<li class="chapter" data-level="9.4.3" data-path="9.4-algorithms-MVSK.html"><a href="9.4-algorithms-MVSK.html#numerical-experiments-9"><i class="fa fa-check"></i><b>9.4.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="9.5-summary-5.html"><a href="9.5-summary-5.html"><i class="fa fa-check"></i><b>9.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch9.html"><a href="exercises-ch9.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-alternative-risk-measure-portfolios.html"><a href="10-alternative-risk-measure-portfolios.html"><i class="fa fa-check"></i><b>10</b> Portfolios with Alternative Risk Measures</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10.1-introduction-1.html"><a href="10.1-introduction-1.html"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html"><i class="fa fa-check"></i><b>10.2</b> Alternative Risk Measures</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html#downside-risk"><i class="fa fa-check"></i><b>10.2.1</b> Downside Risk</a></li>
+<li class="chapter" data-level="10.2.2" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html#tail-measures-var-cvar-and-evar"><i class="fa fa-check"></i><b>10.2.2</b> Tail Measures: VaR, CVaR, and EVaR</a></li>
+<li class="chapter" data-level="10.2.3" data-path="10.2-alternative-risk-measures.html"><a href="10.2-alternative-risk-measures.html#drawdown-1"><i class="fa fa-check"></i><b>10.2.3</b> Drawdown</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html"><i class="fa fa-check"></i><b>10.3</b> Downside Risk Portfolios</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html#formulation"><i class="fa fa-check"></i><b>10.3.1</b> Formulation</a></li>
+<li class="chapter" data-level="10.3.2" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html#semi-variance-portfolios"><i class="fa fa-check"></i><b>10.3.2</b> Semi-variance Portfolios</a></li>
+<li class="chapter" data-level="10.3.3" data-path="10.3-downside-risk-portfolios.html"><a href="10.3-downside-risk-portfolios.html#numerical-experiments-10"><i class="fa fa-check"></i><b>10.3.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html"><i class="fa fa-check"></i><b>10.4</b> Tail-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#formulation-for-cvar-portfolios"><i class="fa fa-check"></i><b>10.4.1</b> Formulation for CVaR Portfolios</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#formulation-for-evar-portfolios"><i class="fa fa-check"></i><b>10.4.2</b> Formulation for EVaR Portfolios</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#formulation-for-the-worst-case-portfolio"><i class="fa fa-check"></i><b>10.4.3</b> Formulation for the Worst-Case Portfolio</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10.4-tail-based-portfolios.html"><a href="10.4-tail-based-portfolios.html#numerical-experiments-11"><i class="fa fa-check"></i><b>10.4.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html"><i class="fa fa-check"></i><b>10.5</b> Drawdown Portfolios</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#formulation-for-the-max-dd-portfolio"><i class="fa fa-check"></i><b>10.5.1</b> Formulation for the Max-DD Portfolio</a></li>
+<li class="chapter" data-level="10.5.2" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#formulation-for-the-ave-dd-portfolio"><i class="fa fa-check"></i><b>10.5.2</b> Formulation for the Ave-DD Portfolio</a></li>
+<li class="chapter" data-level="10.5.3" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#formulation-for-the-cvar-dd-portfolio"><i class="fa fa-check"></i><b>10.5.3</b> Formulation for the CVaR-DD Portfolio</a></li>
+<li class="chapter" data-level="10.5.4" data-path="10.5-drawdown-portfolios.html"><a href="10.5-drawdown-portfolios.html#numerical-experiments-12"><i class="fa fa-check"></i><b>10.5.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="10.6-summary-6.html"><a href="10.6-summary-6.html"><i class="fa fa-check"></i><b>10.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch10.html"><a href="exercises-ch10.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-RPP.html"><a href="11-RPP.html"><i class="fa fa-check"></i><b>11</b> Risk Parity Portfolios</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="11.1-introduction-2.html"><a href="11.1-introduction-2.html"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2" data-path="11.2-from-dollar-to-risk-diversification.html"><a href="11.2-from-dollar-to-risk-diversification.html"><i class="fa fa-check"></i><b>11.2</b> From Dollar to Risk Diversification</a></li>
+<li class="chapter" data-level="11.3" data-path="11.3-risk-contributions.html"><a href="11.3-risk-contributions.html"><i class="fa fa-check"></i><b>11.3</b> Risk Contributions</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="11.3-risk-contributions.html"><a href="11.3-risk-contributions.html#volatility-risk-contributions"><i class="fa fa-check"></i><b>11.3.1</b> Volatility Risk Contributions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html"><i class="fa fa-check"></i><b>11.4</b> Problem Formulation</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html#formulation-with-shorting"><i class="fa fa-check"></i><b>11.4.1</b> Formulation with Shorting</a></li>
+<li class="chapter" data-level="11.4.2" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html#formulation-with-group-risk-parity"><i class="fa fa-check"></i><b>11.4.2</b> Formulation with Group Risk Parity</a></li>
+<li class="chapter" data-level="11.4.3" data-path="11.4-problem-formulation.html"><a href="11.4-problem-formulation.html#formulation-with-risk-factors"><i class="fa fa-check"></i><b>11.4.3</b> Formulation with Risk Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="11.5-naive-diagonal-formulation.html"><a href="11.5-naive-diagonal-formulation.html"><i class="fa fa-check"></i><b>11.5</b> Naive Diagonal Formulation</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="11.5-naive-diagonal-formulation.html"><a href="11.5-naive-diagonal-formulation.html#illustrative-example"><i class="fa fa-check"></i><b>11.5.1</b> Illustrative Example</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html"><i class="fa fa-check"></i><b>11.6</b> Vanilla Convex Formulations</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#direct-resolution-via-root-finding"><i class="fa fa-check"></i><b>11.6.1</b> Direct Resolution via Root Finding</a></li>
+<li class="chapter" data-level="11.6.2" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#formulations"><i class="fa fa-check"></i><b>11.6.2</b> Formulations</a></li>
+<li class="chapter" data-level="11.6.3" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#algorithms"><i class="fa fa-check"></i><b>11.6.3</b> Algorithms</a></li>
+<li class="chapter" data-level="11.6.4" data-path="11.6-vanilla-convex-formulations.html"><a href="11.6-vanilla-convex-formulations.html#numerical-experiments-13"><i class="fa fa-check"></i><b>11.6.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html"><i class="fa fa-check"></i><b>11.7</b> General Nonconvex Formulations</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html#formulations-1"><i class="fa fa-check"></i><b>11.7.1</b> Formulations</a></li>
+<li class="chapter" data-level="11.7.2" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html#algorithms-1"><i class="fa fa-check"></i><b>11.7.2</b> Algorithms</a></li>
+<li class="chapter" data-level="11.7.3" data-path="11.7-general-nonconvex-formulations.html"><a href="11.7-general-nonconvex-formulations.html#numerical-experiments-14"><i class="fa fa-check"></i><b>11.7.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="11.8-summary-rpp.html"><a href="11.8-summary-rpp.html"><i class="fa fa-check"></i><b>11.8</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch11.html"><a href="exercises-ch11.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-graph-based-portfolios.html"><a href="12-graph-based-portfolios.html"><i class="fa fa-check"></i><b>12</b> Graph-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="12.1-introduction-3.html"><a href="12.1-introduction-3.html"><i class="fa fa-check"></i><b>12.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="12.1-introduction-3.html"><a href="12.1-introduction-3.html#graphs-and-distance-matrices"><i class="fa fa-check"></i><b>12.1.1</b> Graphs and Distance Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html"><i class="fa fa-check"></i><b>12.2</b> Hierarchical Clustering and Dendrograms</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html#basic-procedure"><i class="fa fa-check"></i><b>12.2.1</b> Basic Procedure</a></li>
+<li class="chapter" data-level="12.2.2" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html#number-of-clusters"><i class="fa fa-check"></i><b>12.2.2</b> Number of Clusters</a></li>
+<li class="chapter" data-level="12.2.3" data-path="12.2-hierarchical-clustering-and-dendrograms.html"><a href="12.2-hierarchical-clustering-and-dendrograms.html#quasi-diagonalization-of-correlation-matrix"><i class="fa fa-check"></i><b>12.2.3</b> Quasi-diagonalization of Correlation Matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html"><i class="fa fa-check"></i><b>12.3</b> Hierarchical Clustering-Based Portfolios</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#hierarchical-1overN"><i class="fa fa-check"></i><b>12.3.1</b> Hierarchical <span class="math inline">\(1/N\)</span> Portfolio</a></li>
+<li class="chapter" data-level="12.3.2" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#HRP"><i class="fa fa-check"></i><b>12.3.2</b> Hierarchical Risk Parity (HRP) Portfolio</a></li>
+<li class="chapter" data-level="12.3.3" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#hierarchical-equal-risk-contribution-herc-portfolio"><i class="fa fa-check"></i><b>12.3.3</b> Hierarchical Equal Risk Contribution (HERC) Portfolio</a></li>
+<li class="chapter" data-level="12.3.4" data-path="12.3-hierarchical-clustering-based-portfolios.html"><a href="12.3-hierarchical-clustering-based-portfolios.html#HRP-vs-GMVP"><i class="fa fa-check"></i><b>12.3.4</b> From Portfolio Risk Minimization to Hierarchical Portfolios</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html"><i class="fa fa-check"></i><b>12.4</b> Numerical Experiments</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html#splitting-bisection-vs.-dendrogram"><i class="fa fa-check"></i><b>12.4.1</b> Splitting: Bisection vs. Dendrogram</a></li>
+<li class="chapter" data-level="12.4.2" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html#graph-estimation-simple-vs.-sophisticated"><i class="fa fa-check"></i><b>12.4.2</b> Graph Estimation: Simple vs. Sophisticated</a></li>
+<li class="chapter" data-level="12.4.3" data-path="12.4-multiple-backtests-HRP.html"><a href="12.4-multiple-backtests-HRP.html#final-comparison"><i class="fa fa-check"></i><b>12.4.3</b> Final Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="12.5-summary-7.html"><a href="12.5-summary-7.html"><i class="fa fa-check"></i><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch12.html"><a href="exercises-ch12.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-index-tracking.html"><a href="13-index-tracking.html"><i class="fa fa-check"></i><b>13</b> Index Tracking Portfolios</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html"><i class="fa fa-check"></i><b>13.1</b> Active vs. Passive Strategies</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html#beating-the-market"><i class="fa fa-check"></i><b>13.1.1</b> Beating the Market</a></li>
+<li class="chapter" data-level="13.1.2" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html#what-is-a-financial-index"><i class="fa fa-check"></i><b>13.1.2</b> What is a Financial Index?</a></li>
+<li class="chapter" data-level="13.1.3" data-path="13.1-active-vs.-passive-strategies.html"><a href="13.1-active-vs.-passive-strategies.html#index-tracking-1"><i class="fa fa-check"></i><b>13.1.3</b> Index Tracking</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html"><i class="fa fa-check"></i><b>13.2</b> Sparse Regression</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#problem-formulation-1"><i class="fa fa-check"></i><b>13.2.1</b> Problem Formulation</a></li>
+<li class="chapter" data-level="13.2.2" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#methods-for-sparse-regression"><i class="fa fa-check"></i><b>13.2.2</b> Methods for Sparse Regression</a></li>
+<li class="chapter" data-level="13.2.3" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#preliminaries-on-mm-1"><i class="fa fa-check"></i><b>13.2.3</b> Preliminaries on MM</a></li>
+<li class="chapter" data-level="13.2.4" data-path="13.2-sparse-regression.html"><a href="13.2-sparse-regression.html#iterative-reweighted-ell_1-norm-minimization"><i class="fa fa-check"></i><b>13.2.4</b> Iterative Reweighted <span class="math inline">\(\ell_1\)</span>-Norm Minimization</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html"><i class="fa fa-check"></i><b>13.3</b> Sparse Index Tracking</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#tracking-error"><i class="fa fa-check"></i><b>13.3.1</b> Tracking Error</a></li>
+<li class="chapter" data-level="13.3.2" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#problem-formulation-2"><i class="fa fa-check"></i><b>13.3.2</b> Problem Formulation</a></li>
+<li class="chapter" data-level="13.3.3" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#methods-for-sparse-index-tracking"><i class="fa fa-check"></i><b>13.3.3</b> Methods for Sparse Index Tracking</a></li>
+<li class="chapter" data-level="13.3.4" data-path="13.3-sparse-index-tracking.html"><a href="13.3-sparse-index-tracking.html#numerical-experiments-15"><i class="fa fa-check"></i><b>13.3.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html"><i class="fa fa-check"></i><b>13.4</b> Enhanced Index Tracking</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#alternative-tracking-error-measures"><i class="fa fa-check"></i><b>13.4.1</b> Alternative Tracking Error Measures</a></li>
+<li class="chapter" data-level="13.4.2" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#robust-tracking-error-measures"><i class="fa fa-check"></i><b>13.4.2</b> Robust Tracking Error Measures</a></li>
+<li class="chapter" data-level="13.4.3" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#holding-constraints-1"><i class="fa fa-check"></i><b>13.4.3</b> Holding Constraints</a></li>
+<li class="chapter" data-level="13.4.4" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#group-sparsity"><i class="fa fa-check"></i><b>13.4.4</b> Group Sparsity</a></li>
+<li class="chapter" data-level="13.4.5" data-path="13.4-extensions-index-tracking.html"><a href="13.4-extensions-index-tracking.html#numerical-experiments-16"><i class="fa fa-check"></i><b>13.4.5</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html"><i class="fa fa-check"></i><b>13.5</b> Automatic Sparsity Control</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html#false-discovery-rate-fdr"><i class="fa fa-check"></i><b>13.5.1</b> False Discovery Rate (FDR)</a></li>
+<li class="chapter" data-level="13.5.2" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html#fdr-for-index-tracking"><i class="fa fa-check"></i><b>13.5.2</b> FDR for Index Tracking</a></li>
+<li class="chapter" data-level="13.5.3" data-path="13.5-automatic-sparsity-control.html"><a href="13.5-automatic-sparsity-control.html#numerical-experiments-17"><i class="fa fa-check"></i><b>13.5.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="13.6-summary-8.html"><a href="13.6-summary-8.html"><i class="fa fa-check"></i><b>13.6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch13.html"><a href="exercises-ch13.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="14-robust-portfolios.html"><a href="14-robust-portfolios.html"><i class="fa fa-check"></i><b>14</b> Robust Portfolios</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="14.1-introduction-4.html"><a href="14.1-introduction-4.html"><i class="fa fa-check"></i><b>14.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.2" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html"><i class="fa fa-check"></i><b>14.2</b> Robust Portfolio Optimization</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html#robust-optimization"><i class="fa fa-check"></i><b>14.2.1</b> Robust Optimization</a></li>
+<li class="chapter" data-level="14.2.2" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html#robust-worst-case-portfolios"><i class="fa fa-check"></i><b>14.2.2</b> Robust Worst-Case Portfolios</a></li>
+<li class="chapter" data-level="14.2.3" data-path="14.2-robust-portfolio-optimization.html"><a href="14.2-robust-portfolio-optimization.html#numerical-experiments-18"><i class="fa fa-check"></i><b>14.2.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html"><i class="fa fa-check"></i><b>14.3</b> Portfolio Resampling</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html#resampling-methods"><i class="fa fa-check"></i><b>14.3.1</b> Resampling Methods</a></li>
+<li class="chapter" data-level="14.3.2" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html#portfolio-resampling-1"><i class="fa fa-check"></i><b>14.3.2</b> Portfolio Resampling</a></li>
+<li class="chapter" data-level="14.3.3" data-path="14.3-portfolio-resampling.html"><a href="14.3-portfolio-resampling.html#numerical-experiments-19"><i class="fa fa-check"></i><b>14.3.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="14.4-summary-robust-portfolios.html"><a href="14.4-summary-robust-portfolios.html"><i class="fa fa-check"></i><b>14.4</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch14.html"><a href="exercises-ch14.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-pairs-trading.html"><a href="15-pairs-trading.html"><i class="fa fa-check"></i><b>15</b> Pairs Trading Portfolios</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="15.1-mean-reversion.html"><a href="15.1-mean-reversion.html"><i class="fa fa-check"></i><b>15.1</b> Mean Reversion</a></li>
+<li class="chapter" data-level="15.2" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html"><i class="fa fa-check"></i><b>15.2</b> Cointegration and Correlation</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html#cointegration"><i class="fa fa-check"></i><b>15.2.1</b> Cointegration</a></li>
+<li class="chapter" data-level="15.2.2" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html#correlation"><i class="fa fa-check"></i><b>15.2.2</b> Correlation</a></li>
+<li class="chapter" data-level="15.2.3" data-path="15.2-cointegration-vs-correlation.html"><a href="15.2-cointegration-vs-correlation.html#correlation-vs.-cointegration"><i class="fa fa-check"></i><b>15.2.3</b> Correlation vs. Cointegration</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
+<li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html"><i class="fa fa-check"></i><b>15.4</b> Discovering Cointegrated Pairs</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#prescreening"><i class="fa fa-check"></i><b>15.4.1</b> Prescreening</a></li>
+<li class="chapter" data-level="15.4.2" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#cointegration-tests"><i class="fa fa-check"></i><b>15.4.2</b> Cointegration Tests</a></li>
+<li class="chapter" data-level="15.4.3" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#cointegration-of-more-than-two-time-series"><i class="fa fa-check"></i><b>15.4.3</b> Cointegration of More Than Two Time Series</a></li>
+<li class="chapter" data-level="15.4.4" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#are-cointegrated-pairs-persistent"><i class="fa fa-check"></i><b>15.4.4</b> Are Cointegrated Pairs Persistent?</a></li>
+<li class="chapter" data-level="15.4.5" data-path="15.4-discovering-pairs.html"><a href="15.4-discovering-pairs.html#numerical-experiments-20"><i class="fa fa-check"></i><b>15.4.5</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html"><i class="fa fa-check"></i><b>15.5</b> Trading the Spread</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html#trading-strategies"><i class="fa fa-check"></i><b>15.5.1</b> Trading Strategies</a></li>
+<li class="chapter" data-level="15.5.2" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html#optimizing-the-threshold"><i class="fa fa-check"></i><b>15.5.2</b> Optimizing the Threshold</a></li>
+<li class="chapter" data-level="15.5.3" data-path="15.5-trading-spread.html"><a href="15.5-trading-spread.html#numerical-experiments-21"><i class="fa fa-check"></i><b>15.5.3</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html"><i class="fa fa-check"></i><b>15.6</b> Kalman Filtering for Pairs Trading</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#spread-modeling-via-least-squares"><i class="fa fa-check"></i><b>15.6.1</b> Spread Modeling via Least Squares</a></li>
+<li class="chapter" data-level="15.6.2" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#primer-on-the-kalman-filter"><i class="fa fa-check"></i><b>15.6.2</b> Primer on the Kalman Filter</a></li>
+<li class="chapter" data-level="15.6.3" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#spread-modeling-via-kalman"><i class="fa fa-check"></i><b>15.6.3</b> Spread Modeling via Kalman</a></li>
+<li class="chapter" data-level="15.6.4" data-path="15.6-kalman-pairs-trading.html"><a href="15.6-kalman-pairs-trading.html#numerical-experiments-22"><i class="fa fa-check"></i><b>15.6.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="15.7-statarb.html"><a href="15.7-statarb.html"><i class="fa fa-check"></i><b>15.7</b> Statistical Arbitrage</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="15.7-statarb.html"><a href="15.7-statarb.html#least-squares"><i class="fa fa-check"></i><b>15.7.1</b> Least Squares</a></li>
+<li class="chapter" data-level="15.7.2" data-path="15.7-statarb.html"><a href="15.7-statarb.html#vecm-1"><i class="fa fa-check"></i><b>15.7.2</b> VECM</a></li>
+<li class="chapter" data-level="15.7.3" data-path="15.7-statarb.html"><a href="15.7-statarb.html#optimum-mean-reverting-portfolio"><i class="fa fa-check"></i><b>15.7.3</b> Optimum Mean-Reverting Portfolio</a></li>
+<li class="chapter" data-level="15.7.4" data-path="15.7-statarb.html"><a href="15.7-statarb.html#numerical-experiments-23"><i class="fa fa-check"></i><b>15.7.4</b> Numerical Experiments</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="15.8-summary-9.html"><a href="15.8-summary-9.html"><i class="fa fa-check"></i><b>15.8</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch15.html"><a href="exercises-ch15.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="16-DL-portfolios.html"><a href="16-DL-portfolios.html"><i class="fa fa-check"></i><b>16</b> Deep Learning Portfolios</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="16.1-ML.html"><a href="16.1-ML.html"><i class="fa fa-check"></i><b>16.1</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="16.1-ML.html"><a href="16.1-ML.html#black-box-modeling"><i class="fa fa-check"></i><b>16.1.1</b> Black-Box Modeling</a></li>
+<li class="chapter" data-level="16.1.2" data-path="16.1-ML.html"><a href="16.1-ML.html#measuring-performance"><i class="fa fa-check"></i><b>16.1.2</b> Measuring Performance</a></li>
+<li class="chapter" data-level="16.1.3" data-path="16.1-ML.html"><a href="16.1-ML.html#learning-the-model"><i class="fa fa-check"></i><b>16.1.3</b> Learning the Model</a></li>
+<li class="chapter" data-level="16.1.4" data-path="16.1-ML.html"><a href="16.1-ML.html#types-of-ml-models"><i class="fa fa-check"></i><b>16.1.4</b> Types of ML Models</a></li>
+<li class="chapter" data-level="16.1.5" data-path="16.1-ML.html"><a href="16.1-ML.html#ML-in-finance"><i class="fa fa-check"></i><b>16.1.5</b> Applications of ML in Finance</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="16.2-DL.html"><a href="16.2-DL.html"><i class="fa fa-check"></i><b>16.2</b> Deep Learning</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="16.2-DL.html"><a href="16.2-DL.html#historical-snapshot"><i class="fa fa-check"></i><b>16.2.1</b> Historical Snapshot</a></li>
+<li class="chapter" data-level="16.2.2" data-path="16.2-DL.html"><a href="16.2-DL.html#perceptron-and-sigmoid-neuron"><i class="fa fa-check"></i><b>16.2.2</b> Perceptron and Sigmoid Neuron</a></li>
+<li class="chapter" data-level="16.2.3" data-path="16.2-DL.html"><a href="16.2-DL.html#neural-networks"><i class="fa fa-check"></i><b>16.2.3</b> Neural Networks</a></li>
+<li class="chapter" data-level="16.2.4" data-path="16.2-DL.html"><a href="16.2-DL.html#learning-via-backpropagation"><i class="fa fa-check"></i><b>16.2.4</b> Learning via Backpropagation</a></li>
+<li class="chapter" data-level="16.2.5" data-path="16.2-DL.html"><a href="16.2-DL.html#deep-learning-architectures"><i class="fa fa-check"></i><b>16.2.5</b> Deep Learning Architectures</a></li>
+<li class="chapter" data-level="16.2.6" data-path="16.2-DL.html"><a href="16.2-DL.html#applications-of-deep-learning-in-finance"><i class="fa fa-check"></i><b>16.2.6</b> Applications of Deep Learning in Finance</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html"><i class="fa fa-check"></i><b>16.3</b> Deep Learning for Portfolio Design</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#challenges"><i class="fa fa-check"></i><b>16.3.1</b> Challenges</a></li>
+<li class="chapter" data-level="16.3.2" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#standard-time-series-forecasting"><i class="fa fa-check"></i><b>16.3.2</b> Standard Time Series Forecasting</a></li>
+<li class="chapter" data-level="16.3.3" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#portfolio-based-time-series-forecasting"><i class="fa fa-check"></i><b>16.3.3</b> Portfolio-Based Time Series Forecasting</a></li>
+<li class="chapter" data-level="16.3.4" data-path="16.3-deep-learning-for-portfolio-design.html"><a href="16.3-deep-learning-for-portfolio-design.html#end-to-end-DL"><i class="fa fa-check"></i><b>16.3.4</b> End-to-End Portfolio Design</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html"><i class="fa fa-check"></i><b>16.4</b> Deep Learning Portfolio Case Studies</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#lstm-for-financial-time-series-forecasting"><i class="fa fa-check"></i><b>16.4.1</b> LSTM for Financial Time Series Forecasting</a></li>
+<li class="chapter" data-level="16.4.2" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#financial-time-series-forecasting-integrated-with-portfolio-optimization"><i class="fa fa-check"></i><b>16.4.2</b> Financial Time Series Forecasting Integrated with Portfolio Optimization</a></li>
+<li class="chapter" data-level="16.4.3" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#end-to-end-nn-based-portfolio"><i class="fa fa-check"></i><b>16.4.3</b> End-to-End NN-Based Portfolio</a></li>
+<li class="chapter" data-level="16.4.4" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#end-to-end-dl-based-portfolio"><i class="fa fa-check"></i><b>16.4.4</b> End-to-End DL-Based Portfolio</a></li>
+<li class="chapter" data-level="16.4.5" data-path="16.4-deep-learning-portfolio-case-studies.html"><a href="16.4-deep-learning-portfolio-case-studies.html#end-to-end-deep-reinforcement-learning-portfolio"><i class="fa fa-check"></i><b>16.4.5</b> End-to-End Deep Reinforcement Learning Portfolio</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="16.5-summary-10.html"><a href="16.5-summary-10.html"><i class="fa fa-check"></i><b>16.5</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#machine-learning"><i class="fa fa-check"></i>Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#deep-learning"><i class="fa fa-check"></i>Deep Learning</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#machine-learning-for-finance"><i class="fa fa-check"></i>Machine Learning for Finance</a></li>
+<li class="chapter" data-level="" data-path="exercises-ch16.html"><a href="exercises-ch16.html#deep-learning-for-finance"><i class="fa fa-check"></i>Deep Learning for Finance</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="A-convex-optimization.html"><a href="A-convex-optimization.html"><i class="fa fa-check"></i><b>A</b> Convex Optimization Theory</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html"><i class="fa fa-check"></i><b>A.1</b> Optimization Problems</a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html#definitions"><i class="fa fa-check"></i><b>A.1.1</b> Definitions</a></li>
+<li class="chapter" data-level="A.1.2" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html#solving-optimization-problems"><i class="fa fa-check"></i><b>A.1.2</b> Solving Optimization Problems</a></li>
+<li class="chapter" data-level="A.1.3" data-path="A.1-optimization-problems.html"><a href="A.1-optimization-problems.html#illustrative-example-3"><i class="fa fa-check"></i><b>A.1.3</b> Illustrative Example</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html"><i class="fa fa-check"></i><b>A.2</b> Convex Sets</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html#definitions-1"><i class="fa fa-check"></i><b>A.2.1</b> Definitions</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html#elementary-convex-sets"><i class="fa fa-check"></i><b>A.2.2</b> Elementary Convex Sets</a></li>
+<li class="chapter" data-level="A.2.3" data-path="A.2-convex-sets.html"><a href="A.2-convex-sets.html#operations-that-preserve-convexity"><i class="fa fa-check"></i><b>A.2.3</b> Operations that Preserve Convexity</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html"><i class="fa fa-check"></i><b>A.3</b> Convex Functions</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#elementary-convex-and-concave-functions"><i class="fa fa-check"></i><b>A.3.1</b> Elementary Convex and Concave Functions</a></li>
+<li class="chapter" data-level="A.3.2" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#epigraph"><i class="fa fa-check"></i><b>A.3.2</b> Epigraph</a></li>
+<li class="chapter" data-level="A.3.3" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#characterization-of-convex-functions"><i class="fa fa-check"></i><b>A.3.3</b> Characterization of Convex Functions</a></li>
+<li class="chapter" data-level="A.3.4" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#operations-that-preserve-convexity-1"><i class="fa fa-check"></i><b>A.3.4</b> Operations that Preserve Convexity</a></li>
+<li class="chapter" data-level="A.3.5" data-path="A.3-convex-functions.html"><a href="A.3-convex-functions.html#quasiconvex-functions"><i class="fa fa-check"></i><b>A.3.5</b> Quasi-convex Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html"><i class="fa fa-check"></i><b>A.4</b> Convex Optimization Problems</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#optimality-characterization"><i class="fa fa-check"></i><b>A.4.1</b> Optimality Characterization</a></li>
+<li class="chapter" data-level="A.4.2" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#equivalent-reformulations"><i class="fa fa-check"></i><b>A.4.2</b> Equivalent Reformulations</a></li>
+<li class="chapter" data-level="A.4.3" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#approximate-reformulations"><i class="fa fa-check"></i><b>A.4.3</b> Approximate Reformulations</a></li>
+<li class="chapter" data-level="A.4.4" data-path="A.4-convex-optimization-problem.html"><a href="A.4-convex-optimization-problem.html#quasi-convex-optimiz"><i class="fa fa-check"></i><b>A.4.4</b> Quasi-convex Optimization</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html"><i class="fa fa-check"></i><b>A.5</b> Taxonomy of Convex Problems</a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#linear-programming-1"><i class="fa fa-check"></i><b>A.5.1</b> Linear Programming</a></li>
+<li class="chapter" data-level="A.5.2" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#linear-fractional-programming"><i class="fa fa-check"></i><b>A.5.2</b> Linear-Fractional Programming</a></li>
+<li class="chapter" data-level="A.5.3" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#quadratic-programming"><i class="fa fa-check"></i><b>A.5.3</b> Quadratic Programming</a></li>
+<li class="chapter" data-level="A.5.4" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#second-order-cone-programming"><i class="fa fa-check"></i><b>A.5.4</b> Second-Order Cone Programming</a></li>
+<li class="chapter" data-level="A.5.5" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#semidefinite-programming"><i class="fa fa-check"></i><b>A.5.5</b> Semidefinite Programming</a></li>
+<li class="chapter" data-level="A.5.6" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#conic-programming"><i class="fa fa-check"></i><b>A.5.6</b> Conic Programming</a></li>
+<li class="chapter" data-level="A.5.7" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#fractional-programming"><i class="fa fa-check"></i><b>A.5.7</b> Fractional Programming</a></li>
+<li class="chapter" data-level="A.5.8" data-path="A.5-taxonomy-convex-problems.html"><a href="A.5-taxonomy-convex-problems.html#geometric-programming"><i class="fa fa-check"></i><b>A.5.8</b> Geometric Programming</a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html"><i class="fa fa-check"></i><b>A.6</b> Lagrange Duality</a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#lagrangian"><i class="fa fa-check"></i><b>A.6.1</b> Lagrangian</a></li>
+<li class="chapter" data-level="A.6.2" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#lagrange-dual-problem"><i class="fa fa-check"></i><b>A.6.2</b> Lagrange Dual Problem</a></li>
+<li class="chapter" data-level="A.6.3" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#duality"><i class="fa fa-check"></i><b>A.6.3</b> Weak and Strong Duality</a></li>
+<li class="chapter" data-level="A.6.4" data-path="A.6-lagrange-duality.html"><a href="A.6-lagrange-duality.html#optimality-conditions"><i class="fa fa-check"></i><b>A.6.4</b> Optimality Conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html"><i class="fa fa-check"></i><b>A.7</b> Multi-objective Optimization</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#generalized-inequalities"><i class="fa fa-check"></i><b>A.7.1</b> Generalized Inequalities</a></li>
+<li class="chapter" data-level="A.7.2" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#vector-optimization"><i class="fa fa-check"></i><b>A.7.2</b> Vector Optimization</a></li>
+<li class="chapter" data-level="A.7.3" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#pareto-optimality"><i class="fa fa-check"></i><b>A.7.3</b> Pareto Optimality</a></li>
+<li class="chapter" data-level="A.7.4" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#multi-objective-optimization-1"><i class="fa fa-check"></i><b>A.7.4</b> Multi-objective Optimization</a></li>
+<li class="chapter" data-level="A.7.5" data-path="A.7-multi-objective-optimization.html"><a href="A.7-multi-objective-optimization.html#scalarization"><i class="fa fa-check"></i><b>A.7.5</b> Scalarization</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="A.8-summary-11.html"><a href="A.8-summary-11.html"><i class="fa fa-check"></i><b>A.8</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-appA.html"><a href="exercises-appA.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="B-optimization-algorithms.html"><a href="B-optimization-algorithms.html"><i class="fa fa-check"></i><b>B</b> Optimization Algorithms</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B.1-solvers.html"><a href="B.1-solvers.html"><i class="fa fa-check"></i><b>B.1</b> Solvers</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="B.1-solvers.html"><a href="B.1-solvers.html#some-popular-solvers"><i class="fa fa-check"></i><b>B.1.1</b> Some Popular Solvers</a></li>
+<li class="chapter" data-level="B.1.2" data-path="B.1-solvers.html"><a href="B.1-solvers.html#complexity-of-interior-point-methods"><i class="fa fa-check"></i><b>B.1.2</b> Complexity of Interior-Point Methods</a></li>
+<li class="chapter" data-level="B.1.3" data-path="B.1-solvers.html"><a href="B.1-solvers.html#interface-with-solvers"><i class="fa fa-check"></i><b>B.1.3</b> Interface with Solvers</a></li>
+<li class="chapter" data-level="B.1.4" data-path="B.1-solvers.html"><a href="B.1-solvers.html#modeling-frameworks"><i class="fa fa-check"></i><b>B.1.4</b> Modeling Frameworks</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html"><i class="fa fa-check"></i><b>B.2</b> Gradient Methods</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#descent-methods"><i class="fa fa-check"></i><b>B.2.1</b> Descent Methods</a></li>
+<li class="chapter" data-level="B.2.2" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#line-search"><i class="fa fa-check"></i><b>B.2.2</b> Line Search</a></li>
+<li class="chapter" data-level="B.2.3" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#gradient-descent-method"><i class="fa fa-check"></i><b>B.2.3</b> Gradient Descent Method</a></li>
+<li class="chapter" data-level="B.2.4" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#newtons-method-1"><i class="fa fa-check"></i><b>B.2.4</b> Newton’s Method</a></li>
+<li class="chapter" data-level="B.2.5" data-path="B.2-gradient-methods.html"><a href="B.2-gradient-methods.html#convergence"><i class="fa fa-check"></i><b>B.2.5</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html"><i class="fa fa-check"></i><b>B.3</b> Projected Gradient Methods</a>
+<ul>
+<li class="chapter" data-level="B.3.1" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html#projected-gradient-descent-method"><i class="fa fa-check"></i><b>B.3.1</b> Projected Gradient Descent Method</a></li>
+<li class="chapter" data-level="B.3.2" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html#constrained-newtons-method"><i class="fa fa-check"></i><b>B.3.2</b> Constrained Newton’s Method</a></li>
+<li class="chapter" data-level="B.3.3" data-path="B.3-projected-gradient-methods.html"><a href="B.3-projected-gradient-methods.html#convergence-1"><i class="fa fa-check"></i><b>B.3.3</b> Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="B.4" data-path="B.4-IPM.html"><a href="B.4-IPM.html"><i class="fa fa-check"></i><b>B.4</b> Interior-Point Methods</a>
+<ul>
+<li class="chapter" data-level="B.4.1" data-path="B.4-IPM.html"><a href="B.4-IPM.html#eliminating-equality-constraints-1"><i class="fa fa-check"></i><b>B.4.1</b> Eliminating Equality Constraints</a></li>
+<li class="chapter" data-level="B.4.2" data-path="B.4-IPM.html"><a href="B.4-IPM.html#indicator-function"><i class="fa fa-check"></i><b>B.4.2</b> Indicator Function</a></li>
+<li class="chapter" data-level="B.4.3" data-path="B.4-IPM.html"><a href="B.4-IPM.html#logarithmic-barrier"><i class="fa fa-check"></i><b>B.4.3</b> Logarithmic Barrier</a></li>
+<li class="chapter" data-level="B.4.4" data-path="B.4-IPM.html"><a href="B.4-IPM.html#central-path"><i class="fa fa-check"></i><b>B.4.4</b> Central Path</a></li>
+<li class="chapter" data-level="B.4.5" data-path="B.4-IPM.html"><a href="B.4-IPM.html#barrier-method"><i class="fa fa-check"></i><b>B.4.5</b> Barrier Method</a></li>
+<li class="chapter" data-level="B.4.6" data-path="B.4-IPM.html"><a href="B.4-IPM.html#convergence-2"><i class="fa fa-check"></i><b>B.4.6</b> Convergence</a></li>
+<li class="chapter" data-level="B.4.7" data-path="B.4-IPM.html"><a href="B.4-IPM.html#feasibility-and-phase-i-methods"><i class="fa fa-check"></i><b>B.4.7</b> Feasibility and Phase I Methods</a></li>
+<li class="chapter" data-level="B.4.8" data-path="B.4-IPM.html"><a href="B.4-IPM.html#primal-dual-interior-point-methods"><i class="fa fa-check"></i><b>B.4.8</b> Primal-Dual Interior-Point Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="B.5" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html"><i class="fa fa-check"></i><b>B.5</b> Fractional Programming Methods</a>
+<ul>
+<li class="chapter" data-level="B.5.1" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html#bisection-method-1"><i class="fa fa-check"></i><b>B.5.1</b> Bisection Method</a></li>
+<li class="chapter" data-level="B.5.2" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html#dinkelbach"><i class="fa fa-check"></i><b>B.5.2</b> Dinkelback Method</a></li>
+<li class="chapter" data-level="B.5.3" data-path="B.5-methods-FP.html"><a href="B.5-methods-FP.html#schaible"><i class="fa fa-check"></i><b>B.5.3</b> Charnes–Cooper–Schaible Transform</a></li>
+</ul></li>
+<li class="chapter" data-level="B.6" data-path="B.6-BCD.html"><a href="B.6-BCD.html"><i class="fa fa-check"></i><b>B.6</b> Block Coordinate Descent (BCD)</a>
+<ul>
+<li class="chapter" data-level="B.6.1" data-path="B.6-BCD.html"><a href="B.6-BCD.html#convergence-3"><i class="fa fa-check"></i><b>B.6.1</b> Convergence</a></li>
+<li class="chapter" data-level="B.6.2" data-path="B.6-BCD.html"><a href="B.6-BCD.html#parallel-updates"><i class="fa fa-check"></i><b>B.6.2</b> Parallel Updates</a></li>
+<li class="chapter" data-level="B.6.3" data-path="B.6-BCD.html"><a href="B.6-BCD.html#illustrative-examples"><i class="fa fa-check"></i><b>B.6.3</b> Illustrative Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="B.7" data-path="B.7-MM.html"><a href="B.7-MM.html"><i class="fa fa-check"></i><b>B.7</b> Majorization–Minimization (MM)</a>
+<ul>
+<li class="chapter" data-level="B.7.1" data-path="B.7-MM.html"><a href="B.7-MM.html#convergence-4"><i class="fa fa-check"></i><b>B.7.1</b> Convergence</a></li>
+<li class="chapter" data-level="B.7.2" data-path="B.7-MM.html"><a href="B.7-MM.html#accelerated-mm"><i class="fa fa-check"></i><b>B.7.2</b> Accelerated MM</a></li>
+<li class="chapter" data-level="B.7.3" data-path="B.7-MM.html"><a href="B.7-MM.html#illustrative-examples-1"><i class="fa fa-check"></i><b>B.7.3</b> Illustrative Examples</a></li>
+<li class="chapter" data-level="B.7.4" data-path="B.7-MM.html"><a href="B.7-MM.html#block-mm"><i class="fa fa-check"></i><b>B.7.4</b> Block MM</a></li>
+</ul></li>
+<li class="chapter" data-level="B.8" data-path="B.8-SCA.html"><a href="B.8-SCA.html"><i class="fa fa-check"></i><b>B.8</b> Successive Convex Approximation (SCA)</a>
+<ul>
+<li class="chapter" data-level="B.8.1" data-path="B.8-SCA.html"><a href="B.8-SCA.html#gradient-descent-method-as-sca"><i class="fa fa-check"></i><b>B.8.1</b> Gradient Descent Method as SCA</a></li>
+<li class="chapter" data-level="B.8.2" data-path="B.8-SCA.html"><a href="B.8-SCA.html#newtons-method-as-sca"><i class="fa fa-check"></i><b>B.8.2</b> Newton’s Method as SCA</a></li>
+<li class="chapter" data-level="B.8.3" data-path="B.8-SCA.html"><a href="B.8-SCA.html#parallel-sca"><i class="fa fa-check"></i><b>B.8.3</b> Parallel SCA</a></li>
+<li class="chapter" data-level="B.8.4" data-path="B.8-SCA.html"><a href="B.8-SCA.html#convergence-5"><i class="fa fa-check"></i><b>B.8.4</b> Convergence</a></li>
+<li class="chapter" data-level="B.8.5" data-path="B.8-SCA.html"><a href="B.8-SCA.html#illustrative-examples-2"><i class="fa fa-check"></i><b>B.8.5</b> Illustrative Examples</a></li>
+<li class="chapter" data-level="B.8.6" data-path="B.8-SCA.html"><a href="B.8-SCA.html#mm-vs.-sca"><i class="fa fa-check"></i><b>B.8.6</b> MM vs. SCA</a></li>
+</ul></li>
+<li class="chapter" data-level="B.9" data-path="B.9-ADMM.html"><a href="B.9-ADMM.html"><i class="fa fa-check"></i><b>B.9</b> Alternating Direction Method of Multipliers (ADMM)</a>
+<ul>
+<li class="chapter" data-level="B.9.1" data-path="B.9-ADMM.html"><a href="B.9-ADMM.html#convergence-6"><i class="fa fa-check"></i><b>B.9.1</b> Convergence</a></li>
+<li class="chapter" data-level="B.9.2" data-path="B.9-ADMM.html"><a href="B.9-ADMM.html#illustrative-examples-3"><i class="fa fa-check"></i><b>B.9.2</b> Illustrative Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="B.10" data-path="B.10-numerical-comparison.html"><a href="B.10-numerical-comparison.html"><i class="fa fa-check"></i><b>B.10</b> Numerical Comparison</a></li>
+<li class="chapter" data-level="B.11" data-path="B.11-summary-12.html"><a href="B.11-summary-12.html"><i class="fa fa-check"></i><b>B.11</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="exercises-appB.html"><a href="exercises-appB.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio Optimization</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+\(
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\textm}[1]{\textsf{#1}}
+\newcommand{\textnormal}[1]{\textsf{#1}}
+\def\T{{\mkern-2mu\raise-1mu\mathsf{T}}}
+
+\newcommand{\R}{\mathbb{R}} % real numbers
+\newcommand{\E}{{\rm I\kern-.2em E}}
+
+\newcommand{\w}{\bm{w}} % bold w
+\newcommand{\bmu}{\bm{\mu}} % bold mu
+\newcommand{\bSigma}{\bm{\Sigma}} % bold mu
+\newcommand{\bigO}{O}  %\mathcal{O}
+\renewcommand{\d}[1]{\operatorname{d}\!{#1}}
+\)
+<div id="taxonomy-convex-problems" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">A.5</span> Taxonomy of Convex Problems<a href="A.5-taxonomy-convex-problems.html#taxonomy-convex-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>
+A convex problem, such as the one in <a href="A.4-convex-optimization-problem.html#eq:convex-problem">(A.6)</a>, can be further classified into different specific types of problems. These can be identified by abbreviations such as LP, QP, QCQP, SOCP, SDP, CP, FP, LFP, and GP, which we will briefly explore next. For more detailed information, readers are referred to Chapter 4 in <span class="citation">Boyd and Vandenberghe (<a href="#ref-BoydVandenberghe2004">2004</a>)</span>. In traditional optimization literature, a problem is also referred to as a <em>program</em>. Therefore, for example, a linear program is the same as a linear problem.</p>
+<p>This classification is beneficial for both theoretical and algorithmic purposes. For instance, solvers are designed to handle specific types of problems (see Section <a href="B.1-solvers.html#solvers">B.1</a> in Appendix <a href="B-optimization-algorithms.html#optimization-algorithms">B</a> for more details on solvers).</p>
+<div id="linear-programming-1" class="section level3 hasAnchor" number="17.5.1">
+<h3><span class="header-section-number">A.5.1</span> Linear Programming<a href="A.5-taxonomy-convex-problems.html#linear-programming-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+When the objective and constraint functions are all affine, a problem is called a <em>linear program</em> or <em>linear problem</em> (LP):
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{c}^\T\bm{x} + d\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b},
+\end{array}
+\end{array}
+\]</span>
+where the parameters <span class="math inline">\(\bm{A}\)</span>, <span class="math inline">\(\bm{b}\)</span>, <span class="math inline">\(\bm{c}\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(\bm{G}\)</span>, and <span class="math inline">\(\bm{h}\)</span> are of appropriate size. Linear programs are, of course, convex optimization problems.</p>
+<p>The geometric interpretation of an LP can be visualized as a polyhedron on an inclined flat surface, where an optimal solution is always located at a corner of the polyhedron. This observation forms the basis of the popular simplex method, developed by Dantzig in 1947, for solving LPs.</p>
+<!---
+is illustrated in Figure\ \@ref(fig:LP-geometry)
+<div class="figure" style="text-align: center">
+<img src="figures/convex-optimization/feasible_set_polyhedron.png" alt="Geometry of an LP. [to be redrawn]" width="50%" />
+<p class="caption">(\#fig:LP-geometry)Geometry of an LP. [to be redrawn]</p>
+</div>
+--->
+<p>While problems invoving only linear functions are easily recognizable as LPs, some formulations involving <span class="math inline">\(\ell_{\infty}\)</span>-norm and <span class="math inline">\(\ell_{1}\)</span>-norm minimization can also be rewritten as LPs, as shown next.</p>
+
+<div class="example">
+<p><span id="exm:unlabeled-div-150" class="example"><strong>Example A.10  (<span class="math inline">\(\ell_{\infty}\)</span>-norm minimization as an LP) </strong></span>The problem
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\left\Vert\bm{x}\right\Vert _{\infty}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b},
+\end{array}
+\end{array}
+\]</span>
+is equivalent to the LP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{t,\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}
+t\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+-t\bm{1}\leq \bm{x}\leq t\bm{1},\\
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b}.
+\end{array}
+\end{array}
+\]</span></p>
+</div>
+
+<div class="example">
+<p><span id="exm:unlabeled-div-151" class="example"><strong>Example A.11  (<span class="math inline">\(\ell_1\)</span>-norm minimization as an LP) </strong></span>The problem
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\left\Vert\bm{x}\right\Vert _{1}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b}
+\end{array}
+\end{array}
+\]</span>
+is equivalent to the LP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{t},\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}
+\sum_{i}t_{i}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+-\bm{t}\leq \bm{x}\leq \bm{t},\\
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b}.
+\end{array}
+\end{array}
+\]</span></p>
+</div>
+<!---
+Example: Chebyshev Center of a Polyhedron
+
+- The Chebyshev center of a polyhedron $\mathcal{P}=\left\{ x\mid a_{i}^{T}x\leq b_{i},\;i=1,\ldots,m\right\}$ is the center of the largest inscribed ball $\mathcal{B}=\left\{ x_{c}+u\mid\left\Vert u\right\Vert \leq r\right\}$.
+
+- Let's solve the problem:
+$$
+\begin{array}{ll}
+\underset{r,x_{c}}{\textm{maximize}} & \begin{array}{c}
+r\end{array}\\
+\textm{subject to} & \begin{array}[t]{l}
+x\in\mathcal{P}\quad\textm{for all}\quad x=x_{c}+u\mid\left\Vert u\right\Vert \leq r\end{array}
+\end{array}
+$$
+
+- Observe that $a_{i}^{T}x\leq b_{i}$ for all $x\in\mathcal{B}$ if and only if
+$$
+\sup_{u}\left\{ a_{i}^{T}\left(x_{c}+u\right)\mid\left\Vert u\right\Vert \leq r\right\} \leq b_{i}.
+$$
+- Using Schwartz inequality, the supremum condition can be rewritten as
+$$
+a_{i}^{T}x_{c}+r\left\Vert a_{i}\right\Vert _{2}\leq b_{i}.
+$$
+
+- Hence, the Chebyshev center can be obtained by solving:
+$$
+\begin{array}{ll}
+\underset{r,x_{c}}{\textm{maximize}} & \begin{array}{c}
+r\end{array}\\
+\textm{subject to} & \begin{array}[t]{l}
+a_{i}^{T}x_{c}+r\left\Vert a_{i}\right\Vert _{2}\leq b_{i},\quad i=1,\ldots,m\end{array}
+\end{array}
+$$
+which is an LP.
+--->
+</div>
+<div id="linear-fractional-programming" class="section level3 hasAnchor" number="17.5.2">
+<h3><span class="header-section-number">A.5.2</span> Linear-Fractional Programming<a href="A.5-taxonomy-convex-problems.html#linear-fractional-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+The problem of minimizing a ratio of affine functions over a polyhedron is called a <em>linear-fractional program</em> (LFP):
+<span class="math display" id="eq:LFP">\[\begin{equation}
+  \begin{array}{ll}
+  \underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\left(\bm{c}^\T\bm{x}+d\right)/\left(\bm{e}^\T\bm{x}+f\right)\end{array}\\
+  \textm{subject to} &amp; \begin{array}[t]{l}
+  \bm{G}\bm{x}\leq \bm{h},\\
+  \bm{A}\bm{x}=\bm{b}
+  \end{array}
+  \end{array}
+  \tag{A.11}
+\end{equation}\]</span>
+with <span class="math inline">\(\textm{dom}\,f_{0}=\left\{\bm{x}\mid \bm{e}^\T\bm{x}+f&gt;0\right\}.\)</span></p>
+<p>An LFP is not a convex problem, but it is quasi-convex. Therefore, problem <a href="A.5-taxonomy-convex-problems.html#eq:LFP">(A.11)</a> can be solved via bisection (see Algorithm A.1) by sequentially solving a series of feasibility LPs of the form:
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{find}} &amp; \begin{array}{c}\bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+t \left(\bm{e}^\T\bm{x}+f\right) \geq \bm{c}^\T\bm{x}+d,\\
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b}.
+\end{array}
+\end{array}
+\]</span></p>
+<p>Alternatively, the LFP in <a href="A.5-taxonomy-convex-problems.html#eq:LFP">(A.11)</a> can be transformed into the following LP via the Charnes–Cooper transform <span class="citation">(<a href="#ref-Bajalinov2003">Bajalinov, 2003</a>; <a href="#ref-CharnesCooper62">Charnes and Cooper, 1962</a>)</span>:
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{y},t}{\textm{minimize}} &amp; \begin{array}{c}
+\bm{c}^\T\bm{y}+dt\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{G}\bm{y}\leq \bm{h}t,\\
+\bm{A}\bm{y}=\bm{b}t,\\
+\bm{e}^\T \bm{y} + ft = 1,\\
+t&gt;0,
+\end{array}
+\end{array}
+\]</span>
+with variables <span class="math inline">\(\bm{y},t\)</span>, related to the original variable <span class="math inline">\(\bm{x}\)</span> as
+<span class="math display">\[
+\bm{y} = \frac{\bm{x}}{\bm{e}^\T \bm{x}+f}\quad\textm{and} \quad t = \frac{1}{\bm{e}^\T \bm{x}+f}.
+\]</span>
+The original variable can be easily recovered from <span class="math inline">\(\bm{y},t\)</span> as <span class="math inline">\(\bm{x} = \bm{y}/t.\)</span> For details on the Charnes–Cooper transform, the reader is referred to Section <a href="B.5-methods-FP.html#schaible">B.5.3</a> in Appendix <a href="B-optimization-algorithms.html#optimization-algorithms">B</a>.</p>
+</div>
+<div id="quadratic-programming" class="section level3 hasAnchor" number="17.5.3">
+<h3><span class="header-section-number">A.5.3</span> Quadratic Programming<a href="A.5-taxonomy-convex-problems.html#quadratic-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+The convex optimization problem <a href="A.4-convex-optimization-problem.html#eq:convex-problem">(A.6)</a> is called a <em>quadratic program</em> (QP) if the objective function is (convex) quadratic, and the constraint functions are affine:
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\frac{1}{2}\bm{x}^\T\bm{P}\bm{x}+\bm{q}^\T\bm{x}+r\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{G}\bm{x}\leq \bm{h},\\
+\bm{A}\bm{x}=\bm{b},
+\end{array}
+\end{array}
+\]</span>
+where <span class="math inline">\(\bm{P}\succeq\bm{0}\)</span>. QPs include LPs as special case when <span class="math inline">\(\bm{P}=\bm{0}.\)</span></p>
+<p>The geometric interpretation of a QP can be visualized as an elliptical surface intersecting a polyhedron, where the optimal solution does not necessarily coincide with a vertex of the polyhedron.</p>
+<!---is illustrated in Figure\ \@ref(fig:QP-geometry), where we minimize a convex quadratic function over a polyhedron.
+<div class="figure" style="text-align: center">
+<img src="figures/convex-optimization/quad_over_polyhedron.png" alt="Geometry of an LP. [to be redrawn]" width="55%" />
+<p class="caption">(\#fig:QP-geometry)Geometry of an LP. [to be redrawn]</p>
+</div>
+--->
+<div class="example">
+<p><span id="exm:unlabeled-div-152" class="example"><strong>Example A.12  (Least squares) </strong></span>The LS problem
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\left\Vert \bm{A}\bm{x} - \bm{b}\right\Vert_2^2\end{array}\\
+\end{array}
+\]</span>
+is an unconstrained QP.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-153" class="example"><strong>Example A.13  (Box-constrained LS) </strong></span>The following regression problem with upper and lower bounds on the variables,
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\left\Vert \bm{A}\bm{x} - \bm{b}\right\Vert_2^2\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+l_i \leq x_i \leq u_i,\quad i=1,\dots,n,\\
+\end{array}
+\end{array}
+\]</span>
+is a QP.</p>
+</div>
+<p>If the objective function in <a href="A.4-convex-optimization-problem.html#eq:convex-problem">(A.6)</a> as well as the inequality constraints are (convex) quadratic, then the problem is called a <em>quadratically constrained quadratic program</em> (QCQP):
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}
+\frac{1}{2}\bm{x}^\T\bm{P}_{0}\bm{x} + \bm{q}_{0}^\T\bm{x} + r_{0}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\frac{1}{2}\bm{x}^\T\bm{P}_{i}\bm{x} + \bm{q}_{i}^\T\bm{x} + r_{i}\leq0,\quad i=1,\ldots,m,\\
+\bm{A}\bm{x}=\bm{b},
+\end{array}
+\end{array}
+\]</span>
+where <span class="math inline">\(\bm{P}_i\succeq\bm{0}\)</span>. In this case, the feasible region is the intersection of ellipsoids. QCQPs include QPs as a special case when <span class="math inline">\(\bm{P}_i=\bm{0}\)</span> for <span class="math inline">\(i=1,\dots,m.\)</span></p>
+</div>
+<div id="second-order-cone-programming" class="section level3 hasAnchor" number="17.5.4">
+<h3><span class="header-section-number">A.5.4</span> Second-Order Cone Programming<a href="A.5-taxonomy-convex-problems.html#second-order-cone-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+A convex problem that is closely related to quadratic programming is the <em>second-order cone program</em> (SOCP):
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{f}^\T \bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\left\Vert \bm{A}_{i}\bm{x}+\bm{b}_{i}\right\Vert \leq \bm{c}_{i}^\T\bm{x}+d_{i}, \quad i=1,\ldots,m,\\
+\bm{F}\bm{x}=\bm{g},
+\end{array}
+\end{array}
+\]</span>
+where the constraints <span class="math inline">\(\left\Vert \bm{A}_{i}\bm{x}+\bm{b}_{i}\right\Vert \leq \bm{c}_{i}^\T\bm{x}+d_{i}\)</span> are called <em>second-order cone</em> (SOC) constraints since they are affine compositions of the (convex) SOC
+<span class="math display" id="eq:SOC">\[\begin{equation}
+  \left\{\left(  \bm{x},t\right)  \in \mathbb{R}^{n+1}\mid\left\Vert \bm{x}\right\Vert \leq t\right\}.
+  \tag{A.12}
+\end{equation}\]</span></p>
+<p>An SOCP reduces to a QCQP when <span class="math inline">\(c_{i}=0\)</span> for <span class="math inline">\(i=1,\dots,m\)</span> (by squaring both sides of the inequalities). If each <span class="math inline">\(\bm{A}_{i}\)</span> is a row-vector (or <span class="math inline">\(\bm{A}_{i}=0\)</span>), then an SOCP reduces to an LP.</p>
+<p>A comprehensive monograph on SOCPs is <span class="citation">Lobo et al. (<a href="#ref-LoboVandenbergheBoydLebret98">1998</a>)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-154" class="example"><strong>Example A.14  (Robust LP) </strong></span>Consider the linear program
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c} \bm{c}^\T\bm{x} \end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{a}_i^\T\bm{x}\leq b_i,\quad i=1,\ldots,m.
+\end{array}
+\end{array}
+\]</span></p>
+<p>Now suppose there is some uncertainty in the parameters <span class="math inline">\(\bm{a}_i\)</span> and they are known to lie in given ellipsoids,
+<span class="math display">\[
+\mathcal{E}_{i}=\left\{ \bar{\bm{a}}_i + \bm{P}_i \bm{u}\mid\left\Vert\bm{u}\right\Vert \leq1\right\},
+\]</span>
+where <span class="math inline">\(\bm{P}_i\in\R^{n\times n}\)</span>. If we require that the constraints be satisfied for all possible values of the parameters <span class="math inline">\(\bm{a}_i\)</span>, we obtain a <em>robust LP</em>:
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c} \bm{c}^\T\bm{x} \end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{a}_i^\T\bm{x}\leq b_i, \textm{ for all }\bm{a}_{i}\in\mathcal{E}_{i},\quad i=1,\ldots,m.
+\end{array}
+\end{array}
+\]</span>
+The robust constraint <span class="math inline">\(\bm{a}_i^\T\bm{x}\leq b_i\)</span> for all <span class="math inline">\(\bm{a}_i\in\mathcal{E}_i\)</span> can equivalently expressed as
+<span class="math display">\[
+\textm{sup}\left\{\bm{a}_i^\T\bm{x} \mid \bm{a}_i\in\mathcal{E}_i\right\} = \bar{\bm{a}}_i^\T\bm{x} + \left\Vert \bm{P}_i^\T\bm{x} \right\Vert_2 \leq b_i.
+\]</span>
+Hence, the robust LP can be expressed as the SOCP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c} \bm{c}^\T\bm{x} \end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bar{\bm{a}}_i^\T\bm{x} + \left\Vert \bm{P}_i^\T\bm{x} \right\Vert_2\leq b_i,\quad i=1,\ldots,m.
+\end{array}
+\end{array}
+\]</span></p>
+</div>
+</div>
+<div id="semidefinite-programming" class="section level3 hasAnchor" number="17.5.5">
+<h3><span class="header-section-number">A.5.5</span> Semidefinite Programming<a href="A.5-taxonomy-convex-problems.html#semidefinite-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+A more general convex problem than an SOCP is the <em>semidefinite program</em> (SDP), formulated as
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{c}^\T\bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+x_{1}\bm{F}_{1}+x_{2}\bm{F}_{2} + \cdots + x_{n}\bm{F}_{n} + \bm{G} \preceq \bm{0},\\
+\bm{A}\bm{x}=\bm{b},
+\end{array}
+\end{array}
+\]</span>
+which has (convex) <em>linear matrix inequality</em> (LMI) constraints of the form
+<span class="math display" id="eq:SDP-constraint">\[\begin{equation}
+  x_{1}\bm{F}_{1}+\cdots+x_{n}\bm{F}_{n}+\bm{G} \preceq \bm{0},
+  \tag{A.13}
+\end{equation}\]</span>
+where <span class="math inline">\(\bm{F}_{1},\ldots,\bm{F}_{n},\bm{G}\in\mathbb{S}^{k}\)</span> (<span class="math inline">\(\mathbb{S}^{k}\)</span> is the set of symmetric <span class="math inline">\(k\times k\)</span> matrices) and <span class="math inline">\(\bm{A}\succeq\bm{B}\)</span> means that <span class="math inline">\(\bm{A}-\bm{B}\)</span> is positive semidefinite. Note that multiple LMI constraints can always be written as a single one by using block diagonal matrices.</p>
+<p>An SDP reduces to an LP when the matrix in the LMI inequality is diagonal, that is, the SDP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{c}^\T\bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\textm{Diag}(\bm{A}\bm{x}-\bm{b})\preceq\bm{0}\end{array}
+\end{array}
+\]</span>
+is equivalent to the LP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{c}^\T\bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{A}\bm{x}\leq \bm{b}.\end{array}
+\end{array}
+\]</span></p>
+<p>An SDP can also be reduced to an SOCP when the matrix in the LMI has a specific <span class="math inline">\(2\times2\)</span> block structure. In this case, the SDP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{f}^\T\bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\begin{bmatrix}
+\left(\bm{c}_{i}^\T\bm{x}+d_{i}\right)\bm{I} &amp; \bm{A}_{i}\bm{x}+\bm{b}_{i}\\
+\left(\bm{A}_{i}\bm{x}+\bm{b}_{i}\right)^\T &amp; \bm{c}_{i}^\T\bm{x}+d_{i}
+\end{bmatrix}\succeq\bm{0},\quad i=1,\ldots,m,\end{array}
+\end{array}
+\]</span>
+is equivalent to the SOCP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}\bm{f}^\T\bm{x}\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\left\Vert \bm{A}_{i}\bm{x}+\bm{b}_{i}\right\Vert \leq \bm{c}_{i}^\T\bm{x}+d_{i},\quad i=1,\ldots,m.\end{array}
+\end{array}
+\]</span>
+The equivalence can be shown via the <em>Schur complement</em>:
+<span class="math display">\[
+\bm{X} = \begin{bmatrix}
+\bm{A} &amp; \bm{B}\\
+\bm{B}^\T &amp; \bm{C}
+\end{bmatrix}\succeq\bm{0}
+\quad\Longleftrightarrow\quad
+\bm{S} = \bm{C} - \bm{B}^\T\bm{A}^{-1}\bm{B} \succeq\bm{0},
+\]</span>
+where we have tacitly assumed <span class="math inline">\(\bm{A}\succ\bm{0}\)</span>.</p>
+<p>A comprehensive monograph on SDPs is <span class="citation">Vandenberghe and Boyd (<a href="#ref-VandenbergheBoyd96">1996</a>)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-155" class="example"><strong>Example A.15  (Eigenvalue minimization) </strong></span>The maximum eigenvalue minimization problem
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}
+\lambda_{\textm{max}}\left(\bm{A}(\bm{x})\right),
+\end{array}\end{array}
+\]</span>
+where <span class="math inline">\(\bm{A}(\bm{x})=\bm{A}_{0}+x_{1}\bm{A}_{1}+\cdots+x_{n}\bm{A}_{n}\)</span>, is equivalent to the SDP
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp; \begin{array}{c}
+t\end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+\bm{A}(\bm{x})\preceq t\bm{I}.\end{array}
+\end{array}
+\]</span></p>
+<p>This follows from
+<span class="math display">\[
+\begin{array}[t]{l}
+\lambda_{\textm{max}}\left(\bm{A}(\bm{x})\right)\leq t\end{array}
+\quad\Longleftrightarrow\quad
+\begin{array}[t]{l}
+\bm{A}(\bm{x})\preceq t\bm{I}.
+\end{array}
+\]</span></p>
+</div>
+</div>
+<div id="conic-programming" class="section level3 hasAnchor" number="17.5.6">
+<h3><span class="header-section-number">A.5.6</span> Conic Programming<a href="A.5-taxonomy-convex-problems.html#conic-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p></p>
+<p>A useful generalization of the standard convex optimization problem <a href="A.4-convex-optimization-problem.html#eq:convex-problem">(A.6)</a> can be achieved by allowing the inequality constraints to be vector-valued and incorporating generalized inequalities into the constraints:
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp;
+\begin{array}[t]{c}
+f_{0}(\bm{x})
+\end{array}
+\\
+\textm{subject to} &amp;
+\begin{array}[t]{l}
+\bm{f}_{i}(\bm{x})\preceq_{\mathcal{K}_{i}}\bm{0},\\
+\bm{h}_{i}(\bm{x})=\bm{0},
+\end{array}
+\quad
+\begin{array}[t]{l}
+1\leq i\leq m,\\
+1\leq i\leq p,
+\end{array}
+\end{array}
+\]</span>
+where the generalized inequalities<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> ‘<span class="math inline">\(\preceq_{\mathcal{K}_{i}}\)</span>’ are defined by the proper cones <span class="math inline">\(\mathcal{K}_{i}\)</span> (note that <span class="math inline">\(\bm{a}\preceq_{\mathcal{K}}\bm{b}\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\bm{b} - \bm{a}\in\mathcal{K}\)</span>) and <span class="math inline">\(f_{i}\)</span> are <span class="math inline">\(\mathcal{K}_{i}\)</span>-convex<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> (see Section <a href="A.7-multi-objective-optimization.html#multi-objective-optimization">A.7</a> for more details on generalized inequalities).</p>
+<p>Among the simplest convex optimization problems with generalized inequalities are <em>cone programs</em> (CP), or <em>conic-form problems</em>, which have a linear objective and one inequality constraint function
+<span class="citation">(<a href="#ref-BentalNemirovski2001">Ben-Tal and Nemirovski, 2001</a>; <a href="#ref-BoydVandenberghe2004">Boyd and Vandenberghe, 2004</a>)</span>:
+<span class="math display" id="eq:conic-program">\[\begin{equation}
+  \begin{array}{ll}
+  \underset{\bm{x}}{\textm{minimize}} &amp;
+  \begin{array}[t]{c}
+  \bm{c}^\T\bm{x}
+  \end{array}
+  \\
+  \textm{subject to} &amp;
+  \begin{array}[t]{l}
+  \bm{Fx}+\bm{g}\preceq_{\mathcal{K}}\bm{0},\\
+  \bm{Ax}=\bm{b}.
+  \end{array}
+  \end{array}
+  \tag{A.14}
+\end{equation}\]</span></p>
+<p>CPs particularize nicely to LPs, SOCPs, and SDPs as follows:</p>
+<ul>
+<li><p>If <span class="math inline">\(\mathcal{K}=\R_{+}^{n}\)</span> (nonnegative orthant), the partial ordering <span class="math inline">\(\preceq_{\mathcal{K}}\)</span> is the usual componentwise inequality between vectors and the CP <a href="A.5-taxonomy-convex-problems.html#eq:conic-program">(A.14)</a> reduces to an LP.</p></li>
+<li><p>If <span class="math inline">\(\mathcal{K}=\mathcal{C}^{n}\)</span> (second-order cone), <span class="math inline">\(\preceq_{\mathcal{K}}\)</span> corresponds to a constraint
+of the form <a href="A.5-taxonomy-convex-problems.html#eq:SOC">(A.12)</a> and the CP <a href="A.5-taxonomy-convex-problems.html#eq:conic-program">(A.14)</a> becomes an SOCP.</p></li>
+<li><p>If <span class="math inline">\(\mathcal{K}=\mathbb{S}_{+}^{n}\)</span> (positive semidefinite cone), the generalized inequality <span class="math inline">\(\preceq_{\mathcal{K}}\)</span> reduces to the usual matrix inequality as in <a href="A.5-taxonomy-convex-problems.html#eq:SDP-constraint">(A.13)</a> and the CP <a href="A.5-taxonomy-convex-problems.html#eq:conic-program">(A.14)</a> simplifies to an SDP.</p></li>
+</ul>
+</div>
+<div id="fractional-programming" class="section level3 hasAnchor" number="17.5.7">
+<h3><span class="header-section-number">A.5.7</span> Fractional Programming<a href="A.5-taxonomy-convex-problems.html#fractional-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fractional programming is a family of optimization problems that involve ratios. Its origins can be traced back to a 1937 paper on economic expansion <span class="citation">(<a href="#ref-vonNeumann1937">von Neumann, 1937</a>)</span>. Since then, it has inspired research in various fields such as economics, management science, optics, information theory, communication systems, graph theory, and computer science.</p>
+<p>
+The simplest form of a <em>fractional program</em> (FP) is
+<span class="math display" id="eq:FP-87878678">\[\begin{equation}
+  \begin{array}{ll}
+  \underset{\bm{x}}{\textm{maximize}} &amp; \dfrac{f(\bm{x})}{g(\bm{x})}\\
+  \textm{subject to} &amp; \bm{x}\in\mathcal{X},
+  \end{array}
+  \tag{A.15}
+\end{equation}\]</span>
+where <span class="math inline">\(f(\bm{x})\ge0\)</span>, <span class="math inline">\(g(\bm{x})&gt;0\)</span>, and <span class="math inline">\(\mathcal{X}\)</span> denotes the feasible set. One particular case is the LFP in <a href="A.5-taxonomy-convex-problems.html#eq:LFP">(A.11)</a>, when both <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are linear functions.</p>
+<p>FPs have been widely studied and extended to deal with multiple ratios such as
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{maximize}} &amp; \underset{i}{\textm{min}} \; \dfrac{f_i(\bm{x})}{g_i(\bm{x})}\\
+\textm{subject to} &amp; \bm{x}\in\mathcal{X}.
+\end{array}
+\]</span></p>
+<p>FPs are nonconvex problems, which in principle makes them challenging to solve <span class="citation">(<a href="#ref-Stancu1992">Stancu-Minasian, 1997</a>)</span>. Fortunately, in the case known as <em>concave–convex FP</em>, where <span class="math inline">\(f\)</span> is a concave function and <span class="math inline">\(g\)</span> is a convex function, they can be solved relatively easily using different methods. The three main approaches, covered in detail in Section <a href="B.5-methods-FP.html#methods-FP">B.5</a> of Appendix <a href="B-optimization-algorithms.html#optimization-algorithms">B</a>, are:</p>
+<ul>
+<li><p><em>Bisection method</em>: Similar to the linear case of LFP, the bisection method (see Algorithm A.1) involves solving a sequence of convex feasibility problems of the form
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{find}} &amp;
+\begin{array}{c} \bm{x} \end{array}\\
+\textm{subject to} &amp; \begin{array}[t]{l}
+t g(\bm{x}) \leq f(\bm{x}),\\
+\bm{x}\in\mathcal{X}.
+\end{array}
+\end{array}
+\]</span></p></li>
+<li><p><em>Dinkelbach’s transform</em>: This approach eliminates the fractional objective by solving a sequence of simpler convex problems of the form
+<span class="math display" id="eq:FP-dinkelbach-234523">\[\begin{equation}
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{maximize}} &amp; f(\bm{x}) - y^k g(\bm{x})\\
+\textm{subject to} &amp; \bm{x}\in\mathcal{X},
+\end{array}
+\tag{A.16}
+\end{equation}\]</span>
+where the weight <span class="math inline">\(y^k\)</span> is updated as <span class="math inline">\(y^{k} = f(\bm{x}^{k})/g(\bm{x}^{k})\)</span> (see Section <a href="B.5-methods-FP.html#dinkelbach">B.5.2</a>).</p></li>
+<li><p><em>Schaible transform</em>: This is a more general case of the Charnes–Cooper transform (used for LFPs) proposed by <span class="citation">Schaible (<a href="#ref-Schaible74">1974</a>)</span>. The original concave–convex FP is thus transformed into an equivalent convex problem,
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{y},t}{\textm{maximize}} &amp; t f\left(\frac{\bm{y}}{t}\right)\\
+\textm{subject to}
+&amp; t g\left(\frac{\bm{y}}{t}\right) \le 1,\\
+&amp; t &gt; 0,\\
+&amp; \bm{y}/t\in\mathcal{X},
+\end{array}
+\]</span>
+with variables <span class="math inline">\(\bm{y},t\)</span>, related to the original variable <span class="math inline">\(\bm{x}\)</span> by
+<span class="math display">\[
+\bm{y} = \frac{\bm{x}}{g(\bm{x})}\quad\textm{and} \quad t = \frac{1}{g(\bm{x})}.
+\]</span>
+The original variable can be easily recovered from <span class="math inline">\(\bm{y},t\)</span> by <span class="math inline">\(\bm{x} = \bm{y}/t\)</span> (see Section <a href="B.5-methods-FP.html#schaible">B.5.3</a>).</p></li>
+</ul>
+</div>
+<div id="geometric-programming" class="section level3 hasAnchor" number="17.5.8">
+<h3><span class="header-section-number">A.5.8</span> Geometric Programming<a href="A.5-taxonomy-convex-problems.html#geometric-programming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will now examine a family of optimization problems that are not naturally convex, but can be converted into convex optimization problems through a change of variables and a transformation of the objective and constraint functions.</p>
+<p>A <em>monomial function</em>, or simply a <em>monomial</em>, is a function <span class="math inline">\(f: \R^n \rightarrow \R\)</span> with <span class="math inline">\(\text{dom}\,f = \R_{++}^n\)</span> defined as
+<span class="math display">\[
+f(\bm{x}) = c x_1^{a_1} x_2^{a_2}\cdots x_n^{a_n},
+\]</span>
+where <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(a_i\in\R\)</span>.</p>
+<p>A <em>posynomial function</em>, or simply a <em>posynomial</em>, is a sum of monomials:
+<span class="math display">\[
+f(\bm{x}) = \sum_{k=1}^{K} c_k x_1^{a_{1k}} x_2^{a_{2k}}\cdots x_n^{a_{nk}},
+\]</span>
+where <span class="math inline">\(c_k&gt;0\)</span>.</p>
+<p>
+A <em>geometric program</em> (GP) is a (nonconvex) problem of the form
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{x}}{\textm{minimize}} &amp;
+\begin{array}[t]{l} f_0(\bm{x}) \end{array}\\
+\textm{subject to}
+&amp; \begin{array}[t]{l}
+    f_{i}(\bm{x})\leq1,\\
+    h_{i}(\bm{x})=1,
+  \end{array}
+  \quad
+  \begin{array}[t]{l}
+    i=1,\ldots,m,\\
+    i=1,\ldots,p,
+  \end{array}
+\end{array}
+\]</span>
+where <span class="math inline">\(f_0,\dots,f_m\)</span> are posynomials and <span class="math inline">\(h_1,\dots,h_p\)</span> are monomials. The domain of this problem is <span class="math inline">\(\mathcal{D}=\R_{++}^{n}\)</span>, i.e., the constraint <span class="math inline">\(\bm{x}&gt;\bm{0}\)</span> is implicit.</p>
+<p>Suppose we apply the change of variables <span class="math inline">\(y_i = \textm{log}\,x_i\)</span> and <span class="math inline">\(b=\textm{log}\,c\)</span> on the monomial <span class="math inline">\(f(\bm{x}) = c x_1^{a_1} x_2^{a_2}\cdots x_n^{a_n}\)</span>. Then the log of the monomial is
+<span class="math display">\[
+\tilde{f}(\bm{y}) = \textm{log}\, f(e^{\bm{x}}) = b + a_1 y_1 + a_2 y_2 + \dots + a_n y_n = b + \bm{a}^\T\bm{y},
+\]</span>
+which is an affine function.</p>
+<p>Similarly, for a posynomial, we obtain
+<span class="math display">\[
+\tilde{f}(\bm{y}) = \textm{log}\,\sum_{k=1}^{K}e^{b_{k} + \bm{a}_k^\T\bm{y}},
+\]</span>
+which is the so-called log-sum-exp function, a convex function.</p>
+<p>Finally, the resulting transformed GP in convex form is
+<span class="math display">\[
+\begin{array}{ll}
+\underset{\bm{y}}{\textm{minimize}} &amp;
+\begin{array}[t]{l} \textm{log}\,\sum_{k=1}^{K_0}e^{b_{0k} + \bm{a}_{0k}^\T\bm{y}} \end{array}\\
+\textm{subject to}
+&amp; \begin{array}[t]{l}
+    \textm{log}\,\sum_{k=1}^{K_i}e^{b_{ik} + \bm{a}_{ik}^\T\bm{y}}\leq0,\\
+    h_{i} + \bm{g}_{i}^\T\bm{y} = 0,
+  \end{array}
+  \quad
+  \begin{array}[t]{l}
+    i=1,\ldots,m,\\
+    i=1,\ldots,p.
+  \end{array}
+\end{array}
+\]</span></p>
+<p>Some comprehensive monographs on GP include <span class="citation">Boyd et al. (<a href="#ref-BoydKimVandenbergheHassibi2007">2007</a>)</span> and <span class="citation">Chiang (<a href="#ref-Chiang2005">2005</a>)</span>.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bajalinov2003" class="csl-entry">
+Bajalinov, E. B. (2003). <em>Linear-Fractional Programming: Theory, Methods, Applications and Software</em>. Boston: Springer.
+</div>
+<div id="ref-BentalNemirovski2001" class="csl-entry">
+Ben-Tal, A., and Nemirovski, A. (2001). <em>Lectures on Modern Convex Optimization: Analysis, Algorithms, and Engineering Applications</em>. Society for Industrial <span>and</span> Applied Mathematics (SIAM).
+</div>
+<div id="ref-BoydKimVandenbergheHassibi2007" class="csl-entry">
+Boyd, S., Kim, S. J., Vandenberghe, L., and Hassibi, A. (2007). <em>A Tutorial on Geometric Programming</em>. Springer.
+</div>
+<div id="ref-BoydVandenberghe2004" class="csl-entry">
+Boyd, S., and Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge University Press.
+</div>
+<div id="ref-CharnesCooper62" class="csl-entry">
+Charnes, A., and Cooper, W. W. (1962). Programming with linear fractional functionals. <em>Naval Research Logistics Quarterly</em>, <em>9</em>(3–4), 181–186.
+</div>
+<div id="ref-Chiang2005" class="csl-entry">
+Chiang, M. (2005). Geometric programming for communication systems. <em>Foundations <span>and</span> Trends in Communications and Information Theory</em>, <em>2</em>(1–2), 1–154.
+</div>
+<div id="ref-LoboVandenbergheBoydLebret98" class="csl-entry">
+Lobo, M. S., Vandenberghe, L., Boyd, S., and Lebret, H. (1998). Applications of second-order cone programming. <em>Linear Algebra and Applications</em>, <em>284</em>(1–3), 193–228.
+</div>
+<div id="ref-Schaible74" class="csl-entry">
+Schaible, S. (1974). Parameter-free convex equivalent and dual programs of fractional programming problems. <em>Zeitschrift Fur Operations Research</em>, <em>18</em>(5), 187–196.
+</div>
+<div id="ref-Stancu1992" class="csl-entry">
+Stancu-Minasian, I. M. (1997). <em>Fractional Programming: Theory, Methods and Applications</em>. Dordrecht: Kluwer Academic Publishers.
+</div>
+<div id="ref-VandenbergheBoyd96" class="csl-entry">
+Vandenberghe, L., and Boyd, S. (1996). Semidefinite programming. <em>SIAM Review</em>, <em>38</em>(1), 49–95.
+</div>
+<div id="ref-vonNeumann1937" class="csl-entry">
+von Neumann, J. (1937). <span>Ü</span>ber ein <span class="nocase">ö</span>konomisches <span>G</span>leichgewichtssystem und eine <span>V</span>erallgemeinerung des <span>B</span>rouwerschen <span>F</span>ixpunktsatzes. <em>Ergebnisse Eines Mathematischen <span>K</span>olloquiums</em>, <em>8</em>, 73–83.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="77">
+<li id="fn77"><p>A generalized inequality is a partial ordering on <span class="math inline">\(\mathbb{R}^{n}\)</span> that has many of the properties of the standard ordering on <span class="math inline">\(\R\)</span>. A common example is the matrix inequality defined by the cone of positive semidefinite <span class="math inline">\(n\times n\)</span> matrices <span class="math inline">\(\mathbb{S}_{+}^{n}\)</span>.<a href="A.5-taxonomy-convex-problems.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>A function <span class="math inline">\(\bm{f}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{k_{i}}\)</span> is <span class="math inline">\(\mathcal{K}_{i}\)</span>-convex if the domain is a convex set and, for all <span class="math inline">\(\bm{x},\bm{y}\in\operatorname*{dom}f\)</span> and <span class="math inline">\(\theta\in\left[0,1\right]\)</span>, <span class="math inline">\(\bm{f}\left(\theta\bm{x}+(1-\theta)\bm{y}\right)\preceq_{\mathcal{K}_{i}}\theta\bm{f}\left( \bm{x}\right)+(1-\theta)\bm{f}\left( \bm{y}\right)\)</span>.<a href="A.5-taxonomy-convex-problems.html#fnref78" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="A.4-convex-optimization-problem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="A.6-lagrange-duality.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": true,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["portfolio-optimization-book.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

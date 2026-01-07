@@ -1,0 +1,45 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.center {
+  text-align: center;
+}
+
+/*
+p {
+  line-height: 2;
+}
+*/
+
+/*
+div.csl-entry {
+  clear: both;
+  margin-bottom: 12px;
+}
+*/
+
+
+
+div.lined {
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  padding-top: 0.5em;
+  margin: 0.5em 0 0.5em 0;
+}
+
+div.plain_algorithm {
+  border-bottom: 1px solid lightgrey;
+  margin: 0.5em 0 0.5em 0;
+}

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="178.17192mm"
+   height="79.174484mm"
+   viewBox="-1 -1 183.53927 81.559563"
+   version="1.1"
+   id="svg557"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="VaR-CVaR-EVaR.svg"
+   inkscape:export-filename="../../../../../Downloads/VaR-CVaR-EVaR.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview559"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.4368708"
+     inkscape:cx="369.55306"
+     inkscape:cy="123.88031"
+     inkscape:window-width="1952"
+     inkscape:window-height="873"
+     inkscape:window-x="533"
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2938"
+       originx="-1.4607098"
+       originy="-1.7098489"
+       spacingy="1"
+       spacingx="1"
+       units="mm"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs554">
+    <marker
+       style="overflow:visible"
+       id="marker6015"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path6013" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="arrow2L" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path5681" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path5684" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-53.476831,-18.637954)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-dasharray:none;stroke-opacity:1"
+       d="M 116.18279,22.076908 V 93.856311"
+       id="path5679" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-dasharray:none;stroke-opacity:1"
+       d="M 222.52265,56.637361 V 91.197813"
+       id="path5679-2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-dasharray:none;stroke-opacity:1"
+       d="M 156.06025,56.637361 V 91.197813"
+       id="path5679-2-2" />
+    <path
+       style="fill:#5552f4;fill-opacity:1;stroke:none;stroke-width:0.309039;stroke-dasharray:none;stroke-opacity:1"
+       d="m 222.7236,91.197815 c -39.87743,0 -50.51143,-2e-6 -66.4624,-21.267973 0,26.584964 0,0 0,21.267971"
+       id="path1820-8"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-dasharray:none;stroke-opacity:1"
+       d="M 169.15181,56.580836 V 91.141289"
+       id="path5679-2-2-7" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-dasharray:none;stroke-opacity:1"
+       d="M 179.25408,56.611797 V 91.17225"
+       id="path5679-2-2-7-7" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 52.579844,91.197813 227.4308,90.905192"
+       id="path5599-3-9"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="153.35678"
+       y="54.126171"
+       id="text1265-6-2-9"><tspan
+         sodipodi:role="line"
+         id="tspan6373"
+         x="153.35678"
+         y="54.126171"
+         style="stroke-width:0.264584">VaR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="115.08324"
+       y="99.143875"
+       id="text1265-6-2-9-4"><tspan
+         sodipodi:role="line"
+         id="tspan14683"
+         x="115.08324"
+         y="99.143875"
+         style="stroke-width:0.264584">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="163.30505"
+       y="54.145206"
+       id="text1265-6-2-9-6"><tspan
+         sodipodi:role="line"
+         id="tspan6402"
+         x="163.30505"
+         y="54.145206"
+         style="stroke-width:0.264584">CVaR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="176.06583"
+       y="54.145206"
+       id="text1265-6-2-9-6-2"><tspan
+         sodipodi:role="line"
+         id="tspan394"
+         x="176.06583"
+         y="54.145206"
+         style="stroke-width:0.264584">EVaR</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.309039;stroke-dasharray:none;stroke-opacity:1"
+       d="m 222.72362,90.605939 c -39.87745,0 -53.12178,2.741036 -71.7794,-29.243462 -18.60949,-31.901957 -29.24346,-34.560452 -39.87744,-34.560452 -15.950979,0 -13.9169,9.299026 -15.950993,35.152329 -2.291578,29.125945 4e-6,29.243459 -39.877447,29.243459"
+       id="path1820"
+       sodipodi:nodetypes="csscc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.206025;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker6015);marker-end:url(#Arrow2)"
+       d="m 158.91972,64.612849 h 61.1454"
+       id="path5682" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.309039;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14737-4"
+       width="23.926474"
+       height="10.633975"
+       x="181.78276"
+       y="59.29586" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="183.27927"
+       y="63.899765"
+       id="text1265-6-2"><tspan
+         sodipodi:role="line"
+         id="tspan1232"
+         x="183.27927"
+         y="63.899765"
+         style="stroke-width:0.264584">probability</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:Symbol;-inkscape-font-specification:'Symbol, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="188.31168"
+       y="68.080315"
+       id="text1265-6-2-3"><tspan
+         sodipodi:role="line"
+         id="tspan1230"
+         x="188.31168"
+         y="68.080315"
+         style="stroke-width:0.264584">1 - α</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.54465px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="210.26198"
+       y="54.013474"
+       id="text1265-6-2-8"><tspan
+         sodipodi:role="line"
+         id="tspan1138"
+         x="210.26198"
+         y="54.013474"
+         style="stroke-width:0.264584">maximal value</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.25359px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="113.14008"
+       y="20.890455"
+       id="text1265-6-5"><tspan
+         sodipodi:role="line"
+         id="tspan1862"
+         x="113.14008"
+         y="20.890455"
+         style="stroke-width:0.264584">pdf</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.25359px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264584"
+       x="219.67673"
+       y="99.108917"
+       id="text1265-6-5-5"><tspan
+         sodipodi:role="line"
+         id="tspan2092"
+         x="219.67673"
+         y="99.108917"
+         style="stroke-width:0.264584">loss</tspan></text>
+  </g>
+</svg>
