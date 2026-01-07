@@ -45,8 +45,6 @@ To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage
 
 
 ## Chapters
-Work in progress... exercises with solutions coming up in the subsequent weeks and slides will be significantly revised next semester.
-
 
 - Chapter 1 -- Introduction:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-intro.pdf)
