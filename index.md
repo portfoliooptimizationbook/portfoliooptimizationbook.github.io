@@ -22,7 +22,7 @@ Cambridge University Press, 2025.</p>
 <p><br />
 
 
-Book available here: [<i class="fas fa-file-pdf"></i> pdf](portfolio-optimization-book.pdf) and [<i class="fas fa-globe"></i> online html](book-html/)
+Book available here: [<i class="fas fa-file-pdf"></i> pdf](portfolio-optimization-book.pdf) and [<i class="fas fa-globe"></i> online html](book/)
 
 
 For purchase here: 
