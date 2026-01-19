@@ -36,7 +36,7 @@ For purchase here:
 [<i class="fas fa-book-reader"></i> Hugendubel](https://www.hugendubel.de/de/buch_gebunden/daniel_p_palomar-portfolio_optimization-49457055-produkt-details.html)
 
 
-This is the [<i class="fas fa-home"></i> homepage](https://portfoliooptimizationbook.com) for the [<i class="fas fa-chart-line"></i> Portfolio Optimization Book](https://bookdown.org/palomar/portfoliooptimizationbook). It contains slides, code examples (R and Python), exercises with solutions, and data.
+This is the [<i class="fas fa-home"></i> homepage](https://portfoliooptimizationbook.com) for the [<i class="fas fa-chart-line"></i> Portfolio Optimization Book](book/). It contains slides, code examples (R and Python), exercises with solutions, and data.
 
 
 To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage](https://github.com/portfoliooptimizationbook).
