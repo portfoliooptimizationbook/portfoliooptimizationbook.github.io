@@ -171,7 +171,7 @@ To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage
 
 - Stock and crypto data used in the sample code can be conveniently found at https://github.com/dppalomar/pob
 
-- Resources for R: [<i class="fab fa-r-project"></i> Primer on R for Finance](R-code/R-primer.html), [<i class="fab fa-r-project"></i> Solvers in R](python-code/R-solvers.html)
+- Resources for R: [<i class="fab fa-r-project"></i> Primer on R for Finance](R-code/R-primer.html), [<i class="fab fa-r-project"></i> Solvers in R](R-code/R-solvers.html)
 
 - Resources for Python: [<i class="fab fa-python"></i> Primer on Python for Finance](python-code/python-primer.html), [<i class="fab fa-python"></i> Solvers in Python](python-code/python-solvers.html)
 
