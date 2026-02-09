@@ -173,7 +173,7 @@ To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage
 
 - Resources for Python: 
 [<i class="fab fa-python"></i> Primer on Python for Finance](python-code/python-primer.html), 
-[<i class="fab fa-python"></i> Solvers in Python](python-code/python-solvers.html),
+[<i class="fab fa-python"></i> Solvers in Python](python-code/python-solvers.html), portfolio library
 [skfolio](https://skfolio.org/)
 
 - Resources for R: 
