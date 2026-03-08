@@ -182,6 +182,18 @@ To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage
 
 
 
+### Recognition
+
+Read [endorsements](https://portfoliooptimizationbook.com/book/frontmatter.html#endorsements) from leading researchers and practitioners.
+
+This book has been featured by:
+
+- [skfolio](https://skfolio.org/#recognition) — Python portfolio optimization library built on scikit-learn
+- [MOSEK](https://www.mosek.com/resources/books/) — Industry-leading conic optimization solver
+- [microprediction/precise](https://github.com/microprediction/precise/blob/main/LITERATURE.md) — Curated portfolio optimization literature
+
+
+
 ## Contact Information
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
