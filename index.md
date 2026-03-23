@@ -43,6 +43,18 @@ To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage
 
 
 
+## Recognition
+
+Read [endorsements](https://portfoliooptimizationbook.com/book/frontmatter.html#endorsements) from leading researchers and practitioners.
+
+This book has been featured by:
+
+- [skfolio](https://skfolio.org/#recognition) — Python portfolio optimization library built on scikit-learn
+- [MOSEK](https://www.mosek.com/resources/books/) — Industry-leading conic optimization solver
+- [awesome-quant](https://github.com/wilsonfreitas/awesome-quant?tab=readme-ov-file#reproducing-works-training--books) — Curated list of quant resources (25k+ ★)
+- [microprediction/precise](https://github.com/microprediction/precise/blob/main/LITERATURE.md) — Curated portfolio optimization literature
+
+
 
 ## Chapters
 
@@ -180,17 +192,6 @@ To contribute, check the [<i class="fab fa-github"></i> developer GitHub webpage
 [<i class="fab fa-r-project"></i> Primer on R for Finance](R-code/R-primer.html), 
 [<i class="fab fa-r-project"></i> Solvers in R](R-code/R-solvers.html)
 
-
-
-### Recognition
-
-Read [endorsements](https://portfoliooptimizationbook.com/book/frontmatter.html#endorsements) from leading researchers and practitioners.
-
-This book has been featured by:
-
-- [skfolio](https://skfolio.org/#recognition) — Python portfolio optimization library built on scikit-learn
-- [MOSEK](https://www.mosek.com/resources/books/) — Industry-leading conic optimization solver
-- [microprediction/precise](https://github.com/microprediction/precise/blob/main/LITERATURE.md) — Curated portfolio optimization literature
 
 
 
