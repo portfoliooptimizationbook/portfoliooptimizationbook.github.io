@@ -49,10 +49,13 @@ Read [endorsements](https://portfoliooptimizationbook.com/book/frontmatter.html#
 
 This book has been featured by:
 
-- [skfolio](https://skfolio.org/#recognition) — Python portfolio optimization library built on scikit-learn
 - [MOSEK](https://www.mosek.com/resources/books/) — Industry-leading conic optimization solver
+- [skfolio](https://skfolio.org/#recognition) ([paper](https://arxiv.org/abs/2507.04176)) — Python portfolio optimization library built on scikit-learn
+- [StarQube](https://starqube.com/advanced-portfolio-optimization/#:~:text=Books:) — Portfolio construction & management platform (listed first in recommended literature)
 - [awesome-quant](https://github.com/wilsonfreitas/awesome-quant?tab=readme-ov-file#reproducing-works-training--books) — Curated list of quant resources (25k+ ★)
-- [microprediction/precise](https://github.com/microprediction/precise/blob/main/LITERATURE.md) — Curated portfolio optimization literature
+- [microprediction/precise](https://github.com/microprediction/precise/blob/main/LITERATURE.md) — Curated portfolio optimization literature by Peter Cotton
+- [Vincent Zoonekynd's Article & Book Summaries](http://zoonek.free.fr/Ecrits/articles.pdf) — Well-known quant summarizer with a detailed chapter-by-chapter summary of the book's financial data modeling and portfolio optimization content (1,100+ page compendium)
+
 
 
 
