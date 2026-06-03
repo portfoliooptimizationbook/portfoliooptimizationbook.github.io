@@ -1,3 +1,127 @@
+/* ============================================================
+   Portfolio Optimization Book — landing page styling
+   CSS-only restyle. Targets the rmarkdown/Bootstrap-3 output of
+   index.md, so it survives every re-render and needs no recompile.
+   ============================================================ */
+
+:root {
+  --ink:        #232730;   /* body text            */
+  --muted:      #6b7280;   /* secondary text       */
+  --accent:     #1f4e79;   /* deep academic blue (headings/structure) */
+  --accent-alt: #2e75b6;   /* brighter, for hover  */
+  --link:       #1a6dc4;   /* links — brighter, clearly clickable     */
+  --link-hover: #0d4f99;   /* link hover                              */
+  --rule:       #e6e9ef;   /* hairline dividers    */
+  --bg:         #ffffff;
+}
+
+/* ---- Base ------------------------------------------------- */
 body {
-    font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               Helvetica, Arial, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Slightly narrower reading column than the default 940px.
+   `body` prefix raises specificity to beat the later inline rule. */
+body .main-container {
+  max-width: 880px;
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-bottom: 64px;
+}
+
+/* ---- Page title (editorial serif) ------------------------- */
+h1.title {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1a1d23;
+  margin: 8px 0 26px;
+}
+
+/* ---- Section headings ------------------------------------- */
+h2 {
+  font-size: 27px;
+  font-weight: 650;
+  color: #1a1d23;
+  margin-top: 2.1em;
+  padding-bottom: 0.32em;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 21px;
+  font-weight: 650;
+  color: var(--accent);
+  margin-top: 1.7em;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+/* ---- Links ------------------------------------------------ */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(26, 109, 196, 0.4);   /* soft underline    */
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;              /* full on hover     */
+}
+
+/* Font Awesome icons sit a touch tighter to their label */
+i.fas, i.fab, i.far {
+  margin-right: 2px;
+}
+
+/* ---- Book-cover header ------------------------------------ */
+table.imgtable {
+  margin: 0 0 8px;
+  border-spacing: 0;
+}
+table.imgtable td {
+  vertical-align: top;
+  padding: 0;
+}
+table.imgtable td:first-child {
+  padding-right: 22px;
+}
+table.imgtable img {
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(20, 35, 60, 0.18);
+}
+table.imgtable p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-top: 4px;
+}
+table.imgtable a {
+  font-weight: 600;
+}
+
+/* ---- Lists (recognition + chapters) ----------------------- */
+ul {
+  padding-left: 22px;
+}
+li {
+  margin-bottom: 0.5em;
+}
+
+/* ---- Small responsive tidy -------------------------------- */
+@media (max-width: 600px) {
+  body .main-container { padding-left: 16px; padding-right: 16px; }
+  h1.title { font-size: 32px; }
+  table.imgtable td:first-child { padding-right: 14px; }
 }
