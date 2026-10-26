@@ -14,27 +14,40 @@ output:
 ---
 
 
-<table class="imgtable"><tr>
-<td><img src="book_cover.jpg" width="175px" />&nbsp;</td>
-<td align="left"><p>Portfolio Optimization: Theory and Application<br />
-<a href="https://www.danielppalomar.com/">Daniel P. Palomar</a> <br /><br />
-Cambridge University Press, 2025.</p>
-</td></tr></table>
-<p><br />
+<div class="hero">
+<img class="hero-cover" src="book-cover-hero.jpg" alt="Cover of Portfolio Optimization: Theory and Application" />
+<div class="hero-text">
+<h1 class="hero-title">Portfolio Optimization</h1>
+<div class="hero-sub">Theory and Application</div>
+<div class="hero-rule"></div>
+<div class="hero-author">Daniel P. Palomar</div>
+<div class="hero-pub">Cambridge University Press &middot; 2025</div>
+<div class="hero-site">portfoliooptimizationbook.com</div>
+</div>
+</div>
 
-
-Book available here: [<i class="fas fa-file-pdf"></i> pdf](portfolio-optimization-book.pdf) and [<i class="fas fa-globe"></i> online html](book/)
-
-
-For purchase here: 
-[<i class="fas fa-book"></i> Cambridge University Press](https://www.cambridge.org/hk/universitypress/subjects/mathematics/mathematical-finance/portfolio-optimization-theory-and-application?format=HB&isbn=9781009428088), 
-[<i class="fab fa-amazon"></i> Amazon](https://a.co/d/9XLMjSw), 
-[<i class="fas fa-store"></i> Barnes & Noble](https://www.barnesandnoble.com/w/portfolio-optimization-daniel-p-palomar/1146540789?ean=9781009428088), 
-[<i class="fas fa-shopping-bag"></i> Bookshop.org](https://uk.bookshop.org/p/books/portfolio-optimization-theory-and-application-daniel-p-palomar/7796814), 
-[<i class="fas fa-shopping-cart"></i> Hive](https://www.hive.co.uk/Product/Daniel-P-Hong-Kong-University-of-Science-and-Technology-Palomar/Portfolio-Optimization--Theory-and-Application/31283293), 
-[<i class="fas fa-book-open"></i> Indigo](https://www.indigo.ca/en-ca/portfolio-optimization-theory-and-application/9781009428088.html), 
-[<i class="fas fa-bookmark"></i> Hatchards](https://www.hatchards.co.uk/book/portfolio-optimization/daniel-p-palomar/9781009428088), 
-[<i class="fas fa-book-reader"></i> Hugendubel](https://www.hugendubel.de/de/buch_gebunden/daniel_p_palomar-portfolio_optimization-49457055-produkt-details.html)
+<div class="actions">
+<div class="action-row">
+<span class="action-label">Read online</span>
+<div class="action-pills">
+<a class="pill pill-primary" href="portfolio-optimization-book.pdf"><i class="fas fa-file-pdf"></i>PDF</a>
+<a class="pill" href="book/"><i class="fas fa-globe"></i>Online HTML</a>
+</div>
+</div>
+<div class="action-row">
+<span class="action-label">Purchase</span>
+<div class="action-pills">
+<a class="pill" href="https://www.cambridge.org/hk/universitypress/subjects/mathematics/mathematical-finance/portfolio-optimization-theory-and-application?format=HB&amp;isbn=9781009428088"><i class="fas fa-book"></i>Cambridge University Press</a>
+<a class="pill" href="https://a.co/d/9XLMjSw"><i class="fab fa-amazon"></i>Amazon</a>
+<a class="pill" href="https://www.barnesandnoble.com/w/portfolio-optimization-daniel-p-palomar/1146540789?ean=9781009428088"><i class="fas fa-store"></i>Barnes &amp; Noble</a>
+<a class="pill" href="https://uk.bookshop.org/p/books/portfolio-optimization-theory-and-application-daniel-p-palomar/7796814"><i class="fas fa-shopping-bag"></i>Bookshop.org</a>
+<a class="pill" href="https://www.hive.co.uk/Product/Daniel-P-Hong-Kong-University-of-Science-and-Technology-Palomar/Portfolio-Optimization--Theory-and-Application/31283293"><i class="fas fa-shopping-cart"></i>Hive</a>
+<a class="pill" href="https://www.indigo.ca/en-ca/portfolio-optimization-theory-and-application/9781009428088.html"><i class="fas fa-book-open"></i>Indigo</a>
+<a class="pill" href="https://www.hatchards.co.uk/book/portfolio-optimization/daniel-p-palomar/9781009428088"><i class="fas fa-bookmark"></i>Hatchards</a>
+<a class="pill" href="https://www.hugendubel.de/de/buch_gebunden/daniel_p_palomar-portfolio_optimization-49457055-produkt-details.html"><i class="fas fa-book-reader"></i>Hugendubel</a>
+</div>
+</div>
+</div>
 
 
 This is the companion website of the [<i class="fas fa-chart-line"></i> Portfolio Optimization Book](book/) with slides, code examples (Python and R), exercises, and data.

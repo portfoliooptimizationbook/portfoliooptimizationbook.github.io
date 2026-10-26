@@ -36,9 +36,8 @@ body .main-container {
   padding-bottom: 64px;
 }
 
-/* ---- Page title (editorial serif) ------------------------- */
+/* ---- Page title (kept for re-renders; hidden in favour of .hero-title) ---- */
 h1.title {
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
   font-size: 40px;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -85,30 +84,141 @@ i.fas, i.fab, i.far {
   margin-right: 2px;
 }
 
-/* ---- Book-cover header ------------------------------------ */
-table.imgtable {
-  margin: 0 0 8px;
-  border-spacing: 0;
+/* ---- Hero: cover + title block ---------------------------- */
+/* Layout only; all wording lives in index.md so it stays editable. */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 46px;
+  margin: 4px 0 46px;
 }
-table.imgtable td {
-  vertical-align: top;
+
+.hero-cover {
+  flex: 0 0 auto;
+  width: 272px;
+  max-width: 40%;
+  height: auto;
+  border: 8px solid #fff;                 /* mat, as in the OG image  */
+  outline: 1px solid #e4e7ec;             /* hairline over the mat    */
+  box-shadow: 0 1px 10px rgba(20, 35, 60, 0.07);
+}
+
+.hero-text { flex: 1 1 auto; min-width: 0; }
+
+.hero-title {
+  font-family: inherit;                   /* inherit -> body sans stack */
+  font-size: 46px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1a1d23;
+  margin: 0 0 10px;
   padding: 0;
+  border: 0;
 }
-table.imgtable td:first-child {
-  padding-right: 22px;
+
+.hero-sub {
+  font-size: 27px;
+  line-height: 1.25;
+  color: #1a1d23;
+  margin-bottom: 26px;
 }
-table.imgtable img {
-  border-radius: 6px;
-  box-shadow: 0 6px 18px rgba(20, 35, 60, 0.18);
+
+.hero-rule {
+  width: 110px;
+  height: 5px;
+  background: #8c1e2d;                    /* crimson accent, per the design */
+  margin-bottom: 22px;
 }
-table.imgtable p {
-  font-size: 17px;
-  line-height: 1.5;
-  color: var(--muted);
-  margin-top: 4px;
-}
-table.imgtable a {
+
+.hero-author {
+  font-size: 25px;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1a1d23;
+  margin-bottom: 6px;
+}
+
+.hero-pub  { font-size: 19px; color: var(--muted); margin-bottom: 5px; }
+.hero-site { font-size: 18px; color: var(--muted); }
+
+/* The pandoc-generated H1 title is replaced by .hero-title (single H1). */
+#header { display: none; }
+
+/* ---- Action pills (read online / purchase) ---------------- */
+.actions {
+  margin: 0 0 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+}
+
+.action-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+/* pandoc wraps the run of anchors in a <p>; make that paragraph the flex row. */
+.action-pills {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.action-pills > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.action-label {
+  flex: 0 0 122px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 12px;
+}
+
+.pill {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #373d46;
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1px solid #d5dae1;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.pill i { margin-right: 7px; opacity: 0.75; }
+
+.pill:hover,
+.pill:focus {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: #f7f9fc;
+  text-decoration: none;
+}
+
+.pill-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.pill-primary i { opacity: 0.9; }
+
+.pill-primary:hover,
+.pill-primary:focus {
+  background: #173d5f;
+  border-color: #173d5f;
+  color: #fff;
 }
 
 /* ---- Lists (recognition + chapters) ----------------------- */
@@ -120,8 +230,28 @@ li {
 }
 
 /* ---- Small responsive tidy -------------------------------- */
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+  .hero-cover { width: 150px; max-width: 55%; }
+  .hero-title { font-size: 30px; }
+  .hero-sub   { font-size: 21px; margin-bottom: 20px; }
+  .hero-rule  { margin: 0 auto 20px; }
+  .hero-author { font-size: 19px; }
+  .hero-pub   { font-size: 15px; }
+  .hero-site  { font-size: 14px; }
+
+  .action-row { flex-direction: column; align-items: stretch; gap: 8px; }
+  .action-label { flex: none; padding-top: 0; }
+  .action-pills { flex: 0 0 auto; }
+  .pill { text-align: center; }
+}
+
 @media (max-width: 600px) {
   body .main-container { padding-left: 16px; padding-right: 16px; }
   h1.title { font-size: 32px; }
-  table.imgtable td:first-child { padding-right: 14px; }
 }
