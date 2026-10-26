@@ -8,6 +8,7 @@ output:
       in_header:
         - google_analytics.html
         - font_awesome.html
+        - og_meta.html
     #includes:
     #  before_body: book_cover.html
 ---
