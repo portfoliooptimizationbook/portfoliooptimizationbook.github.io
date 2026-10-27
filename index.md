@@ -66,6 +66,8 @@ This book has been featured by:
 - [awesome-quant](https://github.com/wilsonfreitas/awesome-quant?tab=readme-ov-file#reproducing-works-training--books) — Curated list of quant resources (25k+ ★)
 - [microprediction/precise](https://github.com/microprediction/precise/blob/main/LITERATURE.md) — Curated portfolio optimization literature by Peter Cotton
 - [Vincent Zoonekynd's Article & Book Summaries](http://zoonek.free.fr/Ecrits/articles.pdf) — Well-known quant summarizer with a detailed chapter-by-chapter summary of the book's financial data modeling and portfolio optimization content (1,100+ page compendium)
+- [Luigi Selmi's Antilibrary](https://www.luigiselmi.eu/antilibrary#econometrics-and-quantitative-finance) — Curated shelf of textbooks made freely available online by their authors
+- [Open MFE](https://github.com/ebrahimpichka/open-MFE/blob/main/08_portfolio_investments/financial_optimization/RESOURCES.md#:~:text=Portfolio%20Optimization%3A%20Theory%20and%20Application) — Community-curated open curriculum mirroring top MFE and quant-finance programs (one of two textbooks in its financial optimization module)
 
 
 
