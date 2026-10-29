@@ -856,23 +856,39 @@ In order to learn time-varying graphs that preserve the time consistency between
 \index{graphs!time-varying graph}
 \index{graphs!dynamic graph}
 The following graph learning formulation follows from the GMRF framework in \@ref(eq:GLASSO-Laplacian) or \@ref(eq:GMRF-sparse) but preserving the time consistency [@CardosoPalomar_Asilomar2020]:
-$$
+\begin{equation}
   \begin{array}{ll}
   \underset{\bm{L}_{1}, \dots, \bm{L}_{T}}{\textm{minimize}} 
   & \sum_{t=1}^{T}
-  n_t\times\left[\textm{Tr}(\bm{L}_t\bm{S}_t) - \textm{log gdet}(\bm{L}_t)\right] + \delta \sum_{t=2}^{T}d(\bm{L}_{t-1}, \bm{L}_t),\\
+  n_t\times\left[\textm{Tr}(\bm{L}_t\bm{S}_t) - \textm{log gdet}(\bm{L}_t)\right] + \delta \sum_{t=2}^{T}d(\bm{L}_{t-1}, \bm{L}_t)\\
   \textm{subject to} 
   & \big\{\bm{L}_t \succeq \bm{0}, \quad \bm{L}_t\bm{1} = \bm{0}, \quad (\bm{L}_t)_{ij} = (\bm{L}_t)_{ji} \leq 0, \quad \forall ~ i \neq j\big\}_{t=1}^{T},
   \end{array}
-$$
+  (\#eq:time-varying-graph)
+\end{equation}
 
 where $\bm{S}_t$ denotes the sample correlation matrix of chunk $t$ and the hyper-parameter $\delta$ controls the level of time consistency (for $\delta=0$ it becomes the naive approach without time consistency and for $\delta\rightarrow\infty$ tends to the static graph solution).
 
 
-The solution to this problem is a dynamic graph conditioned on all the $T$ chunks of observations (i.e., with look-ahead bias):
+This problem admits two different resolution philosophies:
+
+- _Offline approach_: The dynamic graph is conditioned on all the $T$ chunks of observations (i.e., with look-ahead bias):
 $$\hat{\bm{L}}_{t \mid T} \qquad t=1,\dots,T.$$
-Alternatively, using a rolling window approach, one can instead obtain a causal estimate without look-ahead bias: 
+
+- _Online approach_: The dynamic graph is obtained causally, without look-ahead bias, using rolling-window estimation:
 $$\hat{\bm{L}}_{t \mid t} \qquad t=1,\dots,T.$$
+
+An alternative online approach based on a probabilistic temporal model for graph weights was proposed in @JavaheriYingPalomarMarvasti2025. Let $\bm{w}_t$ collect the edge weights in frame $t$, with $\bm{L}_t=\mathcal{L}(\bm{w}_t)$ and $\mathcal{L}(\cdot)$ the Laplacian operator. A simplified version of the formulation in that paper is
+\begin{equation}
+  \begin{array}{ll}
+  \underset{\bm{w}_t\geq\bm{0}}{\textm{minimize}}
+  & \textm{Tr}(\bm{L}_t\bm{S}_t) - \textm{log gdet}(\bm{L}_t) + \alpha\|\bm{w}_t-\bm{a}\odot\hat{\bm{w}}_{t-1}\|_1\\
+  \textm{subject to}
+  & \bm{L}_t=\mathcal{L}(\bm{w}_t),
+  \end{array}
+  (\#eq:time-varying-graph-online)
+\end{equation}
+where $\hat{\bm{w}}_{t-1}$ is the estimate from the previous time frame, $\bm{a}$ contains the nonnegative autoregressive coefficients, which can also be estimated, and $\alpha$ controls the temporal consistency. The original paper considers a more sophisticated formulation that accommodates heavy-tailed data and missing values, and incorporates graph sparsity and clustered structures.
 
 
 

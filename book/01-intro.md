@@ -62,7 +62,7 @@ Now suppose that for each time $t$, a different (independent) value of the rando
 </div>
 
 
-The evolution of the cumulative returns or wealth over time, albeit random, is strongly determined by the value of the Sharpe ratio, $\mu/\sigma$, as illustrated in Figure \@ref(fig:cumreturns-vs-sr) for high and low values. If the Sharpe ratio is high, the cumulative return will have some fluctuations but with a consistent growth. On the other hand, if the ratio is low, the fluctuations become larger and one may even end up losing everything, leading to bankruptcy.
+The evolution of the cumulative returns or wealth over time, albeit random, is strongly determined by the value of the Sharpe ratio, $\mu/\sigma$, as illustrated in Figure \@ref(fig:cumreturns-vs-sr) for high and low values. If the Sharpe ratio is high, the cumulative return will have some fluctuations but with a consistent growth. On the other hand, if the ratio is low, the drift becomes small relative to the volatility and one may even end up losing everything, leading to bankruptcy. Note that Figure \@ref(fig:cumreturns-vs-sr) assumes that the entire capital is invested in the asset; in practice, investors choose how much to invest, that is, the leverage, precisely to keep the growth of wealth positive and reduce the risk of ruin.
 
 <div class="figure" style="text-align: center">
 <img src="01-intro_files/figure-html/cumreturns-vs-sr-1.png" alt="Illustration of cumulative returns with different values of Sharpe ratio." width="80%" />
@@ -568,7 +568,7 @@ This book is supplemented with a large number of code examples in R and Python t
 
 Generally speaking, the resolution of all the portfolio optimization formulations covered in the book can be approached in a variety of ways, namely:
 
-- Use a software package or library specifically designed to optimize portfolios under a wide variety of formulations and constraints. Examples include the popular R package [`fPortfolio`](https://cran.r-project.org/package=fPortfolio) [@fPortfolio] and the Python packages [`Riskfolio-Lib`](https://riskfolio-lib.readthedocs.io) [@RiskfolioLib] and [`PyPortfolioOpt`](https://pyportfolioopt.readthedocs.io) [@PyPortfolioOpt_JOSS2021]. \index{R packages!fPortfolio} \index{Python packages!Riskfolio-Lib} \index{Python packages!PyPortfolioOpt}
+- Use a software package or library specifically designed to optimize portfolios under a wide variety of formulations and constraints. Examples include the popular R package [`fPortfolio`](https://cran.r-project.org/package=fPortfolio) [@fPortfolio] and the Python packages [`skfolio`](https://skfolio.org) [@NicoliniManziDelatte2025; @DelatteNicoliniManzi2026], [`Riskfolio-Lib`](https://riskfolio-lib.readthedocs.io) [@RiskfolioLib], and [`PyPortfolioOpt`](https://pyportfolioopt.readthedocs.io) [@PyPortfolioOpt_JOSS2021]. \index{R packages!fPortfolio} \index{Python packages!skfolio} \index{Python packages!Riskfolio-Lib} \index{Python packages!PyPortfolioOpt}
 
 - Utilize a modeling framework like CVX, which automatically calls upon a solver behind the scenes, available for programming languages including Python, R, and Julia [@GrantBoyd2008; @GrantBoyd2014; @FuNarasimhanBoyd2020; @CVXR]. \index{R packages!CVXR} \index{Python packages!CVXPY}
 

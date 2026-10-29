@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10.5 Drawdown Portfolios | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="10.5 Drawdown Portfolios | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10.5 Drawdown Portfolios | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="10.5 Drawdown Portfolios | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="drawdown-portfolios" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> Drawdown Portfolios<a href="10.5-drawdown-portfolios.html#drawdown-portfolios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Drawdown portfolios can be approached via statistical modeling of the returns based on dynamic programming <span class="citation">(<a href="#ref-CvitanicKaratzas1995">Cvitanic and Karatzas, 1995</a>; <a href="#ref-GrossmanZhou1993">Grossman and Zhou, 1993</a>)</span>, as well as from a more data-driven perspective based on a sample-path (realization) of portfolio returns <span class="citation">(<a href="#ref-ChekhlovUryasevZabarankin2004">Chekhlov et al., 2004</a>)</span>, as we consider here.</p>
@@ -958,7 +961,7 @@ To formulate the mean–CVaR-DD portfolio, we will make use of the following var
 <p>This leads to the mean–CVaR-DD formulation:
 <span class="math display">\[
   \begin{array}{ll}
-  \underset{\w, \tau}{\textm{maximize}} &amp; \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
+  \underset{\w, \tau}{\textm{maximize}} &amp; \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau&#39; \le t}{\textm{max}} \; \w^\T\bm{r}_{\tau&#39;}^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
   \textm{subject to} &amp; \w \in \mathcal{W},
   \end{array}
 \]</span>
@@ -1030,42 +1033,44 @@ Grossman, S. J., and Zhou, Z. (1993). Optimal investment strategies for controll
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

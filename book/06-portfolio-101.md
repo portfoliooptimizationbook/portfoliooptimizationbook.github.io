@@ -47,27 +47,21 @@ We remark that the majority of financial data models refer to the log-returns an
 
 In practice, since linear returns are very close to log-returns, $\bm{r}^{\textm{lin}}_t \approx \bm{r}^{\textm{log}}_t$, for small values of the returns (see Chapter\ \@ref(stylized-facts)), most practitioners and academics simply use the following approximation and otherwise ignore the distinction between log- and linear returns:
 $$
-\begin{aligned}
-\bmu^{\textm{lin}}_{t} &\approx \bmu^{\textm{log}}_{t},\\
-\bSigma^{\textm{lin}}_{t} &\approx \bSigma^{\textm{log}}_{t}.
-\end{aligned}
+\bmu^{\textm{lin}}_{t} \approx \bmu^{\textm{log}}_{t} \qquad \textm{and} \qquad \bSigma^{\textm{lin}}_{t} \approx \bSigma^{\textm{log}}_{t}.
 $$
 Mathematically, using the relationship between log-returns and linear returns, $\bm{r}^{\textm{log}}_t = \textm{log}\big(\bm{1} + \bm{r}^{\textm{lin}}_t\big)$, or, equivalently, $\bm{r}^{\textm{lin}}_t = \textm{exp}\big(\bm{r}^{\textm{log}}_t\big) - \bm{1}$, it follows that the mean vector and covariance matrix of the linear returns can be obtained from those of the log-returns as
-$$
-\begin{aligned}
-\bmu^{\textm{lin}}_{t} &= \textm{exp}\left(\bmu^{\textm{log}}_t + \frac{1}{2}\textm{diag}\left(\bSigma^{\textm{log}}_t\right)\right) - \bm{1},\\
-\left[\bSigma^{\textm{lin}}_{t}\right]_{ij} &= \left(\textm{exp}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ij}\right) - 1\right) \times\\
- & \qquad\textm{exp}\left(\left[\bmu^{\textm{log}}_t\right]_i + \left[\bmu^{\textm{log}}_t\right]_j + \frac{1}{2}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ii} + \left[\bSigma^{\textm{log}}_{t}\right]_{jj}\right)\right).
-\end{aligned}
-$$
-However, due to the inherent noise in the estimation of the mean and covariance matrix, it is not clear that these more mathematically exact approximations give a practical advantage.
+\begin{equation}
+  \begin{aligned}
+  \bmu^{\textm{lin}}_{t} &= \textm{exp}\left(\bmu^{\textm{log}}_t + \frac{1}{2}\textm{diag}\left(\bSigma^{\textm{log}}_t\right)\right) - \bm{1},\\
+  \left[\bSigma^{\textm{lin}}_{t}\right]_{ij} &= \left(\textm{exp}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ij}\right) - 1\right) \textm{exp}\left(\left[\bmu^{\textm{log}}_t\right]_i + \left[\bmu^{\textm{log}}_t\right]_j + \frac{1}{2}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ii} + \left[\bSigma^{\textm{log}}_{t}\right]_{jj}\right)\right).
+  \end{aligned}
+  (\#eq:lin-log-moments)
+\end{equation}
+However, due to the inherent noise in the estimation of the mean and covariance matrix, it is not clear that these more mathematically exact approximations in \@ref(eq:lin-log-moments) give a practical advantage.
 
 For the sake of notation, in the rest of the chapter we will drop the time dependency of the first- and second-order moments. In fact, in many cases the adopted econometric model is the i.i.d. one (see Chapter\ \@ref(iid-modeling)), which assumes no time dependency. In addition, we will refer to the linear moments by default:
 $$
-\begin{aligned}
-\bmu    &= \bmu^{\textm{lin}}_{t},\\
-\bSigma &= \bSigma^{\textm{lin}}_{t}.
-\end{aligned}
+\bmu = \bmu^{\textm{lin}}_{t} \qquad \textm{and} \qquad \bSigma = \bSigma^{\textm{lin}}_{t}.
 $$
 
 
@@ -987,7 +981,7 @@ i. Plot the drawdown over time.
 ::: {.exercise #heuristic-portfolios name="Heuristic portfolios"}
 a. Download market data corresponding to $N$ assets during a period with $T$ observations.
 b. Using 70% of the data, compute the $1/N$ portfolio and quintile portfolios using different ranking mechanisms.
-c. Plot and compare the different portfolio allocations over time.
+c. Plot and compare the different portfolio allocations.
 d. Using the remaining 30% of the data, assess the portfolios in terms of cumulative returns, volatility-adjusted cumulative returns, Sharpe ratio, and drawdown.
 :::
 

@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.7 Multi-objective Optimization | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="A.7 Multi-objective Optimization | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.7 Multi-objective Optimization | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="A.7 Multi-objective Optimization | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="multi-objective-optimization" class="section level2 hasAnchor" number="17.7">
 <h2><span class="header-section-number">A.7</span> Multi-objective Optimization<a href="A.7-multi-objective-optimization.html#multi-objective-optimization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
@@ -867,20 +870,20 @@ div.csl-indent {
 <div id="generalized-inequalities" class="section level3 hasAnchor" number="17.7.1">
 <h3><span class="header-section-number">A.7.1</span> Generalized Inequalities<a href="A.7-multi-objective-optimization.html#generalized-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-A cone was defined in Section <a href="A.2-convex-sets.html#convex-sets">A.2</a> as a set <span class="math inline">\(\mathcal{K}\in\R^n\)</span> such that for every <span class="math inline">\(\bm{x} \in \mathcal{K}\)</span> and <span class="math inline">\(\theta \ge 0\)</span> we have <span class="math inline">\(\theta \bm{x} \in \mathcal{K}\)</span>. A cone <span class="math inline">\(\mathcal{K}\)</span> is called a <em>proper cone</em> if it is convex, closed, solid (i.e., has a nonempty interior), and pointed (i.e., it contains no line).</p>
+A cone was defined in Section <a href="A.2-convex-sets.html#convex-sets">A.2</a> as a set <span class="math inline">\(\mathcal{K}\subseteq\R^n\)</span> such that for every <span class="math inline">\(\bm{x} \in \mathcal{K}\)</span> and <span class="math inline">\(\theta \ge 0\)</span> we have <span class="math inline">\(\theta \bm{x} \in \mathcal{K}\)</span>. A cone <span class="math inline">\(\mathcal{K}\)</span> is called a <em>proper cone</em> if it is convex, closed, solid (i.e., has a nonempty interior), and pointed (i.e., it contains no line).</p>
 <p>A proper cone <span class="math inline">\(\mathcal{K}\)</span> can be used to define a <em>generalized inequality</em>, which is a partial ordering on <span class="math inline">\(\R^{n}\)</span> that has many of the properties of the standard ordering on <span class="math inline">\(\R\)</span>:
 <span class="math display">\[
 \bm{x} \preceq_{\mathcal{K}} \bm{y}\quad\Longleftrightarrow\quad \bm{y} - \bm{x}\in\mathcal{K}.
 \]</span>
 We also write <span class="math inline">\(\bm{x} \preceq_{\mathcal{K}} \bm{y}\)</span> as <span class="math inline">\(\bm{y} \succeq_{\mathcal{K}} \bm{x}\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-165" class="example"><strong>Example A.24  (Nonnegative orthant and componentwise inequality) </strong></span>The nonnegative orthant <span class="math inline">\(\mathcal{K}=\R_+^n\)</span> is a proper cone and its associated generalized inequality <span class="math inline">\(\preceq_{\mathcal{K}}\)</span> corresponds to the componentwise inequality between vectors: <span class="math inline">\(\bm{x} \preceq_{\mathcal{K}} \bm{y}\)</span> means <span class="math inline">\(x_i \leq y_i,\;i=1,\dots,m\)</span>.</p>
+<p><span id="exm:unlabeled-div-165" class="example"><strong>Example A.24  (Nonnegative orthant and componentwise inequality) </strong></span>The nonnegative orthant <span class="math inline">\(\mathcal{K}=\R_+^n\)</span> is a proper cone and its associated generalized inequality <span class="math inline">\(\preceq_{\mathcal{K}}\)</span> corresponds to the componentwise inequality between vectors: <span class="math inline">\(\bm{x} \preceq_{\mathcal{K}} \bm{y}\)</span> means <span class="math inline">\(x_i \leq y_i,\;i=1,\dots,n\)</span>.</p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-166" class="example"><strong>Example A.25  (Positive semidefinite cone and matrix inequality) </strong></span>The positive semidefinite cone <span class="math inline">\(\mathbb{S}_{+}^{n}\)</span> is a proper cone in the set of <span class="math inline">\(n\times n\)</span> symmetric matrices <span class="math inline">\(\mathbb{S}^{n}\)</span> and its associated generalized inequality <span class="math inline">\(\preceq_{\mathcal{K}}\)</span> is the usual matrix inequality: <span class="math inline">\(\bm{X} \preceq_{\mathcal{K}} \bm{Y}\)</span> means <span class="math inline">\(\bm{Y}-\bm{X}\)</span> is positive semidefinite (typically written as <span class="math inline">\(\bm{Y} \succeq \bm{X}\)</span>).</p>
 </div>
 <p>The notation of generalized inequality (i.e., <span class="math inline">\(\preceq_{\mathcal{K}}\)</span>) is meant to suggest the analogy to ordinary inequality on <span class="math inline">\(\R\)</span> (i.e., <span class="math inline">\(\leq\)</span>). While many properties of ordinary inequality do hold for generalized inequalities, some important ones do not. The most obvious difference is that <span class="math inline">\(\leq\)</span> on <span class="math inline">\(\R\)</span> is a <em>total ordering</em>: any two points are comparable, meaning that we can always write <span class="math inline">\(x \leq y\)</span> or <span class="math inline">\(y \leq x\)</span>. This property does not hold for other generalized inequalities as they simply define a <em>partial ordering</em>. One implication is that concepts like minimum and maximum are more complicated in the context of generalized inequalities.</p>
-<p>We can also use generalized inequalities to extend the definition of a convex function from Section <a href="A.3-convex-functions.html#convex-functions">A.3</a> to the vector case. We say a function <span class="math inline">\(\bm{f}:\R^{n}\rightarrow\R^{q}\)</span> is <span class="math inline">\(\mathcal{K}\)</span>-convex if the domain is a convex set and, for all <span class="math inline">\(\bm{x},\bm{y}\in\operatorname*{dom}\bm{f}\)</span> and <span class="math inline">\(\theta\in\left[0,1\right]\)</span>, <span class="math inline">\(\bm{f}(\theta\bm{x}+(1-\theta)\bm{y})\preceq_{\mathcal{K}}\theta\bm{f}( \bm{x})+(1-\theta)\bm{f}(\bm{y})\)</span>.</p>
+<p>We can also use generalized inequalities to extend the definition of a convex function from Section <a href="A.3-convex-functions.html#convex-functions">A.3</a> to the vector case. We say a function <span class="math inline">\(\bm{f}:\R^{n}\rightarrow\R^{q}\)</span> is <span class="math inline">\(\mathcal{K}\)</span>-convex if the domain is a convex set and, for all <span class="math inline">\(\bm{x},\bm{y}\in\operatorname*{dom}\bm{f}\)</span> and <span class="math inline">\(\theta\in\left[0,1\right]\)</span>, <span class="math inline">\(\bm{f}(\theta\bm{x}+(1-\theta)\bm{y})\preceq_{\mathcal{K}}\theta\bm{f}(  \bm{x})+(1-\theta)\bm{f}(\bm{y})\)</span>.</p>
 </div>
 <div id="vector-optimization" class="section level3 hasAnchor" number="17.7.2">
 <h3><span class="header-section-number">A.7.2</span> Vector Optimization<a href="A.7-multi-objective-optimization.html#vector-optimization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -971,14 +974,9 @@ In general, however, this cannot happen unless in the trivial case that the obje
   \end{array}
   \tag{A.25}
 \end{equation}\]</span>
-where the <span class="math inline">\(\lambda_i\)</span>’s are the weights associated to the objectives and must satisfy <span class="math inline">\(\lambda_i\ge0\)</span>.</p>
-<p>An optimal point of the scalarized problem is Pareto optimal for the multi-objective optimization problem. By choosing different values for the weights we can obtain different Pareto optimal solutions for the multi-objective optimization problem. However, there may be some Pareto optimal points that cannot be obtained via scalarization.</p>
-<p>For convex multi-objective optimization problems, the scalarized problem is also convex and yields all Pareto optimal points for different weights. That is, for every Pareto optimal point, there are some weights such that it is optimal in the scalarized problem.</p>
-<!---
-[^detail-scalarization]
-
-[^detail-scalarization]: The scalarized problem for $\bm{\lambda}>\bm{0}$ gives Pareto optimal points of the multi-objective optimization problem; however, if we allow $\bm{\lambda}\ge\bm{0}$ with might obtain points that are not Pareto optimal. This is not surprising becase if some $\lambda_i=0$ then the $i$th objective is not even being considered in the scalarized problem so there is no reason to expect that the obtained solution will be Pareto optimal in the original formulation.
---->
+where the <span class="math inline">\(\lambda_i\)</span>’s are the weights associated to the objectives and, to guarantee Pareto optimality, must satisfy <span class="math inline">\(\lambda_i&gt;0\)</span> (equivalently, <span class="math inline">\(\bm{\lambda}&gt;\bm{0}\)</span>).</p>
+<p>An optimal point of the scalarized problem is then Pareto optimal for the multi-objective optimization problem.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> If some weights are allowed to be zero, an optimal point is only guaranteed to be <em>weakly</em> Pareto optimal (meaning that no feasible point strictly improves all objectives simultaneously), unless it is the unique optimal point of the scalarized problem. By choosing different strictly positive weights, we can obtain different Pareto optimal solutions for the multi-objective optimization problem. However, there may be some Pareto optimal points that cannot be obtained via scalarization.</p>
+<p>For convex multi-objective optimization problems, the scalarized problem is also convex. Moreover, for every Pareto optimal point, there are weights <span class="math inline">\(\bm{\lambda}\ge\bm{0}\)</span>, <span class="math inline">\(\bm{\lambda}\ne\bm{0}\)</span>, such that it is optimal in the scalarized problem. In this converse statement, some weights may need to be zero (for example, at the endpoints of the trade-off curve), so requiring <span class="math inline">\(\bm{\lambda}&gt;\bm{0}\)</span> would be too strong.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-167" class="example"><strong>Example A.26  (Regularized LS) </strong></span>Consider a modified least squares problem where the energy of the solution is also desired to be small. We can then consider a multi-objective optimization problem with two objectives:</p>
 <ul>
@@ -1000,7 +998,7 @@ and its corresponding scalarization is
 \left\Vert \bm{A}\bm{x}-\bm{b} \right\Vert _{2}^{2} + \gamma\left\Vert \bm{x} \right\Vert _{2}^{2}\end{array},
 \end{array}
 \]</span>
-where <span class="math inline">\(\gamma\geq0\)</span> is the weight to indicate the preference in the trade-off.</p>
+where <span class="math inline">\(\gamma&gt;0\)</span> is the weight to indicate the preference in the trade-off. The case <span class="math inline">\(\gamma=0\)</span> gives plain least squares, whose solutions are Pareto optimal only when the least-squares solution is unique. If <span class="math inline">\(\bm{A}\)</span> has a nontrivial nullspace, there are multiple least-squares solutions and only the minimum-norm one is Pareto optimal.</p>
 </div>
 </div>
 </div>
@@ -1009,6 +1007,12 @@ where <span class="math inline">\(\gamma\geq0\)</span> is the weight to indicate
 <div id="ref-BoydVandenberghe2004" class="csl-entry">
 Boyd, S., and Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge University Press.
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="79">
+<li id="fn79"><p>To see why strictly positive weights guarantee Pareto optimality, suppose that a feasible point <span class="math inline">\(\bm{y}\)</span> dominates an optimal point <span class="math inline">\(\bm{x}^\star\)</span> of the scalarized problem. Then <span class="math inline">\(F_i(\bm{y})\le F_i(\bm{x}^\star)\)</span> for every <span class="math inline">\(i\)</span>, with strict inequality for some <span class="math inline">\(j\)</span>. If <span class="math inline">\(\bm{\lambda}&gt;\bm{0}\)</span>, it follows that <span class="math inline">\(\sum_i\lambda_i F_i(\bm{y})&lt;\sum_i\lambda_i F_i(\bm{x}^\star)\)</span>, contradicting the optimality of <span class="math inline">\(\bm{x}^\star\)</span>. With some zero weights, this argument no longer holds. For example, with <span class="math inline">\(F_1(\bm{x})=x_1^2\)</span>, <span class="math inline">\(F_2(\bm{x})=x_2^2\)</span>, and <span class="math inline">\(\bm{\lambda}=(1,0)\)</span>, every point <span class="math inline">\((0,x_2)\)</span> is optimal in the scalarized problem, but only <span class="math inline">\((0,0)\)</span> is Pareto optimal.<a href="A.7-multi-objective-optimization.html#fnref79" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -1030,42 +1034,44 @@ Boyd, S., and Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge U
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

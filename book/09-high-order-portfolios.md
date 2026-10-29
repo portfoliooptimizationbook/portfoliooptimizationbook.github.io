@@ -755,7 +755,7 @@ where $\{\gamma^k\}$ is a properly designed sequence with $\gamma^k \in (0,1]$ [
 In order to guarantee converge of the iterates, the surrogate function $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ has to satisfy the following technical conditions [@ScuFacSonPal2014]:
 
 - $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ must be strongly convex on the feasible set $\mathcal{X}$; and
-- $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla\tilde{f}\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)$.
+- $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla\tilde{f}\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)$, that is, the gradients of $\tilde{f}$ and $f$ must coincide at $\bm{x}^k$ (not at every $\bm{x}$).
 
 
 
@@ -780,8 +780,8 @@ $$
 where
 $$
 \begin{aligned}
-\bm{Q}^k &= \lambda_2 \nabla^2\phi_2(\w) + \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD},\\
-\bm{q}^k &= - \lambda_1 \nabla\phi_1(\w) + \nabla f_\textm{ncvx}\left(\w^k\right) - \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD}\w^k,
+\bm{Q}^k &= \lambda_2 \nabla^2\phi_2\left(\w^k\right) + \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD},\\
+\bm{q}^k &= - \lambda_1 \nabla\phi_1\left(\w^k\right) + \nabla f_\textm{ncvx}\left(\w^k\right) - \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD}\w^k,
 \end{aligned}
 $$
 and the gradients and Hessians of the moments can be obtained from either the nonparametric expressions in \@ref(eq:portf-moments-grad)--\@ref(eq:portf-moments-hessian) or the parametric ones in \@ref(eq:portf-moments-skew-t-grad)--\@ref(eq:portf-moments-skew-t-hessian).<!---Note that instead of using a quadratic approximation of the nonconvex term $f_\textm{ncvx}(\w)$, we could have approximated directly the original function $f(\w)$, leading to the same result since the convex part is quadratic.--->
@@ -845,7 +845,7 @@ In order to guarantee convergence of the iterates, the surrogate function $u\lef
 
 - _upper bound property_: $u\left(\bm{x};\bm{x}^k\right) \geq f\left(\bm{x}\right)$;
 - _touching property_: $u\left(\bm{x}^k;\bm{x}^k\right) = f\left(\bm{x}^k\right)$; and
-- _tangent property_: $u\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla u\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)$.
+- _tangent property_: $u\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla u\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)$, that is, the gradients of $u$ and $f$ must coincide at $\bm{x}^k$ (not at every $\bm{x}$).
 
 The surrogate function $u\left(\bm{x};\bm{x}^k\right)$ is also referred to as the _majorizer_ because it is an upper bound of the original function. The fact that, at each iteration, first the majorizer is constructed and then it is minimized gives the name _majorization--minimization_ to the method.
 

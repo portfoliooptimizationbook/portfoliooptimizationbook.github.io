@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.6 Lagrange Duality | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="A.6 Lagrange Duality | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.6 Lagrange Duality | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="A.6 Lagrange Duality | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="lagrange-duality" class="section level2 hasAnchor" number="17.6">
 <h2><span class="header-section-number">A.6</span> Lagrange Duality<a href="A.6-lagrange-duality.html#lagrange-duality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
@@ -912,7 +915,7 @@ f_{0}(\bm{x}) &amp; \ge f_{0}(\bm{x})+\sum_{i=1}^{m}\lambda_{i}f_{i}(\bm{x})+\su
 \end{aligned}
 \]</span>
 where we have used the fact that <span class="math inline">\(f_i(\bm{x})\leq0\)</span> and <span class="math inline">\(h_i(\bm{x})=0\)</span> for any feasible <span class="math inline">\(\bm{x}\)</span>.</p>
-<p>As a consequence of the lower-bound property, a primal–dual feasible pair <span class="math inline">\(\left( \bm{x},\left(\bm{\lambda},\bm{\nu}\right) \right)\)</span> localizes the optimal value of the primal (and dual) problem within an interval:
+<p>As a consequence of the lower-bound property, a primal–dual feasible pair <span class="math inline">\(\left(  \bm{x},\left(\bm{\lambda},\bm{\nu}\right)  \right)\)</span> localizes the optimal value of the primal (and dual) problem within an interval:
 <span class="math display" id="eq:interval-optimal-value">\[\begin{equation}
   p^{\star}\in\left[  g\left(\bm{\lambda},\bm{\nu}\right)  ,f_{0}(\bm{x})\right].
   \tag{A.19}
@@ -1620,42 +1623,44 @@ Boyd, S., and Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge U
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

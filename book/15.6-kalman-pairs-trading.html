@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>15.6 Kalman Filtering for Pairs Trading | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="15.6 Kalman Filtering for Pairs Trading | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="15.6 Kalman Filtering for Pairs Trading | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="15.6 Kalman Filtering for Pairs Trading | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="kalman-pairs-trading" class="section level2 hasAnchor" number="15.6">
 <h2><span class="header-section-number">15.6</span> Kalman Filtering for Pairs Trading<a href="15.6-kalman-pairs-trading.html#kalman-pairs-trading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
@@ -867,7 +870,7 @@ A key component in pairs trading is the construction of a mean-reverting spread
 z_{t} = y_{1t} - \gamma \, y_{2t} = \mu + r_t,
 \]</span>
 where <span class="math inline">\(\gamma\)</span> is the hedge ratio, <span class="math inline">\(\mu\)</span> is the mean, and <span class="math inline">\(r_t\)</span> is the zero-mean residual. Then the trading strategy will properly size the trade depending on the distance of the spread <span class="math inline">\(z_{t}\)</span> from the equilibrium value <span class="math inline">\(\mu\)</span>.</p>
-<p>Construction of the spread requires careful estimation of the hedge ratio <span class="math inline">\(\gamma\)</span>, as well as the mean of the spread <span class="math inline">\(\mu\)</span>. The traditional way is to employ least squares regression. In practice, the hedge ratio and the mean will slowly change over time and then the least squares solution should be recomputed on a rolling-window basis. However, it is better to employ a more sophisticated time-varying modeling and estimation technique based on state-space modeling and the Kalman filter <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>; <a href="#ref-FengPal2016monograph">Feng and Palomar, 2016</a>)</span>.</p>
+<p>Construction of the spread requires careful estimation of the hedge ratio <span class="math inline">\(\gamma\)</span>, as well as the mean of the spread <span class="math inline">\(\mu\)</span>. The traditional way is to employ least squares regression. In practice, the hedge ratio and the mean will slowly change over time and then the least squares solution should be recomputed on a rolling-window basis. A more flexible alternative is to employ a time-varying modeling and estimation technique based on state-space modeling and the Kalman filter <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>; <a href="#ref-FengPal2016monograph">Feng and Palomar, 2016</a>)</span>.</p>
 <div id="spread-modeling-via-least-squares" class="section level3 hasAnchor" number="15.6.1">
 <h3><span class="header-section-number">15.6.1</span> Spread Modeling via Least Squares<a href="15.6-kalman-pairs-trading.html#spread-modeling-via-least-squares" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The method of least squares (LS) dates back to 1795 when Gauss used it to study planetary motions. It deals with the linear model <span class="math inline">\(\bm{y} = \bm{A}\bm{x} + \bm{\epsilon}\)</span> by solving the problem <span class="citation">(<a href="#ref-Kay1993">Kay, 1993</a>; <a href="#ref-Scharf1991">Scharf, 1991</a>)</span>
@@ -919,7 +922,7 @@ and finally compute the sample mean of <span class="math inline">\(\bm{y}_1 - \h
 \end{array}
 \]</span>
 where <span class="math inline">\(\sigma_2^2\)</span> is the variance of <span class="math inline">\(\bm{y}_2\)</span> and <span class="math inline">\(\sigma_\epsilon^2\)</span> is the variance of the residual <span class="math inline">\(\bm{\epsilon}\)</span>.</p>
-<p>It is important to reiterate that in practice the hedge ratio and the mean will slowly change over time, as denoted by <span class="math inline">\(\gamma_t\)</span> and <span class="math inline">\(\mu_t\)</span>, and the least squares solution must be recomputed on a rolling-window basis (based on a lookback window of past samples). Nevertheless, this time-varying case is better handled with Kalman filtering, as described next.</p>
+<p>It is important to reiterate that in practice the hedge ratio and the mean will slowly change over time, as denoted by <span class="math inline">\(\gamma_t\)</span> and <span class="math inline">\(\mu_t\)</span>, and the least squares solution must be recomputed on a rolling-window basis (based on a lookback window of past samples). Nevertheless, this time-varying case can also be handled with Kalman filtering, as described next.</p>
 </div>
 <div id="primer-on-the-kalman-filter" class="section level3 hasAnchor" number="15.6.2">
 <h3><span class="header-section-number">15.6.2</span> Primer on the Kalman Filter<a href="15.6-kalman-pairs-trading.html#primer-on-the-kalman-filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -985,7 +988,7 @@ where the hyper-parameter <span class="math inline">\(\alpha\)</span> determines
   \end{aligned}
   \tag{15.4}
 \end{equation}\]</span>
-This model makes <span class="math inline">\(\gamma_{t}\)</span> less noisy and provides a better spread, as shown later in the numerical experiments.</p>
+This model is meant to make <span class="math inline">\(\gamma_{t}\)</span> less noisy; with the parameters used in the numerical experiments below, however, it gave no appreciable improvement over the basic model, so it is not pursued further.</p>
 <p>Another extension of the state-space modeling in <a href="15.6-kalman-pairs-trading.html#eq:pairs-trading-kalman">(15.3)</a> under the concept of partial cointegration is to model the spread with an autoregressive component <span class="citation">(<a href="#ref-CleggKrauss2018">Clegg and Krauss, 2018</a>)</span>. This can be done by defining the hidden state as <span class="math inline">\(\bm{\alpha}_t = \left(\mu_t, \gamma_t, \epsilon_t\right)\)</span>, leading to
 <span class="math display" id="eq:pairs-trading-kalman-PCI">\[\begin{equation}
   \begin{aligned}
@@ -1000,13 +1003,13 @@ where <span class="math inline">\(\rho\)</span> is a parameter to be estimated s
 </div>
 <div id="numerical-experiments-22" class="section level3 hasAnchor" number="15.6.4">
 <h3><span class="header-section-number">15.6.4</span> Numerical Experiments<a href="15.6-kalman-pairs-trading.html#numerical-experiments-22" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We now repeat the pairs trading experiments with market data during 2013–2022 as in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a>. As before, the <span class="math inline">\(z\)</span>-score is computed on a rolling-window basis with a lookback period of six months and pairs trading is implemented via the thresholded strategy with a threshold of <span class="math inline">\(s_0=1\)</span>. The difference is that we now employ three different methods to track the hedge ratio over time: (i) rolling least squares with lookback period of two years, (ii) basic Kalman based on <a href="15.6-kalman-pairs-trading.html#eq:pairs-trading-kalman">(15.3)</a> with <span class="math inline">\(\alpha=10^{-5}\)</span>, and (iii) Kalman with momentum based on <a href="15.6-kalman-pairs-trading.html#eq:pairs-trading-kalman-momentunm">(15.4)</a> with <span class="math inline">\(\alpha=10^{-6}\)</span>. All these parameters have been fixed and could be further optimized; in particular, all the parameters in the state-space model can be learned to better fit the data via maximum likelihood estimation methods.</p>
+<p>We now repeat the pairs trading experiments with market data during 2013–2022 as in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a>. As before, the <span class="math inline">\(z\)</span>-score is computed on a rolling-window basis with a lookback period of six months and pairs trading is implemented via the thresholded strategy with a threshold of <span class="math inline">\(s_0=1\)</span>. The difference is that we now employ two different methods to track the hedge ratio over time: (i) rolling least squares with lookback period of two years and (ii) the Kalman filter based on the basic model <a href="15.6-kalman-pairs-trading.html#eq:pairs-trading-kalman">(15.3)</a> with <span class="math inline">\(\alpha=5\times10^{-5}\)</span>. This value of <span class="math inline">\(\alpha\)</span> has been fixed by trial and error (without transaction costs) and could be further optimized. With random-walk states, the Kalman filter can be seen as a recursive least squares with a forgetting mechanism, where <span class="math inline">\(\alpha\)</span> controls how fast the past data is forgotten: a larger <span class="math inline">\(\alpha\)</span> implies a faster tracking and a smaller variance of the spread. In principle, all the parameters in the state-space model can also be learned to better fit the data via maximum likelihood estimation methods, although a better fit does not necessarily translate into a better trading performance.</p>
 <div id="market-data-ewa-and-ewc-2" class="section level4 unnumbered hasAnchor">
 <h4>Market Data: EWA and EWC<a href="15.6-kalman-pairs-trading.html#market-data-ewa-and-ewc-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>We first consider the two ETFs EWA and EWC, which track the performance of the Australian and Canadian economies, respectively. As concluded in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a>, EWA and EWC are cointegrated, and pairs trading was evaluated in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a> based on least squares. We now experiment with the Kalman-based methods to see what improvement can be obtained.</p>
-<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-EWA-vs-EWC-hedge-ratio">15.21</a> shows the estimated hedge ratios over time, which should be quite constant since the assets are cointegrated. We can observe that the rolling least squares is very noisy with the value wildly varying between 0.6 and 1.2 (of course a longer lookback period could be used, but then it would not adapt fast enough if the true hedge ratio changed). The two Kalman-based methods, on the other hand, are much more stable with the value between 0.55 and 0.65 (both methods look similar but the difference will become clear later).</p>
-<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-EWA-vs-EWC-spread">15.22</a> presents the spreads resulting from the three methods. It is quite apparent that the spreads from the Kalman-based methods are much more stationary and mean reverting than the one from the rolling least squares. One important point to notice is that the variance of the spread obtained from the Kalman methods depends on the choice of <span class="math inline">\(\alpha\)</span>: if the spread variance becomes too small, then the profit may totally disappear after taking into account transaction costs, so care has to be taken with this choice.</p>
-<p>Finally, Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-EWA-vs-EWC-cumret">15.23</a> provides the cumulative returns obtained by the three methods (ignoring transaction costs). The difference among the methods is quite obvious: not only is the final value very different (0.6, 2.0, and 3.2), but the curves obtained with the Kalman-based methods are less noisy and exhibit a much better drawdown. Again, it is important to reiterate that special care has to be taken in practice with the choice of <span class="math inline">\(\alpha\)</span> so that the spread variance is large enough to provide a profit after transaction costs.</p>
+<p>We first consider the two ETFs EWA and EWC, which track the performance of the Australian and Canadian economies, respectively. As concluded in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a>, EWA and EWC are cointegrated, and pairs trading was evaluated in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a> based on least squares. We now experiment with the Kalman filter to see what improvement can be obtained.</p>
+<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-EWA-vs-EWC-hedge-ratio">15.21</a> shows the estimated hedge ratios over time, which should be quite constant since the assets are cointegrated. We can observe that the rolling least squares is very noisy with the value wildly varying between 0.6 and 1.2 (of course a longer lookback period could be used, but then it would not adapt fast enough if the true hedge ratio changed). The Kalman filter, on the other hand, is much more stable with the value between 0.55 and 0.65.</p>
+<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-EWA-vs-EWC-spread">15.22</a> presents the spreads resulting from the two methods. It is quite apparent that the spread from the Kalman filter is much more stationary and mean reverting than the one from the rolling least squares. One important point to notice is that the variance of the spread obtained from the Kalman filter depends on the choice of <span class="math inline">\(\alpha\)</span>: if the spread variance becomes too small, then the profit may totally disappear after taking into account transaction costs, so care has to be taken with this choice.</p>
+<p>Finally, Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-EWA-vs-EWC-cumret">15.23</a> provides the cumulative returns obtained by the two methods (ignoring transaction costs, and computed with the weights held during each period as discussed in Section <a href="15.3-pairs-trading-overview.html#prices-vs-log-prices">15.3.2</a>). Both strategies are profitable, ending at about 0.51 (rolling least squares) and 0.78 (Kalman). The two curves are, however, close until early 2020, when a large jump takes place (the COVID-19 market turmoil) that the Kalman filter captures much better; most of the difference in the final value comes from that single episode. The Kalman filter tracks the hedge ratio more smoothly and gives a spread with a smaller variance, but it also trades more: its turnover is about 4.5 times that of rolling least squares (0.23 versus 0.05 per day, counting changes of both the signal and the hedge ratio), so transaction costs hurt it more. With a cost of 5 basis points on the traded amount, the final values become 0.56 (Kalman) and 0.46 (rolling least squares), and with 10 basis points the ranking is reversed (0.33 versus 0.41). Again, it is important to reiterate that special care has to be taken in practice with the choice of <span class="math inline">\(\alpha\)</span> so that the spread variance is large enough to provide a profit after transaction costs.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pairs-trading-EWA-vs-EWC-hedge-ratio"></span>
 <img src="15-pairs-trading_files/figure-html/pairs-trading-EWA-vs-EWC-hedge-ratio-1.png" alt="Tracking of hedge ratio for pairs trading on EWA--EWC." width="100%" />
 <p class="caption">
@@ -1028,10 +1031,10 @@ Figure 15.23: Cumulative return for pairs trading on EWA–EWC.
 </div>
 <div id="market-data-ko-and-pep-1" class="section level4 unnumbered hasAnchor">
 <h4>Market Data: KO and PEP<a href="15.6-kalman-pairs-trading.html#market-data-ko-and-pep-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Next, we revisit pairs trading with the stocks Coca-Cola (KO) and Pepsi (PEP). As concluded from the cointegration tests in Section <a href="15.4-discovering-pairs.html#discovering-pairs">15.4</a>, they do not seem to be cointegrated. In addition, from the trading experiments in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a>, profitability was dubious as indicated in Figures <a href="15.5-trading-spread.html#fig:pairs-trading-rollingLS-BB6months-KO-vs-PEP">15.19</a> and <a href="15.5-trading-spread.html#fig:pairs-trading-rollingLS-BB6months-EWA-vs-EWC">15.18</a>. We now look to see if the situation can be resolved with the Kalman-based methods.</p>
-<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-KO-vs-PEP-hedge-ratio">15.24</a> shows the estimated hedge ratios over time. Again, we can observe that rolling least squares is noisy and not very consistent, whereas Kalman-based methods are stable while still being able to adapt to the big change that happens in early 2020 (perhaps due to the COVID-19 pandemic).</p>
-<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-KO-vs-PEP-spread">15.25</a> gives the spreads, and one can clearly appreciate a significant difference among the three methods. Observe early 2020: rolling least squares loses the tracking and cointegration is clearly lost, the basic Kalman is able to track after a momentary loss reflected in the shock on the spread, and the Kalman with momentum is able to track much better.</p>
-<p>Finally, Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-KO-vs-PEP-cumret">15.26</a> provides the cumulative returns, which gives a very clear picture. The difference among the three methods is quite astonishing. However, once more, one cannot forget that transaction costs have not been considered. In any case, the drawdown with Kalman-based methods is totally under control (unlike with rolling least squares). The conclusion is very clear: Kalman filtering is a must in pairs trading.</p>
+<p>Next, we revisit pairs trading with the stocks Coca-Cola (KO) and Pepsi (PEP). As concluded from the cointegration tests in Section <a href="15.4-discovering-pairs.html#discovering-pairs">15.4</a>, they do not seem to be cointegrated. In addition, from the trading experiments in Section <a href="15.5-trading-spread.html#trading-spread">15.5</a>, profitability was dubious as indicated in Figures <a href="15.5-trading-spread.html#fig:pairs-trading-rollingLS-BB6months-KO-vs-PEP">15.19</a> and <a href="15.5-trading-spread.html#fig:pairs-trading-rollingLS-BB6months-EWA-vs-EWC">15.18</a>. We now look at whether the Kalman filter changes the picture.</p>
+<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-KO-vs-PEP-hedge-ratio">15.24</a> shows the estimated hedge ratios over time. Again, we can observe that rolling least squares is noisy and not very consistent, whereas the Kalman filter is stable while still reacting to the big change that happens in early 2020 (perhaps due to the COVID-19 pandemic).</p>
+<p>Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-KO-vs-PEP-spread">15.25</a> gives the spreads, and one can clearly appreciate a significant difference between the two methods. Observe early 2020: rolling least squares loses the tracking and cointegration is clearly lost, whereas the Kalman filter is able to track after a momentary loss reflected in the shock on the spread.</p>
+<p>Finally, Figure <a href="15.6-kalman-pairs-trading.html#fig:pairs-trading-KO-vs-PEP-cumret">15.26</a> provides the cumulative returns. In this case neither method produces a convincing profit: the final values are about 0.13 (rolling least squares) and 0.04 (Kalman), both with sizable drawdowns. Moreover, one cannot forget that transaction costs have not been considered and the Kalman filter trades about five times as much as rolling least squares: with a cost of just 2 basis points on the traded amount, the final value is 0.11 for rolling least squares and already negative (<span class="math inline">\(-0.03\)</span>) for the Kalman filter. This is consistent with KO and PEP not being cointegrated: better tracking of the hedge ratio cannot create a mean-reverting spread where there is none. The conclusion is that Kalman filtering is a useful tool to track a cointegration relationship when it exists, but it cannot create one.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pairs-trading-KO-vs-PEP-hedge-ratio"></span>
 <img src="15-pairs-trading_files/figure-html/pairs-trading-KO-vs-PEP-hedge-ratio-1.png" alt="Tracking of hedge ratio for pairs trading on KO--PEP." width="100%" />
 <p class="caption">
@@ -1137,42 +1140,44 @@ Zivot, E., Wang, J., and Koopman, S. J. (2004). State space modeling in macroeco
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

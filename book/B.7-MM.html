@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.7 Majorization–Minimization (MM) | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="B.7 Majorization–Minimization (MM) | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.7 Majorization–Minimization (MM) | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="B.7 Majorization–Minimization (MM) | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="MM" class="section level2 hasAnchor" number="18.7">
 <h2><span class="header-section-number">B.7</span> Majorization–Minimization (MM)<a href="B.7-MM.html#MM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
@@ -876,18 +879,18 @@ where <span class="math inline">\(f\)</span> is the (possibly nonconvex) objecti
 <span class="math display">\[
 \bm{x}^{k+1}=\underset{\bm{x}\in\mathcal{X}}{\textm{arg min}}\;u\left(\bm{x};\bm{x}^k\right), \qquad k=0,1,2,\dots
 \]</span>
-This iterative process is illustrated in Figure <a href="B.7-MM.html#fig:MM-process">B.6</a>.</p>
+This iterative process is illustrated in Figure <a href="B.7-MM.html#fig:MM-process">B.7</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:MM-process"></span>
 <img src="figures/algorithms/MM-process.svg" alt="Illustration of sequence of surrogate problems in MM." width="90%" />
 <p class="caption">
-Figure B.6: Illustration of sequence of surrogate problems in MM.
+Figure B.7: Illustration of sequence of surrogate problems in MM.
 </p>
 </div>
 <p>In order to guarantee convergence of the iterates, the surrogate function <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> has to satisfy the following technical conditions <span class="citation">(<a href="#ref-RazaviyaynHongLuo2013">Razaviyayn et al., 2013</a>; <a href="#ref-SunBabPal2017">Y. Sun et al., 2017</a>)</span>:</p>
 <ul>
 <li><em>upper-bound property</em>: <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right) \geq f\left(\bm{x}\right)\)</span>;</li>
 <li><em>touching property</em>: <span class="math inline">\(u\left(\bm{x}^k;\bm{x}^k\right) = f\left(\bm{x}^k\right)\)</span>; and</li>
-<li><em>tangent property</em>: <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla u\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)\)</span>.</li>
+<li><em>tangent property</em>: <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla u\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)\)</span>, that is, the gradients of <span class="math inline">\(u\)</span> and <span class="math inline">\(f\)</span> must coincide at <span class="math inline">\(\bm{x}^k\)</span> (not at every <span class="math inline">\(\bm{x}\)</span>).</li>
 </ul>
 <p>One immediate consequence of the first two conditions is the monotonicity property of MM, that is, <span class="math inline">\(f\left(\bm{x}^{k+1}\right) \leq f\left(\bm{x}^k\right),\)</span> while the third condition is necessary for the convergence of the iterates <span class="math inline">\(\bm{x}^0, \bm{x}^1, \bm{x}^2,\dots\)</span> – the third condition can be relaxed by requiring continuity and directional derivatives instead <span class="citation">(<a href="#ref-RazaviyaynHongLuo2013">Razaviyayn et al., 2013</a>; <a href="#ref-SunBabPal2017">Y. Sun et al., 2017</a>)</span>. More specifically, under the above technical conditions, if the feasible set <span class="math inline">\(\mathcal{X}\)</span> is convex, then every limit point of the sequence <span class="math inline">\(\{\bm{x}^k\}\)</span> is a stationary point of the original problem <span class="citation">(<a href="#ref-RazaviyaynHongLuo2013">Razaviyayn et al., 2013</a>)</span>.</p>
 <p>The surrogate function <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> is also referred to as the <em>majorizer</em> because it is an upper bound on the original function. The fact that, at each iteration, first the majorizer is constructed and then it is minimized gives the name <em>majorization–minimization</em> to the method.</p>
@@ -974,11 +977,11 @@ with solution <span class="math inline">\(\bm{x} = \bm{x}^k - \bm{\Phi}\left(\bm
 <span class="math display">\[
 \bm{x}^{k+1} = \bm{c}^k \odot \bm{x}^k, \qquad k=0,1,2,\dots
 \]</span>
-where <span class="math inline">\(c_i^k = \frac{[\bm{A}^\T\bm{b}]_i}{[\bm{A}^\T\bm{A}\bm{x}^k]_i}\)</span> and <span class="math inline">\(\odot\)</span> denotes elementwise product. Figure <a href="B.7-MM.html#fig:nonnegative-LS">B.7</a> shows the convergence of the MM iterates.</p>
+where <span class="math inline">\(c_i^k = \frac{[\bm{A}^\T\bm{b}]_i}{[\bm{A}^\T\bm{A}\bm{x}^k]_i}\)</span> and <span class="math inline">\(\odot\)</span> denotes elementwise product. Figure <a href="B.7-MM.html#fig:nonnegative-LS">B.8</a> shows the convergence of the MM iterates.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nonnegative-LS"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/nonnegative-LS-1.png" alt="Convergence of MM for the nonnegative LS." width="70%" />
 <p class="caption">
-Figure B.7: Convergence of MM for the nonnegative LS.
+Figure B.8: Convergence of MM for the nonnegative LS.
 </p>
 </div>
 </div>
@@ -1010,12 +1013,12 @@ where <span class="math inline">\(c_i^k = \sqrt{\frac{1}{2\left|[\bm{A}\bm{x}^k 
 <span class="math display">\[
 \bm{x}^{k+1}=(\bm{A}^\T\textm{Diag}^2(\bm{c}^k)\bm{A})^{-1}\bm{A}^\T\textm{Diag}^2(\bm{c}^k)\bm{b}, \qquad k=0,1,2,\dots
 \]</span>
-Figure <a href="B.7-MM.html#fig:reweighted-LS-l1">B.8</a> shows the convergence of the MM iterates.</p>
+Figure <a href="B.7-MM.html#fig:reweighted-LS-l1">B.9</a> shows the convergence of the MM iterates.</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:reweighted-LS-l1"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/reweighted-LS-l1-1.png" alt="Convergence of MM for the \(\ell_1\)-norm minimization (reweighted LS)." width="70%" />
 <p class="caption">
-Figure B.8: Convergence of MM for the <span class="math inline">\(\ell_1\)</span>-norm minimization (reweighted LS).
+Figure B.9: Convergence of MM for the <span class="math inline">\(\ell_1\)</span>-norm minimization (reweighted LS).
 </p>
 </div>
 </div>
@@ -1032,7 +1035,7 @@ Figure B.8: Convergence of MM for the <span class="math inline">\(\ell_1\)</span
 <span class="math display">\[
 u\left(\bm{x};\bm{x}^k\right) = \frac{\kappa}2{}\|\bm{x} - \bm{\bar{x}}^k\|_2^2 + \lambda\|\bm{x}\|_1 + \textm{constant},
 \]</span>
-where <span class="math inline">\(\bm{\bar{x}}^k = \bm{x}^k - \frac{1}{\kappa}\bm{A}^\T\left(\bm{A}\bm{x}^k - \bm{b}\right)\)</span>. The way to verify that it is indeed a majorizer of <span class="math inline">\(f(\bm{x})\)</span> is by writing it as
+where <span class="math inline">\(\bm{\bar{x}}^k = \bm{x}^k - \frac{1}{\kappa}\bm{A}^\T\left(\bm{A}\bm{x}^k  - \bm{b}\right)\)</span>. The way to verify that it is indeed a majorizer of <span class="math inline">\(f(\bm{x})\)</span> is by writing it as
 <span class="math display">\[
 u\left(\bm{x};\bm{x}^k\right) = f(\bm{x}) + \textm{dist}\left(\bm{x}, \bm{x}^k\right),
 \]</span>
@@ -1048,12 +1051,12 @@ which decouples into each component of <span class="math inline">\(\bm{x}\)</spa
 <span class="math display">\[
 \bm{x}^{k+1} = \mathcal{S}_{\lambda/\kappa} \left(\bm{\bar{x}}^k\right), \qquad k=0,1,2,\dots,
 \]</span>
-where <span class="math inline">\(\mathcal{S}_{\lambda/\kappa}(\cdot)\)</span> is the soft-thresholding operator defined in <a href="B.6-BCD.html#eq:soft-thresholding">(B.11)</a>. Figure <a href="B.7-MM.html#fig:MM-l2-l1-minimiz">B.9</a> shows the convergence of the MM iterates.</p>
+where <span class="math inline">\(\mathcal{S}_{\lambda/\kappa}(\cdot)\)</span> is the soft-thresholding operator defined in <a href="B.6-BCD.html#eq:soft-thresholding">(B.11)</a>. Figure <a href="B.7-MM.html#fig:MM-l2-l1-minimiz">B.10</a> shows the convergence of the MM iterates.</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:MM-l2-l1-minimiz"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/MM-l2-l1-minimiz-1.png" alt="Convergence of MM for the \(\ell_2\)–\(\ell_1\)-norm minimization." width="70%" />
 <p class="caption">
-Figure B.9: Convergence of MM for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
+Figure B.10: Convergence of MM for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
 </p>
 </div>
 </div>
@@ -1117,42 +1120,44 @@ Zibulevsky, M., and Elad, M. (2010). <span>L1</span>–<span>L2</span> optimizat
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

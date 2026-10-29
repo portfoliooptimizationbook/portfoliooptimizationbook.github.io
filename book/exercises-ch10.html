@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Exercises | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="Exercises | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Exercises | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Exercises | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="exercises-ch10" class="section level2 unnumbered hasAnchor">
 <h2>Exercises<a href="exercises-ch10.html#exercises-ch10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="exercise">
@@ -880,30 +883,7 @@ div.csl-indent {
 <span class="math display">\[
 \textm{CVaR}_{\alpha} = \underset{\tau}{\textm{inf}} \left\{\tau + \frac{1}{1-\alpha}\E\left[(\xi-\tau)^+\right]\right\},
 \]</span>
-where the optimal <span class="math inline">\(\tau\)</span> precisely equals <span class="math inline">\(\textm{VaR}_{\alpha}\)</span>.
-<!---
-Solution:
-- The minimizer of $F_{\alpha}(\mathbf{w},\zeta)$ w.r.t. $\zeta$ satisfies: $0\in\partial_{\zeta}F_{\alpha}(\mathbf{w},\zeta^{\star})$. For example, we choose the following subgradient:
-$$\begin{aligned}
-0=s_{\zeta}F_{\alpha}(\mathbf{w},\zeta^{\star}) 
- & =1-\frac{1}{1-\alpha}\int\mathbf{1}_{\left\{-\mathbf{w}^{T}\mathbf{r}>\zeta^{\star}\right\}}p(\mathbf{r})d\mathbf{r}\\
- & =1-\frac{1}{1-\alpha}P\left(-\mathbf{w}^{T}\mathbf{r}>\zeta^{\star}\right),
-\end{aligned}$$
-where $\mathbf{1}_{\{\cdot\}}$ is the indicator function.
-Solving the above equation, we have
-$$P\left(-\mathbf{w}^{T}\mathbf{r}>\zeta^{\star}\right)=1-\alpha \Longrightarrow \zeta^{\star}=\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r}).$$
-
-- First, we have
-$$\min_{\zeta}F_{\alpha}(\mathbf{w},\zeta)=F_{\alpha}(\mathbf{w},\zeta^{\star}) =\zeta^{\star}+\frac{1}{1-\alpha}\mathsf{E}[-\mathbf{w}^{T}\mathbf{r}-\zeta^{\star}]^{+}.$$
-Then, recall that   
-$$\begin{aligned}
-\mathsf{CVaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r}) 
- & = \mathsf{E}\left[-\mathbf{w}^{T}\mathbf{r}\big|-\mathbf{w}^{T}\mathbf{r}>\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r})\right]\\
- & = \frac{1}{1-\alpha}\int_{-\mathbf{w}^{T}\mathbf{r}>\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r})}\left(-\mathbf{w}^{T}\mathbf{r}\right)p(\mathbf{r})d\mathbf{r}\\
- & = \frac{1}{1-\alpha}\int\left[-\mathbf{w}^{T}\mathbf{r}-\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r})\right]^{+}p(\mathbf{r})d\mathbf{r}\\
- & \qquad +\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r}).
-\end{aligned}$$
----></p>
+where the optimal <span class="math inline">\(\tau\)</span> precisely equals <span class="math inline">\(\textm{VaR}_{\alpha}\)</span>.</p>
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-78" class="exercise"><strong>Exercise 10.3  (Sanity check for variational computation of CVaR) </strong></span>Generate <span class="math inline">\(10\,000\)</span> samples of the random variable <span class="math inline">\(\xi\)</span> following a normal distribution and compute the CVaR as
@@ -927,25 +907,7 @@ $$\begin{aligned}
 \textm{CVaR}_{\alpha} = \E\left[\xi \mid \xi\geq\textm{VaR}_{\alpha}\right].
 \]</span></li>
 </ul>
-<p>Rewrite <span class="math inline">\(\textm{LPM}_1\)</span> in the form of <span class="math inline">\(\textm{CVaR}_{\alpha}\)</span> and the other way around. Hint: use <span class="math inline">\(\xi_0=\textm{VaR}_{\alpha}\)</span>.
-<!---
-Solution:
-$$
-  \begin{aligned}
-  \textm{LPM}_1
-  &= \E\left[(\xi - \xi_0)^+ \right]\\
-  &= \E\left[(\xi - \xi_0) \times I\{\xi \ge \xi_0\} \right].
-  \end{aligned}
-$$
-$$
-  \begin{aligned}
-  \textm{CVaR}_{\alpha}
-    &= \E\left[\xi \mid \xi\geq\textm{VaR}_{\alpha}\right]\\
-    &= \frac{1}{1-\alpha}\E\left[\xi \times I\{\xi\geq\textm{VaR}_{\alpha}\}\right]\\
-    &= \textm{VaR}_{\alpha} + \frac{1}{1-\alpha}\E\left[(\xi - \textm{VaR}_{\alpha})^+ \times I\{\xi\geq\textm{VaR}_{\alpha}\}\right]
-  \end{aligned}
-$$
----></p>
+<p>Rewrite <span class="math inline">\(\textm{LPM}_1\)</span> in the form of <span class="math inline">\(\textm{CVaR}_{\alpha}\)</span> and the other way around. Hint: use <span class="math inline">\(\xi_0=\textm{VaR}_{\alpha}\)</span>.</p>
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-80" class="exercise"><strong>Exercise 10.5  (Log-sum-exp function as exponential cone) </strong></span>Show that the following convex constraint involving the perspective operator on the log-sum-exp function,
@@ -956,38 +918,13 @@ for <span class="math inline">\(t&gt;0\)</span>, can be rewritten in terms of th
 <span class="math display">\[
   \begin{aligned}
   t   &amp; \ge u_1 + u_2,\\
-  (u_i, t, x_i - s) &amp; \in \mathcal{K}_{\textm{exp}}, \qquad i=1,2,
+  (x_i - s, t, u_i) &amp; \in \mathcal{K}_{\textm{exp}}, \qquad i=1,2,
   \end{aligned}
 \]</span>
 where
 <span class="math display">\[
 \mathcal{K}_{\textm{exp}} \triangleq \big\{(a,b,c) \mid c\geq b\,e^{a/b}, b&gt;0\big\} \cup \big\{(a,b,c) \mid a\leq0, b=0, c\geq0\big\}.
 \]</span></p>
-<!---
-Solution:
-$$
-  \begin{aligned}
-  s &\ge t\; \textm{log}\left( e^{x_1/t} + e^{x_2/t} \right)\\
-  e^{s/t} &\ge e^{x_1/t} + e^{x_2/t}\\
-  1 &\ge e^{(x_1-s)/t} + e^{(x_2-s)/t}\\
-  t &\ge te^{(x_1-s)/t} + te^{(x_2-s)/t}\\
-  \end{aligned}
-$$
-and then
-$$
-  \begin{aligned}
-  t   & \ge u_1 + u_2\\
-  u_i & \ge t e^{(x_i - s)/t}, \qquad i=1,2
-  \end{aligned}
-$$
-and, finally,
-$$
-  \begin{aligned}
-  t   & \ge u_1 + u_2\\
-  (x_i - s, t, u_i) & \in \mathcal{K}_{\textm{exp}}, \qquad i=1,2,
-  \end{aligned}
-$$
---->
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-81" class="exercise"><strong>Exercise 10.6  (Drawdown and path-dependency) </strong></span></p>
@@ -1064,43 +1001,6 @@ where <span class="math inline">\(D_t(\w)\)</span> is the drawdown at time <span
   \end{array}
 \]</span>
 which is a linear program (assuming <span class="math inline">\(\mathcal{W}\)</span> only contains linear constraints).</p>
-<!---
-SOLUTION:
-Writing the problem in epigraph form leads to
-$$
-  \begin{array}{ll}
-  \underset{\w, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to} 
-  & s \ge \underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum}, \qquad t=1,\dots,T\\
-  & \w \in \mathcal{W},
-  \end{array}
-$$
-and the remaining max operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \begin{array}{l} \w^\T\bmu - \lambda \, s \end{array}\\
-  \textm{subject to} &
-  \begin{array}[t]{ll}
-  s \ge u_t - \w^\T\bm{r}_t^\textm{cum}, & t=1,\dots,T\\
-  u_t \ge \w^\T\bm{r}_\tau^\textm{cum},  & t=1,\dots,T, \; \tau=1,\dots,t\\
-  \w \in \mathcal{W}.
-  \end{array}
-  \end{array}
-$$
-
-Observe that there is a number of $(T+1)T/2$ constraints of the form $u_t \ge \w^\T\bm{r}_\tau^\textm{cum}$. This can be reduced by including instead the constraint $u_t \ge u_{t-1}$:
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \begin{array}{l} \w^\T\bmu - \lambda \, s \end{array}\\
-  \textm{subject to}  &
-  \begin{array}[t]{ll}
-  \w^\T\bm{r}_\tau^\textm{cum} \le u_t \le s + \w^\T\bm{r}_t^\textm{cum}, & t=1,\dots,T\\
-  u_{t-1} \le u_t, & t=1,\dots,T\\
-  \w \in \mathcal{W}.
-  \end{array}
-  \end{array}
-$$
---->
 </div>
 
 <div class="exercise">
@@ -1125,41 +1025,6 @@ where <span class="math inline">\(D_t(\w)\)</span> is the drawdown at time <span
   \end{array}
 \]</span>
 which is a linear program (assuming <span class="math inline">\(\mathcal{W}\)</span> only contains linear constraints).</p>
-<!---
-Writing the problem in epigraph form leads to
-$$
-  \begin{array}{ll}
-  \underset{\w, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to} 
-  & \begin{aligned} s \ge \frac{1}{T}\sum_{t=1}^T \left\{\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum}\right\} \end{aligned}\\
-  & \w \in \mathcal{W},
-  \end{array}
-$$
-and the max operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to} 
-  & s \ge \frac{1}{T}\sum_{t=1}^T \left\{u_t - \w^\T\bm{r}_t^\textm{cum}\right\}\\
-  & u_t \ge \w^\T\bm{r}_\tau^\textm{cum},  \qquad t=1,\dots,T, \; \tau=1,\dots,t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-
-
-
-Observe that there is a number of $(T+1)T/2$ constraints of the form $u_t \ge \w^\T\bm{r}_\tau^\textm{cum}$. This can be reduced by including instead the constraint $u_t \ge u_{t-1}$ ($u_0\triangleq-\infty$):
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \begin{array}{l} \w^\T\bmu - \lambda \, s \end{array}\\
-  \textm{subject to}  
-  & \frac{1}{T}\sum_{t=1}^T u_t \le \frac{1}{T}\sum_{t=1}^T\w^\T\bm{r}_t^\textm{cum} + s\\
-  & \w^\T\bm{r}_\tau^\textm{cum} \le u_t, \qquad t=1,\dots,T\\
-  & u_{t-1} \le u_t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
---->
 </div>
 
 <div class="exercise">
@@ -1170,7 +1035,7 @@ $$
 where <span class="math inline">\(D_t(\w)\)</span> is the drawdown at time <span class="math inline">\(t\)</span>. This leads to the problem formulation
 <span class="math display">\[
   \begin{array}{ll}
-  \underset{\w, \tau}{\textm{maximize}} &amp; \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
+  \underset{\w, \tau}{\textm{maximize}} &amp; \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau&#39; \le t}{\textm{max}} \; \w^\T\bm{r}_{\tau&#39;}^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
   \textm{subject to} &amp; \w \in \mathcal{W}.
   \end{array}
 \]</span></p>
@@ -1187,52 +1052,6 @@ where <span class="math inline">\(D_t(\w)\)</span> is the drawdown at time <span
   \end{array}
 \]</span>
 which is a linear program (assuming <span class="math inline">\(\mathcal{W}\)</span> only contains linear constraints).</p>
-<!---
-Writing the problem in epigraph form leads to
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & \begin{aligned} s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+ \end{aligned}\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-The $(\cdot)^+$ operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s, \bm{z}}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T z_t\\
-  & 0 \le z_t \ge \underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-Finally, the max operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s, \bm{z}, \bm{u}}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T z_t\\
-  & 0 \le z_t \ge u_t - \w^\T\bm{r}_t^\textm{cum} - \tau\\
-  & u_t \ge \w^\T\bm{r}_\tau^\textm{cum},  \qquad t=1,\dots,T, \; \tau=1,\dots,t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-
-
-Observe that there is a number of $(T+1)T/2$ constraints of the form $u_t \ge \w^\T\bm{r}_\tau^\textm{cum}$. This can be reduced by including instead the constraint $u_t \ge u_{t-1}$ ($u_0\triangleq-\infty$):
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s, \bm{z}, \bm{u}}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T z_t\\
-  & 0 \le z_t \ge u_t - \w^\T\bm{r}_t^\textm{cum} - \tau, \qquad t=1,\dots,T\\
-  & \w^\T\bm{r}_\tau^\textm{cum} \le u_t\\
-  & u_{t-1} \le u_t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
---->
 </div>
 
 <div class="exercise">
@@ -1270,42 +1089,44 @@ where <span class="math inline">\(D_t(\w)\)</span> is the drawdown at time <span
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.2 Maximum Sharpe Ratio Portfolio | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="7.2 Maximum Sharpe Ratio Portfolio | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.2 Maximum Sharpe Ratio Portfolio | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="7.2 Maximum Sharpe Ratio Portfolio | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="MSRP" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Maximum Sharpe Ratio Portfolio<a href="7.2-MSRP.html#MSRP" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Markowitz’s mean–variance framework provides portfolios along the efficient frontier, that is, formulations <a href="7.1-mean-variance-portfolio.html#eq:MVP">(7.1)</a>, <a href="7.1-mean-variance-portfolio.html#eq:MVP-var-const">(7.2)</a>, and <a href="7.1-mean-variance-portfolio.html#eq:MVP-mean-const">(7.3)</a>, by varying the hyper-parameters <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\alpha\)</span>, and <span class="math inline">\(\beta\)</span>, respectively. The specific choice of a point on the efficient frontier depends on the risk aversion of the investor. Nevertheless, the most widely used performance measure is the Sharpe ratio and there is only one portfolio on the efficient frontier that achieves the maximum value, as indicated in Figure <a href="7.1-mean-variance-portfolio.html#fig:efficient-frontier-GMVP-MSRP-MVP">7.2</a> under MSRP.</p>
@@ -873,6 +876,7 @@ Precisely, in 1966, Sharpe proposed the <em>maximum Sharpe ratio portfolio</em> 
 \end{equation}\]</span>
 where <span class="math inline">\(r_\textm{f}\)</span> is the return of the risk-free asset.</p>
 <p>This problem is not convex, but it belongs to the class of <em>fractional programs</em> (FPs) for which many solving methods are available, namely, the bisection, Dinkelbach, and Schaible transform methods as described next (see Section <a href="A.5-taxonomy-convex-problems.html#taxonomy-convex-problems">A.5</a> in Appendix <a href="A-convex-optimization.html#convex-optimization">A</a> for a description of FPs and Section <a href="B.5-methods-FP.html#methods-FP">B.5</a> in Appendix <a href="B-optimization-algorithms.html#optimization-algorithms">B</a> for more details on the algorithms).</p>
+<p>More specifically, the numerator <span class="math inline">\(\w^\T\bmu-r_\textm{f}\)</span> is affine and hence concave, while the denominator <span class="math inline">\(\sqrt{\w^\T\bSigma\w}=\|\bSigma^{1/2}\w\|_2\)</span> is a norm and hence convex (and positive on the feasible set). Formulation <a href="7.2-MSRP.html#eq:MSRP">(7.7)</a> is therefore a <em>concave–convex FP</em>.</p>
 <div id="bisection-method" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Bisection Method<a href="7.2-MSRP.html#bisection-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Concave–convex FP can be conveniently solved via a sequence of convex feasibility problems, termed the bisection method (see Section <a href="A.4-convex-optimization-problem.html#convex-optimization-problem">A.4</a> for details). For problem <a href="7.2-MSRP.html#eq:MSRP">(7.7)</a>, the sequence of convex feasibility problems are of the form
@@ -1108,42 +1112,44 @@ Sharpe, W. F. (1966). Mutual fund performance. <em>The Journal of Business</em>,
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

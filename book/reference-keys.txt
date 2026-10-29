@@ -169,6 +169,8 @@ eq:heavy-tailed-MM-graph-problem
 fig:effect-heavy-tails-graph
 fig:heavy-tail-fx-comparison
 fig:heavy-tail-k-component-fx-comparison
+eq:time-varying-graph
+eq:time-varying-graph-online
 exr:unlabeled-div-39
 exr:unlabeled-div-40
 exr:unlabeled-div-41
@@ -176,6 +178,7 @@ exr:unlabeled-div-42
 exr:unlabeled-div-43
 exr:unlabeled-div-44
 exr:unlabeled-div-45
+eq:lin-log-moments
 eq:wt-evol
 fig:w-rebalancing
 eq:def-NAV
@@ -659,6 +662,7 @@ exm:unlabeled-div-178
 exm:unlabeled-div-179
 exm:unlabeled-div-180
 eq:gradient-descent-orig-problem
+fig:backtracking
 thm:gradient-descent-convergence
 thm:projected-gradient-descent-convergence
 eq:general-problem-IPM
@@ -1017,7 +1021,7 @@ correlation
 correlation-vs.-cointegration
 pairs-trading-overview
 spread
-prices-vs.-log-prices
+prices-vs-log-prices
 is-pairs-trading-profitable
 design-of-pairs-trading
 discovering-pairs

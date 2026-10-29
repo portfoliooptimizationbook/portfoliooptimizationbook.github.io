@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.1 Solvers | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="B.1 Solvers | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.1 Solvers | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="B.1 Solvers | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="solvers" class="section level2 hasAnchor" number="18.1">
 <h2><span class="header-section-number">B.1</span> Solvers<a href="B.1-solvers.html#solvers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
@@ -868,21 +871,21 @@ div.csl-indent {
 <p>Many of the currently popular solvers were originally developed in a specific programming language, such as Fortran, C, C++, or MATLAB. However, over time, they have been adapted and integrated into a wide range of other programming languages.</p>
 <p>For the purpose of illustration, among many others, some popular solvers include:</p>
 <ul>
-<li><p>GLPK (GNU Linear Programming Kit):<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> intended for large-scale LP including mixed-integer variables, written in C.</p></li>
-<li><p>quadprog:<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> very popular open-source QP solver originally written in Fortran by Berwin Turlach in the late 1980s, and now accessible from most other programming languages.</p></li>
-<li><p>MOSEK:<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> proprietary LP, QP, SOCP, SDP solver including mixed-integer variables established in 1997 by Erling Andersen (free licence available for academia); specialized in large-scale problems and very fast, robust, and reliable.</p></li>
-<li><p>SeDuMi:<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> open-source LP, QP, SOCP, SDP solver originally developed by Sturm in 1999 for MATLAB <span class="citation">(<a href="#ref-Sturm99">Sturm, 1999</a>)</span>.</p></li>
-<li><p>SDPT3:<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> open-source LP, QP, SOCP, SDP solver originally developed in 1999 for MATLAB <span class="citation">(<a href="#ref-TutuncuTohTodd2003">Tütüncü et al., 2003</a>)</span>.</p></li>
-<li><p>Gurobi:<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a> proprietary LP, QP, and SOCP solver including mixed-integer variables (free licence available for academia).</p></li>
-<li><p>Embedded COnic Solver (ECOS):<a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a> SOCP solver originally written in C.</p></li>
-<li><p>CPLEX:<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a> proprietary LP and QP solver that also handles mixed-integer variables (free licence available for academia).</p></li>
+<li><p>GLPK (GNU Linear Programming Kit):<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> intended for large-scale LP including mixed-integer variables, written in C.</p></li>
+<li><p>quadprog:<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> very popular open-source QP solver originally written in Fortran by Berwin Turlach in the late 1980s, and now accessible from most other programming languages.</p></li>
+<li><p>MOSEK:<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> proprietary LP, QP, SOCP, SDP solver including mixed-integer variables established in 1997 by Erling Andersen (free licence available for academia); specialized in large-scale problems and very fast, robust, and reliable.</p></li>
+<li><p>SeDuMi:<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> open-source LP, QP, SOCP, SDP solver originally developed by Sturm in 1999 for MATLAB <span class="citation">(<a href="#ref-Sturm99">Sturm, 1999</a>)</span>.</p></li>
+<li><p>SDPT3:<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a> open-source LP, QP, SOCP, SDP solver originally developed in 1999 for MATLAB <span class="citation">(<a href="#ref-TutuncuTohTodd2003">Tütüncü et al., 2003</a>)</span>.</p></li>
+<li><p>Gurobi:<a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a> proprietary LP, QP, and SOCP solver including mixed-integer variables (free licence available for academia).</p></li>
+<li><p>Embedded COnic Solver (ECOS):<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a> SOCP solver originally written in C.</p></li>
+<li><p>CPLEX:<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a> proprietary LP and QP solver that also handles mixed-integer variables (free licence available for academia).</p></li>
 </ul>
 </div>
 <div id="complexity-of-interior-point-methods" class="section level3 hasAnchor" number="18.1.2">
 <h3><span class="header-section-number">B.1.2</span> Complexity of Interior-Point Methods<a href="B.1-solvers.html#complexity-of-interior-point-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 Internally, solvers can be based on different types of algorithms like the simplex method for LP <span class="citation">(<a href="#ref-NocedalWright2006">Nocedal and Wright, 2006</a>)</span>, cutting plane methods <span class="citation">(<a href="#ref-Bertsekas1999">Bertsekas, 1999</a>)</span>, interior-point methods <span class="citation">(<a href="#ref-BentalNemirovski2001">Ben-Tal and Nemirovski, 2001</a>; <a href="#ref-BoydVandenberghe2004">Boyd and Vandenberghe, 2004</a>; <a href="#ref-LuenbergerYe2021">Luenberger and Ye, 2021</a>; <a href="#ref-Nemirovski2000">Nemirovski, 2000</a>; <a href="#ref-Nesterov2018">Nesterov, 2018</a>; <a href="#ref-NesterovNemirovskii1994">Nesterov and Nemirovski, 1994</a>; <a href="#ref-NocedalWright2006">Nocedal and Wright, 2006</a>)</span>, or even more specific algorithms tailored to a more narrow type of problem such as <span class="math inline">\(\ell_2\)</span>-norm regression with an <span class="math inline">\(\ell_1\)</span>-norm regularization term (used to promote sparsity) <span class="citation">(<a href="#ref-Tibshirani1996">Tibshirani, 1996</a>)</span>.</p>
-<p>In general, the complexity of interior-point methods for LP, QP, QCQP, SOCP, and SDP is <span class="math inline">\(\bigO\left(n^3L\right)\)</span>,<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a> where <span class="math inline">\(n\)</span> is the number of variables and <span class="math inline">\(L\)</span> is the number of accuracy digits of the solution. To further discern the difference in the complexity, we need to take into account the number of constraints, <span class="math inline">\(m\)</span>, and dimensionality of the different cones, <span class="math inline">\(k\)</span> <span class="citation">(<a href="#ref-Nemirovski2000">Nemirovski, 2000</a>)</span>:</p>
+<p>In general, the complexity of interior-point methods for LP, QP, QCQP, SOCP, and SDP is <span class="math inline">\(\bigO\left(n^3L\right)\)</span>,<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a> where <span class="math inline">\(n\)</span> is the number of variables and <span class="math inline">\(L\)</span> is the number of accuracy digits of the solution. To further discern the difference in the complexity, we need to take into account the number of constraints, <span class="math inline">\(m\)</span>, and dimensionality of the different cones, <span class="math inline">\(k\)</span> <span class="citation">(<a href="#ref-Nemirovski2000">Nemirovski, 2000</a>)</span>:</p>
 <ul>
 <li><p>LP: complexity of <span class="math inline">\(\bigO\left((m + n)^{3/2}n^2L\right)\)</span>, later improved to <span class="math inline">\(\bigO\left(((m+ n) n^2+(m+ n)^{1.5} n) L\right)\)</span>, and even to <span class="math inline">\(\bigO\left(\left(n^3/\textm{log}(n)\right)L\right)\)</span> when <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are of the same order;</p></li>
 <li><p>QCQP: complexity of <span class="math inline">\(\bigO\left(\sqrt{m}(m + n)n^2L\right)\)</span>;</p></li>
@@ -1051,7 +1054,7 @@ which finally can be written as the MATLAB code</p>
 <h3><span class="header-section-number">B.1.4</span> Modeling Frameworks<a href="B.1-solvers.html#modeling-frameworks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 A <em>modeling framework</em> simplifies the use of solvers by shielding the user from the specific details of the solver argument formatting. It effectively acts as an interface between the user and the solver. In fact, a modeling framework can typically interface with a variety of solvers that the user can choose depending on the type of problem. A modeling framework is a fantastic tool for rapid prototyping of models while avoiding transcription errors when writing the code. Nevertheless, if high speed is desired, then one should consider calling the solver directly while avoiding the convenient interface provided by a modeling framework.</p>
-<p>Arguably, the two most successful examples (both of which are freely available) are YALMIP<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a> <span class="citation">(<a href="#ref-Lofberg2004">Löfberg, 2004</a>)</span> and CVX.<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> CVX was initially released in 2005 for MATLAB and is now available in Python, R, and Julia <span class="citation">(<a href="#ref-FuNarasimhanBoyd2020">Fu et al., 2020</a>; <a href="#ref-GrantBoyd2008">Grant and Boyd, 2008</a>, <a href="#ref-GrantBoyd2014">2014</a>)</span>.</p>
+<p>Arguably, the two most successful examples (both of which are freely available) are YALMIP<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> <span class="citation">(<a href="#ref-Lofberg2004">Löfberg, 2004</a>)</span> and CVX.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a> CVX was initially released in 2005 for MATLAB and is now available in Python, R, and Julia <span class="citation">(<a href="#ref-FuNarasimhanBoyd2020">Fu et al., 2020</a>; <a href="#ref-GrantBoyd2008">Grant and Boyd, 2008</a>, <a href="#ref-GrantBoyd2014">2014</a>)</span>.</p>
 <p>CVX stands for “convex disciplined programming” and it is a convenient and powerful tool for the rapid prototyping of models and algorithms incorporating convex optimization (also allows integer constraints). It interfaces with many solvers such as the free solvers SeDuMi and SDPT3, as well as the commercial solvers Gurobi and MOSEK. Internally, CVX knows the elementary convex and concave functions as well as the rules of composition that preserve convexity. This way, it can determine whether the problem is convex or not. CVX is extremely simple to use and it is very convenient for prototyping while avoiding transcript errors.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-180" class="example"><strong>Example B.3  (Constrained Euclidean norm approximation in CVX) </strong></span>Consider the problem
@@ -1149,18 +1152,18 @@ Tütüncü, R. H., Toh, K. C., and Todd, M. J. (2003). Solving semidefinite-quad
 </div>
 <div class="footnotes">
 <hr />
-<ol start="79">
-<li id="fn79"><p>GLPK: <a href="https://www.gnu.org/software/glpk">www.gnu.org/software/glpk</a><a href="B.1-solvers.html#fnref79" class="footnote-back">↩︎</a></p></li>
-<li id="fn80"><p>quadprog R version: <a href="https://cran.r-project.org/package=quadprog" class="uri">https://cran.r-project.org/package=quadprog</a><a href="B.1-solvers.html#fnref80" class="footnote-back">↩︎</a></p></li>
-<li id="fn81"><p>MOSEK: <a href="https://www.mosek.com">www.mosek.com</a><a href="B.1-solvers.html#fnref81" class="footnote-back">↩︎</a></p></li>
-<li id="fn82"><p>SeDuMi: <a href="https://sedumi.ie.lehigh.edu" class="uri">https://sedumi.ie.lehigh.edu</a>; MATLAB version at <a href="https://github.com/sqlp/sedumi" class="uri">https://github.com/sqlp/sedumi</a><a href="B.1-solvers.html#fnref82" class="footnote-back">↩︎</a></p></li>
-<li id="fn83"><p>SDPT3: <a href="https://blog.nus.edu.sg/mattohkc/softwares/sdpt3" class="uri">https://blog.nus.edu.sg/mattohkc/softwares/sdpt3</a>, <a href="https://github.com/Kim-ChuanToh/SDPT3" class="uri">https://github.com/Kim-ChuanToh/SDPT3</a>, <a href="https://github.com/sqlp/sdpt3" class="uri">https://github.com/sqlp/sdpt3</a><a href="B.1-solvers.html#fnref83" class="footnote-back">↩︎</a></p></li>
-<li id="fn84"><p>Gurobi optimizer: <a href="https://www.gurobi.com">www.gurobi.com</a><a href="B.1-solvers.html#fnref84" class="footnote-back">↩︎</a></p></li>
-<li id="fn85"><p>ECOS: <a href="https://github.com/embotech/ecos" class="uri">https://github.com/embotech/ecos</a><a href="B.1-solvers.html#fnref85" class="footnote-back">↩︎</a></p></li>
-<li id="fn86"><p>IBM CPLEX optimizer: <a href="https://www.ibm.com/analytics/cplex-optimizer">www.ibm.com/analytics/cplex-optimizer</a><a href="B.1-solvers.html#fnref86" class="footnote-back">↩︎</a></p></li>
-<li id="fn87"><p>The “big O” notation, <span class="math inline">\(\bigO(\cdot)\)</span>, measures the order of complexity. To be specific, we say that the complexity is <span class="math inline">\(\bigO\left(g(N)\right)\)</span>, as <span class="math inline">\(N\rightarrow\infty\)</span>, if there exists a positive real number <span class="math inline">\(M\)</span> and <span class="math inline">\(N_0\)</span> such that the complexity is upper-bounded by <span class="math inline">\(Mg(N)\)</span> for all <span class="math inline">\(N\geq N_0\)</span>.<a href="B.1-solvers.html#fnref87" class="footnote-back">↩︎</a></p></li>
-<li id="fn88"><p>YALMIP: <a href="https://yalmip.github.io" class="uri">https://yalmip.github.io</a><a href="B.1-solvers.html#fnref88" class="footnote-back">↩︎</a></p></li>
-<li id="fn89"><p>CVX: <a href="http://cvxr.com" class="uri">http://cvxr.com</a>; CVX in R: <a href="https://cvxr.rbind.io" class="uri">https://cvxr.rbind.io</a><a href="B.1-solvers.html#fnref89" class="footnote-back">↩︎</a></p></li>
+<ol start="80">
+<li id="fn80"><p>GLPK: <a href="https://www.gnu.org/software/glpk">www.gnu.org/software/glpk</a><a href="B.1-solvers.html#fnref80" class="footnote-back">↩︎</a></p></li>
+<li id="fn81"><p>quadprog R version: <a href="https://cran.r-project.org/package=quadprog" class="uri">https://cran.r-project.org/package=quadprog</a><a href="B.1-solvers.html#fnref81" class="footnote-back">↩︎</a></p></li>
+<li id="fn82"><p>MOSEK: <a href="https://www.mosek.com">www.mosek.com</a><a href="B.1-solvers.html#fnref82" class="footnote-back">↩︎</a></p></li>
+<li id="fn83"><p>SeDuMi: <a href="https://sedumi.ie.lehigh.edu" class="uri">https://sedumi.ie.lehigh.edu</a>; MATLAB version at <a href="https://github.com/sqlp/sedumi" class="uri">https://github.com/sqlp/sedumi</a><a href="B.1-solvers.html#fnref83" class="footnote-back">↩︎</a></p></li>
+<li id="fn84"><p>SDPT3: <a href="https://blog.nus.edu.sg/mattohkc/softwares/sdpt3" class="uri">https://blog.nus.edu.sg/mattohkc/softwares/sdpt3</a>, <a href="https://github.com/Kim-ChuanToh/SDPT3" class="uri">https://github.com/Kim-ChuanToh/SDPT3</a>, <a href="https://github.com/sqlp/sdpt3" class="uri">https://github.com/sqlp/sdpt3</a><a href="B.1-solvers.html#fnref84" class="footnote-back">↩︎</a></p></li>
+<li id="fn85"><p>Gurobi optimizer: <a href="https://www.gurobi.com">www.gurobi.com</a><a href="B.1-solvers.html#fnref85" class="footnote-back">↩︎</a></p></li>
+<li id="fn86"><p>ECOS: <a href="https://github.com/embotech/ecos" class="uri">https://github.com/embotech/ecos</a><a href="B.1-solvers.html#fnref86" class="footnote-back">↩︎</a></p></li>
+<li id="fn87"><p>IBM CPLEX optimizer: <a href="https://www.ibm.com/analytics/cplex-optimizer">www.ibm.com/analytics/cplex-optimizer</a><a href="B.1-solvers.html#fnref87" class="footnote-back">↩︎</a></p></li>
+<li id="fn88"><p>The “big O” notation, <span class="math inline">\(\bigO(\cdot)\)</span>, measures the order of complexity. To be specific, we say that the complexity is <span class="math inline">\(\bigO\left(g(N)\right)\)</span>, as <span class="math inline">\(N\rightarrow\infty\)</span>, if there exists a positive real number <span class="math inline">\(M\)</span> and <span class="math inline">\(N_0\)</span> such that the complexity is upper-bounded by <span class="math inline">\(Mg(N)\)</span> for all <span class="math inline">\(N\geq N_0\)</span>.<a href="B.1-solvers.html#fnref88" class="footnote-back">↩︎</a></p></li>
+<li id="fn89"><p>YALMIP: <a href="https://yalmip.github.io" class="uri">https://yalmip.github.io</a><a href="B.1-solvers.html#fnref89" class="footnote-back">↩︎</a></p></li>
+<li id="fn90"><p>CVX: <a href="http://cvxr.com" class="uri">http://cvxr.com</a>; CVX in R: <a href="https://cvxr.rbind.io" class="uri">https://cvxr.rbind.io</a><a href="B.1-solvers.html#fnref90" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1183,42 +1186,44 @@ Tütüncü, R. H., Toh, K. C., and Todd, M. J. (2003). Solving semidefinite-quad
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

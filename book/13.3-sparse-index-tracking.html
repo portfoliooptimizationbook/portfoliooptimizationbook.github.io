@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.3 Sparse Index Tracking | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="13.3 Sparse Index Tracking | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.3 Sparse Index Tracking | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="13.3 Sparse Index Tracking | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="sparse-index-tracking" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">13.3</span> Sparse Index Tracking<a href="13.3-sparse-index-tracking.html#sparse-index-tracking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The problem of sparse index tracking is in fact an instance of sparse regression and a variety of methods have been proposed in the literature to deal with the difficulty of cardinality constraint or sparsity control <span class="citation">(<a href="#ref-BenidisFengPalomar2018">Benidis et al., 2018b</a>, <a href="#ref-BenidisFengPalomar2018monograph">2018a</a>; <a href="#ref-JansenVanDijk2002">Jansen and Van Dijk, 2002</a>; <a href="#ref-MaringerOyewumi2007">Maringer and Oyewumi, 2007</a>; <a href="#ref-ScozzariTardellaPaterliniKrink2013">Scozzari et al., 2013</a>; <a href="#ref-XuLuXu2016">Xu et al., 2016</a>)</span>.
@@ -900,7 +903,7 @@ where <span class="math inline">\(\bSigma\)</span> is the covariance matrix of t
 \bm{b}_t = \frac{\bm{b}_{t-1} \odot \left(\bm{1} + \bm{r}_t\right)}{\bm{b}_{t-1}^\T \left(\bm{1} + \bm{r}_t\right)}.
 \]</span>
 <!---which happens to correspond to the natural evolution of a portfolio as price changes (see \@ref(eq:wt-evol)).---></p>
-<p>As a consequence, it makes little sense to try to approximate this time-varying portfolio <span class="math inline">\(\bm{b}_t\)</span> with a constant portfolio <span class="math inline">\(\w\)</span> (except for the convenience of the simplicity of notation). In addition, even if we really wanted a fixed portfolio <span class="math inline">\(\w\)</span>, this would imply a frequent rebalancing (with the corresponding transaction cost) because the normalized portfolio would otherwise naturally change over time (see <a href="6.1-fundamentals.html#eq:wt-evol">(6.1)</a> in Chapter <a href="6-portfolio-101.html#portfolio-101">6</a> for details) as
+<p>As a consequence, it makes little sense to try to approximate this time-varying portfolio <span class="math inline">\(\bm{b}_t\)</span> with a constant portfolio <span class="math inline">\(\w\)</span> (except for the convenience of the simplicity of notation). In addition, even if we really wanted a fixed portfolio <span class="math inline">\(\w\)</span>, this would imply a frequent rebalancing (with the corresponding transaction cost) because the normalized portfolio would otherwise naturally change over time (see <a href="6.1-fundamentals.html#eq:wt-evol">(6.2)</a> in Chapter <a href="6-portfolio-101.html#portfolio-101">6</a> for details) as
 <span class="math display">\[
 \w_t = \frac{\w_{t-1} \odot \left(\bm{1} + \bm{r}_t\right)}{\w_{t-1}^\T \left(\bm{1} + \bm{r}_t\right)}.
 \]</span></p>
@@ -1267,42 +1270,44 @@ Xu, F., Lu, Z., and Xu, Z. (2016). An efficient optimization approach for a card
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

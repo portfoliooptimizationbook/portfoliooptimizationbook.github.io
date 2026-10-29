@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9.4 Algorithms | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="9.4 Algorithms | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9.4 Algorithms | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="9.4 Algorithms | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="algorithms-MVSK" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> Algorithms<a href="9.4-algorithms-MVSK.html#algorithms-MVSK" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will focus only on the MVSK portfolio formulation <a href="9.3-portfolio-formulations.html#eq:MVSK-formulation">(9.11)</a>, whose objective function,
@@ -908,7 +911,7 @@ where <span class="math inline">\(\{\gamma^k\}\)</span> is a properly designed s
 <p>In order to guarantee converge of the iterates, the surrogate function <span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> has to satisfy the following technical conditions <span class="citation">(<a href="#ref-ScuFacSonPal2014">Scutari et al., 2014</a>)</span>:</p>
 <ul>
 <li><span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> must be strongly convex on the feasible set <span class="math inline">\(\mathcal{X}\)</span>; and</li>
-<li><span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla\tilde{f}\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)\)</span>.</li>
+<li><span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla\tilde{f}\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)\)</span>, that is, the gradients of <span class="math inline">\(\tilde{f}\)</span> and <span class="math inline">\(f\)</span> must coincide at <span class="math inline">\(\bm{x}^k\)</span> (not at every <span class="math inline">\(\bm{x}\)</span>).</li>
 </ul>
 </div>
 <div id="sca-applied-to-mvsk-portfolio-design" class="section level4 unnumbered hasAnchor">
@@ -932,8 +935,8 @@ where <span class="math inline">\(\left[\bm{\Xi}\right]_\textm{PSD}\)</span> den
 where
 <span class="math display">\[
 \begin{aligned}
-\bm{Q}^k &amp;= \lambda_2 \nabla^2\phi_2(\w) + \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD},\\
-\bm{q}^k &amp;= - \lambda_1 \nabla\phi_1(\w) + \nabla f_\textm{ncvx}\left(\w^k\right) - \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD}\w^k,
+\bm{Q}^k &amp;= \lambda_2 \nabla^2\phi_2\left(\w^k\right) + \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD},\\
+\bm{q}^k &amp;= - \lambda_1 \nabla\phi_1\left(\w^k\right) + \nabla f_\textm{ncvx}\left(\w^k\right) - \left[\nabla^2 f_\textm{ncvx}\left(\w^k\right)\right]_\textm{PSD}\w^k,
 \end{aligned}
 \]</span>
 and the gradients and Hessians of the moments can be obtained from either the nonparametric expressions in <a href="9.2-high-order-moments.html#eq:portf-moments-grad">(9.2)</a>–<a href="9.2-high-order-moments.html#eq:portf-moments-hessian">(9.3)</a> or the parametric ones in <a href="9.2-high-order-moments.html#eq:portf-moments-skew-t-grad">(9.7)</a>–<a href="9.2-high-order-moments.html#eq:portf-moments-skew-t-hessian">(9.8)</a>.<!---Note that instead of using a quadratic approximation of the nonconvex term $f_\textm{ncvx}(\w)$, we could have approximated directly the original function $f(\w)$, leading to the same result since the convex part is quadratic.---></p>
@@ -986,7 +989,7 @@ More specifically, at iteration <span class="math inline">\(k\)</span>, the MM a
 <ul>
 <li><em>upper bound property</em>: <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right) \geq f\left(\bm{x}\right)\)</span>;</li>
 <li><em>touching property</em>: <span class="math inline">\(u\left(\bm{x}^k;\bm{x}^k\right) = f\left(\bm{x}^k\right)\)</span>; and</li>
-<li><em>tangent property</em>: <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla u\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)\)</span>.</li>
+<li><em>tangent property</em>: <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla u\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)\)</span>, that is, the gradients of <span class="math inline">\(u\)</span> and <span class="math inline">\(f\)</span> must coincide at <span class="math inline">\(\bm{x}^k\)</span> (not at every <span class="math inline">\(\bm{x}\)</span>).</li>
 </ul>
 <p>The surrogate function <span class="math inline">\(u\left(\bm{x};\bm{x}^k\right)\)</span> is also referred to as the <em>majorizer</em> because it is an upper bound of the original function. The fact that, at each iteration, first the majorizer is constructed and then it is minimized gives the name <em>majorization–minimization</em> to the method.</p>
 </div>
@@ -1358,42 +1361,44 @@ Zhou, R., Wang, X., and Palomar, D. P. (2022). <em><a href="https://CRAN.R-proje
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

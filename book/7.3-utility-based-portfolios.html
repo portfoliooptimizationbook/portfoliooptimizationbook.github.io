@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.3 Utility-Based Portfolios | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="7.3 Utility-Based Portfolios | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.3 Utility-Based Portfolios | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="7.3 Utility-Based Portfolios | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,13 +861,14 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="utility-based-portfolios" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Utility-Based Portfolios<a href="7.3-utility-based-portfolios.html#utility-based-portfolios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>All the previous porfolio formulations in Sections <a href="7.1-mean-variance-portfolio.html#mean-variance-portfolio">7.1</a> and <a href="7.2-MSRP.html#MSRP">7.2</a> are based on some judicious combination of the mean and variance of the returns <span class="math inline">\(R^\textm{portf}_t = \w^\T\bm{r}_t\)</span> (here, <span class="math inline">\(\bm{r}_t\)</span> denotes linear returns). However, it is possible to express the interest of the investor in a more general way via <em>utility functions</em>.</p>
 <div id="kelly-portfolio" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Kelly Criterion Portfolio<a href="7.3-utility-based-portfolios.html#kelly-portfolio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In 1956, a scientist working for Bell Labs, John Larry Kelly, Jr., brought together game theory and information theory <span class="citation">(<a href="#ref-Kelly1956">Kelly, Jr., 1956</a>)</span>. He showed that in order to achieve maximum growth of wealth, a gambler should place bets that maximize the expected value of the logarithm of the capital, usually referred to as the <em>Kelly criterion</em>. The Kelly criterion was applied to portfolio design in <span class="citation">Markowitz (<a href="#ref-Markowitz1959">1959</a>)</span>; see also <span class="citation">Thorp (<a href="#ref-Thorp1971">1971</a>)</span> and <span class="citation">Thorp (<a href="#ref-Thorp1997">1997</a>)</span>.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
-<p>Recall from <a href="6.1-fundamentals.html#eq:fixed-portfolio-return">(6.8)</a> that, for a given fixed portfolio <span class="math inline">\(\w\)</span>, the returns are <span class="math inline">\(R^\textm{portf}_t = \w^\T\bm{r}_t\)</span>. From the geometric compounding of the portfolio wealth of NAV in <a href="6.1-fundamentals.html#eq:NAV-geometric">(6.6)</a>, we can write the wealth accumulated during the periods <span class="math inline">\(t=1,\dots,T\)</span> as
+<p>Recall from <a href="6.1-fundamentals.html#eq:fixed-portfolio-return">(6.9)</a> that, for a given fixed portfolio <span class="math inline">\(\w\)</span>, the returns are <span class="math inline">\(R^\textm{portf}_t = \w^\T\bm{r}_t\)</span>. From the geometric compounding of the portfolio wealth of NAV in <a href="6.1-fundamentals.html#eq:NAV-geometric">(6.7)</a>, we can write the wealth accumulated during the periods <span class="math inline">\(t=1,\dots,T\)</span> as
 <span class="math display">\[
 W_T = W_0\prod_{t=1}^T \frac{W_t}{W_{t-1}} = W_0\prod_{t=1}^T \left(1 + \w^\T\bm{r}_t\right),
 \]</span>
@@ -900,7 +903,7 @@ However, finding a solver that can deal directly with the log function may be ch
 </div>
 <div id="solving-the-kelly-criterion-portfolio-via-exponential-cone-programming" class="section level4 unnumbered hasAnchor">
 <h4>Solving the Kelly Criterion Portfolio via Exponential Cone Programming<a href="7.3-utility-based-portfolios.html#solving-the-kelly-criterion-portfolio-via-exponential-cone-programming" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Interestingly, this problem can be reformulated in terms of the exponential cone <span class="citation">(<a href="#ref-Cajas2021-kelly-portfolio">Dany Cajas, 2021b</a>)</span>, leading to <em>exponential cone programming</em> for which solvers can be found.</p>
+<p>Interestingly, this problem can be reformulated in terms of the exponential cone <span class="citation">(<a href="#ref-Cajas2021-kelly-portfolio">Cajas, 2021b</a>)</span>, leading to <em>exponential cone programming</em> for which solvers can be found.</p>
 <p>Consider problem <a href="7.3-utility-based-portfolios.html#eq:Kelly-portfolio">(7.13)</a> with the sample average approximation and with the additional slack variables <span class="math inline">\(q_t\)</span>:
 <span class="math display">\[
 \begin{array}{ll}
@@ -1033,7 +1036,7 @@ whereas the approximation around the point <span class="math inline">\(\bm{r}=\b
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Cajas2021-kelly-portfolio" class="csl-entry">
-Cajas, Dany. (2021b). <a href="https://dx.doi.org/10.2139/ssrn.3833617">Kelly portfolio optimization: A disciplined convex programming framework</a>. <em>SSRN Electronic Journal</em>.
+Cajas, D. (2021b). <a href="https://dx.doi.org/10.2139/ssrn.3833617">Kelly portfolio optimization: A disciplined convex programming framework</a>. <em>SSRN Electronic Journal</em>.
 </div>
 <div id="ref-Chares2007" class="csl-entry">
 Chares, R. (2007). <em>Cones and Interior-Point Algorithms for Structured Convex Optimization Involving Powers and Exponentials</em> (PhD thesis). Université Catholique de Louvain; École Polytechnique de Louvain.
@@ -1117,42 +1120,44 @@ where <span class="math inline">\(X\)</span> denotes a random variable (with mea
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

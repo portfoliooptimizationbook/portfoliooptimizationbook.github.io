@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.1 Mean–Variance Portfolio (MVP) | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="7.1 Mean–Variance Portfolio (MVP) | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.1 Mean–Variance Portfolio (MVP) | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="7.1 Mean–Variance Portfolio (MVP) | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="mean-variance-portfolio" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Mean–Variance Portfolio (MVP)<a href="7.1-mean-variance-portfolio.html#mean-variance-portfolio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section considers the <em>mean–variance portfolio</em> (MVP) proposed by Markowitz in his 1952 seminar paper
@@ -940,7 +943,7 @@ where <span class="math inline">\(\beta\)</span> is a hyper-parameter that contr
 <p>The hyper-parameters in formulations <a href="7.1-mean-variance-portfolio.html#eq:MVP-var-const">(7.2)</a> and <a href="7.1-mean-variance-portfolio.html#eq:MVP-mean-const">(7.3)</a> have a more intuitive interpretation than that in formulation <a href="7.1-mean-variance-portfolio.html#eq:MVP">(7.1)</a>, that is, maximum accepted variance and minimum accepted expected return. On the other hand, formulations <a href="7.1-mean-variance-portfolio.html#eq:MVP-var-const">(7.2)</a> and <a href="7.1-mean-variance-portfolio.html#eq:MVP-mean-const">(7.3)</a> may be infeasible if the hyper-parameters are not properly chosen, whereas formulation <a href="7.1-mean-variance-portfolio.html#eq:MVP">(7.1)</a> is always feasible regardless of the hyper-parameter <span class="math inline">\(\lambda\)</span>. To avoid running into infeasibility issues, it is customary to choose the hyper-parameters based on benchmark portfolios such as the <span class="math inline">\(1/N\)</span> portfolio, i.e.,
 <span class="math inline">\(\alpha = \frac{1}{N^2}\bm{1}^\T\bSigma\bm{1}\)</span> or <span class="math inline">\(\beta = \frac{1}{N}\bm{1}^\T\bmu\)</span>.</p>
 <p>Problem <a href="7.1-mean-variance-portfolio.html#eq:MVP-mean-const">(7.3)</a> is still a QP that can be solved efficiently with a QP solver; however, problem <a href="7.1-mean-variance-portfolio.html#eq:MVP-var-const">(7.2)</a> is a quadratically-constrained QP (QCQP) which typically requires a higher complexity either by using a QCQP solver or an SOCP solver (see Section <a href="B.1-solvers.html#solvers">B.1</a> for details).</p>
-<p>Commonly used programming languages in finance offer packages specifically designed to optimize portfolios under a wide variety of formulations and constraints, such as the popular R package <a href="https://cran.r-project.org/package=fPortfolio"><code>fPortfolio</code></a> <span class="citation">(<a href="#ref-fPortfolio">Wuertz et al., 2023</a>)</span> and the Python library <a href="https://riskfolio-lib.readthedocs.io"><code>Riskfolio-Lib</code></a> <span class="citation">(<a href="#ref-RiskfolioLib">D. Cajas, 2023</a>)</span>. </p>
+<p>Commonly used programming languages in finance offer packages specifically designed to optimize portfolios under a wide variety of formulations and constraints, such as the popular R package <a href="https://cran.r-project.org/package=fPortfolio"><code>fPortfolio</code></a> <span class="citation">(<a href="#ref-fPortfolio">Wuertz et al., 2023</a>)</span> and the Python libraries <a href="https://skfolio.org"><code>skfolio</code></a> <span class="citation">(<a href="#ref-DelatteNicoliniManzi2026">Delatte et al., 2026</a>; <a href="#ref-NicoliniManziDelatte2025">Nicolini et al., 2025</a>)</span>, <a href="https://riskfolio-lib.readthedocs.io"><code>Riskfolio-Lib</code></a> <span class="citation">(<a href="#ref-RiskfolioLib">Cajas, 2026</a>)</span>, and <a href="https://pyportfolioopt.readthedocs.io"><code>PyPortfolioOpt</code></a> <span class="citation">(<a href="#ref-PyPortfolioOpt_JOSS2021">Martin, 2021</a>)</span>. </p>
 <p>Figure <a href="7.1-mean-variance-portfolio.html#fig:w-MVP-lmd">7.3</a> shows the portfolio allocation of the MVP in <a href="7.1-mean-variance-portfolio.html#eq:MVP">(7.1)</a> for different values of <span class="math inline">\(\lambda\)</span>, from which we can see the critical effect of the hyper-parameter in the final allocation. Figure <a href="7.1-mean-variance-portfolio.html#fig:PnL-drawdown-MVP-lmd">7.4</a> and Table <a href="7.1-mean-variance-portfolio.html#tab:performance-MVP-lmd">7.1</a> show the corresponding backtest results, indicating that smaller values of <span class="math inline">\(\lambda\)</span> suffer from a worse Sharpe ratio and a much severe drawdown than the largest ones.</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:w-MVP-lmd"></span>
@@ -1151,13 +1154,13 @@ where <span class="math inline">\(\gamma\geq1\)</span> controls the amount of sh
 <h3><span class="header-section-number">7.1.5</span> Improving the MVP with Heuristics<a href="7.1-mean-variance-portfolio.html#MVP-heuristic-constraints" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the main problems of the MVP is the lack of diversification, which goes against common practice. To address this issue, several heuristics have been proposed with good practical results such as no-shorting constraints, upper bound constraints, and <span class="math inline">\(\ell_2\)</span>-norm constraints; see <span class="citation">Kolm et al. (<a href="#ref-KolmTutuncuFabozzi2014">2014</a>)</span> for more details.</p>
 <p>Imposing no-shorting constraints, <span class="math inline">\(\w\ge\bm{0}\)</span>, seems to have significant practical benefits in reducing the amplification of the noise inherent in the estimated covariance matrix, even when the constraints are wrong <span class="citation">(<a href="#ref-JagannathanMa2003">Jagannathan and Ma, 2003</a>)</span>. Surprisingly, with no-shorting constraints, the sample covariance matrix performs as well as more sophisticated covariance matrix estimators based on factor models, shrinkage estimators, or higher-frequency returns. Including upper bound constraints also has a regularization effect on the covariance matrix.</p>
-<p>For example, if we consider the GMVP from Section <a href="6.5-risk-based-portfolios.html#GMVP">6.5.1</a> with constraints <span class="math inline">\(\bm{1}^\T\w=1\)</span> and <span class="math inline">\(\bm{0}\leq\w\leq\bm{u}\)</span>, the optimal solution <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.15)</a> is still valid using instead the regularized covariance matrix
+<p>For example, if we consider the GMVP from Section <a href="6.5-risk-based-portfolios.html#GMVP">6.5.1</a> with constraints <span class="math inline">\(\bm{1}^\T\w=1\)</span> and <span class="math inline">\(\bm{0}\leq\w\leq\bm{u}\)</span>, the optimal solution <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.16)</a> is still valid using instead the regularized covariance matrix
 <span class="math display">\[
 \tilde{\bSigma} = \bSigma + \bm{\lambda}_0\bm{1}^\T + \bm{1}\bm{\lambda}_0^\T + \bm{\lambda}_{\textm{u}}\bm{1}^\T + \bm{1}\bm{\lambda}_{\textm{u}}^\T,
 \]</span>
 where <span class="math inline">\(\bm{\lambda}_0\)</span> and <span class="math inline">\(\bm{\lambda}_{\textm{u}}\)</span> are the Lagrange multipliers corresponding to the no-shorting and upper bound constraints, respectively <span class="citation">(<a href="#ref-JagannathanMa2003">Jagannathan and Ma, 2003</a>)</span>. This regularized covariance matrix <span class="math inline">\(\tilde{\bSigma}\)</span> can be interpreted as a shrunk version of <span class="math inline">\(\bSigma\)</span> with reduced sampling error. Interestingly, the same result can be obtained by instead including an <span class="math inline">\(\ell_1\)</span>-norm constraint <span class="math inline">\(\|\w\|_1\leq\delta\)</span> <span class="citation">(<a href="#ref-DeMiguelGarlappiNogalesUppal2009">DeMiguel, Garlappi, Nogales, et al., 2009</a>)</span>.</p>
 <p>One way to enforce diversity is via the diversification constraint <span class="math inline">\(\|\w\|_2^2 \leq D\)</span> (see Section <a href="6.2-portfolio-constraints.html#portfolio-constraints">6.2</a>). The maximum diversity level <span class="math inline">\(D\)</span> is lower bounded by <span class="math inline">\(1/N\)</span> (achieved by the <span class="math inline">\(1/N\)</span> portfolio) and could be chosen as the diversity achieved by some benchmark portfolio, for example, the GMVP gives <span class="math inline">\(D = \bm{1}^\T\bSigma^{-2}\bm{1}/(\bm{1}^\T\bSigma^{-1}\bm{1})^2\)</span>.</p>
-<p>For example, if we consider the GMVP with constraints <span class="math inline">\(\bm{1}^\T\w=1\)</span> and <span class="math inline">\(\|\w\|_2^2 \leq D\)</span>, the optimal solution <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.15)</a> is still valid using instead the regularized covariance matrix
+<p>For example, if we consider the GMVP with constraints <span class="math inline">\(\bm{1}^\T\w=1\)</span> and <span class="math inline">\(\|\w\|_2^2 \leq D\)</span>, the optimal solution <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.16)</a> is still valid using instead the regularized covariance matrix
 <span class="math display">\[
 \tilde{\bSigma} = \bSigma + \gamma\bm{I},
 \]</span>
@@ -1165,7 +1168,7 @@ leading to the portfolio
 <span class="math display">\[
 \w = \frac{1}{\bm{1}^\T\left(\bSigma+\gamma\bm{I}\right)^{-1}\bm{1}} \left(\bSigma+\gamma\bm{I}\right)^{-1}\bm{1},
 \]</span>
-where <span class="math inline">\(\gamma\ge0\)</span> is the Lagrange multiplier corresponding to the diversification constraint <span class="citation">(<a href="#ref-DeMiguelGarlappiNogalesUppal2009">DeMiguel, Garlappi, Nogales, et al., 2009</a>)</span>. For <span class="math inline">\(\gamma=0\)</span> we recover the solution <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.15)</a>, whereas for <span class="math inline">\(\gamma\rightarrow\infty\)</span> we obtain the <span class="math inline">\(1/N\)</span> portfolio. Interestingly, this solution is like shrinking the covariance matrix to the identity matrix with <span class="math inline">\(\gamma\)</span> being the shrinkage intensity (see Chapter <a href="3-iid-modeling.html#iid-modeling">3</a>).</p>
+where <span class="math inline">\(\gamma\ge0\)</span> is the Lagrange multiplier corresponding to the diversification constraint <span class="citation">(<a href="#ref-DeMiguelGarlappiNogalesUppal2009">DeMiguel, Garlappi, Nogales, et al., 2009</a>)</span>. For <span class="math inline">\(\gamma=0\)</span> we recover the solution <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.16)</a>, whereas for <span class="math inline">\(\gamma\rightarrow\infty\)</span> we obtain the <span class="math inline">\(1/N\)</span> portfolio. Interestingly, this solution is like shrinking the covariance matrix to the identity matrix with <span class="math inline">\(\gamma\)</span> being the shrinkage intensity (see Chapter <a href="3-iid-modeling.html#iid-modeling">3</a>).</p>
 <p>Figure <a href="7.1-mean-variance-portfolio.html#fig:w-MVP-diversification-heuristics">7.5</a> illustrates the effect of two diversification heuristics on the portfolio allocation (namely, with upper bound <span class="math inline">\(\|\w\|_\infty\leq0.25\)</span> and diversification constraint <span class="math inline">\(\|\w\|_2^2\leq 0.25\)</span>), which indeed improve the diversification. Figure <a href="7.1-mean-variance-portfolio.html#fig:PnL-drawdown-MVP-diversification-heuristics">7.6</a> and Table <a href="7.1-mean-variance-portfolio.html#tab:performance-MVP-diversification-heuristics">7.2</a> show the corresponding backtest results, indicating that the more diversified MVPs have a better Sharpe ratio and drawdown.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:w-MVP-diversification-heuristics"></span>
 <img src="07-MPT_files/figure-html/w-MVP-diversification-heuristics-1.png" alt="Portfolio allocation of MVP under two diversification heuristics (upper bound and diversification constraint)." width="100%" />
@@ -1295,7 +1298,10 @@ MVP with diversific. const.
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-RiskfolioLib" class="csl-entry">
-Cajas, D. (2023). <em><a href="https://riskfolio-lib.readthedocs.io"><span>Riskfolio-Lib</span></a></em>.
+Cajas, D. (2026). <a href="https://github.com/dcajasn/Riskfolio-Lib"><span>Riskfolio-Lib</span></a>.
+</div>
+<div id="ref-DelatteNicoliniManzi2026" class="csl-entry">
+Delatte, H., Nicolini, C., and Manzi, M. (2026). <a href="https://doi.org/10.5281/zenodo.16148630"><span class="nocase">skfolio</span></a>.
 </div>
 <div id="ref-DeMiguelGarlappiNogalesUppal2009" class="csl-entry">
 DeMiguel, V., Garlappi, L., Nogales, F. J., and Uppal, R. (2009). A generalized approach to portfolio optimization: Improving performance by constraining portfolio norms. <em>Management Science</em>, <em>55</em>(5), 798–812.
@@ -1308,6 +1314,12 @@ Kolm, P. N., Tütüncü, R., and Fabozzi, F. J. (2014). 60 years of portfolio op
 </div>
 <div id="ref-Markowitz1952" class="csl-entry">
 Markowitz, H. M. (1952). Portfolio selection. <em>The Journal of Finance</em>, <em>7</em>(1), 77–91.
+</div>
+<div id="ref-PyPortfolioOpt_JOSS2021" class="csl-entry">
+Martin, R. A. (2021). <span>PyPortfolioOpt</span>: Portfolio optimization in <span>Python</span>. <em>Journal of Open Source Software</em>, <em>6</em>(61), 1–5.
+</div>
+<div id="ref-NicoliniManziDelatte2025" class="csl-entry">
+Nicolini, C., Manzi, M., and Delatte, H. (2025). <a href="https://doi.org/10.65236/iris-ai/proceedings/2025/article/3"><span class="nocase">skfolio</span>: Portfolio optimization in <span>Python</span></a>. In <em>Proceedings of the international research and industry symposium on AI (IRIS-AI 25)</em>, pages 35–41.
 </div>
 <div id="ref-Rubinstein2002" class="csl-entry">
 Rubinstein, M. (2002). <span>Markowitz</span>’s <span>“portfolio selection”</span>: A fifty-year retrospective. <em>The Journal of Finance</em>, <em>57</em>(3), 1041–1045.
@@ -1336,42 +1348,44 @@ Wuertz, D., Setz, T., Chalabi, Y., Chen, W., and Theussl, S. (2023). <em><a href
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

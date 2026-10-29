@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.2 Robust Portfolio Optimization | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="14.2 Robust Portfolio Optimization | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.2 Robust Portfolio Optimization | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="14.2 Robust Portfolio Optimization | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="robust-portfolio-optimization" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">14.2</span> Robust Portfolio Optimization<a href="14.2-robust-portfolio-optimization.html#robust-portfolio-optimization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
@@ -949,8 +952,8 @@ where <span class="math inline">\(\mathcal{U}_{\bm{\theta}}\)</span> is the unce
 <p>In practice, it is critical to choose the shape and size of the uncertainty set properly. Typical choices for the shape for a size of <span class="math inline">\(\epsilon\)</span> are:</p>
 <ul>
 <li><em>spherical set</em>: <span class="math inline">\(\quad \mathcal{U}_{\bm{\theta}} = \left\{\bm{\theta} \mid \|\bm{\theta} - \hat{\bm{\theta}}\|_2 \le \epsilon\right\};\)</span></li>
-<li><em>box set</em>: <span class="math inline">\(\quad \mathcal{U}_{\bm{\theta}} = \left\{\bm{\theta} \mid \|\bm{\theta} - \hat{\bm{\theta}}\|_\infty \le \epsilon\right\};\)</span></li>
-<li><em>ellipsoidal set</em>: <span class="math inline">\(\quad \mathcal{U}_{\bm{\theta}} = \left\{\bm{\theta} \mid \big(\bm{\theta} - \hat{\bm{\theta}}\big)^\T\bm{S}^{-1}\big(\bm{\theta} - \hat{\bm{\theta}}\big) \le \epsilon^2\right\},\)</span> where <span class="math inline">\(\bm{S}\succ\bm{0}\)</span> defines the shape of the ellipsoid.</li>
+<li><em>box set</em>: <span class="math inline">\(\quad \mathcal{U}_{\bm{\theta}}   = \left\{\bm{\theta} \mid \|\bm{\theta} - \hat{\bm{\theta}}\|_\infty \le \epsilon\right\};\)</span></li>
+<li><em>ellipsoidal set</em>: <span class="math inline">\(\quad \mathcal{U}_{\bm{\theta}}   = \left\{\bm{\theta} \mid \big(\bm{\theta} - \hat{\bm{\theta}}\big)^\T\bm{S}^{-1}\big(\bm{\theta} - \hat{\bm{\theta}}\big) \le \epsilon^2\right\},\)</span> where <span class="math inline">\(\bm{S}\succ\bm{0}\)</span> defines the shape of the ellipsoid.</li>
 </ul>
 <!---
 - _spherical set_: 
@@ -1350,42 +1353,44 @@ Zhou, R., and Palomar, D. P. (2020). Understanding the quintile portfolio. <em>I
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

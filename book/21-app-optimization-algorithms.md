@@ -1356,7 +1356,7 @@ In order to guarantee convergence of the iterates, the surrogate function $u\lef
 
 - _upper-bound property_: $u\left(\bm{x};\bm{x}^k\right) \geq f\left(\bm{x}\right)$;
 - _touching property_: $u\left(\bm{x}^k;\bm{x}^k\right) = f\left(\bm{x}^k\right)$; and
-- _tangent property_: $u\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla u\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)$.
+- _tangent property_: $u\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla u\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)$, that is, the gradients of $u$ and $f$ must coincide at $\bm{x}^k$ (not at every $\bm{x}$).
 
 One immediate consequence of the first two conditions is the monotonicity property of MM, that is, $f\left(\bm{x}^{k+1}\right) \leq f\left(\bm{x}^k\right),$ while the third condition is necessary for the convergence of the iterates $\bm{x}^0, \bm{x}^1, \bm{x}^2,\dots$ -- the third condition can be relaxed by requiring continuity and directional derivatives instead [@RazaviyaynHongLuo2013; @SunBabPal2017]. More specifically, under the above technical conditions, if the feasible set $\mathcal{X}$ is convex, then every limit point of the sequence $\{\bm{x}^k\}$ is a stationary point of the original problem [@RazaviyaynHongLuo2013].
 
@@ -1622,7 +1622,7 @@ where $\{\gamma^k\}$ is a properly designed sequence with $\gamma^k \in (0,1]$ [
 In order to guarantee convergence of the iterates, the surrogate function $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ has to satisfy the following technical conditions [@ScuFacSonPal2014]:
 
 - $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ must be strongly convex on the feasible set $\mathcal{X}$; and
-- $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla\tilde{f}\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)$.
+- $\tilde{f}\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla\tilde{f}\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)$, that is, the gradients of $\tilde{f}$ and $f$ must coincide at $\bm{x}^k$ (not at every $\bm{x}$).
 
 
 The sequence $\{\gamma^k\}$ can be chosen according to different stepsize rules [@ScuFacSonPal2014; @ScutariSun2018]:
@@ -2270,7 +2270,7 @@ Write down the Karush--Kuhn--Tucker (KKT) conditions for the LP in Exercise\ \@r
 Consider the following QP:
 $$
   \begin{array}{ll}
-  \underset{x_1,x_2}{\textm{maximize}} & x_1^2 + x_2^2\\
+  \underset{x_1,x_2}{\textm{minimize}} & x_1^2 + x_2^2\\
   \textm{subject to} 
   & x_1 + x_2 = 1,\\
   & x_1 \geq 0, x_2 \geq 0.

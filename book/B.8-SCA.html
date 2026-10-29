@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.8 Successive Convex Approximation (SCA) | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="B.8 Successive Convex Approximation (SCA) | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.8 Successive Convex Approximation (SCA) | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="B.8 Successive Convex Approximation (SCA) | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="SCA" class="section level2 hasAnchor" number="18.8">
 <h2><span class="header-section-number">B.8</span> Successive Convex Approximation (SCA)<a href="B.8-SCA.html#SCA" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <em>successive convex approximation</em> (SCA) method (or framework) approximates a difficult optimization problem by a sequence of simpler convex problems. We now give a brief description. For details, the reader is referred to the original paper, <span class="citation">Scutari et al. (<a href="#ref-ScuFacSonPal2014">2014</a>)</span>, and the comprehensive book chapter, <span class="citation">Scutari and Sun (<a href="#ref-ScutariSun2018">2018</a>)</span>.</p>
@@ -884,17 +887,17 @@ where <span class="math inline">\(f\)</span> is the (possibly nonconvex) objecti
 \end{aligned} \quad \right\} \qquad k=0,1,2,\dots,
 \end{array}
 \]</span>
-where <span class="math inline">\(\{\gamma^k\}\)</span> is a properly designed sequence with <span class="math inline">\(\gamma^k \in (0,1]\)</span> <span class="citation">(<a href="#ref-ScuFacSonPal2014">Scutari et al., 2014</a>)</span>. This iterative process is illustrated in Figure <a href="B.8-SCA.html#fig:SCA-process">B.10</a>; observe that the surrogate function is not an upper bound on the original function.</p>
+where <span class="math inline">\(\{\gamma^k\}\)</span> is a properly designed sequence with <span class="math inline">\(\gamma^k \in (0,1]\)</span> <span class="citation">(<a href="#ref-ScuFacSonPal2014">Scutari et al., 2014</a>)</span>. This iterative process is illustrated in Figure <a href="B.8-SCA.html#fig:SCA-process">B.11</a>; observe that the surrogate function is not an upper bound on the original function.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:SCA-process"></span>
 <img src="figures/algorithms/SCA-process.svg" alt="Illustration of sequence of surrogate problems in SCA." width="90%" />
 <p class="caption">
-Figure B.10: Illustration of sequence of surrogate problems in SCA.
+Figure B.11: Illustration of sequence of surrogate problems in SCA.
 </p>
 </div>
 <p>In order to guarantee convergence of the iterates, the surrogate function <span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> has to satisfy the following technical conditions <span class="citation">(<a href="#ref-ScuFacSonPal2014">Scutari et al., 2014</a>)</span>:</p>
 <ul>
 <li><span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> must be strongly convex on the feasible set <span class="math inline">\(\mathcal{X}\)</span>; and</li>
-<li><span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla\tilde{f}\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)\)</span>.</li>
+<li><span class="math inline">\(\tilde{f}\left(\bm{x};\bm{x}^k\right)\)</span> must be differentiable with <span class="math inline">\(\nabla\tilde{f}\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)\)</span>, that is, the gradients of <span class="math inline">\(\tilde{f}\)</span> and <span class="math inline">\(f\)</span> must coincide at <span class="math inline">\(\bm{x}^k\)</span> (not at every <span class="math inline">\(\bm{x}\)</span>).</li>
 </ul>
 <p>The sequence <span class="math inline">\(\{\gamma^k\}\)</span> can be chosen according to different stepsize rules <span class="citation">(<a href="#ref-ScuFacSonPal2014">Scutari et al., 2014</a>; <a href="#ref-ScutariSun2018">Scutari and Sun, 2018</a>)</span>:</p>
 <ul>
@@ -1025,12 +1028,12 @@ x_i^{k+1} &amp;= x_i^{k} + \gamma^k \left(\hat{x}_i^{k+1} - x_i^{k}\right)
 \end{aligned} \quad \right\} \qquad i=1,\dots,n, \quad k=0,1,2,\dots,
 \end{array}
 \]</span>
-where <span class="math inline">\(\mathcal{S}_{\lambda}(\cdot)\)</span> is the soft-thresholding operator defined in <a href="B.6-BCD.html#eq:soft-thresholding">(B.11)</a>. Figure <a href="B.8-SCA.html#fig:SCA-l2-l1-minimiz">B.11</a> shows the convergence of the SCA iterates.</p>
+where <span class="math inline">\(\mathcal{S}_{\lambda}(\cdot)\)</span> is the soft-thresholding operator defined in <a href="B.6-BCD.html#eq:soft-thresholding">(B.11)</a>. Figure <a href="B.8-SCA.html#fig:SCA-l2-l1-minimiz">B.12</a> shows the convergence of the SCA iterates.</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:SCA-l2-l1-minimiz"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/SCA-l2-l1-minimiz-1.png" alt="Convergence of SCA for the \(\ell_2\)–\(\ell_1\)-norm minimization." width="70%" />
 <p class="caption">
-Figure B.11: Convergence of SCA for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
+Figure B.12: Convergence of SCA for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
 </p>
 </div>
 </div>
@@ -1075,12 +1078,12 @@ which can be further decomposed into a set of vectorized <span class="math inlin
 <h3><span class="header-section-number">B.8.6</span> MM vs. SCA<a href="B.8-SCA.html#mm-vs.-sca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The MM and SCA algorithmic frameworks appear very similar: both are based on solving a sequence of surrogate problems. The difference is in the details, as we compare next.</p>
 <ul>
-<li><em>Surrogate function</em>: MM requires the surrogate function to be a global upper bound (which can be difficult to derive and too restrictive in some cases), albeit not necessarily convex. On the other hand, SCA relaxes this upper-bound condition in exchange for the requirement of strong convexity. Figure <a href="B.8-SCA.html#fig:MMvsSCA">B.12</a> illustrates the potential benefit of relaxing the upper-bound requirement.</li>
+<li><em>Surrogate function</em>: MM requires the surrogate function to be a global upper bound (which can be difficult to derive and too restrictive in some cases), albeit not necessarily convex. On the other hand, SCA relaxes this upper-bound condition in exchange for the requirement of strong convexity. Figure <a href="B.8-SCA.html#fig:MMvsSCA">B.13</a> illustrates the potential benefit of relaxing the upper-bound requirement.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:MMvsSCA"></span>
 <img src="figures/algorithms/MMvsSCA.svg" alt="Illustration of MM vs. SCA: relaxing the upper-bound requirement." width="100%" />
 <p class="caption">
-Figure B.12: Illustration of MM vs. SCA: relaxing the upper-bound requirement.
+Figure B.13: Illustration of MM vs. SCA: relaxing the upper-bound requirement.
 </p>
 </div>
 <ul>
@@ -1133,42 +1136,44 @@ Sun, Y., Babu, P., and Palomar, D. P. (2017). Majorization–minimization algori
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

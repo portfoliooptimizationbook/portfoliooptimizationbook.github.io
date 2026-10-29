@@ -39,7 +39,181 @@ div.lined {
   margin: 0.5em 0 0.5em 0;
 }
 
+/* Chapter 1 fallback. bookdown's page splitter emits an extra </div> on the
+   last page of chapter 1, so its bibliography heading, its entries and its
+   footnotes land as siblings of div.page-inner instead of inside it. Give
+   those escaped elements the same column and typography as normal content. */
+.page-wrapper > h3,
+.page-wrapper > #refs,
+.page-wrapper > .footnotes {
+  box-sizing: border-box;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 15px;
+  background: #fff;
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+/* same typography as section.normal h3 (1.5em of the 1.6rem body size) */
+.page-wrapper > h3 {
+  margin-top: 1.275em;
+  margin-bottom: .85em;
+  font-size: 2.4rem;
+}
+/* the centering above cancels div.hanging-indent's margin-left, so restore
+   the hanging indent on the entries themselves */
+.page-wrapper > #refs .csl-entry {
+  margin-left: 1.5em;
+  text-indent: -1.5em;
+}
+
 div.plain_algorithm {
   border-bottom: 1px solid lightgrey;
   margin: 0.5em 0 0.5em 0;
+}
+
+/* Cover page: hero layout replicated from the book site's landing page
+   (portfoliooptimizationbook.com). The generated title block is replaced by
+   the hero, which carries the only visible H1; the edition date (May 1, 2025)
+   stays in the YAML metadata so it is still in the page head. */
+#header { display: none; }
+#section > h1.unlisted.unnumbered:empty { display: none; }
+
+.cover-page .hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 38px;
+  margin: 10px 0 34px;
+}
+
+.cover-page .hero-cover {
+  flex: 0 0 auto;
+  width: 212px;
+  max-width: 40%;
+  height: auto;
+  margin: 0;
+  border: 6px solid #fff;                 /* mat, as on the landing page */
+  outline: 1px solid #e4e7ec;             /* hairline over the mat        */
+  box-shadow: 0 1px 10px rgba(20, 35, 60, 0.07);
+}
+
+.cover-page .hero-text { flex: 1 1 auto; min-width: 0; }
+
+.cover-page h1.hero-title {
+  font-family: inherit;
+  font-size: 36px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1a1d23;
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+}
+
+.cover-page .hero-sub {
+  font-size: 21px;
+  line-height: 1.25;
+  color: #1a1d23;
+  margin-bottom: 20px;
+}
+
+.cover-page .hero-rule {
+  width: 88px;
+  height: 4px;
+  background: #8c1e2d;                    /* crimson accent */
+  margin-bottom: 18px;
+}
+
+.cover-page .hero-author {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1a1d23;
+  margin-bottom: 5px;
+}
+
+.cover-page .hero-pub,
+.cover-page .hero-site { font-size: 15px; color: #6a737d; }
+
+.cover-page .hero-pub { margin-bottom: 3px; }
+
+.cover-page .hero-updated {
+  font-size: 13px;
+  font-style: italic;
+  color: #8a8f98;
+  margin-top: 16px;
+}
+
+/* action pills */
+.cover-page .cover-actions {
+  padding-top: 22px;
+  border-top: 1px solid #e4e7ec;
+}
+
+/* pandoc wraps the run of anchors in a <p>; make that paragraph the flex row */
+.cover-page .cover-actions > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+/* gitbook's `section.normal a` rule is far more specific than these, so the
+   colours need !important (the book's own CSS otherwise wins) */
+.cover-page a.cover-pill {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #373d46 !important;
+  text-decoration: none;
+  padding: 9px 16px;
+  border: 1px solid #d5dae1;
+  border-radius: 8px;
+  background: #fff !important;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.cover-page a.cover-pill i { margin-right: 7px; opacity: 0.75; }
+
+.cover-page a.cover-pill:hover,
+.cover-page a.cover-pill:focus {
+  border-color: #1a6dc4;
+  color: #1a6dc4 !important;
+  background: #f7f9fc !important;
+  text-decoration: none;
+}
+
+.cover-page a.cover-pill-primary {
+  background: #1a6dc4 !important;
+  border-color: #1a6dc4;
+  color: #fff !important;
+}
+
+.cover-page a.cover-pill-primary i { opacity: 0.9; }
+
+.cover-page a.cover-pill-primary:hover,
+.cover-page a.cover-pill-primary:focus {
+  background: #173d5f !important;
+  border-color: #173d5f;
+  color: #fff !important;
+}
+
+@media (max-width: 700px) {
+  .cover-page .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    text-align: center;
+  }
+  .cover-page .hero-cover { width: 150px; max-width: 55%; }
+  .cover-page h1.hero-title { font-size: 28px; }
+  .cover-page .hero-sub { font-size: 19px; margin-bottom: 16px; }
+  .cover-page .hero-rule { margin: 0 auto 16px; }
+  .cover-page .hero-author { font-size: 17px; }
+  .cover-page .hero-pub,
+  .cover-page .hero-site { font-size: 14px; }
+  .cover-page .cover-actions { justify-content: center; }
 }

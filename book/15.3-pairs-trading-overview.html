@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>15.3 Pairs Trading | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="15.3 Pairs Trading | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="15.3 Pairs Trading | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="15.3 Pairs Trading | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="pairs-trading-overview" class="section level2 hasAnchor" number="15.3">
 <h2><span class="header-section-number">15.3</span> Pairs Trading<a href="15.3-pairs-trading-overview.html#pairs-trading-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
@@ -893,8 +896,8 @@ Figure 15.7: Illustration of pairs trading via thresholds on the spread.
 </p>
 </div>
 </div>
-<div id="prices-vs.-log-prices" class="section level3 hasAnchor" number="15.3.2">
-<h3><span class="header-section-number">15.3.2</span> Prices vs. Log-Prices<a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="prices-vs-log-prices" class="section level3 hasAnchor" number="15.3.2">
+<h3><span class="header-section-number">15.3.2</span> Prices vs. Log-Prices<a href="15.3-pairs-trading-overview.html#prices-vs-log-prices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pairs trading can be implemented in terms of prices or log-prices. This is determined by whether cointegration is exhibited by time series or prices or log-prices. The interpretation is slighly different as explained next.</p>
 <p>Suppose first that <span class="math inline">\(y_{1t}\)</span> and <span class="math inline">\(y_{2t}\)</span> represent the prices of the two assets that define the mean-reverting spread <span class="math inline">\(z_{t} = y_{1t} - \gamma \, y_{2t}\)</span>. In this case, the coefficients used in the spread (1 and <span class="math inline">\(\gamma\)</span>) represent number of shares (to be bought and sold) and the spread has a meaning of price value. Thus, the spread difference corresponds to the profit made during the <span class="math inline">\(k\)</span> periods (ignoring transaction costs):
 <span class="math display">\[
@@ -912,13 +915,13 @@ where <span class="math inline">\(\bm{y}_{t} = \begin{bmatrix} y_{1t}\\ y_{2t} \
 <span class="math display">\[
 \w^\T \left( \bm{y}_{t+k} - \bm{y}_{t} \right) = z_{t+k} - z_{t} = s_0.
 \]</span></p>
-<p>Note that this is an approximation because the return of the portfolio should be calculated using the linear returns, <span class="math inline">\(\w^\T \left( \textm{exp}(\bm{y}_{t+k} - \bm{y}_{t}) - \bm{1} \right)\)</span>, instead of the log-returns; nevertheless, these two quantities are approximately equal because <span class="math inline">\(\textm{exp}(x) - 1 \approx x\)</span> for small <span class="math inline">\(x\)</span> (see Chapter <a href="6-portfolio-101.html#portfolio-101">6</a> for details). Also, note that this portfolio has leverage <span class="math inline">\(1 + \gamma\)</span>, so in practice we may want to normalize it to unit leverage.</p>
+<p>Note that this is an approximation because the return of the portfolio should be calculated using the linear returns, <span class="math inline">\(\w^\T \left( \textm{exp}(\bm{y}_{t+k} - \bm{y}_{t}) - \bm{1} \right)\)</span>, instead of the log-returns; nevertheless, these two quantities are approximately equal because <span class="math inline">\(\textm{exp}(x) - 1 \approx x\)</span> for small <span class="math inline">\(x\)</span> (see Chapter <a href="6-portfolio-101.html#portfolio-101">6</a> for details). Also, note that this portfolio has leverage <span class="math inline">\(1 + \gamma\)</span>, so in practice we may want to normalize it to unit leverage. Moreover, when the hedge ratio is time-varying, as with the rolling least squares and Kalman filtering of Sections <a href="15.5-trading-spread.html#trading-spread">15.5</a> and <a href="15.6-kalman-pairs-trading.html#kalman-pairs-trading">15.6</a>, the spread is itself a function of time and its difference also captures the change in the weights, <span class="math inline">\(\bm{w}_{t}^\T\bm{y}_{t} - \bm{w}_{t-1}^\T\bm{y}_{t}\)</span>, which is not a trading profit; strictly, the P&amp;L over a period should be computed with the weights held during it, that is, those set with the information available at the beginning of the period (the lagged weights <span class="math inline">\(\bm{w}_{t-1}\)</span> if <span class="math inline">\(\bm{w}_{t}\)</span> is computed with data up to time <span class="math inline">\(t\)</span>). The numerical experiments with a time-varying hedge ratio compute the P&amp;L in this way.</p>
 <p>Summarizing, depending on whether the original cointegrated time series correspond to prices or log-prices, the threshold <span class="math inline">\(s_0\)</span> will determine the absolute profit or the return of the trade over these <span class="math inline">\(k\)</span> periods. The choice is dictated by the nature of the cointegration of the time series. It is important to remark that in the case of cointegrated log-prices, the portfolio <span class="math inline">\(\w\)</span> has a meaning of normalized dollars, which may require a rebalancing over time (increased transaction costs); for cointegrated prices, the number of shares naturally stays constant over time and does not require rebalancing. This makes cointegrated price series more attractive; unfortunately, in practice, it is more difficult to find cointegrated price series since the noise in prices is less symmetric than that in log-prices, making the potential spreads less stationary.</p>
 </div>
 <div id="is-pairs-trading-profitable" class="section level3 hasAnchor" number="15.3.3">
 <h3><span class="header-section-number">15.3.3</span> Is Pairs Trading Profitable?<a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is important to note that pairs trading relies on the assumption that the historical relationship between the two instruments will persist in the future. However, this is not always the case and cointegration between financial instruments can change over time due to various factors, such as market conditions, industry trends, or company-specific events. Therefore, pairs trading carries risks, and traders should carefully monitor the relationship between the instruments and use risk management techniques to protect their positions. Some publications show that pairs trading can provide profits <span class="citation">(<a href="#ref-AvellanedaLee2010">Avellaneda and Lee, 2010</a>; <a href="#ref-ElliottHoekMalcolm2005">Elliott et al., 2005</a>; <a href="#ref-GatevGoetzmannRouwenhorst2006">Gatev et al., 2006</a>)</span>, while others indicate that cointegration relationships may not be preserved over time <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>; <a href="#ref-Clegg2014">Clegg, 2014</a>)</span>.</p>
-<p>The positive results should always be taken with a grain of salt for a number of reasons: backtests may ignore transaction costs, which can exceed the profit made trading the spread <span class="citation">(<a href="#ref-Chan2008">Chan, 2008</a>)</span>; strategies may have yielded profits in the past while their effectiveness may have diminished in more recent times <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>)</span>; and the practical implementation entails certain technical difficulties, such as the potential lack of liquidity for short-selling, the danger of margin calls (being forced to liquidate positions during inopportune times), the need for higher-frequency trading due to the competition of other traders, and the decimalization of U.S. stock prices, which caused bid–ask spreads to dramatically narrow, affecting the spreads <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>)</span>. Nevertheless, the proper use of Kalman filtering (covered in Section <a href="15.6-kalman-pairs-trading.html#kalman-pairs-trading">15.6</a>) and VECM modeling (overviewed in Section <a href="15.7-statarb.html#statarb">15.7</a>) can help remedy many of the shortcomings.</p>
+<p>The positive results should always be taken with a grain of salt for a number of reasons: backtests may ignore transaction costs, which can exceed the profit made trading the spread <span class="citation">(<a href="#ref-Chan2008">Chan, 2008</a>)</span>; strategies may have yielded profits in the past while their effectiveness may have diminished in more recent times <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>)</span>; and the practical implementation entails certain technical difficulties, such as the potential lack of liquidity for short-selling, the danger of margin calls (being forced to liquidate positions during inopportune times), the need for higher-frequency trading due to the competition of other traders, and the decimalization of U.S. stock prices, which caused bid–ask spreads to dramatically narrow, affecting the spreads <span class="citation">(<a href="#ref-Chan2013">Chan, 2013</a>)</span>. Kalman filtering (covered in Section <a href="15.6-kalman-pairs-trading.html#kalman-pairs-trading">15.6</a>) and VECM modeling (overviewed in Section <a href="15.7-statarb.html#statarb">15.7</a>) can help with some of the modeling shortcomings, but not with those related to costs and implementation.</p>
 </div>
 <div id="design-of-pairs-trading" class="section level3 hasAnchor" number="15.3.4">
 <h3><span class="header-section-number">15.3.4</span> Design of Pairs Trading<a href="15.3-pairs-trading-overview.html#design-of-pairs-trading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -976,42 +979,44 @@ Vidyamurthy, G. (2004). <em>Pairs Trading: Quantitative Methods and Analysis</em
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

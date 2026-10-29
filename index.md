@@ -30,7 +30,7 @@ output:
 <div class="action-row">
 <span class="action-label">Read online</span>
 <div class="action-pills">
-<a class="pill pill-primary" href="portfolio-optimization-book.pdf"><i class="fas fa-file-pdf"></i>PDF</a>
+<a class="pill pill-primary" href="book/portfolio-optimization-book.pdf"><i class="fas fa-file-pdf"></i>PDF</a>
 <a class="pill" href="book/"><i class="fas fa-globe"></i>Online HTML</a>
 </div>
 </div>

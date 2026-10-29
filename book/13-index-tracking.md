@@ -249,7 +249,7 @@ In order to guarantee convergence of the iterates, the surrogate function $u\lef
 
 - _upper bound property_: $u\left(\bm{x};\bm{x}^k\right) \geq f\left(\bm{x}\right)$;
 - _touching property_: $u\left(\bm{x}^k;\bm{x}^k\right) = f\left(\bm{x}^k\right)$; and
-- _tangent property_: $u\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla u\left(\bm{x};\bm{x}^k\right) = \nabla f\left(\bm{x}\right)$.
+- _tangent property_: $u\left(\bm{x};\bm{x}^k\right)$ must be differentiable with $\nabla u\left(\bm{x}^k;\bm{x}^k\right) = \nabla f\left(\bm{x}^k\right)$, that is, the gradients of $u$ and $f$ must coincide at $\bm{x}^k$ (not at every $\bm{x}$).
 
 The surrogate function $u\left(\bm{x};\bm{x}^k\right)$ is also referred to as a _majorizer_ because it is an upper bound of the original function. The fact that, at each iteration, first the majorizer is constructed and then it is minimized gives the name _majorization--minimization_ to the method.
 

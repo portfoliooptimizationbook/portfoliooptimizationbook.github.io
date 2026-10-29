@@ -752,7 +752,7 @@ $$
 This leads to the mean--CVaR-DD formulation:
 $$
   \begin{array}{ll}
-  \underset{\w, \tau}{\textm{maximize}} & \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
+  \underset{\w, \tau}{\textm{maximize}} & \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau' \le t}{\textm{max}} \; \w^\T\bm{r}_{\tau'}^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
   \textm{subject to} & \w \in \mathcal{W},
   \end{array}
 $$
@@ -868,29 +868,6 @@ $$
 \textm{CVaR}_{\alpha} = \underset{\tau}{\textm{inf}} \left\{\tau + \frac{1}{1-\alpha}\E\left[(\xi-\tau)^+\right]\right\},
 $$
 where the optimal $\tau$ precisely equals $\textm{VaR}_{\alpha}$.
-<!---
-Solution:
-- The minimizer of $F_{\alpha}(\mathbf{w},\zeta)$ w.r.t. $\zeta$ satisfies: $0\in\partial_{\zeta}F_{\alpha}(\mathbf{w},\zeta^{\star})$. For example, we choose the following subgradient:
-$$\begin{aligned}
-0=s_{\zeta}F_{\alpha}(\mathbf{w},\zeta^{\star})	
- & =1-\frac{1}{1-\alpha}\int\mathbf{1}_{\left\{-\mathbf{w}^{T}\mathbf{r}>\zeta^{\star}\right\}}p(\mathbf{r})d\mathbf{r}\\
- & =1-\frac{1}{1-\alpha}P\left(-\mathbf{w}^{T}\mathbf{r}>\zeta^{\star}\right),
-\end{aligned}$$
-where $\mathbf{1}_{\{\cdot\}}$ is the indicator function.
-Solving the above equation, we have
-$$P\left(-\mathbf{w}^{T}\mathbf{r}>\zeta^{\star}\right)=1-\alpha \Longrightarrow \zeta^{\star}=\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r}).$$
-
-- First, we have
-$$\min_{\zeta}F_{\alpha}(\mathbf{w},\zeta)=F_{\alpha}(\mathbf{w},\zeta^{\star})	=\zeta^{\star}+\frac{1}{1-\alpha}\mathsf{E}[-\mathbf{w}^{T}\mathbf{r}-\zeta^{\star}]^{+}.$$
-Then, recall that	
-$$\begin{aligned}
-\mathsf{CVaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r}) 
- & = \mathsf{E}\left[-\mathbf{w}^{T}\mathbf{r}\big|-\mathbf{w}^{T}\mathbf{r}>\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r})\right]\\
- & = \frac{1}{1-\alpha}\int_{-\mathbf{w}^{T}\mathbf{r}>\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r})}\left(-\mathbf{w}^{T}\mathbf{r}\right)p(\mathbf{r})d\mathbf{r}\\
- & = \frac{1}{1-\alpha}\int\left[-\mathbf{w}^{T}\mathbf{r}-\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r})\right]^{+}p(\mathbf{r})d\mathbf{r}\\
- & \qquad +\mathsf{VaR}_{\alpha}(-\mathbf{w}^{T}\mathbf{r}).
-\end{aligned}$$
---->
 :::
 
 
@@ -922,24 +899,6 @@ $$
 $$
 
 Rewrite $\textm{LPM}_1$ in the form of $\textm{CVaR}_{\alpha}$ and the other way around. Hint: use $\xi_0=\textm{VaR}_{\alpha}$.
-<!---
-Solution:
-$$
-  \begin{aligned}
-  \textm{LPM}_1
-  &= \E\left[(\xi - \xi_0)^+ \right]\\
-  &= \E\left[(\xi - \xi_0) \times I\{\xi \ge \xi_0\} \right].
-  \end{aligned}
-$$
-$$
-  \begin{aligned}
-  \textm{CVaR}_{\alpha}
-    &= \E\left[\xi \mid \xi\geq\textm{VaR}_{\alpha}\right]\\
-    &= \frac{1}{1-\alpha}\E\left[\xi \times I\{\xi\geq\textm{VaR}_{\alpha}\}\right]\\
-    &= \textm{VaR}_{\alpha} + \frac{1}{1-\alpha}\E\left[(\xi - \textm{VaR}_{\alpha})^+ \times I\{\xi\geq\textm{VaR}_{\alpha}\}\right]
-  \end{aligned}
-$$
---->
 :::
 
 
@@ -954,39 +913,13 @@ for $t>0$, can be rewritten in terms of the exponential cone $\mathcal{K}_{\text
 $$
   \begin{aligned}
   t   & \ge u_1 + u_2,\\
-  (u_i, t, x_i - s) & \in \mathcal{K}_{\textm{exp}}, \qquad i=1,2,
+  (x_i - s, t, u_i) & \in \mathcal{K}_{\textm{exp}}, \qquad i=1,2,
   \end{aligned}
 $$
 where
 $$
 \mathcal{K}_{\textm{exp}} \triangleq \big\{(a,b,c) \mid c\geq b\,e^{a/b}, b>0\big\} \cup \big\{(a,b,c) \mid a\leq0, b=0, c\geq0\big\}.
 $$
-
-<!---
-Solution:
-$$
-  \begin{aligned}
-  s &\ge t\; \textm{log}\left( e^{x_1/t} + e^{x_2/t} \right)\\
-  e^{s/t} &\ge e^{x_1/t} + e^{x_2/t}\\
-  1 &\ge e^{(x_1-s)/t} + e^{(x_2-s)/t}\\
-  t &\ge te^{(x_1-s)/t} + te^{(x_2-s)/t}\\
-  \end{aligned}
-$$
-and then
-$$
-  \begin{aligned}
-  t   & \ge u_1 + u_2\\
-  u_i & \ge t e^{(x_i - s)/t}, \qquad i=1,2
-  \end{aligned}
-$$
-and, finally,
-$$
-  \begin{aligned}
-  t   & \ge u_1 + u_2\\
-  (x_i - s, t, u_i) & \in \mathcal{K}_{\textm{exp}}, \qquad i=1,2,
-  \end{aligned}
-$$
---->
 :::
 
 
@@ -1070,44 +1003,6 @@ $$
   \end{array}
 $$
 which is a linear program (assuming $\mathcal{W}$ only contains linear constraints).
-
-<!---
-SOLUTION:
-Writing the problem in epigraph form leads to
-$$
-  \begin{array}{ll}
-  \underset{\w, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to} 
-  & s \ge \underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum}, \qquad t=1,\dots,T\\
-  & \w \in \mathcal{W},
-  \end{array}
-$$
-and the remaining max operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \begin{array}{l} \w^\T\bmu - \lambda \, s \end{array}\\
-  \textm{subject to} &
-  \begin{array}[t]{ll}
-  s \ge u_t - \w^\T\bm{r}_t^\textm{cum}, & t=1,\dots,T\\
-  u_t \ge \w^\T\bm{r}_\tau^\textm{cum},  & t=1,\dots,T, \; \tau=1,\dots,t\\
-  \w \in \mathcal{W}.
-  \end{array}
-  \end{array}
-$$
-
-Observe that there is a number of $(T+1)T/2$ constraints of the form $u_t \ge \w^\T\bm{r}_\tau^\textm{cum}$. This can be reduced by including instead the constraint $u_t \ge u_{t-1}$:
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \begin{array}{l} \w^\T\bmu - \lambda \, s \end{array}\\
-  \textm{subject to}  &
-  \begin{array}[t]{ll}
-  \w^\T\bm{r}_\tau^\textm{cum} \le u_t \le s + \w^\T\bm{r}_t^\textm{cum}, & t=1,\dots,T\\
-  u_{t-1} \le u_t, & t=1,\dots,T\\
-  \w \in \mathcal{W}.
-  \end{array}
-  \end{array}
-$$
---->
 :::
 
 
@@ -1140,42 +1035,6 @@ $$
   \end{array}
 $$
 which is a linear program (assuming $\mathcal{W}$ only contains linear constraints).
-
-<!---
-Writing the problem in epigraph form leads to
-$$
-  \begin{array}{ll}
-  \underset{\w, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to} 
-  & \begin{aligned} s \ge \frac{1}{T}\sum_{t=1}^T \left\{\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum}\right\} \end{aligned}\\
-  & \w \in \mathcal{W},
-  \end{array}
-$$
-and the max operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to} 
-  & s \ge \frac{1}{T}\sum_{t=1}^T \left\{u_t - \w^\T\bm{r}_t^\textm{cum}\right\}\\
-  & u_t \ge \w^\T\bm{r}_\tau^\textm{cum},  \qquad t=1,\dots,T, \; \tau=1,\dots,t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-
-
-
-Observe that there is a number of $(T+1)T/2$ constraints of the form $u_t \ge \w^\T\bm{r}_\tau^\textm{cum}$. This can be reduced by including instead the constraint $u_t \ge u_{t-1}$ ($u_0\triangleq-\infty$):
-$$
-  \begin{array}{ll}
-  \underset{\w, \bm{u}, s}{\textm{maximize}} & \begin{array}{l} \w^\T\bmu - \lambda \, s \end{array}\\
-  \textm{subject to}  
-  & \frac{1}{T}\sum_{t=1}^T u_t \le \frac{1}{T}\sum_{t=1}^T\w^\T\bm{r}_t^\textm{cum} + s\\
-  & \w^\T\bm{r}_\tau^\textm{cum} \le u_t, \qquad t=1,\dots,T\\
-  & u_{t-1} \le u_t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
---->
 :::
 
 
@@ -1192,7 +1051,7 @@ $$
 where $D_t(\w)$ is the drawdown at time $t$. This leads to the problem formulation
 $$
   \begin{array}{ll}
-  \underset{\w, \tau}{\textm{maximize}} & \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
+  \underset{\w, \tau}{\textm{maximize}} & \begin{aligned} \w^\T\bmu - \lambda \left(\tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau' \le t}{\textm{max}} \; \w^\T\bm{r}_{\tau'}^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+\right) \end{aligned}\\
   \textm{subject to} & \w \in \mathcal{W}.
   \end{array}
 $$
@@ -1210,53 +1069,6 @@ $$
   \end{array}
 $$
 which is a linear program (assuming $\mathcal{W}$ only contains linear constraints).
-
-<!---
-Writing the problem in epigraph form leads to
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & \begin{aligned} s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T\left(\underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\right)^+ \end{aligned}\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-The $(\cdot)^+$ operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s, \bm{z}}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T z_t\\
-  & 0 \le z_t \ge \underset{1 \le \tau \le t}{\textm{max}} \; \w^\T\bm{r}_\tau^\textm{cum} - \w^\T\bm{r}_t^\textm{cum} - \tau\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-Finally, the max operator can be removed as
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s, \bm{z}, \bm{u}}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T z_t\\
-  & 0 \le z_t \ge u_t - \w^\T\bm{r}_t^\textm{cum} - \tau\\
-  & u_t \ge \w^\T\bm{r}_\tau^\textm{cum},  \qquad t=1,\dots,T, \; \tau=1,\dots,t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
-
-
-Observe that there is a number of $(T+1)T/2$ constraints of the form $u_t \ge \w^\T\bm{r}_\tau^\textm{cum}$. This can be reduced by including instead the constraint $u_t \ge u_{t-1}$ ($u_0\triangleq-\infty$):
-$$
-  \begin{array}{ll}
-  \underset{\w, \tau, s, \bm{z}, \bm{u}}{\textm{maximize}} & \w^\T\bmu - \lambda \, s\\
-  \textm{subject to}
-  & s \ge \tau + \frac{1}{1-\alpha}\frac{1}{T}\sum_{t=1}^T z_t\\
-  & 0 \le z_t \ge u_t - \w^\T\bm{r}_t^\textm{cum} - \tau, \qquad t=1,\dots,T\\
-  & \w^\T\bm{r}_\tau^\textm{cum} \le u_t\\
-  & u_{t-1} \le u_t\\
-  & \w \in \mathcal{W}.
-  \end{array}
-$$
---->
 :::
 
 

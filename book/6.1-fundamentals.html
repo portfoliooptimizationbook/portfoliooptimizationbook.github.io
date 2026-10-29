@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.1 Fundamentals | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="6.1 Fundamentals | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.1 Fundamentals | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6.1 Fundamentals | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="fundamentals" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Fundamentals<a href="6.1-fundamentals.html#fundamentals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="data-modeling" class="section level3 hasAnchor" number="6.1.1">
@@ -877,26 +880,20 @@ where the division is elementwise (with some abuse of notation), and the <em>log
 <p>We remark that the majority of financial data models refer to the log-returns and not to the linear returns; for example, the random walk model for the log-prices in Chapter <a href="3-iid-modeling.html#iid-modeling">3</a>. However, to compute the return of a portfolio, from which its performance can be derived, it is the linear returns of the assets that are needed. This seems to create an impasse: we prefer to model the log-returns but what is really needed is the model of the linear returns.</p>
 <p>In practice, since linear returns are very close to log-returns, <span class="math inline">\(\bm{r}^{\textm{lin}}_t \approx \bm{r}^{\textm{log}}_t\)</span>, for small values of the returns (see Chapter <a href="2-stylized-facts.html#stylized-facts">2</a>), most practitioners and academics simply use the following approximation and otherwise ignore the distinction between log- and linear returns:
 <span class="math display">\[
-\begin{aligned}
-\bmu^{\textm{lin}}_{t} &amp;\approx \bmu^{\textm{log}}_{t},\\
-\bSigma^{\textm{lin}}_{t} &amp;\approx \bSigma^{\textm{log}}_{t}.
-\end{aligned}
+\bmu^{\textm{lin}}_{t} \approx \bmu^{\textm{log}}_{t} \qquad \textm{and} \qquad \bSigma^{\textm{lin}}_{t} \approx \bSigma^{\textm{log}}_{t}.
 \]</span>
 Mathematically, using the relationship between log-returns and linear returns, <span class="math inline">\(\bm{r}^{\textm{log}}_t = \textm{log}\big(\bm{1} + \bm{r}^{\textm{lin}}_t\big)\)</span>, or, equivalently, <span class="math inline">\(\bm{r}^{\textm{lin}}_t = \textm{exp}\big(\bm{r}^{\textm{log}}_t\big) - \bm{1}\)</span>, it follows that the mean vector and covariance matrix of the linear returns can be obtained from those of the log-returns as
-<span class="math display">\[
-\begin{aligned}
-\bmu^{\textm{lin}}_{t} &amp;= \textm{exp}\left(\bmu^{\textm{log}}_t + \frac{1}{2}\textm{diag}\left(\bSigma^{\textm{log}}_t\right)\right) - \bm{1},\\
-\left[\bSigma^{\textm{lin}}_{t}\right]_{ij} &amp;= \left(\textm{exp}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ij}\right) - 1\right) \times\\
-&amp; \qquad\textm{exp}\left(\left[\bmu^{\textm{log}}_t\right]_i + \left[\bmu^{\textm{log}}_t\right]_j + \frac{1}{2}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ii} + \left[\bSigma^{\textm{log}}_{t}\right]_{jj}\right)\right).
-\end{aligned}
-\]</span>
-However, due to the inherent noise in the estimation of the mean and covariance matrix, it is not clear that these more mathematically exact approximations give a practical advantage.</p>
+<span class="math display" id="eq:lin-log-moments">\[\begin{equation}
+  \begin{aligned}
+  \bmu^{\textm{lin}}_{t} &amp;= \textm{exp}\left(\bmu^{\textm{log}}_t + \frac{1}{2}\textm{diag}\left(\bSigma^{\textm{log}}_t\right)\right) - \bm{1},\\
+  \left[\bSigma^{\textm{lin}}_{t}\right]_{ij} &amp;= \left(\textm{exp}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ij}\right) - 1\right) \textm{exp}\left(\left[\bmu^{\textm{log}}_t\right]_i + \left[\bmu^{\textm{log}}_t\right]_j + \frac{1}{2}\left(\left[\bSigma^{\textm{log}}_{t}\right]_{ii} + \left[\bSigma^{\textm{log}}_{t}\right]_{jj}\right)\right).
+  \end{aligned}
+  \tag{6.1}
+\end{equation}\]</span>
+However, due to the inherent noise in the estimation of the mean and covariance matrix, it is not clear that these more mathematically exact approximations in <a href="6.1-fundamentals.html#eq:lin-log-moments">(6.1)</a> give a practical advantage.</p>
 <p>For the sake of notation, in the rest of the chapter we will drop the time dependency of the first- and second-order moments. In fact, in many cases the adopted econometric model is the i.i.d. one (see Chapter <a href="3-iid-modeling.html#iid-modeling">3</a>), which assumes no time dependency. In addition, we will refer to the linear moments by default:
 <span class="math display">\[
-\begin{aligned}
-\bmu    &amp;= \bmu^{\textm{lin}}_{t},\\
-\bSigma &amp;= \bSigma^{\textm{lin}}_{t}.
-\end{aligned}
+\bmu = \bmu^{\textm{lin}}_{t} \qquad \textm{and} \qquad \bSigma = \bSigma^{\textm{lin}}_{t}.
 \]</span></p>
 </div>
 <div id="portfolio-NAV" class="section level3 hasAnchor" number="6.1.2">
@@ -905,7 +902,7 @@ However, due to the inherent noise in the estimation of the mean and covariance 
 <p>It is important to realize that if the unit amount is kept constant over time, <span class="math inline">\(\w_t^\textm{units}=\w^\textm{units}\)</span>, then the dollar amount will change as the prices of the assets change: <span class="math inline">\(\w^\textm{cap}_t = \w^\textm{units} \odot \bm{p}_t\)</span>.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> To be exact, the change in the portfolio is
 <span class="math display" id="eq:wt-evol">\[\begin{equation}
   \w^\textm{cap}_t = \w^\textm{cap}_{t-1} \odot \left(\bm{p}_t\oslash\bm{p}_{t-1}\right) = \w^\textm{cap}_{t-1} \odot \left(\bm{1} + \bm{r}^{\textm{lin}}_t\right),
-  \tag{6.1}
+  \tag{6.2}
 \end{equation}\]</span>
 while the cash remains constant, <span class="math inline">\(c^\textm{cap}_t = c^\textm{cap}_{t-1}\)</span>, unless there is some cash contribution or withdrawal (negative contribution), in which case it would have to be reflected as <span class="math inline">\(c^\textm{cap}_t = c^\textm{cap}_{t-1} + \textm{contribution}_{t-1}\)</span>. If a fixed dollar amount over time is desired, <span class="math inline">\(\w^\textm{cap}_t = \w^\textm{cap}\)</span>, then the portfolio has to be regularly <em>rebalanced</em>, that is, the components of <span class="math inline">\(\w^\textm{cap}_t\)</span> have to be adjusted (by buying or selling the assets) to bring them back to the originally designed positions, incurring in transaction costs. Figure <a href="6.1-fundamentals.html#fig:w-rebalancing">6.1</a> illustrates the change of the <span class="math inline">\(1/N\)</span> portfolio over time until a rebalance is executed.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:w-rebalancing"></span>
@@ -920,29 +917,29 @@ Figure 6.1: Evolution of the <span class="math inline">\(1/N\)</span> portfolio 
 The portfolio <em>net asset value</em> (NAV), commonly referred to as <em>wealth</em>, is defined as the value of the portfolio at the current market valuation including cash:
 <span class="math display" id="eq:def-NAV">\[\begin{equation}
   \textm{NAV}_t \triangleq \bm{1}^\T\w^\textm{cap}_t + c^\textm{cap}_t.
-  \tag{6.2}
+  \tag{6.3}
 \end{equation}\]</span>
-Plugging the portfolio time evolution <a href="6.1-fundamentals.html#eq:wt-evol">(6.1)</a> into <a href="6.1-fundamentals.html#eq:def-NAV">(6.2)</a> gives the NAV evolution
+Plugging the portfolio time evolution <a href="6.1-fundamentals.html#eq:wt-evol">(6.2)</a> into <a href="6.1-fundamentals.html#eq:def-NAV">(6.3)</a> gives the NAV evolution
 <span class="math display" id="eq:NAV-evolution">\[\begin{equation}
   \begin{aligned}[b]
   \textm{NAV}_t &amp;= \bm{1}^\T\w^\textm{cap}_t + c^\textm{cap}_t\\
   &amp;= \bm{1}^\T\left(\w^\textm{cap}_{t-1}  \odot \left(\bm{1} + \bm{r}^{\textm{lin}}_t\right)\right) + c^\textm{cap}_{t-1}\\
   &amp;= \textm{NAV}_{t-1} + \left(\w^{\textm{cap}}_{t-1}\right)^\T\bm{r}^{\textm{lin}}_t,
   \end{aligned}
-  \tag{6.3}
+  \tag{6.4}
 \end{equation}\]</span>
 which indicates that the change in NAV depends on the assets’ returns and the portfolio via the term <span class="math inline">\(\big(\w^{\textm{cap}}_{t-1}\big)^\T\bm{r}^{\textm{lin}}_t\)</span>.</p>
 <p>The <em>portfolio return</em> is then<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a>
 <span class="math display" id="eq:portfolio-return">\[\begin{equation}
   R^\textm{portf}_t \triangleq \frac{\textm{NAV}_t - \textm{NAV}_{t-1}}{\textm{NAV}_{t-1}} = \w_{t-1}^\T\bm{r}^{\textm{lin}}_t,
-  \tag{6.4}
+  \tag{6.5}
 \end{equation}\]</span>
 where
 <span class="math display" id="eq:normalized-portfolio">\[\begin{equation}
   \w_{t} = \w^\textm{cap}_{t}/\textm{NAV}_{t}
-  \tag{6.5}
+  \tag{6.6}
 \end{equation}\]</span>
-is the normalized portfolio with respect to the current NAV. In portfolio design or portfolio optimization, it is precisely the normalized version <span class="math inline">\(\w_{t}\)</span> that is obtained. The expression <span class="math inline">\(\w_{t-1}^\T\bm{r}^{\textm{lin}}_t\)</span> in <a href="6.1-fundamentals.html#eq:portfolio-return">(6.4)</a> explains what is commonly referred to as the <em>asset additivity property</em> of the linear returns (as opposed to the <em>time additivity property</em> of the log-returns). Figure <a href="6.1-fundamentals.html#fig:return-NAV">6.2</a> shows the return and NAV of a portfolio over time.</p>
+is the normalized portfolio with respect to the current NAV. In portfolio design or portfolio optimization, it is precisely the normalized version <span class="math inline">\(\w_{t}\)</span> that is obtained. The expression <span class="math inline">\(\w_{t-1}^\T\bm{r}^{\textm{lin}}_t\)</span> in <a href="6.1-fundamentals.html#eq:portfolio-return">(6.5)</a> explains what is commonly referred to as the <em>asset additivity property</em> of the linear returns (as opposed to the <em>time additivity property</em> of the log-returns). Figure <a href="6.1-fundamentals.html#fig:return-NAV">6.2</a> shows the return and NAV of a portfolio over time.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:return-NAV"></span>
 <img src="06-portfolio-101_files/figure-html/return-NAV-1.png" alt="Return and NAV of the $1/N$ portfolio over time." width="100%" />
 <p class="caption">
@@ -956,7 +953,7 @@ Figure 6.2: Return and NAV of the <span class="math inline">\(1/N\)</span> portf
 Figure 6.3: Portfolio notation over time periods.
 </p>
 </div>
-<p>The first- and second-order moments of the portfolio return are key quantities in portfolio optimization. For a given portfolio, the expected value and variance of the portfolio return in <a href="6.1-fundamentals.html#eq:portfolio-return">(6.4)</a> are given by
+<p>The first- and second-order moments of the portfolio return are key quantities in portfolio optimization. For a given portfolio, the expected value and variance of the portfolio return in <a href="6.1-fundamentals.html#eq:portfolio-return">(6.5)</a> are given by
 <span class="math display">\[
 \begin{aligned}
 \E\left[R^\textm{portf}_t\right] &amp;= \w_{t-1}^\T\bmu,\\
@@ -972,23 +969,23 @@ The portfolio return at each given time <span class="math inline">\(t\)</span> i
 <p>Essentially, the cumulative return is equivalent to the NAV (or wealth), except that it is normalized and the initial NAV (or budget) is subtracted as <span class="math inline">\(\textm{NAV}_t/\textm{NAV}_0 - 1\)</span> (also, it does not account for contributions or redemptions related to the strategy). A plot of the cumulative return over time should start at zero, whereas a plot of the NAV or portfolio wealth starts at 1 (assuming it is normalized).</p>
 <p>It is important to note that the cumulative return and NAV not only depend on the portfolio design at each period but also on the budget invested at each period (while some of the budget may remain as cash reserves). The amount of capital invested is often called <em>position size</em>. We now consider two extreme cases: full reinvesting and constant reinvesting.</p>
 <ul>
-<li><p><em>Full reinvesting</em>: Suppose we design a normalized portfolio <span class="math inline">\(\w_t\)</span> and we fully reinvest the current NAV: <span class="math inline">\(\w^\textm{cap}_t = \textm{NAV}_{t}\times\w_t\)</span>. Then, the NAV evolution in <a href="6.1-fundamentals.html#eq:NAV-evolution">(6.3)</a> leads to
+<li><p><em>Full reinvesting</em>: Suppose we design a normalized portfolio <span class="math inline">\(\w_t\)</span> and we fully reinvest the current NAV: <span class="math inline">\(\w^\textm{cap}_t = \textm{NAV}_{t}\times\w_t\)</span>. Then, the NAV evolution in <a href="6.1-fundamentals.html#eq:NAV-evolution">(6.4)</a> leads to
 <span class="math display">\[
 \textm{NAV}_t = \textm{NAV}_{t-1} + \textm{NAV}_{t-1}\times\w_{t-1}^\T\bm{r}^{\textm{lin}}_t = \textm{NAV}_{t-1} \times \left(1 + R^\textm{portf}_t\right),
 \]</span>
 which corresponds to a <em>geometric growth</em>:
 <span class="math display" id="eq:NAV-geometric">\[\begin{equation}
 \textm{NAV}_t = \textm{NAV}_{0} \times \left(1 + R^\textm{portf}_1\right) \times \left(1 + R^\textm{portf}_2\right) \times \dots \times    \left(1 + R^\textm{portf}_t\right).
-\tag{6.6}
+\tag{6.7}
 \end{equation}\]</span></p></li>
-<li><p><em>Constant reinvesting</em>: Now, suppose we design the same normalized portfolio <span class="math inline">\(\w_t\)</span> but we keep reinvesting the same initial NAV: <span class="math inline">\(\w^\textm{cap}_t = \textm{NAV}_{0}\times\w_t\)</span>. Then, the NAV evolution in <a href="6.1-fundamentals.html#eq:NAV-evolution">(6.3)</a> leads to
+<li><p><em>Constant reinvesting</em>: Now, suppose we design the same normalized portfolio <span class="math inline">\(\w_t\)</span> but we keep reinvesting the same initial NAV: <span class="math inline">\(\w^\textm{cap}_t = \textm{NAV}_{0}\times\w_t\)</span>. Then, the NAV evolution in <a href="6.1-fundamentals.html#eq:NAV-evolution">(6.4)</a> leads to
 <span class="math display">\[
 \textm{NAV}_t = \textm{NAV}_{t-1} + \textm{NAV}_{0}\times\w_{t-1}^\T\bm{r}^{\textm{lin}}_t = \textm{NAV}_{t-1} + \textm{NAV}_{0}\times R^\textm{portf}_t,
 \]</span>
 which corresponds to an <em>arithmetic growth</em>:
 <span class="math display" id="eq:NAV-arithmetic">\[\begin{equation}
 \textm{NAV}_t = \textm{NAV}_{0} \times \left(1 + R^\textm{portf}_1 + R^\textm{portf}_2 + \dots + R^\textm{portf}_t\right).
-\tag{6.7}
+\tag{6.8}
 \end{equation}\]</span></p></li>
 </ul>
 <p>Figure <a href="6.1-fundamentals.html#fig:NAV-arithmetic-vs-geometric">6.4</a> illustrates the difference between arithmetic and geometric cumulative returns: the shape of the curves is similar except that the swings are bigger for the geometric case. As previously mentioned, these curves start at 1, so strictly speaking they refer to the normalized NAV or wealth, while the cumulative returns should be shifted down to 0. This abuse of notation is understood in the financial context and no further comment or distinction will be made.</p>
@@ -1004,7 +1001,7 @@ Figure 6.4: Comparison of arithmetic and geometric cumulative returns.
 <p>
 </p>
 <p>Every financial trade has an associated cost, called the <em>transaction cost</em>, that will diminish the overall return of the investment. Transaction costs consists of two terms: <em>commission fee</em> and <em>slippage</em>. The commission fee is the payment we make to our broker for completing the transaction. There is no universal scheme for commission fees: it depends on the country and the specific broker. For example, the U.S. in general has lower commission fees than European and Asian countries. Slippage refers to the difference between the expected price of a trade and the price at which the trade is actually executed. It does not directly refer to a negative or positive movement, as any change between the expected and actual prices can qualify. In general, liquid<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> assets have smaller slippage than illiquid assets.</p>
-<p>Suppose the current portfolio <span class="math inline">\(\w^\textm{cap}_t\)</span> is rebalanced to <span class="math inline">\(\w^{\textm{cap},\textm{reb}}_t\)</span>. Then the portfolio NAV will decrease by the transaction cost, denoted by <span class="math inline">\(\phi\big(\w^\textm{cap}_t \rightarrow \w^{\textm{cap},\textm{reb}}_t\big)\)</span>. The notation details of the NAV computation may differ depending on whether the transaction cost is accounted after the price change or before. Calculating the NAV after the rebalancing and the price change, equation <a href="6.1-fundamentals.html#eq:wt-evol">(6.1)</a> is modified to
+<p>Suppose the current portfolio <span class="math inline">\(\w^\textm{cap}_t\)</span> is rebalanced to <span class="math inline">\(\w^{\textm{cap},\textm{reb}}_t\)</span>. Then the portfolio NAV will decrease by the transaction cost, denoted by <span class="math inline">\(\phi\big(\w^\textm{cap}_t \rightarrow \w^{\textm{cap},\textm{reb}}_t\big)\)</span>. The notation details of the NAV computation may differ depending on whether the transaction cost is accounted after the price change or before. Calculating the NAV after the rebalancing and the price change, equation <a href="6.1-fundamentals.html#eq:wt-evol">(6.2)</a> is modified to
 <span class="math display">\[
 \begin{aligned}
 \textm{NAV}_t
@@ -1068,15 +1065,15 @@ Since rebalancing a portfolio entails transaction costs, there is a fundamental 
 Figure 6.6: Portfolio notation over time periods with rebalancing.
 </p>
 </div>
-<p>According to this notation, the change from <span class="math inline">\(\w^\textm{bop}_{t}\)</span> to <span class="math inline">\(\w^\textm{eop}_{t}\)</span> is due to the price change as in <a href="6.1-fundamentals.html#eq:wt-evol">(6.1)</a>,
+<p>According to this notation, the change from <span class="math inline">\(\w^\textm{bop}_{t}\)</span> to <span class="math inline">\(\w^\textm{eop}_{t}\)</span> is due to the price change as in <a href="6.1-fundamentals.html#eq:wt-evol">(6.2)</a>,
 <span class="math display">\[
 \w^\textm{eop}_{t} = \w^\textm{bop}_{t} \odot \left(\bm{1} + \bm{r}^{\textm{lin}}_t\right),
 \]</span>
 and the change from <span class="math inline">\(\w^\textm{eop}_{t}\)</span> to <span class="math inline">\(\w^\textm{bop}_{t+1}\)</span> is due to the rebalancing which incurs a transaction cost (if there is no rebalancing, then simply <span class="math inline">\(\w^\textm{bop}_{t+1}=\w^\textm{eop}_{t}\)</span>). For example, suppose that we rebalance a fixed portfolio <span class="math inline">\(\w\)</span> at each period <span class="math inline">\(t\)</span> and ignore the transaction cost; then, the portfolio after rebalancing is <span class="math inline">\(\w^\textm{bop}_{t}=\w\)</span>, after the prices change it becomes
-<span class="math inline">\(\w^\textm{eop}_{t} = \w^\textm{bop}_{t} \odot \left(\bm{1} + \bm{r}^{\textm{lin}}_t\right)\)</span>, and the portfolio return from <a href="6.1-fundamentals.html#eq:portfolio-return">(6.4)</a> is
+<span class="math inline">\(\w^\textm{eop}_{t} = \w^\textm{bop}_{t} \odot \left(\bm{1} + \bm{r}^{\textm{lin}}_t\right)\)</span>, and the portfolio return from <a href="6.1-fundamentals.html#eq:portfolio-return">(6.5)</a> is
 <span class="math display" id="eq:fixed-portfolio-return">\[\begin{equation}
   R^\textm{portf}_t = \w^\T\bm{r}^{\textm{lin}}_t.
-  \tag{6.8}
+  \tag{6.9}
 \end{equation}\]</span></p>
 <p>Figure <a href="6.1-fundamentals.html#fig:PnL-rebalancing-schemes">6.7</a> illustrates the effect of different reoptimization and rebalancing schemes with transaction costs of 20 bps (rebalancing refers to executing the desired portfolio in the market, whereas reoptimization refers to collecting new data, estimating the mean and covariance matrix, and solving an optimization problem to design a new portfolio).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:PnL-rebalancing-schemes"></span>
@@ -1101,7 +1098,7 @@ Scherer, B. (2002). Portfolio resampling: Review and critique. <em>Financial Ana
 <ol start="27">
 <li id="fn27"><p>The term “dollar” is an abuse of terminology and it can, of course, refer to any currency, such as the Euro, or even a cryptocurrency, such as Bitcoin.<a href="6.1-fundamentals.html#fnref27" class="footnote-back">↩︎</a></p></li>
 <li id="fn28"><p>For convenience of notation, we denote the elementwise product between vectors by <span class="math inline">\(\odot\)</span> and elementwise division by <span class="math inline">\(\oslash\)</span>.<a href="6.1-fundamentals.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>Note that if there have been cash constributions, they have to be removed in the computation of the portfolio return: <span class="math inline">\(R^\textm{portf}_t \triangleq (\textm{NAV}_t - \textm{NAV}_{t-1} - \textm{contribution}_{t-1})/\textm{NAV}_{t-1} = \w_{t-1}^\T\bm{r}^{\textm{lin}}_t\)</span>.<a href="6.1-fundamentals.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>Note that if there have been cash constributions, they have to be removed in the computation of the portfolio return: <span class="math inline">\(R^\textm{portf}_t \triangleq (\textm{NAV}_t - \textm{NAV}_{t-1}  - \textm{contribution}_{t-1})/\textm{NAV}_{t-1} = \w_{t-1}^\T\bm{r}^{\textm{lin}}_t\)</span>.<a href="6.1-fundamentals.html#fnref29" class="footnote-back">↩︎</a></p></li>
 <li id="fn30"><p>It could be argued that it might be possible to execute the portfolio instantaneously after observing the data at time <span class="math inline">\(t-1\)</span>, although that would imply an instantaneous (or sufficiently fast) forecast, portfolio design, and market execution.<a href="6.1-fundamentals.html#fnref30" class="footnote-back">↩︎</a></p></li>
 <li id="fn31"><p>Liquidity refers to the efficiency or ease with which an asset or security can be converted into ready cash without affecting its market price. The most liquid asset of all is cash itself.<a href="6.1-fundamentals.html#fnref31" class="footnote-back">↩︎</a></p></li>
 <li id="fn32"><p>Basis points, denoted by bps, represents a factor of <span class="math inline">\(10^{-4}\)</span>. For example, 16 bps means 0.0016 or 0.16%.<a href="6.1-fundamentals.html#fnref32" class="footnote-back">↩︎</a></p></li>
@@ -1128,42 +1125,44 @@ Scherer, B. (2002). Portfolio resampling: Review and critique. <em>Financial Ana
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.6 Block Coordinate Descent (BCD) | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="B.6 Block Coordinate Descent (BCD) | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.6 Block Coordinate Descent (BCD) | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="B.6 Block Coordinate Descent (BCD) | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="BCD" class="section level2 hasAnchor" number="18.6">
 <h2><span class="header-section-number">B.6</span> Block Coordinate Descent (BCD)<a href="B.6-BCD.html#BCD" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <em>block coordinate descent</em> (BCD) method, also known as the <em>Gauss–Seidel</em> or <em>alternate minimization</em> method, solves a difficult optimization problem by instead solving a sequence of simpler subproblems. We now give a brief description; for details, the reader is referred to the textbooks <span class="citation">Bertsekas (<a href="#ref-Bertsekas1999">1999</a>)</span>, <span class="citation">Bertsekas and Tsitsiklis (<a href="#ref-BertsekasTsitsiklis1997">1997</a>)</span>, and <span class="citation">Beck (<a href="#ref-Beck2017">2017</a>)</span>.</p>
@@ -966,11 +969,11 @@ where <span class="math inline">\(\mathcal{S}_\lambda(\cdot)\)</span> is the so-
   \mathcal{S}_\lambda(u) = \textm{sign}(u)(|u| - \lambda)^+
   \tag{B.11}
 \end{equation}\]</span>
-and shown in Figure <a href="B.6-BCD.html#fig:soft-thresholding">B.4</a>.</p>
+and shown in Figure <a href="B.6-BCD.html#fig:soft-thresholding">B.5</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:soft-thresholding"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/soft-thresholding-1.png" alt="Soft-thresholding operator." width="80%" />
 <p class="caption">
-Figure B.4: Soft-thresholding operator.
+Figure B.5: Soft-thresholding operator.
 </p>
 </div>
 <p>One useful property of the soft-thresholding operator is the scaling property,
@@ -1002,12 +1005,12 @@ where <span class="math inline">\(\bm{\tilde{b}}_i^k \triangleq \bm{b} - \sum_{j
 <span class="math display">\[
 x_i^{k+1} = \frac{1}{\|\bm{a}_i\|_2^2} \mathcal{S}_\lambda\left(\bm{a}_i^\T\bm{\tilde{b}}_i^k\right), \qquad i=1,\dots,n,
 \]</span>
-where <span class="math inline">\(\mathcal{S}_{\lambda}(\cdot)\)</span> is the soft-thresholding operator defined in <a href="B.6-BCD.html#eq:soft-thresholding">(B.11)</a>. Figure <a href="B.6-BCD.html#fig:BCD-l2-l1-minimiz">B.5</a> shows the convergence of the BCD iterates.</p>
+where <span class="math inline">\(\mathcal{S}_{\lambda}(\cdot)\)</span> is the soft-thresholding operator defined in <a href="B.6-BCD.html#eq:soft-thresholding">(B.11)</a>. Figure <a href="B.6-BCD.html#fig:BCD-l2-l1-minimiz">B.6</a> shows the convergence of the BCD iterates.</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:BCD-l2-l1-minimiz"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/BCD-l2-l1-minimiz-1.png" alt="Convergence of BCD for the \(\ell_2\)–\(\ell_1\)-norm minimization." width="70%" />
 <p class="caption">
-Figure B.5: Convergence of BCD for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
+Figure B.6: Convergence of BCD for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
 </p>
 </div>
 </div>
@@ -1051,42 +1054,44 @@ Zibulevsky, M., and Elad, M. (2010). <span>L1</span>–<span>L2</span> optimizat
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

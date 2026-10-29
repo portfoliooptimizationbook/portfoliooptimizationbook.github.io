@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10.4 Tail-Based Portfolios | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="10.4 Tail-Based Portfolios | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10.4 Tail-Based Portfolios | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="10.4 Tail-Based Portfolios | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="tail-based-portfolios" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> Tail-Based Portfolios<a href="10.4-tail-based-portfolios.html#tail-based-portfolios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will now focus on CVaR and EVaR portfolios (and the limiting case of the worst-case portfolio) since they can be conveniently formulated as convex problems.</p>
@@ -947,7 +950,7 @@ which is a convex problem (assuming that the set <span class="math inline">\(\ma
 <li><p>via a tailored interior-point method for convex problems <span class="citation">(<a href="#ref-AhmadiJavidFallahTafti2019">Ahmadi-Javid and Fallah-Tafti, 2019</a>)</span>;</p></li>
 <li><p>via a convex modeling framework that can recognize the convexity of the log-sum-exp function and then performing bisection over <span class="math inline">\(t\)</span><!--- or, even better, by a convex optimization over $t$--->;</p></li>
 <li><p>via a convex modeling framework that can recognize both the convexity of the log-sum-exp function and the convexity-preserving property of the perspective operator;</p></li>
-<li><p>via a convex reformulation in terms of the <em>exponential cone</em> <span class="math inline">\(\mathcal{K}_{\textm{exp}}\)</span> <span class="citation">(<a href="#ref-Chares2007">Chares, 2007</a>)</span>,<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> which some solvers and modeling frameworks can recognize <span class="citation">(<a href="#ref-Cajas2021-EVaR">Dany Cajas, 2021a</a>)</span>:<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a>
+<li><p>via a convex reformulation in terms of the <em>exponential cone</em> <span class="math inline">\(\mathcal{K}_{\textm{exp}}\)</span> <span class="citation">(<a href="#ref-Chares2007">Chares, 2007</a>)</span>,<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> which some solvers and modeling frameworks can recognize <span class="citation">(<a href="#ref-Cajas2021-EVaR">Cajas, 2021a</a>)</span>:<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a>
 <span class="math display">\[
 \begin{array}{ll}
 \underset{\w, t&gt;0, s, \bm{u}}{\textm{maximize}} &amp; \w^\T\bmu - \lambda
@@ -1010,7 +1013,7 @@ Figure 10.6: Backtest performance of CVaR and EVaR portfolios.
 Ahmadi-Javid, A., and Fallah-Tafti, M. (2019). Portfolio optimization with entropic value-at-risk. <em>European Journal of Operational Research</em>, <em>279</em>(1), 225–241.
 </div>
 <div id="ref-Cajas2021-EVaR" class="csl-entry">
-Cajas, Dany. (2021a). <a href="https://dx.doi.org/10.2139/ssrn.3792520">Entropic portfolio optimization: A disciplined convex programming framework</a>. <em>SSRN Electronic Journal</em>.
+Cajas, D. (2021a). <a href="https://dx.doi.org/10.2139/ssrn.3792520">Entropic portfolio optimization: A disciplined convex programming framework</a>. <em>SSRN Electronic Journal</em>.
 </div>
 <div id="ref-Chares2007" class="csl-entry">
 Chares, R. (2007). <em>Cones and Interior-Point Algorithms for Structured Convex Optimization Involving Powers and Exponentials</em> (PhD thesis). Université Catholique de Louvain; École Polytechnique de Louvain.
@@ -1068,42 +1071,44 @@ for <span class="math inline">\(t&gt;0\)</span>, can be rewritten in terms of th
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -118,7 +118,7 @@ $\alpha = \frac{1}{N^2}\bm{1}^\T\bSigma\bm{1}$ or $\beta = \frac{1}{N}\bm{1}^\T\
 
 Problem \@ref(eq:MVP-mean-const) is still a QP that can be solved efficiently with a QP solver; however, problem \@ref(eq:MVP-var-const) is a quadratically-constrained QP (QCQP) which typically requires a higher complexity either by using a QCQP solver or an SOCP solver (see Section\ \@ref(solvers) for details).
 
-Commonly used programming languages in finance offer packages specifically designed to optimize portfolios under a wide variety of formulations and constraints, such as the popular R package [`fPortfolio`](https://cran.r-project.org/package=fPortfolio) [@fPortfolio] and the Python library [`Riskfolio-Lib`](https://riskfolio-lib.readthedocs.io) [@RiskfolioLib]. \index{R packages!fPortfolio} \index{Python packages!Riskfolio-Lib}
+Commonly used programming languages in finance offer packages specifically designed to optimize portfolios under a wide variety of formulations and constraints, such as the popular R package [`fPortfolio`](https://cran.r-project.org/package=fPortfolio) [@fPortfolio] and the Python libraries [`skfolio`](https://skfolio.org) [@NicoliniManziDelatte2025; @DelatteNicoliniManzi2026], [`Riskfolio-Lib`](https://riskfolio-lib.readthedocs.io) [@RiskfolioLib], and [`PyPortfolioOpt`](https://pyportfolioopt.readthedocs.io) [@PyPortfolioOpt_JOSS2021]. \index{R packages!fPortfolio} \index{Python packages!skfolio} \index{Python packages!Riskfolio-Lib} \index{Python packages!PyPortfolioOpt}
 
 
 Figure\ \@ref(fig:w-MVP-lmd) shows the portfolio allocation of the MVP in \@ref(eq:MVP) for different values of $\lambda$, from which we can see the critical effect of the hyper-parameter in the final allocation. Figure\ \@ref(fig:PnL-drawdown-MVP-lmd) and Table\ \@ref(tab:performance-MVP-lmd) show the corresponding backtest results, indicating that smaller values of $\lambda$ suffer from a worse Sharpe ratio and a much severe drawdown than the largest ones.
@@ -391,6 +391,7 @@ where $r_\textm{f}$ is the return of the risk-free asset.
 
 This problem is not convex, but it belongs to the class of _fractional programs_ (FPs) for which many solving methods are available, namely, the bisection, Dinkelbach, and Schaible transform methods as described next (see Section\ \@ref(taxonomy-convex-problems) in Appendix\ \@ref(convex-optimization) for a description of FPs and Section\ \@ref(methods-FP) in Appendix\ \@ref(optimization-algorithms) for more details on the algorithms).
 
+More specifically, the numerator $\w^\T\bmu-r_\textm{f}$ is affine and hence concave, while the denominator $\sqrt{\w^\T\bSigma\w}=\|\bSigma^{1/2}\w\|_2$ is a norm and hence convex (and positive on the feasible set). Formulation \@ref(eq:MSRP) is therefore a _concave--convex FP_.
 
 ### Bisection Method
 Concave--convex FP can be conveniently solved via a sequence of convex feasibility problems, termed the bisection method (see Section\ \@ref(convex-optimization-problem) for details). For problem \@ref(eq:MSRP), the sequence of convex feasibility problems are of the form
@@ -1242,7 +1243,7 @@ $$
   & \bm{1}^\T\w=1, \quad \w\ge\bm{0};
   \end{array}
 $$
-    + the expected return-constrained scalarized form:
+    + the expected return-constrained form:
 $$
   \begin{array}{ll}
   \underset{\w}{\textm{minimize}} & \w^\T\bSigma\w\\

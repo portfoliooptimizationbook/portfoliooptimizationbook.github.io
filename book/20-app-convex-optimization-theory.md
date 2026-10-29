@@ -568,54 +568,6 @@ $$
 --->
 
 
-<!---
-Generalized Inequalities
-
-- A convex cone $K\subseteq\bm{R}^{n}$ is a _proper cone_ if it is closed, solid, and pointed.
-
-- Examples:
-
-    + nonnegative orthant: 
-$$
-K=\bm{R}_{+}^{n}=\left\{ x\in\bm{R}^{n}\mid x_{i}\geq0,\;i=1,\ldots,n\right\} 
-$$
-
-    + positive semidefinite cone: 
-$$
-K=\bm{S}_{+}^{n}=\left\{ X\in\bm{R}^{n\times n}\mid X=X^{T}\succeq0\right\} 
-$$
-
-    + nonnegative polynomials on $\left[0,1\right]$: 
-$$
-K=\left\{ x\in\bm{R}^{n}\mid x_{1}+x_{2}t+x_{3}t^{2}+\cdots x_{n}t^{n-1}\geq0\textm{ for }t\in\left[0,1\right]\right\}.
-$$
-
-- A _generalized inequality_ is defined by a proper cone $K$:
-$$
-y\succeq_{K}x\Longleftrightarrow y-x\succeq_{K}0\textm{ or }y-x\in K.
-$$
-
-- Examples:
-
-    + componentwise inequality ($K=\bm{R}_{+}^{n}$):
-$$
-y\succeq_{\bm{R}_{+}^{n}}x\Longleftrightarrow y_{i}\geq x_{i},\;i=1,\ldots,n
-$$
-
-    + matrix inequality ($K=\bm{S}_{+}^{n}$):
-$$
-Y\succeq_{\bm{S}_{+}^{n}}X\Longleftrightarrow Y-X\;\textm{is positive semidefinite}.
-$$
---->
-
-
-
-
-
-
-
-
-
 
 ## Convex Functions {#convex-functions}
 \index{optimization!convex functions}
@@ -2794,7 +2746,7 @@ The reader interested in more details is referred to Chapter\ 2 in @BoydVandenbe
 
 ### Generalized Inequalities
 \index{optimization!generalized inequalities}
-A cone was defined in Section\ \@ref(convex-sets) as a set $\mathcal{K}\in\R^n$ such that for every $\bm{x} \in \mathcal{K}$ and $\theta \ge 0$ we have $\theta \bm{x} \in \mathcal{K}$. A cone $\mathcal{K}$ is called a _proper cone_ if it is convex, closed, solid (i.e., has a nonempty interior), and pointed (i.e., it contains no line).
+A cone was defined in Section\ \@ref(convex-sets) as a set $\mathcal{K}\subseteq\R^n$ such that for every $\bm{x} \in \mathcal{K}$ and $\theta \ge 0$ we have $\theta \bm{x} \in \mathcal{K}$. A cone $\mathcal{K}$ is called a _proper cone_ if it is convex, closed, solid (i.e., has a nonempty interior), and pointed (i.e., it contains no line).
 
 A proper cone $\mathcal{K}$ can be used to define a _generalized inequality_, which is a partial ordering on $\R^{n}$ that has many of the properties of the standard ordering on $\R$:
 $$
@@ -2803,7 +2755,7 @@ $$
 We also write $\bm{x} \preceq_{\mathcal{K}} \bm{y}$ as $\bm{y} \succeq_{\mathcal{K}} \bm{x}$.
 
 ::: {.example name="Nonnegative orthant and componentwise inequality"}
-The nonnegative orthant $\mathcal{K}=\R_+^n$ is a proper cone and its associated generalized inequality $\preceq_{\mathcal{K}}$ corresponds to the componentwise inequality between vectors: $\bm{x} \preceq_{\mathcal{K}} \bm{y}$ means $x_i \leq y_i,\;i=1,\dots,m$.
+The nonnegative orthant $\mathcal{K}=\R_+^n$ is a proper cone and its associated generalized inequality $\preceq_{\mathcal{K}}$ corresponds to the componentwise inequality between vectors: $\bm{x} \preceq_{\mathcal{K}} \bm{y}$ means $x_i \leq y_i,\;i=1,\dots,n$.
 :::
 
 ::: {.example name="Positive semidefinite cone and matrix inequality"}
@@ -2920,17 +2872,13 @@ _Scalarization_ is a standard technique for finding Pareto optimal points for a 
   \end{array}
   (\#eq:scalarized-problem)
 \end{equation}
-where the $\lambda_i$'s are the weights associated to the objectives and must satisfy $\lambda_i\ge0$.
+where the $\lambda_i$'s are the weights associated to the objectives and, to guarantee Pareto optimality, must satisfy $\lambda_i>0$ (equivalently, $\bm{\lambda}>\bm{0}$).
 
-An optimal point of the scalarized problem is Pareto optimal for the multi-objective optimization problem. By choosing different values for the weights we can obtain different Pareto optimal solutions for the multi-objective optimization problem. However, there may be some Pareto optimal points that cannot be obtained via scalarization. 
+An optimal point of the scalarized problem is then Pareto optimal for the multi-objective optimization problem.[^detail-scalarization] If some weights are allowed to be zero, an optimal point is only guaranteed to be _weakly_ Pareto optimal (meaning that no feasible point strictly improves all objectives simultaneously), unless it is the unique optimal point of the scalarized problem. By choosing different strictly positive weights, we can obtain different Pareto optimal solutions for the multi-objective optimization problem. However, there may be some Pareto optimal points that cannot be obtained via scalarization.
 
-For convex multi-objective optimization problems, the scalarized problem is also convex and yields all Pareto optimal points for different weights. That is, for every Pareto optimal point, there are some weights such that it is optimal in the scalarized problem.
+For convex multi-objective optimization problems, the scalarized problem is also convex. Moreover, for every Pareto optimal point, there are weights $\bm{\lambda}\ge\bm{0}$, $\bm{\lambda}\ne\bm{0}$, such that it is optimal in the scalarized problem. In this converse statement, some weights may need to be zero (for example, at the endpoints of the trade-off curve), so requiring $\bm{\lambda}>\bm{0}$ would be too strong.
 
-<!---
-[^detail-scalarization]
-
-[^detail-scalarization]: The scalarized problem for $\bm{\lambda}>\bm{0}$ gives Pareto optimal points of the multi-objective optimization problem; however, if we allow $\bm{\lambda}\ge\bm{0}$ with might obtain points that are not Pareto optimal. This is not surprising becase if some $\lambda_i=0$ then the $i$th objective is not even being considered in the scalarized problem so there is no reason to expect that the obtained solution will be Pareto optimal in the original formulation.
---->
+[^detail-scalarization]: To see why strictly positive weights guarantee Pareto optimality, suppose that a feasible point $\bm{y}$ dominates an optimal point $\bm{x}^\star$ of the scalarized problem. Then $F_i(\bm{y})\le F_i(\bm{x}^\star)$ for every $i$, with strict inequality for some $j$. If $\bm{\lambda}>\bm{0}$, it follows that $\sum_i\lambda_i F_i(\bm{y})<\sum_i\lambda_i F_i(\bm{x}^\star)$, contradicting the optimality of $\bm{x}^\star$. With some zero weights, this argument no longer holds. For example, with $F_1(\bm{x})=x_1^2$, $F_2(\bm{x})=x_2^2$, and $\bm{\lambda}=(1,0)$, every point $(0,x_2)$ is optimal in the scalarized problem, but only $(0,0)$ is Pareto optimal.
 
 ::: {.example name="Regularized LS"}
 Consider a modified least squares problem where the energy of the solution is also desired to be small. We can then consider a multi-objective optimization problem with two objectives:
@@ -2953,7 +2901,7 @@ $$
 \left\Vert \bm{A}\bm{x}-\bm{b} \right\Vert _{2}^{2} + \gamma\left\Vert \bm{x} \right\Vert _{2}^{2}\end{array},
 \end{array}
 $$
-where $\gamma\geq0$ is the weight to indicate the preference in the trade-off.
+where $\gamma>0$ is the weight to indicate the preference in the trade-off. The case $\gamma=0$ gives plain least squares, whose solutions are Pareto optimal only when the least-squares solution is unique. If $\bm{A}$ has a nontrivial nullspace, there are multiple least-squares solutions and only the minimum-norm one is Pareto optimal.
 :::
 
 

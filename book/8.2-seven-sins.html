@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.2 The Seven Sins of Quantitative Investing | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="8.2 The Seven Sins of Quantitative Investing | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.2 The Seven Sins of Quantitative Investing | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="8.2 The Seven Sins of Quantitative Investing | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="seven-sins" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> The Seven Sins of Quantitative Investing<a href="8.2-seven-sins.html#seven-sins" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In 2005, a practitioner report compiled the “Seven Sins of Fund Management” <span class="citation">(<a href="#ref-Montier2005">Montier, 2005</a>)</span> (of which sins #1 and #5 are the most directly related to backtesting):</p>
@@ -903,7 +906,7 @@ Figure 8.2: Effect of survivorship bias on the S&amp;P 500 stocks.
 <p>
 <em>Look-ahead bias</em> is the bias created by using information or data that were unknown or unavailable at the time when the backtesting was conducted. It is a very common bias in backtesting.</p>
 <p>An obvious example of look-ahead bias lies in companies’ financial statement data. One has to be certain about the timestamp for each data point and take into account release dates, distribution delays, and backfill corrections.</p>
-<p>A less conspicuous example of look-ahead bias comes from coding errors. This may happen, for instance, when training the parameters of a system using future information or simply when data is pre-processed with statistics collected from the whole block of data. Another common error comes from time alignment errors in the backtesting code. In more detail, computing the portfolio return as <span class="math inline">\(R^\textm{portf}_t = \w_{t}^\T\bm{r}_t\)</span> would be totally incorrect (see <a href="6.1-fundamentals.html#eq:portfolio-return">(6.4)</a> for the correct expression) since the design of the portfolio <span class="math inline">\(\w_{t}\)</span> used information up to time <span class="math inline">\(t\)</span> and the returns <span class="math inline">\(\bm{r}_t = (\bm{p}_t - \bm{p}_{t-1})\oslash\bm{p}_{t-1}\)</span> implicitly assume that the position was executed at time <span class="math inline">\(t-1\)</span> (of course this argument becomes invalid if the portfolio <span class="math inline">\(\w_{t}\)</span> is assumed to use information only up to <span class="math inline">\(t-1\)</span>, or if the returns are defined with a time lag as <span class="math inline">\(\bm{r}_t = (\bm{p}_{t+1} - \bm{p}_{t})\oslash\bm{p}_{t}\)</span>). An illustration of this issue can be found in <span class="citation">Glabadanidis (<a href="#ref-Glabadanidis2015">2015</a>)</span> as explained in <span class="citation">Zakamulin (<a href="#ref-Zakamulin2018">2018</a>)</span>, where the seemingly amazing performance of a strategy based on moving-average indicators vanishes completely under a proper backtest.</p>
+<p>A less conspicuous example of look-ahead bias comes from coding errors. This may happen, for instance, when training the parameters of a system using future information or simply when data is pre-processed with statistics collected from the whole block of data. Another common error comes from time alignment errors in the backtesting code. In more detail, computing the portfolio return as <span class="math inline">\(R^\textm{portf}_t = \w_{t}^\T\bm{r}_t\)</span> would be totally incorrect (see <a href="6.1-fundamentals.html#eq:portfolio-return">(6.5)</a> for the correct expression) since the design of the portfolio <span class="math inline">\(\w_{t}\)</span> used information up to time <span class="math inline">\(t\)</span> and the returns <span class="math inline">\(\bm{r}_t = (\bm{p}_t - \bm{p}_{t-1})\oslash\bm{p}_{t-1}\)</span> implicitly assume that the position was executed at time <span class="math inline">\(t-1\)</span> (of course this argument becomes invalid if the portfolio <span class="math inline">\(\w_{t}\)</span> is assumed to use information only up to <span class="math inline">\(t-1\)</span>, or if the returns are defined with a time lag as <span class="math inline">\(\bm{r}_t = (\bm{p}_{t+1} - \bm{p}_{t})\oslash\bm{p}_{t}\)</span>). An illustration of this issue can be found in <span class="citation">Glabadanidis (<a href="#ref-Glabadanidis2015">2015</a>)</span> as explained in <span class="citation">Zakamulin (<a href="#ref-Zakamulin2018">2018</a>)</span>, where the seemingly amazing performance of a strategy based on moving-average indicators vanishes completely under a proper backtest.</p>
 <p>Figure <a href="8.2-seven-sins.html#fig:look-ahead-bias">8.3</a> illustrates the effect of look-ahead bias (from a time alignment mistake when computing the returns) when trading a single stock with a simple strategy based on a moving average (to be exact, buying when the price is above the moving average of the past 10 values).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:look-ahead-bias"></span>
 <img src="08-backtesting_files/figure-html/look-ahead-bias-1.png" alt="Effect of look-ahead bias (from a time alignment mistake) trading a single stock." width="100%" />
@@ -1045,42 +1048,44 @@ Zakamulin, V. (2018). Revisiting the profitability of market timing with moving 
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

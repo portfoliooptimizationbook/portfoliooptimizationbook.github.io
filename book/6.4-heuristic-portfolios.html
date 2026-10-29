@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Heuristic Portfolios | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="6.4 Heuristic Portfolios | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Heuristic Portfolios | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6.4 Heuristic Portfolios | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="heuristic-portfolios" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Heuristic Portfolios<a href="6.4-heuristic-portfolios.html#heuristic-portfolios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We begin our exploration of portfolios with some <em>heuristic</em> portfolios that may not be formally derived in a mathematically sound manner, but have proven to be widely used by practitioners and can serve as benchmarks.</p>
@@ -868,7 +871,7 @@ div.csl-indent {
 <p>One of the simplest investment strategies consists of selecting just one asset and allocating the whole budget to it:
 <span class="math display" id="eq:BnH-portfolio">\[\begin{equation}
   \w = \bm{e}_i,
-  \tag{6.9}
+  \tag{6.10}
 \end{equation}\]</span>
 where <span class="math inline">\(\bm{e}_i\)</span> denotes an all-zero vector with a one at the <span class="math inline">\(i\)</span>th element. This is called single-asset <em>buy and hold</em> (B&amp;H), which lacks diversification. More generally, the B&amp;H portfolio can be composed of several assets or ETFs, but always with a long horizon so that the portfolio is not adjusted over short horizons.</p>
 <p>The belief behind such a strategy is that the asset will increase gradually in value over the investment period. The challenge, naturally, lies in determining which asset to invest in. One can use different methods, like fundamental analysis or technical analysis, to make the choice.</p>
@@ -883,7 +886,7 @@ where <span class="math inline">\(\bm{e}_i\)</span> denotes an all-zero vector w
   \underset{\w}{\textm{maximize}} &amp; \w^\T\bmu\\
   \textm{subject to} &amp; \bm{1}^\T\w=1, \quad \w\ge\bm{0}.
   \end{array}
-  \tag{6.10}
+  \tag{6.11}
 \end{equation}\]</span></p>
 <p>This problem is convex (in fact, a linear program (LP)) and can be optimally solved with an LP solver. In this case, the solution is trivial: allocate all the budget to the asset with largest return.</p>
 <p>As a word of caution, one should not to be fooled by the sound and formal derivation of this portfolio, because it lacks diversification and it will perform poorly. Note that past performance is not a guarantee of future performance, which is related to the extremely noisy estimation of <span class="math inline">\(\bmu\)</span> in practice <span class="citation">(<a href="#ref-ChopraZiemba93">Chopra and Ziemba, 1993</a>)</span>.</p>
@@ -895,14 +898,14 @@ where <span class="math inline">\(\bm{e}_i\)</span> denotes an all-zero vector w
 <p>One of the most important goals of quantitative portfolio management is to diversify the investment across different assets in a portfolio, typically summarized as “do not put all your eggs in the same basket.” The simplest way to achieve diversification is by allocating the capital equally across all the <span class="math inline">\(N\)</span> assets:
 <span class="math display" id="eq:EWP">\[\begin{equation}
   \w = \frac{1}{N}\times\bm{1},
-  \tag{6.11}
+  \tag{6.12}
 \end{equation}\]</span>
 where <span class="math inline">\(\bm{1} \in \R^N\)</span> denotes the all-one vector. This strategy is called the <em>equally weighted portfolio</em> (EWP) or <em><span class="math inline">\(1/N\)</span> portfolio</em>.</p>
 <p>Historically, this strategy or philosophy has been called the “Talmudic rule” <span class="citation">(<a href="#ref-DuchinLevy2009">Duchin and Levy, 2009</a>)</span> since the Babylonian Talmud recommended it approximately 1500 years ago: “A man should always place his money, one third in land, a third in merchandise, and keep a third in hand.”</p>
 <p>It has gained much interest due to its superior historical performance and the emergence of several equally weighted ETFs <span class="citation">(<a href="#ref-DeMiguelGarlappiUppal2009">DeMiguel, Garlappi, and Uppal, 2009</a>)</span>. For example, Standard &amp; Poor has developed many S&amp;P 500 equally weighted indices. In addition, the <span class="math inline">\(1/N\)</span> portfolio has been claimed to outperform Markowitz’s mean–variance portfolio considered later in Section <a href="7.1-mean-variance-portfolio.html#mean-variance-portfolio">7.1</a> <span class="citation">(<a href="#ref-DeMiguelGarlappiUppal2009">DeMiguel, Garlappi, and Uppal, 2009</a>)</span>, although other studies disagree with these empirical results <span class="citation">(<a href="#ref-KritzmanPageTurkington2010">Kritzman et al., 2010</a>)</span>.</p>
 <div id="n-portfolio-as-an-optimal-robust-portfolio" class="section level4 unnumbered hasAnchor">
 <h4><span class="math inline">\(1/N\)</span> Portfolio as an Optimal Robust Portfolio<a href="6.4-heuristic-portfolios.html#n-portfolio-as-an-optimal-robust-portfolio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The <span class="math inline">\(1/N\)</span> portfolio has been introduced as a common-sense heuristic portfolio for diversification. Interestingly, it was recently shown to correspond to a formally derived optimal portfolio robust to estimation errors in <span class="math inline">\(\bmu\)</span> <span class="citation">(<a href="#ref-ZhouPalomar2020">Zhou and Palomar, 2020</a>)</span>. The reader is referred to the robust formulation in <a href="6.4-heuristic-portfolios.html#eq:robust-GMRP">(6.13)</a> for more details and to Chapter <a href="14-robust-portfolios.html#robust-portfolios">14</a> for an extensive treatment of robust portfolios.</p>
+<p>The <span class="math inline">\(1/N\)</span> portfolio has been introduced as a common-sense heuristic portfolio for diversification. Interestingly, it was recently shown to correspond to a formally derived optimal portfolio robust to estimation errors in <span class="math inline">\(\bmu\)</span> <span class="citation">(<a href="#ref-ZhouPalomar2020">Zhou and Palomar, 2020</a>)</span>. The reader is referred to the robust formulation in <a href="6.4-heuristic-portfolios.html#eq:robust-GMRP">(6.14)</a> for more details and to Chapter <a href="14-robust-portfolios.html#robust-portfolios">14</a> for an extensive treatment of robust portfolios.</p>
 </div>
 </div>
 <div id="quintile-portfolio" class="section level3 hasAnchor" number="6.4.4">
@@ -935,7 +938,7 @@ where <span class="math inline">\(\bm{1} \in \R^N\)</span> denotes the all-one v
   \\
   \end{array}\right\} 80\%
   \end{array}.
-  \tag{6.12}
+  \tag{6.13}
 \end{equation}\]</span></p>
 <p>The crux of the quintile portfolio lies in the ranking of the assets. One can rank the stocks in a multitude of ways, typically based on expensive factors that investment funds purchase at a premium price. It is also called <em>factor investing</em> as it mimics the returns of some common factors <span class="citation">(<a href="#ref-Jurczenko2017">Jurczenko, 2017</a>)</span>.</p>
 <p>Factor models, such as the capital asset pricing model (CAPM) <span class="citation">(<a href="#ref-Sharpe1964">Sharpe, 1964</a>)</span> and Fama–French model <span class="citation">(<a href="#ref-FamaFrench1993">Fama and French, 1993</a>)</span>, were initially introduced to explain stock returns. Some of the factors used in these models are calculated as the excess returns of assets with attractive characteristics. For example, five well-known factors, namely, value, low size, low volatility, momentum, and quality, may be obtained by ranking the assets according to book-to-price ratio, low market capitalization, low standard deviation, return, and return on equity, respectively <span class="citation">(<a href="#ref-BenderBriandMelasSubramanian2013">Bender et al., 2013</a>)</span>. Empirical studies show that these factors have exhibited excess returns above the market. The quintile portfolio based on the momentum measured by the estimated return in the past few months is one of the most famous ones. A study found that about 77% of 155 mutual funds were actually using such a portfolio over the 1975–1984 period <span class="citation">(<a href="#ref-GrinblattTitmanWermers1995">Grinblatt et al., 1995</a>)</span>. Interestingly, some investors might prefer the quintile portfolio based on the opposite of short-term return because they believe in short-term reversals. It has been a widely debated mystery how these simple portfolios defeat the more theoretical-based portfolios.</p>
@@ -958,18 +961,18 @@ $$
 <h4>Quintile Portfolio as an Optimal Robust Portfolio<a href="6.4-heuristic-portfolios.html#quintile-portfolio-as-an-optimal-robust-portfolio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The quintile portfolio has been introduced as a common-sense heuristic portfolio. However, it was recently shown to correspond to a formally derived optimal portfolio robust to estimation errors in <span class="math inline">\(\bmu\)</span> <span class="citation">(<a href="#ref-ZhouPalomar2020">Zhou and Palomar, 2020</a>)</span>, as briefly described. The reader is referred to Chapter <a href="14-robust-portfolios.html#robust-portfolios">14</a> for an extensive treatment of robust portfolios.
 </p>
-<p>Consider a robust formulation of the GMRP in <a href="6.4-heuristic-portfolios.html#eq:GMRP">(6.10)</a>:
+<p>Consider a robust formulation of the GMRP in <a href="6.4-heuristic-portfolios.html#eq:GMRP">(6.11)</a>:
 <span class="math display" id="eq:robust-GMRP">\[\begin{equation}
   \begin{array}{ll}
   \underset{\w}{\textm{maximize}} &amp; \underset{\bmu\in\mathcal{S}}{\textm{min}}\;\w^\T\bmu\\
   \textm{subject to} &amp; \bm{1}^\T\w=1, \quad \w\ge\bm{0},
   \end{array}
-  \tag{6.13}
+  \tag{6.14}
 \end{equation}\]</span>
 where the objective function is the worst-case return among the possible return vectors <span class="math inline">\(\bmu\in\mathcal{S}\)</span>, and the uncertainty set <span class="math inline">\(\mathcal{S}\)</span> is defined as an <span class="math inline">\(\ell_1\)</span>-norm ball around the estimated value of the returns <span class="math inline">\(\bm{\hat{\mu}}\)</span>,
 <span class="math display">\[\mathcal{S} = \left\{\bm{\hat{\mu}} + \bm{e} \mid \|\bm{e}\|_1 \leq \epsilon\right\},\]</span>
 with <span class="math inline">\(\epsilon\)</span> being the size of the uncertainty region.</p>
-<p>It turns out that for an appropriate choice of <span class="math inline">\(\epsilon\)</span>, the solution to the robust formulation in <a href="6.4-heuristic-portfolios.html#eq:robust-GMRP">(6.13)</a> is precisely the quintile portfolio in <a href="6.4-heuristic-portfolios.html#eq:quintile-portfolio">(6.12)</a>. Furthermore, the <span class="math inline">\(1/N\)</span> portfolio in <a href="6.4-heuristic-portfolios.html#eq:EWP">(6.11)</a> can also be obtained as the solution to the robust formulation in <a href="6.4-heuristic-portfolios.html#eq:robust-GMRP">(6.13)</a> for a sufficiently large value of <span class="math inline">\(\epsilon\)</span>. This theoretical result helps explain the good performance exhibited by the <span class="math inline">\(1/N\)</span> portfolio and the quintile portfolio in practice, as they are indeed robust portfolios.</p>
+<p>It turns out that for an appropriate choice of <span class="math inline">\(\epsilon\)</span>, the solution to the robust formulation in <a href="6.4-heuristic-portfolios.html#eq:robust-GMRP">(6.14)</a> is precisely the quintile portfolio in <a href="6.4-heuristic-portfolios.html#eq:quintile-portfolio">(6.13)</a>. Furthermore, the <span class="math inline">\(1/N\)</span> portfolio in <a href="6.4-heuristic-portfolios.html#eq:EWP">(6.12)</a> can also be obtained as the solution to the robust formulation in <a href="6.4-heuristic-portfolios.html#eq:robust-GMRP">(6.14)</a> for a sufficiently large value of <span class="math inline">\(\epsilon\)</span>. This theoretical result helps explain the good performance exhibited by the <span class="math inline">\(1/N\)</span> portfolio and the quintile portfolio in practice, as they are indeed robust portfolios.</p>
 </div>
 </div>
 <div id="experiments-heuristic-portfolios" class="section level3 hasAnchor" number="6.4.5">
@@ -1043,42 +1046,44 @@ Zhou, R., and Palomar, D. P. (2020). Understanding the quintile portfolio. <em>I
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

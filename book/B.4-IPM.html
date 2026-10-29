@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.4 Interior-Point Methods | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="B.4 Interior-Point Methods | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.4 Interior-Point Methods | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="B.4 Interior-Point Methods | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="IPM" class="section level2 hasAnchor" number="18.4">
 <h2><span class="header-section-number">B.4</span> Interior-Point Methods<a href="B.4-IPM.html#IPM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Traditional optimization algorithms based on gradient projection methods may suffer from slow convergence and sensitivity to the algorithm initialization and stepsize selection. The more modern <em>interior-point methods</em> (IPM) for convex problems enjoy excellent convergence properties (polynomial convergence) and do not suffer from the usual problems of the traditional methods. Some standard textbooks that cover IPMs in detail include <span class="citation">Nesterov and Nemirovski (<a href="#ref-NesterovNemirovskii1994">1994</a>)</span>, <span class="citation">Ye (<a href="#ref-Ye1997">1997</a>)</span>, <span class="citation">Nesterov (<a href="#ref-Nesterov2018">2018</a>)</span>, <span class="citation">Bertsekas (<a href="#ref-Bertsekas1999">1999</a>)</span>, <span class="citation">Nemirovski (<a href="#ref-Nemirovski2000">2000</a>)</span>, <span class="citation">Ben-Tal and Nemirovski (<a href="#ref-BentalNemirovski2001">2001</a>)</span>, <span class="citation">Boyd and Vandenberghe (<a href="#ref-BoydVandenberghe2004">2004</a>)</span>, <span class="citation">Luenberger and Ye (<a href="#ref-LuenbergerYe2021">2021</a>)</span>, and <span class="citation">Nocedal and Wright (<a href="#ref-NocedalWright2006">2006</a>)</span>.</p>
@@ -925,11 +928,11 @@ In this form, the inequality constraints have been eliminated at the expense of 
 <span class="math display">\[
 I_{-}(u) \approx -\frac{1}{t}\textm{log}(-u),
 \]</span>
-where <span class="math inline">\(t&gt;0\)</span> is a parameter that controls the approximation and improves as <span class="math inline">\(t \rightarrow \infty\)</span>. Figure <a href="B.4-IPM.html#fig:log-barrier">B.1</a> illustrates the logarithmic barrier for several values of <span class="math inline">\(t\)</span>.</p>
+where <span class="math inline">\(t&gt;0\)</span> is a parameter that controls the approximation and improves as <span class="math inline">\(t \rightarrow \infty\)</span>. Figure <a href="B.4-IPM.html#fig:log-barrier">B.2</a> illustrates the logarithmic barrier for several values of <span class="math inline">\(t\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:log-barrier"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/log-barrier-1.png" alt="Logarithmic barrier for several values of the parameter $t$." width="90%" />
 <p class="caption">
-Figure B.1: Logarithmic barrier for several values of the parameter <span class="math inline">\(t\)</span>.
+Figure B.2: Logarithmic barrier for several values of the parameter <span class="math inline">\(t\)</span>.
 </p>
 </div>
 <p>With the logarithmic barrier, we can approximate the problem <a href="B.4-IPM.html#eq:general-problem-IPM">(B.2)</a> as
@@ -962,11 +965,11 @@ which is convex (from the composition rules in Section <a href="A.3-convex-func
   \tag{B.3}
 \end{equation}\]</span>
 which can be conveniently solved via Newton’s method.</p>
-<p>The <em>central path</em> is defined as the curve <span class="math inline">\(\{\bm{x}^\star(t) \mid t&gt;0\}\)</span> (assuming that the solution for each <span class="math inline">\(t\)</span> is unique). Figure <a href="B.4-IPM.html#fig:central-path">B.2</a> illustrates the central path of an LP.</p>
+<p>The <em>central path</em> is defined as the curve <span class="math inline">\(\{\bm{x}^\star(t) \mid t&gt;0\}\)</span> (assuming that the solution for each <span class="math inline">\(t\)</span> is unique). Figure <a href="B.4-IPM.html#fig:central-path">B.3</a> illustrates the central path of an LP.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:central-path"></span>
 <img src="figures/algorithms/central-path.svg" alt="Example of central path of an LP." width="60%" />
 <p class="caption">
-Figure B.2: Example of central path of an LP.
+Figure B.3: Example of central path of an LP.
 </p>
 </div>
 <p>Ignoring the equality constraints for convenience of exposition, a solution to <a href="B.4-IPM.html#eq:central-path">(B.3)</a>, <span class="math inline">\(\bm{x}^\star(t)\)</span>, must satisfy the equation
@@ -1027,11 +1030,11 @@ Set <span class="math inline">\(k \gets 0\)</span>;<br />
 \end{array}
 \]</span></p>
 <p>We employ Algorithm B.3 with different values of <span class="math inline">\(\mu\)</span> to see the effect of this parameter in the total number of Newton iterations.</p>
-<p>Figure <a href="B.4-IPM.html#fig:IPM-LP">B.3</a> shows the convergence for the case of <span class="math inline">\(m=100\)</span> inequalities and <span class="math inline">\(n=50\)</span> variables, with <span class="math inline">\(\epsilon=10^{-6}\)</span> for the duality gap (the centering problem is solved via Newton’s method<!--- with $\epsilon=10^{-5}$ and backtracking with $\sigma=0.01$ and $\beta=0.5$--->). We can verify that the total number of Newton iterations is not very sensitive to the choice of <span class="math inline">\(\mu\)</span> as long as <span class="math inline">\(\mu\geq10\)</span>.</p>
+<p>Figure <a href="B.4-IPM.html#fig:IPM-LP">B.4</a> shows the convergence for the case of <span class="math inline">\(m=100\)</span> inequalities and <span class="math inline">\(n=50\)</span> variables, with <span class="math inline">\(\epsilon=10^{-6}\)</span> for the duality gap (the centering problem is solved via Newton’s method<!--- with $\epsilon=10^{-5}$ and backtracking with $\sigma=0.01$ and $\beta=0.5$--->). We can verify that the total number of Newton iterations is not very sensitive to the choice of <span class="math inline">\(\mu\)</span> as long as <span class="math inline">\(\mu\geq10\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:IPM-LP"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/IPM-LP-1.png" alt="Convergence of barrier method for an LP for different values of $\mu$." width="70%" />
 <p class="caption">
-Figure B.3: Convergence of barrier method for an LP for different values of <span class="math inline">\(\mu\)</span>.
+Figure B.4: Convergence of barrier method for an LP for different values of <span class="math inline">\(\mu\)</span>.
 </p>
 </div>
 </div>
@@ -1131,42 +1134,44 @@ Ye, Y. (1997). <em>Interior Point Algorithms: Theory and Analysis</em>. New York
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

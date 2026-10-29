@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B.10 Numerical Comparison | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="B.10 Numerical Comparison | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B.10 Numerical Comparison | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="B.10 Numerical Comparison | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="numerical-comparison" class="section level2 hasAnchor" number="18.10">
 <h2><span class="header-section-number">B.10</span> Numerical Comparison<a href="B.10-numerical-comparison.html#numerical-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will now compare the different algorithms with the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization example <span class="citation">(<a href="#ref-ZibulevskyElad2010">Zibulevsky and Elad, 2010</a>)</span>:
@@ -937,12 +940,12 @@ $$
 <p>Observe that BCD updates each element sequentially, whereas all the other methods update all the elements simultaneously (this translates into an unacceptable increase in the computational cost for BCD).</p>
 <p>The Jacobi update is the parallel version of BCD, although in principle it is not guaranteed to converge. Interestingly, the Jacobi update looks strikingly similar to the SCA update, except that SCA includes <span class="math inline">\(\tau\)</span> and the smoothing step, which are precisely the necessary ingredients to guarantee convergence.</p>
 <p>A hidden but critical detail in the MM method is the need to compute the largest eigenvalue of <span class="math inline">\(\bm{A}^\T\bm{A}\)</span> to be able to choose the parameter <span class="math inline">\(\kappa &gt; \lambda_\textm{max}\left(\bm{A}^\T\bm{A}\right)\)</span>, which results in an upfront increase in computation. In addition, such a value of <span class="math inline">\(\kappa\)</span> is a very conservative upper bound used in the update of all the elements of <span class="math inline">\(\bm{x}\)</span>. In SCA, this common conservative value of <span class="math inline">\(\kappa\)</span> is replaced by the vector <span class="math inline">\(\textm{diag}\left(\bm{A}^\T\bm{A}\right)\)</span>, which is better tailored to each element of <span class="math inline">\(\bm{x}\)</span> and results in faster convergence.</p>
-<p>Figure <a href="B.10-numerical-comparison.html#fig:comparison-l1-l2-minim">B.14</a> compares the convergence of all these methods in terms of iterations, as well as CPU time, for the resolution of the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization problem with <span class="math inline">\(m = 500\)</span> linear equations and <span class="math inline">\(n = 100\)</span> variables. Note that each outer iteration of BCD involves a sequential update of each element, which results in an extremely high CPU time and the curve lies outside the range of the plot. Observe that ADMM converges with a much lower accuracy than the other methods.</p>
+<p>Figure <a href="B.10-numerical-comparison.html#fig:comparison-l1-l2-minim">B.15</a> compares the convergence of all these methods in terms of iterations, as well as CPU time, for the resolution of the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization problem with <span class="math inline">\(m = 500\)</span> linear equations and <span class="math inline">\(n = 100\)</span> variables. Note that each outer iteration of BCD involves a sequential update of each element, which results in an extremely high CPU time and the curve lies outside the range of the plot. Observe that ADMM converges with a much lower accuracy than the other methods.</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:comparison-l1-l2-minim"></span>
 <img src="21-app-optimization-algorithms_files/figure-html/comparison-l1-l2-minim-1.png" alt="Comparison of different iterative methods for the \(\ell_2\)–\(\ell_1\)-norm minimization." width="100%" />
 <p class="caption">
-Figure B.14: Comparison of different iterative methods for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
+Figure B.15: Comparison of different iterative methods for the <span class="math inline">\(\ell_2\)</span>–<span class="math inline">\(\ell_1\)</span>-norm minimization.
 </p>
 </div>
 </div>
@@ -972,42 +975,44 @@ Zibulevsky, M., and Elad, M. (2010). <span>L1</span>–<span>L2</span> optimizat
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

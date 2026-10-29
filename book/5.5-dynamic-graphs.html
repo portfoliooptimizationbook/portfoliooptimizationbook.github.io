@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.5 Learning Time-Varying Graphs | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="5.5 Learning Time-Varying Graphs | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.5 Learning Time-Varying Graphs | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="5.5 Learning Time-Varying Graphs | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="dynamic-graphs" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Learning Time-Varying Graphs<a href="5.5-dynamic-graphs.html#dynamic-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>All the aforementioned graph learning frameworks are designed towards <em>static graphs</em>. However, many practical network-based systems are intrinsically dynamic in nature and static graphs would inherently neglect the time variations of the data <span class="citation">(<a href="#ref-Kolaczyk2009">Kolaczyk, 2009, sec. 8.6</a>)</span>. For instance, financial systems are evidently dynamic and subject to various market regimes, such as bull markets, bear markets, economic crises, bubbles, and so on.</p>
@@ -867,25 +870,43 @@ div.csl-indent {
 <p>In order to learn time-varying graphs that preserve the time consistency between consecutive graphs, a regularization term of the form <span class="math inline">\(d(\bm{L}_{t-1}, \bm{L}_t)\)</span> can be employed <span class="citation">(<a href="#ref-KalofoliasLoukasThanouFrossard2017">Kalofolias et al., 2017</a>)</span>; for example, the Frobenius norm, <span class="math inline">\(d(\bm{L}_{t-1}, \bm{L}_t) = \|\bm{L}_{t-1} - \bm{L}_t\|_\textm{F}^2\)</span>, or the <span class="math inline">\(\ell_1\)</span>-norm, <span class="math inline">\(d(\bm{L}_{t-1}, \bm{L}_t) = \|\bm{L}_{t-1} - \bm{L}_t\|_1\)</span>.</p>
 <p>
 The following graph learning formulation follows from the GMRF framework in <a href="5.2-learning-graphs.html#eq:GLASSO-Laplacian">(5.6)</a> or <a href="5.2-learning-graphs.html#eq:GMRF-sparse">(5.7)</a> but preserving the time consistency <span class="citation">(<a href="#ref-CardosoPalomar_Asilomar2020">Cardoso and Palomar, 2020</a>)</span>:
-<span class="math display">\[
+<span class="math display" id="eq:time-varying-graph">\[\begin{equation}
   \begin{array}{ll}
   \underset{\bm{L}_{1}, \dots, \bm{L}_{T}}{\textm{minimize}}
   &amp; \sum_{t=1}^{T}
-  n_t\times\left[\textm{Tr}(\bm{L}_t\bm{S}_t) - \textm{log gdet}(\bm{L}_t)\right] + \delta \sum_{t=2}^{T}d(\bm{L}_{t-1}, \bm{L}_t),\\
+  n_t\times\left[\textm{Tr}(\bm{L}_t\bm{S}_t) - \textm{log gdet}(\bm{L}_t)\right] + \delta \sum_{t=2}^{T}d(\bm{L}_{t-1}, \bm{L}_t)\\
   \textm{subject to}
   &amp; \big\{\bm{L}_t \succeq \bm{0}, \quad \bm{L}_t\bm{1} = \bm{0}, \quad (\bm{L}_t)_{ij} = (\bm{L}_t)_{ji} \leq 0, \quad \forall ~ i \neq j\big\}_{t=1}^{T},
   \end{array}
-\]</span></p>
+  \tag{5.15}
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(\bm{S}_t\)</span> denotes the sample correlation matrix of chunk <span class="math inline">\(t\)</span> and the hyper-parameter <span class="math inline">\(\delta\)</span> controls the level of time consistency (for <span class="math inline">\(\delta=0\)</span> it becomes the naive approach without time consistency and for <span class="math inline">\(\delta\rightarrow\infty\)</span> tends to the static graph solution).</p>
-<p>The solution to this problem is a dynamic graph conditioned on all the <span class="math inline">\(T\)</span> chunks of observations (i.e., with look-ahead bias):
-<span class="math display">\[\hat{\bm{L}}_{t \mid T} \qquad t=1,\dots,T.\]</span>
-Alternatively, using a rolling window approach, one can instead obtain a causal estimate without look-ahead bias:
-<span class="math display">\[\hat{\bm{L}}_{t \mid t} \qquad t=1,\dots,T.\]</span></p>
+<p>This problem admits two different resolution philosophies:</p>
+<ul>
+<li><p><em>Offline approach</em>: The dynamic graph is conditioned on all the <span class="math inline">\(T\)</span> chunks of observations (i.e., with look-ahead bias):
+<span class="math display">\[\hat{\bm{L}}_{t \mid T} \qquad t=1,\dots,T.\]</span></p></li>
+<li><p><em>Online approach</em>: The dynamic graph is obtained causally, without look-ahead bias, using rolling-window estimation:
+<span class="math display">\[\hat{\bm{L}}_{t \mid t} \qquad t=1,\dots,T.\]</span></p></li>
+</ul>
+<p>An alternative online approach based on a probabilistic temporal model for graph weights was proposed in <span class="citation">Javaheri et al. (<a href="#ref-JavaheriYingPalomarMarvasti2025">2025</a>)</span>. Let <span class="math inline">\(\bm{w}_t\)</span> collect the edge weights in frame <span class="math inline">\(t\)</span>, with <span class="math inline">\(\bm{L}_t=\mathcal{L}(\bm{w}_t)\)</span> and <span class="math inline">\(\mathcal{L}(\cdot)\)</span> the Laplacian operator. A simplified version of the formulation in that paper is
+<span class="math display" id="eq:time-varying-graph-online">\[\begin{equation}
+  \begin{array}{ll}
+  \underset{\bm{w}_t\geq\bm{0}}{\textm{minimize}}
+  &amp; \textm{Tr}(\bm{L}_t\bm{S}_t) - \textm{log gdet}(\bm{L}_t) + \alpha\|\bm{w}_t-\bm{a}\odot\hat{\bm{w}}_{t-1}\|_1\\
+  \textm{subject to}
+  &amp; \bm{L}_t=\mathcal{L}(\bm{w}_t),
+  \end{array}
+  \tag{5.16}
+\end{equation}\]</span>
+where <span class="math inline">\(\hat{\bm{w}}_{t-1}\)</span> is the estimate from the previous time frame, <span class="math inline">\(\bm{a}\)</span> contains the nonnegative autoregressive coefficients, which can also be estimated, and <span class="math inline">\(\alpha\)</span> controls the temporal consistency. The original paper considers a more sophisticated formulation that accommodates heavy-tailed data and missing values, and incorporates graph sparsity and clustered structures.</p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-CardosoPalomar_Asilomar2020" class="csl-entry">
 Cardoso, J. V. M., and Palomar, D. P. (2020). Learning undirected graphs in financial markets. In <em>Proceedings of the 54th asilomar conference on signals, systems and computers</em>, pages 741–745. Pacific Grove, CA, USA: IEEE.
+</div>
+<div id="ref-JavaheriYingPalomarMarvasti2025" class="csl-entry">
+Javaheri, A., Ying, J., Palomar, D. P., and Marvasti, F. (2025). <a href="https://doi.org/10.1109/TSP.2025.3588173">Time-varying graph learning for data with heavy-tailed distribution</a>. <em>IEEE Transactions on Signal Processing</em>, <em>73</em>, 3044–3060.
 </div>
 <div id="ref-KalofoliasLoukasThanouFrossard2017" class="csl-entry">
 Kalofolias, V., Loukas, A., Thanou, D., and Frossard, P. (2017). Learning time varying graphs. In <em>Proceedings of the IEEE international conference on acoustics, speech, and signal processing (ICASSP)</em>, pages 2826–2830. New Orleans, LA, USA.
@@ -914,42 +935,44 @@ Kolaczyk, E. D. (2009). <em>Statistical Analysis of Network Data: Methods and Mo
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

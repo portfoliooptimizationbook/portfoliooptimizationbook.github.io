@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.5 Risk-Based Portfolios | Portfolio Optimization</title>
-  <meta name="description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="description" content="6.5 Risk-Based Portfolios | Portfolio Optimization" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.5 Risk-Based Portfolios | Portfolio Optimization" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
-  <meta property="og:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="github-repo" content="portfoliooptimizationbook" />
+  
+  
+  
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6.5 Risk-Based Portfolios | Portfolio Optimization" />
   
-  <meta name="twitter:description" content="This textbook is a comprehensive guide to a wide range of portfolio designs, bridging the gap between mathematical formulations and practical algorithms. A must-read for anyone interested in financial data models and portfolio design. It is suitable as a textbook for portfolio optimization and financial analytics courses." />
-  <meta name="twitter:image" content="https://portfoliooptimizationbook.com/figures/frontmatter/book_cover.jpg" />
+  
+  
 
 <meta name="author" content="Daniel P. Palomar" />
 
@@ -57,6 +57,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -618,7 +619,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html"><i class="fa fa-check"></i><b>15.3</b> Pairs Trading</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#spread"><i class="fa fa-check"></i><b>15.3.1</b> Spread</a></li>
-<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs.-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
+<li class="chapter" data-level="15.3.2" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#prices-vs-log-prices"><i class="fa fa-check"></i><b>15.3.2</b> Prices vs. Log-Prices</a></li>
 <li class="chapter" data-level="15.3.3" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#is-pairs-trading-profitable"><i class="fa fa-check"></i><b>15.3.3</b> Is Pairs Trading Profitable?</a></li>
 <li class="chapter" data-level="15.3.4" data-path="15.3-pairs-trading-overview.html"><a href="15.3-pairs-trading-overview.html#design-of-pairs-trading"><i class="fa fa-check"></i><b>15.3.4</b> Design of Pairs Trading</a></li>
 </ul></li>
@@ -844,6 +845,7 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div style="display: none;" aria-hidden="true">
 \(
 \newcommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\textm}[1]{\textsf{#1}}
@@ -859,6 +861,7 @@ div.csl-indent {
 \newcommand{\bigO}{O}  %\mathcal{O}
 \renewcommand{\d}[1]{\operatorname{d}\!{#1}}
 \)
+</div>
 <div id="risk-based-portfolios" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Risk-Based Portfolios<a href="6.5-risk-based-portfolios.html#risk-based-portfolios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We continue our exploration of portfolios with several <em>risk-based portfolios</em> that are solely based on risk considerations, characterized by the covariance matrix <span class="math inline">\(\bSigma\)</span> <span class="citation">(<a href="#ref-ArdiaBolligerBoudtGagnonFleury2017">Ardia et al., 2017</a>)</span>, while totally ignoring the return forecast <span class="math inline">\(\bmu\)</span>, due to the extremely noisy estimation of <span class="math inline">\(\bmu\)</span> in practice <span class="citation">(<a href="#ref-ChopraZiemba93">Chopra and Ziemba, 1993</a>)</span>.</p>
@@ -872,13 +875,13 @@ div.csl-indent {
   \underset{\w}{\textm{minimize}} &amp; \w^\T\bSigma\w\\
   \textm{subject to} &amp; \bm{1}^\T\w=1, \quad \w\ge\bm{0}.
   \end{array}
-  \tag{6.14}
+  \tag{6.15}
 \end{equation}\]</span>
 This problem is a convex quadratic program (QP) that can be easily solved with a QP solver.</p>
 <p>If we ignore the no-shorting constraint <span class="math inline">\(\w\ge\bm{0}\)</span>, then the problem admits the simple closed-form solution
 <span class="math display" id="eq:GMVP-sol">\[\begin{equation}
   \w = \frac{1}{\bm{1}^\T\bSigma^{-1}\bm{1}} \bSigma^{-1}\bm{1}.
-  \tag{6.15}
+  \tag{6.16}
 \end{equation}\]</span></p>
 <p>This portfolio is widely used in academic papers for simplicity of evaluation, as well as for comparison purposes when evaluating different estimators of the covariance matrix <span class="math inline">\(\bSigma\)</span> (while ignoring the effect of the estimation of <span class="math inline">\(\bmu\)</span>).</p>
 <!---
@@ -900,7 +903,7 @@ where $\gamma\geq1$ is a parameter that **controls the amount of leverage**:
 <p>The aim of the <em>inverse volatility portfolio</em> (IVolP) is to control the portfolio risk in a simple way. It is defined as
 <span class="math display" id="eq:IVolP">\[\begin{equation}
   \w = \frac{\bm{\sigma}^{-1}}{\bm{1}^\T\bm{\sigma}^{-1}},
-  \tag{6.16}
+  \tag{6.17}
 \end{equation}\]</span>
 where <span class="math inline">\(\bm{\sigma}^2 = \textm{diag}\left(\bSigma\right)\)</span> denotes the assets’ variances and <span class="math inline">\(\bm{\sigma}\)</span> are the assets’ volatilities.</p>
 <p></p>
@@ -908,18 +911,18 @@ where <span class="math inline">\(\bm{\sigma}^2 = \textm{diag}\left(\bSigma\righ
 <span class="math display">\[
 \textm{Std}(w_i r_i) = w_i \sigma_i \propto 1/N.
 \]</span></p>
-<p>It is worth comparing the IVolP with the GMVP in <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.15)</a> when the covariance matrix is assumed diagonal; in this case, the GVMP simplifies to
+<p>It is worth comparing the IVolP with the GMVP in <a href="6.5-risk-based-portfolios.html#eq:GMVP-sol">(6.16)</a> when the covariance matrix is assumed diagonal; in this case, the GVMP simplifies to
 <span class="math display">\[
 \w = \frac{\bm{\sigma}^{-2}}{\bm{1}^\T\bm{\sigma}^{-2}},
 \]</span>
-which, similary to <a href="6.5-risk-based-portfolios.html#eq:IVolP">(6.16)</a>, allocates smaller weights to high-volatility assets and vice versa.</p>
+which, similary to <a href="6.5-risk-based-portfolios.html#eq:IVolP">(6.17)</a>, allocates smaller weights to high-volatility assets and vice versa.</p>
 </div>
 <div id="risk-parity-portfolio-rpp" class="section level3 hasAnchor" number="6.5.3">
 <h3><span class="header-section-number">6.5.3</span> Risk Parity Portfolio (RPP)<a href="6.5-risk-based-portfolios.html#risk-parity-portfolio-rpp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 </p>
 <p>The <em>risk parity portfolio</em> (RPP), also termed <em>equal risk portfolio</em> (ERP), aims at equalizing the risk contribution from the invested assets to the global portfolio risk <span class="citation">(<a href="#ref-Qian2005">Qian, 2005</a>, <a href="#ref-Qian2016">2016</a>; <a href="#ref-Roncalli2013">Roncalli, 2013b</a>)</span>. This portfolio design is extensively treated in Chapter <a href="11-RPP.html#RPP">11</a> and here we provide a very concise summary.</p>
-<p>The IVolP in <a href="6.5-risk-based-portfolios.html#eq:IVolP">(6.16)</a> attempts to control the risk of each of the assets in a simple way, but it totally ignores the assets’ correlations, that is, it implicitly assumes that the covariance matrix <span class="math inline">\(\bSigma\)</span> is diagonal. The RPP can be understood as a more sound formulation of the IVolP by properly taking the assets’ correlations into account.</p>
+<p>The IVolP in <a href="6.5-risk-based-portfolios.html#eq:IVolP">(6.17)</a> attempts to control the risk of each of the assets in a simple way, but it totally ignores the assets’ correlations, that is, it implicitly assumes that the covariance matrix <span class="math inline">\(\bSigma\)</span> is diagonal. The RPP can be understood as a more sound formulation of the IVolP by properly taking the assets’ correlations into account.</p>
 <p>The RPP attemps to equalize the risk contributions from the assets, reminiscent of the way the <span class="math inline">\(1/N\)</span> portfolio equalizes the capital allocated to the assets, as shown in Figure <a href="6.5-risk-based-portfolios.html#fig:dollar-to-risk-diversification">6.14</a>.</p>
 <!---The $1/N$ portfolio diversifies the dollar allocation, but the assets' risk contribution is not diversified. On the other hand, the RPP precisely attemps to diversify the assets' risk contribution as shown in Figure\ \@ref(fig:dollar-to-risk-diversification).--->
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dollar-to-risk-diversification"></span>
@@ -942,7 +945,7 @@ The <em>most diversified portfolio</em> (MDivP) is formulated as the maximizatio
   \underset{\w}{\textm{minimize}} &amp; \dfrac{\w^\T\bm{\sigma}}{\sqrt{\w^\T\bSigma\w}}\\
   \textm{subject to} &amp; \bm{1}^\T\w=1, \quad \w\ge\bm{0}.
   \end{array}
-  \tag{6.17}
+  \tag{6.18}
 \end{equation}\]</span></p>
 <!---
 The MDivP has some interesting properties:
@@ -963,7 +966,7 @@ $$\rho = \frac{\textm{DR}\left(\w\right)}{\textm{DR}\left(\w^\textm{MDivP}\right
   \underset{\w}{\textm{minimize}} &amp; \w^\T\bm{C}\w\\
   \textm{subject to} &amp; \bm{1}^\T\w=1, \quad \w\ge\bm{0}.
   \end{array}
-  \tag{6.18}
+  \tag{6.19}
 \end{equation}\]</span>
 The correlation matrix <span class="math inline">\(\bm{C}\)</span> can be interpreted as the covariance matrix of the normalized assets such that they have unit volatility, that is,
 <span class="math display">\[\bm{C} = \textm{Diag}\left(\bSigma\right)^{-1/2} \bSigma \textm{Diag}\left(\bSigma\right)^{-1/2},\]</span>
@@ -1038,42 +1041,44 @@ Roncalli, T. (2013b). <em>Introduction to Risk Parity and Budgeting</em>. Chapma
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": true,
-"twitter": true,
-"linkedin": true,
-"weibo": true,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["portfolio-optimization-book.pdf", "PDF"]],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": true,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": [
+    ["portfolio-optimization-book.pdf", "PDF"]
+  ],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
