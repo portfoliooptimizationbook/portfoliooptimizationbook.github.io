@@ -5759,8 +5759,8 @@ Last update: February 18, 2025
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># using PerformanceAnalytics</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>rets <span class="ot">&lt;-</span> <span class="fu">CalculateReturns</span>(stock_prices)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.CumReturns</span>(rets)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">chart.Drawdown</span>(rets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">chart.CumReturns</span>(rets))</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">chart.Drawdown</span>(rets))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, we prefer to use the package <code>ggplot2</code> for more beautiful plots (albeit at the expense of a few extra lines of code):</p>
 <div class="cell" data-layout-align="center">
