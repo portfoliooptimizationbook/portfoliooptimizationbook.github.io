@@ -57,14 +57,10 @@ High-frequency trading based on the limit order book requires a completely diffe
 
 
 ### Additional Resources {.unlisted .unnumbered}
-The book is supplemented with a variety of additional materials, including slides, sample code, exercises with solutions, and videos. These supplementary resources can be accessed on the companion website at:
-
-<div align="center">
-[portfoliooptimizationbook.com](https://portfoliooptimizationbook.com)
-</div>
+The book is freely available online, courtesy of Cambridge University Press, and is supplemented with a variety of additional materials---slides, sample code, exercises with solutions, and videos---all accessible from the companion website at:
 
 ::: {.center data-latex=""}
-\href{https://portfoliooptimizationbook.com}{portfoliooptimizationbook.com}
+[portfoliooptimizationbook.com](https://portfoliooptimizationbook.com)
 :::
 
 
@@ -75,15 +71,6 @@ The citation for this book is:
 Daniel P. Palomar (2025).  _Portfolio Optimization: Theory and Application_. \newline
 Cambridge University Press.
 :::
-
-
-<br>
-
-This book is freely accessible online (courtesy of Cambridge University Press) at:
-
-<div align="center">
-https://bookdown.org/palomar/portfoliooptimizationbook
-</div>
 
 
 
