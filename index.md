@@ -164,6 +164,7 @@ This book has been featured by:
 - Chapter 14 -- Robust Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-robust-portfolios.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-robust-portfolios.html),
+  [<i class="fab fa-python"></i> Python code](python-code/python-robust-portfolios.html),
   [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-robust-portfolios.pdf)
 
 - Chapter 15 -- Pairs Trading Portfolios:
