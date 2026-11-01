@@ -528,9 +528,9 @@ rolling (causal) $z$-score à la Bollinger Bands, the sizing rules that turn a $
 trading signal, the P&amp;L accounting, and the two estimators of the hedge ratio $\gamma$ (rolling
 least squares and the Kalman filter). All the functions below take and return plain arrays or
 pandas objects, so that they can be reused unchanged in every experiment.</p>
-<p>The prices used in the experiments are stored in <code>prices-pairs-trading.csv</code> (adjusted closing
+<p>The prices used in the experiments are stored in <a href="https://raw.githubusercontent.com/dppalomar/pob/master/code_examples_data/pairs-trading/prices-pairs-trading.csv"><code>prices-pairs-trading.csv</code></a> (adjusted closing
 prices downloaded from Yahoo Finance), so the results do not depend on when the notebook is run:
-that is what the R companion does with <code>prices-pairs-trading.RData</code>.</p>
+that is what the R companion does with <a href="https://raw.githubusercontent.com/dppalomar/pob/master/code_examples_data/pairs-trading/prices-pairs-trading.RData"><code>prices-pairs-trading.RData</code></a>.</p>
 
 <h2 id="Cointegration-test">Cointegration test<a class="anchor-link" href="#Cointegration-test">&#182;</a></h2><p>Python's <code>statsmodels</code> provides the Engle--Granger procedure in <code>coint()</code>, which regresses the
 first series on the second, tests the residuals for a unit root, and reports the
