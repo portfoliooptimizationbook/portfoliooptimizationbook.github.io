@@ -152,6 +152,7 @@ This book has been featured by:
 - Chapter 12 -- Graph-Based Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-graph-portfolios.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-graph-portfolios.html),
+  [<i class="fab fa-python"></i> Python code](python-code/python-graph-portfolios.html),
   [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-graph-portfolios.pdf)
 
 - Chapter 13 -- Index Tracking Portfolios:
