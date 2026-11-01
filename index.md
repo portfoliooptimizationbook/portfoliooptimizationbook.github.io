@@ -170,6 +170,7 @@ This book has been featured by:
 - Chapter 15 -- Pairs Trading Portfolios:
   [<i class="fas fa-file-pdf"></i> slides](slides/slides-pairs-trading.pdf),
   [<i class="fab fa-r-project"></i> R code](R-code/R-pairs-trading.html),
+  [<i class="fab fa-python"></i> Python code](python-code/python-pairs-trading.html),
   [<i class="fas fa-pencil-alt"></i> exercises](exercises/exc-pairs-trading.pdf), 
   [<i class="fas fa-lightbulb"></i> solutions](exercises/excsol-pairs-trading.pdf)
 
